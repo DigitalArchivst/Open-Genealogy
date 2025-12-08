@@ -1,0 +1,5 @@
+<PROMPT Summarize Chat v3>
+
+Summarize the entire chat/conversation/thread above, from the first post to this one, first in a turn-by-turn chronicle of our discussion, distilled into a two- or three-column table; then, narrate in engaging prose the same exchange, but from a semantically meaningful level, where longer attention is paid to important turns, maximizing the narrative drama, to about 250 words.
+
+</PROMPT Summarize Chat v3>
