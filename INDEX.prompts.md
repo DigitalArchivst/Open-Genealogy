@@ -35,12 +35,15 @@ Browse by category to find what you need. Each entry includes a practical, plain
 - `PROMPT Steve's Transcription Tool v04.txt` *(legacy)*  
   Adds more explicit handling for damaged text, insertions, and page-level structure. Good for consistency when working with messy scans.
 
-- `PROMPT Steve's Transcription Tool v06.5.md`  
+- `PROMPT Steve's Transcription Tool v06.5.md` *(legacy)*  
   Mature diplomatic transcription prompt. Preserves spelling, punctuation, capitalization, and lineation while producing clean transcription plus notes on uncertainty and layout.
 
-- `PROMPT Steve's Transcription Tool v07.txt` **(recommended default)**  
+- `PROMPT Steve's Transcription Tool v07.txt`  
   Latest, most consistent version. Optimized for reliable uncertainty tagging, strict verbatim capture, and stable structured outputs across varied document types.
 
+- `PROMPT Steve's OCR-HTR Transcription Tool v08.md` **(recommended default)**    
+  Latest, most consistent version. Comprehensive transcription prompt merging diplomatic fidelity, JSON metadata, multi-phase verification, and unified notation standards.
+  
 - `PROMPT Unofficial HTR Transcription (Humphries Method) v1.md`  
   Minimalist HTR method emphasizing low character/word error and strict verbatim transcription. Use when you want a shorter prompt with a tight “just transcribe” focus.
 
@@ -174,7 +177,12 @@ Browse by category to find what you need. Each entry includes a practical, plain
   </file>
   <file name="PROMPT Steve's Transcription Tool v07.txt">
     <category>transcription_and_htr_prompts</category>
-    <summary>Latest recommended transcription prompt emphasizing consistent uncertainty tagging and dependable structured outputs.</summary>
+    <summary>Transcription prompt emphasizing consistent uncertainty tagging and dependable structured outputs.</summary>
+    <status>recommended</status>
+  </file>
+  <file name="PROMPT Steve's OCR-HTR Transcription Tool v08.md">
+    <category>transcription_and_htr_prompts</category>
+    <summary>Latest, most consistent version. Comprehensive transcription prompt merging diplomatic fidelity, JSON metadata, multi-phase verification, and unified notation standards.</summary>
     <status>recommended</status>
   </file>
   <file name="PROMPT Unofficial HTR Transcription (Humphries Method) v1.md">
