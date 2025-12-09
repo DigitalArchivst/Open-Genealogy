@@ -26,7 +26,7 @@ Core capabilities:
 4. Follow the prompt’s output schema.
 
 Recommended defaults:
-- **HTR / archival transcription:** `PROMPT Steve's Transcription Tool v07.txt`
+- **HTR / archival transcription:** `PROMPT Steve's OCR-HTR Transcription Tool v08.md`    
 - **General photo restoration:** `PROMPT Historical Photograph Restoration v2.md`
 - **Deep research workflows:** `PROMPT Research Agent Assignment v2.1.md`
 - **Genealogy system behavior:** `PROMPT Contract-First Genealogy System Prompt v3.1.md`
