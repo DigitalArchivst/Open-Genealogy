@@ -13,6 +13,12 @@ Models tested: Claude, ChatGPT, Gemini, Grok
 - Gemini provided most genealogical leads
 - All models struggled with Evidence classification (Direct/Indirect/Negative)
 
+## Rubrics
+
+| Rubric | Purpose |
+|--------|---------|
+| [genealogical-writing-rubric.md](rubrics/genealogical-writing-rubric.md) | Evaluate published genealogical writing (blogs, articles, family histories) |
+
 ## Methodology
 
 Uses [research-with-citations-v7.md](../research/research-with-citations-v7.md) prompt encoding GPS methodology.
