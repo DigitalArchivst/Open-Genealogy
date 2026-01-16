@@ -8,9 +8,14 @@ Complete catalog of prompts, scripts, and tools.
 
 | File | Description | Status |
 |------|-------------|--------|
-| [research-assistant-v6.1.md](research/research-assistant-v6.1.md) | Full GPS-compliant research assistant | **recommended** |
-| [research-assistant-v6.1-compressed.md](research/research-assistant-v6.1-compressed.md) | Token-efficient version | **recommended** |
+| [research-assistant-v8.md](research/research-assistant-v8.md) | Full GPS-compliant research assistant (669 lines) | **recommended** |
+| [research-assistant-v8-compact.md](research/research-assistant-v8-compact.md) | Token-efficient v8 | **recommended** |
 | [research-with-citations-v7.md](research/research-with-citations-v7.md) | Web research with GPS methodology | **recommended** |
+| [web-research-v7.md](research/web-research-v7.md) | Compact web search prompt | **recommended** |
+| [research-assistant-v7.md](research/research-assistant-v7.md) | Previous full version | stable |
+| [research-assistant-v7-compressed.md](research/research-assistant-v7-compressed.md) | Token-efficient v7 | stable |
+| [research-assistant-v6.1.md](research/research-assistant-v6.1.md) | Earlier full version | stable |
+| [research-assistant-v6.1-compressed.md](research/research-assistant-v6.1-compressed.md) | Token-efficient v6.1 | stable |
 | [contract-first-genealogy-v3.1.md](research/contract-first-genealogy-v3.1.md) | Contract-lock workflow | stable |
 | [research-agent-assignment-v2.1.md](research/research-agent-assignment-v2.1.md) | Research agent specification | stable |
 | [research-with-citations-v2.md](research/research-with-citations-v2.md) | Earlier version | legacy |
@@ -25,6 +30,7 @@ Complete catalog of prompts, scripts, and tools.
 | File | Description | Status |
 |------|-------------|--------|
 | [ocr-htr-v08.md](transcription/ocr-htr-v08.md) | Comprehensive diplomatic transcription | **recommended** |
+| [jewish-transcription-v2.md](transcription/jewish-transcription-v2.md) | Jewish documents: Hebrew, Yiddish, Ladino, vital records, ketubot, matzevot | **recommended** |
 | [humphries-method-v1.md](transcription/humphries-method-v1.md) | Minimalist HTR | stable |
 
 **Archive:** [transcription/archive/](transcription/archive/)
@@ -59,6 +65,18 @@ Complete catalog of prompts, scripts, and tools.
 | [quick-editor-v3.txt](writing-tools/quick-editor-v3.txt) | Editorial cleanup |
 | [quick-cleanup-v3.md](writing-tools/quick-cleanup-v3.md) | Grammar/readability |
 | [content-decoder-v1.txt](writing-tools/content-decoder-v1.txt) | Clarify dense text |
+| [transcript-resource-forge-v2.md](writing-tools/transcript-resource-forge-v2.md) | Transform transcripts into structured resources |
+
+---
+
+## AI Assistants
+
+Complete AI personas for ongoing genealogical work.
+
+| File | Description |
+|------|-------------|
+| [vibe-genealogy-assistant-v4.md](assistants/vibe-genealogy-assistant-v4.md) | Warm, story-first genealogy helper |
+| [gedcom-analysis-v3.md](assistants/gedcom-analysis-v3.md) | GEDCOM file analysis specialist |
 
 ---
 

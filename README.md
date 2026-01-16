@@ -6,10 +6,11 @@ A toolkit of **AI prompts and utilities for genealogical research**, built on pr
 
 | Category | Description | Start Here |
 |----------|-------------|------------|
-| **[Research](research/)** | GPS-compliant research methodology | [research-assistant-v6.1.md](research/research-assistant-v6.1.md) |
+| **[Research](research/)** | GPS-compliant research methodology | [research-assistant-v8.md](research/research-assistant-v8.md) |
 | **[Transcription](transcription/)** | Diplomatic transcription for handwritten documents | [ocr-htr-v08.md](transcription/ocr-htr-v08.md) |
 | **[Photo Restoration](photo-restoration/)** | Historical photograph restoration | [restoration-v2.md](photo-restoration/restoration-v2.md) |
 | **[Writing Tools](writing-tools/)** | Fact extraction, summaries, editing | [fact-extractor-v4.txt](writing-tools/fact-extractor-v4.txt) |
+| **[Assistants](assistants/)** | Complete AI personas for ongoing work | [vibe-genealogy-assistant-v4.md](assistants/vibe-genealogy-assistant-v4.md) |
 | **[Scripts](scripts/)** | Audio transcription utilities | [transcribe-4.py](scripts/transcribe-4.py) |
 | **[Benchmark](benchmark/)** | AI research evaluation framework | [README.md](benchmark/README.md) |
 

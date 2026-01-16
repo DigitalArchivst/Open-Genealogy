@@ -15,3 +15,4 @@ Prompts for text processing, fact extraction, and narrative synthesis.
 - **quick-editor-v3.txt** - Fast editorial cleanup
 - **quick-cleanup-v3.md** - Grammar/readability pass
 - **content-decoder-v1.txt** - Clarify dense text
+- **transcript-resource-forge-v2.md** - Transform meeting/call transcripts into structured resources (summary, actions, knowledge extraction)

@@ -16,11 +16,21 @@ GPS ensures genealogical conclusions are well-reasoned and evidence-based throug
 
 | Prompt | Purpose | Use When |
 |--------|---------|----------|
-| **[research-assistant-v6.1.md](research-assistant-v6.1.md)** | Full GPS-compliant research assistant | System prompt for ongoing research assistance |
-| **[research-assistant-v6.1-compressed.md](research-assistant-v6.1-compressed.md)** | Token-efficient version | Context-limited models |
+| **[research-assistant-v8.md](research-assistant-v8.md)** | Full GPS-compliant research assistant (669 lines) | System prompt for ongoing research assistance |
+| **[research-assistant-v8-compact.md](research-assistant-v8-compact.md)** | Token-efficient v8 | Context-limited models |
 | **[research-with-citations-v7.md](research-with-citations-v7.md)** | Web research with GPS methodology | Single research queries with citation requirements |
+| **[web-research-v7.md](web-research-v7.md)** | Compact web search prompt | Quick web research tasks |
 | **[contract-first-genealogy-v3.1.md](contract-first-genealogy-v3.1.md)** | Contract-lock workflow | Structured research projects with deliverables |
 | **[research-agent-assignment-v2.1.md](research-agent-assignment-v2.1.md)** | Research agent specification | Autonomous research tasks |
+
+## Previous Versions
+
+| Prompt | Notes |
+|--------|-------|
+| [research-assistant-v7.md](research-assistant-v7.md) | Previous full version |
+| [research-assistant-v7-compressed.md](research-assistant-v7-compressed.md) | Token-efficient v7 |
+| [research-assistant-v6.1.md](research-assistant-v6.1.md) | Earlier full version |
+| [research-assistant-v6.1-compressed.md](research-assistant-v6.1-compressed.md) | Token-efficient v6.1 |
 
 ## Evidence Analysis Framework
 
