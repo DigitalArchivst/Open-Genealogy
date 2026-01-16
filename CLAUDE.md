@@ -86,6 +86,8 @@ Open-Genealogy/                      → publish to GitHub
 2. Check that new prompts have clean filenames (no "PROMPT" prefix)
 3. Update relevant README.md files if adding new content
 4. Update INDEX.md if structure changes
+5. If adding a new prompt or tool, verify it's listed in INDEX.md
+6. If adding to benchmark/, verify benchmark/README.md reflects the addition
 
 ## Key History
 

@@ -87,6 +87,7 @@ Complete catalog of prompts, scripts, and tools.
 |----------|-------------|
 | [benchmark/](benchmark/) | AI evaluation framework |
 | [ashe-county-nc/](benchmark/case-studies/ashe-county-nc/) | Case study: Claude, ChatGPT, Gemini, Grok |
+| [genealogical-writing-rubric.md](benchmark/rubrics/genealogical-writing-rubric.md) | Evaluate published genealogical writing (GPS-derived, 60-point scale) |
 
 ---
 
