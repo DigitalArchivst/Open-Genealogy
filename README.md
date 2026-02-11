@@ -6,8 +6,9 @@ A toolkit of **AI prompts and utilities for genealogical research**, built on pr
 
 | Category | Description | Start Here |
 |----------|-------------|------------|
-| **[Research](research/)** | GPS-compliant research methodology | [research-assistant-v8.md](research/research-assistant-v8.md) |
+| **[Research](research/)** | GPS-based research methodology | [research-assistant-v8.md](research/research-assistant-v8.md) |
 | **[Transcription](transcription/)** | Diplomatic transcription for handwritten documents | [ocr-htr-v08.md](transcription/ocr-htr-v08.md) |
+| **[Image Analysis](image-analysis/)** | Forensic image interpretation for historical photographs | [universal-image-analysis-v3.md](image-analysis/universal-image-analysis-v3.md) |
 | **[Photo Restoration](photo-restoration/)** | Historical photograph restoration | [restoration-v2.md](photo-restoration/restoration-v2.md) |
 | **[Writing Tools](writing-tools/)** | Fact extraction, summaries, editing | [fact-extractor-v4.txt](writing-tools/fact-extractor-v4.txt) |
 | **[Assistants](assistants/)** | Complete AI personas for ongoing work | [vibe-genealogy-assistant-v4.md](assistants/vibe-genealogy-assistant-v4.md) |
@@ -25,7 +26,7 @@ A toolkit of **AI prompts and utilities for genealogical research**, built on pr
 
 ## Featured: GPS Research Methodology
 
-The **research/** folder contains prompts encoding the [Genealogical Proof Standard](https://bcgcertification.org/ethics-standards/)—the professional methodology for evidence-based genealogical conclusions.
+The **research/** folder contains prompts designed to follow the [Genealogical Proof Standard](https://bcgcertification.org/ethics-standards/)—the professional methodology for evidence-based genealogical conclusions.
 
 Key features:
 - **Evidence Analysis Process Map**: Classifies sources (Original/Derivative/Authored), information (Primary/Secondary), and evidence (Direct/Indirect/Negative)

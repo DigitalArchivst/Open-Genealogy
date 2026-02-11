@@ -4,11 +4,20 @@ Complete catalog of prompts, scripts, and tools.
 
 ---
 
+## Documentation
+
+| File | Description |
+|------|-------------|
+| [GETTING-STARTED.md](GETTING-STARTED.md) | Guide for new users: GitHub basics, repository overview, GRA v8 usage |
+| [ANNOTATED-INDEX.md](ANNOTATED-INDEX.md) | Detailed descriptions of all sections (~125 words each) |
+
+---
+
 ## Research & GPS Methodology
 
 | File | Description | Status |
 |------|-------------|--------|
-| [research-assistant-v8.md](research/research-assistant-v8.md) | Full GPS-compliant research assistant (669 lines) | **recommended** |
+| [research-assistant-v8.md](research/research-assistant-v8.md) | Full GPS-based research assistant (669 lines) | **recommended** |
 | [research-assistant-v8-compact.md](research/research-assistant-v8-compact.md) | Token-efficient v8 | **recommended** |
 | [research-with-citations-v7.md](research/research-with-citations-v7.md) | Web research with GPS methodology | **recommended** |
 | [web-research-v7.md](research/web-research-v7.md) | Compact web search prompt | **recommended** |
@@ -34,6 +43,14 @@ Complete catalog of prompts, scripts, and tools.
 | [humphries-method-v1.md](transcription/humphries-method-v1.md) | Minimalist HTR | stable |
 
 **Archive:** [transcription/archive/](transcription/archive/)
+
+---
+
+## Image Analysis
+
+| File | Description | Status |
+|------|-------------|--------|
+| [universal-image-analysis-v3.md](image-analysis/universal-image-analysis-v3.md) | 9-layer forensic image analysis protocol | **recommended** |
 
 ---
 
