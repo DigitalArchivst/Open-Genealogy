@@ -76,7 +76,21 @@ The recommended image analysis prompt (159 lines) implementing nine sequential a
 
 ---
 
-## 4. PHOTO-RESTORATION/
+## 4. HEBREW-HEADSTONES/
+### Jewish Cemetery Headstone Analysis
+
+Specialized prompt for extracting genealogical data from Jewish cemetery headstones — a unique intersection of epigraphy, Hebrew linguistics, Jewish calendar mathematics, and funerary art interpretation that no general-purpose transcription tool handles adequately. The flagship **Hebrew Headstone Helper v9.0** guides AI through ten sequential analytical phases: forensic triage (image quality, legibility gate, script identification), diplomatic transcription in three parallel formats (Hebrew script, transliteration, English meaning), patronymic identification with lineage/caste classification (Kohen, Levi, Israelite), translation with linguistic register analysis (Biblical, Rabbinic, Modern Hebrew, Yiddish), date reconciliation with step-by-step gematria arithmetic and the critical Hebrew-to-Gregorian conversion algorithm (using the correct 3760/3761 method, not the common but incorrect +1240 shortcut), physical stone description, symbol interpretation across Ashkenazi, Sephardi, and Mizrahi traditions, historical and cultural context, a structured archival summary table, and confidence assessment with friction points and alternative interpretations. The prompt includes a Sunset Rule audit (Hebrew days begin at sunset, creating systematic one-day discrepancies), a legibility warning gate, and a quality checklist. Version 9.0 was synthesized from three earlier versions using feature matrix comparison — the same methodology the prompt's companion course teaches. Complements the Jewish Transcription prompt (for documents) and the general OCR-HTR tool (for non-specialized handwriting).
+
+---
+
+### 4.1 hebrew-headstone-helper-v9.md
+#### 10-Phase Forensic Headstone Analysis
+
+The recommended headstone analysis prompt (382 lines) implementing ten sequential phases with confidence scoring (0.00–1.00) at each stage. Key genealogical features: **three-format transcription** preserving exact Hebrew carving alongside transliteration and English meaning; **patronymic identification** extracting the deceased's full name chain including titles, lineage markers, and father's name; **gematria date conversion** with explicit arithmetic shown and double-checked; **Sunset Rule audit** addressing the systematic one-day Hebrew/secular date discrepancy; **symbol taxonomy** covering priestly hands (Kohen), pitcher (Levi), animal symbols (Lion/Aryeh, Deer/Tzvi, Wolf/Ze'ev), and regional variations; **archival summary table** formatted for direct entry into genealogical databases. The prompt adapts to non-Jewish headstones when encountered. Includes researcher guidance on image preparation (close-ups more valuable than wide shots), context provision (known names and dates help disambiguate weathered characters), and confidence score interpretation. Synthesized from v6.0 (forensic rigor, sunset audit), v7.0 (linguistic depth, burial customs), and v8.1 (quantitative scoring, corrected date algorithm).
+
+---
+
+## 5. PHOTO-RESTORATION/
 ### Historical Photograph Conservation
 
 Prompts for transforming degraded historical photographs into museum-quality results while preserving period authenticity. Four active prompts address different restoration philosophies: universal high-standard restoration, conservative do-no-harm approaches, severe damage reconstruction, and museum-grade intensive treatment. All prompts emphasize **period-appropriate** results—maintaining era-specific visual characteristics (film grain, tonal depth, lens qualities) rather than producing anachronistically crisp digital images. The section distinguishes between **restoration** (returning to original state), **conservation** (minimal intervention preserving character), and **reconstruction** (inferring missing information). Prompts specify technical requirements: zero visible AI artifacts, appropriate sharpness hierarchy (subjects sharper than backgrounds), and "photographic logic" ensuring restored elements appear natural within the image's visual language.

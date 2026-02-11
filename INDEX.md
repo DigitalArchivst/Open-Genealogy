@@ -54,6 +54,16 @@ Complete catalog of prompts, scripts, and tools.
 
 ---
 
+## Hebrew Headstones
+
+| File | Description | Status |
+|------|-------------|--------|
+| [hebrew-headstone-helper-v9.md](hebrew-headstones/hebrew-headstone-helper-v9.md) | 10-phase forensic headstone analysis with gematria dating, patronymic identification, and confidence scoring (382 lines) | **recommended** |
+
+**Related:** [jewish-transcription-v2.md](transcription/jewish-transcription-v2.md) (for documents, not headstones)
+
+---
+
 ## Photo Restoration
 
 | File | Description | Status |
