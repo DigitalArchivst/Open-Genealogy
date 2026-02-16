@@ -13,7 +13,8 @@ Prompts for text processing, fact extraction, and narrative synthesis.
 - **linguistic-profiler-v3.md** - Profile writing style
 - **narrative-assistant-v3.md** - GPS-compliant biographical sketches and proof arguments from raw records or existing drafts
 - **image-citation-builder-v2.md** - Standardized image citations
-- **infographic-v7.md** - Infographic-ready format
+- **image-infographic-workflow-v1.md** - Two-tier image and infographic creation workflow: quick path via Notebook LM, advanced three-step process via Claude Opus
+- **infographic-v7.md** - Infographic-ready format (legacy — see workflow above)
 - **quick-editor-v3.txt** - Fast editorial cleanup
 - **quick-cleanup-v3.md** - Grammar/readability pass
 - **content-decoder-v1.txt** - Clarify dense text
