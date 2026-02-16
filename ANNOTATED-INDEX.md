@@ -114,7 +114,7 @@ Three specialized prompts address specific restoration scenarios. **Photo-conser
 ## 4. WRITING-TOOLS/
 ### Text Processing and Narrative Synthesis
 
-Twelve utility prompts supporting the complete genealogical writing lifecycle—from raw document extraction through narrative synthesis to publication polish. The section implements a modular philosophy: discrete tools handling specific tasks can be chained into custom workflows. **Fact-extractor** converts documents into structured LABEL: Value pairs; **fact-narrator** reverses this, generating prose from structured data. **Conversation-abstractor** and **chat-summarizer** process interviews and discussions. **Document-distiller** removes redundancy. **Linguistic-profiler** analyzes writing style. **Image-citation-builder** automates image documentation. Editorial tools (**quick-editor**, **quick-cleanup**, **content-decoder**) handle polish phases. **Transcript-resource-forge** transforms meeting recordings into structured outputs. These tools recognize that genealogical writing involves both rigorous documentation and compelling narrative—different skills that benefit from specialized assistance.
+Thirteen utility prompts supporting the complete genealogical writing lifecycle—from raw document extraction through narrative synthesis to publication polish. The section implements a modular philosophy: discrete tools handling specific tasks can be chained into custom workflows. **Fact-extractor** converts documents into structured LABEL: Value pairs; **fact-narrator** reverses this, generating prose from structured data. **Conversation-abstractor** and **chat-summarizer** process interviews and discussions. **Document-distiller** removes redundancy. **Linguistic-profiler** analyzes writing style. **Image-citation-builder** automates image documentation. Editorial tools (**quick-editor**, **quick-cleanup**, **content-decoder**) handle polish phases. **Transcript-resource-forge** transforms meeting recordings into structured outputs. These tools recognize that genealogical writing involves both rigorous documentation and compelling narrative—different skills that benefit from specialized assistance.
 
 ---
 
@@ -129,6 +129,13 @@ Complementary tools implementing bidirectional transformation between prose and 
 #### Polish, Summarize, and Transform
 
 Supporting utilities for various writing phases. **Conversation-abstractor** creates formal abstracts from meeting recordings or interviews, extracting key decisions, action items, and knowledge shared. **Chat-summarizer** provides quick summaries of discussions. **Document-distiller** removes redundancy while preserving essential information—useful for condensing verbose sources. **Linguistic-profiler** analyzes writing voice, vocabulary patterns, and structural tendencies—helpful for maintaining consistency across collaborative projects or ghostwriting. **Quick-editor** and **quick-cleanup** handle grammar, consistency, and readability improvements. **Content-decoder** clarifies dense, technical, or confusing text. **Image-citation-builder** automates image documentation with metadata extraction. **Infographic** formats content for visual presentation. These tools accelerate routine tasks, freeing researcher attention for substantive analysis.
+
+---
+
+### 4.3 narrative-assistant-v3.md
+#### GPS-Compliant Narrative Writing
+
+A conversational writing assistant (224 lines) that produces reader-friendly, GPS-compliant genealogical narratives from raw records or existing drafts. Three operating modes address distinct use cases: **Mode A (New Narrative)** ingests images, transcriptions, and notes to draft biographical sketches or proof arguments with footnotes and a GPS Proof Summary; **Mode B (Revision)** evaluates an existing narrative against GPS methodology, flagging overclaiming, missing citations, and unresolved conflicts before suggesting improvements that preserve the author's voice; **Mode C (Focused Edit)** handles targeted passage-level work—tightening prose, checking evidence claims, or adjusting tone for specific audiences. Supports optional linguistic profile integration for voice matching. Uses GPS-aligned confidence vocabulary (proved/probable/possible/not proved/disproved) rather than generic high/medium/low ratings. Version 3 was produced through a structured council review of v2, adding operating modes, proof argument output type, audience calibration, and a verification reminder while removing vestigial sections.
 
 ---
 

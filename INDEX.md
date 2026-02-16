@@ -87,6 +87,7 @@ Complete catalog of prompts, scripts, and tools.
 | [chat-summarizer-v3.txt](writing-tools/chat-summarizer-v3.txt) | Quick summaries |
 | [document-distiller-v2.md](writing-tools/document-distiller-v2.md) | Distill documents |
 | [linguistic-profiler-v3.md](writing-tools/linguistic-profiler-v3.md) | Profile writing style |
+| [narrative-assistant-v3.md](writing-tools/narrative-assistant-v3.md) | GPS-compliant narratives and proof arguments |
 | [image-citation-builder-v2.md](writing-tools/image-citation-builder-v2.md) | Image citations |
 | [infographic-v7.md](writing-tools/infographic-v7.md) | Infographic format |
 | [quick-editor-v3.txt](writing-tools/quick-editor-v3.txt) | Editorial cleanup |

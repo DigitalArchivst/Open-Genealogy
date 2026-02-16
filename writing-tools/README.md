@@ -10,6 +10,7 @@ Prompts for text processing, fact extraction, and narrative synthesis.
 - **chat-summarizer-v3.txt** - Quick summaries
 - **document-distiller-v2.md** - Distill to essentials
 - **linguistic-profiler-v3.md** - Profile writing style
+- **narrative-assistant-v3.md** - GPS-compliant biographical sketches and proof arguments from raw records or existing drafts
 - **image-citation-builder-v2.md** - Standardized image citations
 - **infographic-v7.md** - Infographic-ready format
 - **quick-editor-v3.txt** - Fast editorial cleanup
