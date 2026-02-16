@@ -9,6 +9,7 @@ Prompts for text processing, fact extraction, and narrative synthesis.
 - **conversation-abstractor-v2.md** - Formal conversation abstracts
 - **chat-summarizer-v3.txt** - Quick summaries
 - **document-distiller-v2.md** - Distill to essentials
+- **lingua-maven-v9.md** - AHD-inspired language advisor: usage analysis, sensitivity review, audience calibration, writing analysis
 - **linguistic-profiler-v3.md** - Profile writing style
 - **narrative-assistant-v3.md** - GPS-compliant biographical sketches and proof arguments from raw records or existing drafts
 - **image-citation-builder-v2.md** - Standardized image citations
