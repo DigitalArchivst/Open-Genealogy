@@ -118,7 +118,8 @@ Fifteen utility prompts supporting the complete genealogical writing lifecycleâ€
 
 ---
 
-### 4.1 fact-extractor-v4.txt / fact-narrator-v4.txt
+### 4.1 fact-extractor-v4.md / fact-narrator-v4.md
+
 #### Structured Data Pipeline
 
 Complementary tools implementing bidirectional transformation between prose and structured data. **Fact-extractor** systematically identifies genealogically relevant information and outputs standardized LABEL: Value pairsâ€”BIRTH_DATE, DEATH_DATE, LOCATION, PERSON, OCCUPATION, RELATIONSHIP, and dozens more. Handles multiple input types: text documents, images, audio, video. Supports uncertainty marking with "POSSIBLE_" prefix for unverified information. **Fact-narrator** reverses the process, transforming extracted facts into flowing narrative prose suitable for family histories. This pipeline separates the cognitive tasks of extraction (finding facts) and composition (writing stories), allowing each to receive focused attention. The structured intermediate format enables database ingestion, cross-referencing, and citation tracking that prose alone cannot support.

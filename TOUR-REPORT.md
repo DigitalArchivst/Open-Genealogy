@@ -1,5 +1,9 @@
 # Open-Genealogy: A Tour-Guide Script for First-Time GitHub Explorers
 
+> **What is this?** An alternative onboarding format for those who prefer learning through dialogue. A fictional guide walks three students through the repository, explaining each section in plain language. For a traditional walkthrough, see [GETTING-STARTED.md](GETTING-STARTED.md). For a catalog, see [INDEX.md](INDEX.md).
+
+---
+
 **Guide:** Welcome aboard, team! Today we’re visiting a GitHub repository called **Open-Genealogy**. Think of a repo like a big, well-organized backpack full of useful tools. We’ll walk through each pocket together and see what’s inside. You can ask questions as we go!
 
 **Student 1:** Is this like a Python project?

@@ -1,5 +1,9 @@
 # Open-Genealogy
 
+[![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+[![GitHub last commit](https://img.shields.io/github/last-commit/DigitalArchivst/Open-Genealogy)](https://github.com/DigitalArchivst/Open-Genealogy/commits/main)
+[![GitHub repo size](https://img.shields.io/github/repo-size/DigitalArchivst/Open-Genealogy)](https://github.com/DigitalArchivst/Open-Genealogy)
+
 A toolkit of **AI prompts and utilities for genealogical research**, designed to follow the Genealogical Proof Standard. For genealogists at every level — from hobbyists exploring their first census record to credentialed professionals managing client work.
 
 ## What's Here

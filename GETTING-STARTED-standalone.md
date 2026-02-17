@@ -201,7 +201,7 @@ The repository is organized into folders by function:
 | Read a Jewish cemetery headstone | hebrew-headstones/ | hebrew-headstone-helper-v9.md |
 | Restore a photo | photo-restoration/ | restoration-v2.md |
 | Write a genealogical narrative | writing-tools/ | narrative-assistant-v3.md |
-| Extract facts from text | writing-tools/ | fact-extractor-v4.txt |
+| Extract facts from text | writing-tools/ | fact-extractor-v4.md |
 | Get language/usage advice | writing-tools/ | lingua-maven-v9.md |
 | Ongoing research partner | assistants/ | vibe-genealogy-assistant-v4.md |
 | Analyze a GEDCOM file | assistants/ | gedcom-analysis-v3.md |
@@ -442,7 +442,7 @@ This single original source contains primary, secondary, and potentially indeter
    - Jewish cemetery headstones → hebrew-headstone-helper-v9.md
    - Damaged photographs → restoration-v2.md
    - Narrative writing → narrative-assistant-v3.md
-   - Fact extraction → fact-extractor-v4.txt
+   - Fact extraction → fact-extractor-v4.md
 
 6. **Check back periodically** — The repository is actively maintained with new versions and tools
 
@@ -454,11 +454,11 @@ Open-Genealogy tools work well in sequence. Example workflow:
 
 1. **Transcribe** — Use ocr-htr-v08.md to create a diplomatic transcription preserving original spelling and layout
 
-2. **Extract facts** — Use fact-extractor-v4.txt to pull structured data: names, dates, places, relationships
+2. **Extract facts** — Use fact-extractor-v4.md to pull structured data: names, dates, places, relationships
 
 3. **Analyze** — Use research-assistant-v8.md (GRA v8) to evaluate the evidence and suggest next research steps
 
-4. **Write up** — Use fact-narrator-v4.txt to draft narrative prose from your findings
+4. **Write up** — Use fact-narrator-v4.md to draft narrative prose from your findings
 
 **Another example — Photo with document:**
 
@@ -481,10 +481,10 @@ Open-Genealogy tools work well in sequence. Example workflow:
 | Conservative photo repair | Photo conservation | photo-restoration/photo-conservator-v2.md |
 | Write a genealogical narrative | Narrative assistant | writing-tools/narrative-assistant-v3.md |
 | Language and usage advice | Lingua Maven | writing-tools/lingua-maven-v9.md |
-| Extract facts from text | Fact extractor | writing-tools/fact-extractor-v4.txt |
-| Turn facts into narrative | Fact narrator | writing-tools/fact-narrator-v4.txt |
+| Extract facts from text | Fact extractor | writing-tools/fact-extractor-v4.md |
+| Turn facts into narrative | Fact narrator | writing-tools/fact-narrator-v4.md |
 | GEDCOM file analysis | GEDCOM specialist | assistants/gedcom-analysis-v3.md |
-| Edit/cleanup text | Quick editor | writing-tools/quick-editor-v3.txt |
+| Edit/cleanup text | Quick editor | writing-tools/quick-editor-v3.md |
 
 ### Getting Help
 

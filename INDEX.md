@@ -27,10 +27,9 @@ Complete catalog of prompts, scripts, and tools.
 | [research-assistant-v6.1-compressed.md](research/research-assistant-v6.1-compressed.md) | Token-efficient v6.1 | stable |
 | [contract-first-genealogy-v3.1.md](research/contract-first-genealogy-v3.1.md) | Contract-lock workflow | stable |
 | [research-agent-assignment-v2.1.md](research/research-agent-assignment-v2.1.md) | Research agent specification | stable |
-| [research-with-citations-v2.md](research/research-with-citations-v2.md) | Earlier version | legacy |
-| [research-assignment-v0.md](research/research-assignment-v0.md) | Original template | legacy |
 
 **Reference:** [evidence-terminology.md](research/reference/evidence-terminology.md)
+**Archive:** [research/archive/](research/archive/) — legacy versions (research-assignment-v0, research-with-citations-v2)
 
 ---
 
@@ -81,10 +80,10 @@ Complete catalog of prompts, scripts, and tools.
 
 | File | Description |
 |------|-------------|
-| [fact-extractor-v4.txt](writing-tools/fact-extractor-v4.txt) | Extract atomic facts |
-| [fact-narrator-v4.txt](writing-tools/fact-narrator-v4.txt) | Facts to narrative |
+| [fact-extractor-v4.md](writing-tools/fact-extractor-v4.md) | Extract atomic facts |
+| [fact-narrator-v4.md](writing-tools/fact-narrator-v4.md) | Facts to narrative |
 | [conversation-abstractor-v2.md](writing-tools/conversation-abstractor-v2.md) | Conversation abstracts |
-| [chat-summarizer-v3.txt](writing-tools/chat-summarizer-v3.txt) | Quick summaries |
+| [chat-summarizer-v3.md](writing-tools/chat-summarizer-v3.md) | Quick summaries |
 | [document-distiller-v2.md](writing-tools/document-distiller-v2.md) | Distill documents |
 | [lingua-maven-v9.md](writing-tools/lingua-maven-v9.md) | AHD-inspired language advisor with usage analysis and sensitivity review |
 | [linguistic-profiler-v3.md](writing-tools/linguistic-profiler-v3.md) | Profile writing style |
@@ -92,9 +91,9 @@ Complete catalog of prompts, scripts, and tools.
 | [image-citation-builder-v2.md](writing-tools/image-citation-builder-v2.md) | Image citations |
 | [image-infographic-workflow-v1.md](writing-tools/image-infographic-workflow-v1.md) | Two-tier image/infographic workflow (Notebook LM + Claude Opus) |
 | [infographic-v7.md](writing-tools/infographic-v7.md) | Infographic format (legacy) |
-| [quick-editor-v3.txt](writing-tools/quick-editor-v3.txt) | Editorial cleanup |
-| [quick-cleanup-v3.md](writing-tools/quick-cleanup-v3.md) | Grammar/readability |
-| [content-decoder-v1.txt](writing-tools/content-decoder-v1.txt) | Clarify dense text |
+| [quick-editor-v3.md](writing-tools/quick-editor-v3.md) | Editorial cleanup |
+| [quick-cleanup-v3.md](writing-tools/quick-cleanup-v3.md) | Grammar/readability (micro-prompt) |
+| [content-decoder-v1.md](writing-tools/content-decoder-v1.md) | Clarify dense text |
 | [transcript-resource-forge-v2.md](writing-tools/transcript-resource-forge-v2.md) | Transform transcripts into structured resources |
 
 ---

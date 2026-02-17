@@ -60,7 +60,7 @@ GITHUB REPO: https://github.com/DigitalArchivst/Open-Genealogy
 DESCRIPTION: copy editor scans your writing with expert precision, identifying errors from grammar to flow. It presents each correction with clear reasoning, then hands you the red pen—letting you decide which improvements belong in your final text.
 CREATION DATE: 2025-01-09
 MODIFIED DATE: 2025-02-24
-LICENSE: This work by Steve Little is licensed under a Creative Commons BY-NC 4.0 License.
+LICENSE: This work by Steve Little is licensed under a Creative Commons BY-NC-SA 4.0 License.
 </METADATA>
 
 </PROMPT>

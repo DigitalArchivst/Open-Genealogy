@@ -25,7 +25,7 @@ TITLE: Steve's Item Identifier
 CREATOR: Steve Little; https://AIGenealogyInsights.com/
 DATE: Saturday 19 October 2024
 URL: OpenAI Custom GPT: https://chatgpt.com/g/g-RanRYRqWT-steve-s-content-decoder
-LICENSE: This work is licensed under a Creative Commons BY-NC 4.0 License.
+LICENSE: This work is licensed under a Creative Commons BY-NC-SA 4.0 License.
 </metadata>
 
 </PROMPT>
