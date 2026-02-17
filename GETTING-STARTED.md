@@ -141,8 +141,10 @@ The repository is organized into folders by function:
 |--------|---------|-------------|
 | **research/** | GPS methodology prompts | Research questions, document analysis, evidence evaluation |
 | **transcription/** | Diplomatic transcription | Handwritten documents, old records, OCR/HTR |
+| **image-analysis/** | Forensic image interpretation | Historical photographs, visual evidence, dating images |
+| **hebrew-headstones/** | Jewish cemetery headstone analysis | Hebrew/Yiddish inscriptions, gematria dating |
 | **photo-restoration/** | Historical photo repair | Damaged, faded, or deteriorated photographs |
-| **writing-tools/** | Fact extraction and editing | Processing notes, creating narratives, editorial cleanup |
+| **writing-tools/** | Narrative writing, fact extraction, language advising, editing | Creating narratives, processing notes, editorial cleanup |
 | **assistants/** | Full AI personas | Ongoing research sessions, GEDCOM analysis |
 | **benchmark/** | AI evaluation framework | Comparing AI model performance against GPS standards |
 | **scripts/** | Python utilities | Audio transcription (requires Python) |
@@ -157,7 +159,10 @@ The repository is organized into folders by function:
 | **ANNOTATED-INDEX.md** | Root | Detailed descriptions (~125 words each) |
 | **research-assistant-v8.md** | research/ | Flagship GPS research prompt |
 | **ocr-htr-v08.md** | transcription/ | Primary transcription tool |
+| **universal-image-analysis-v3.md** | image-analysis/ | 9-layer forensic image analysis |
+| **hebrew-headstone-helper-v9.md** | hebrew-headstones/ | Jewish cemetery headstone analysis |
 | **restoration-v2.md** | photo-restoration/ | Universal photo restoration |
+| **narrative-assistant-v3.md** | writing-tools/ | GPS-informed narrative writing |
 | **evidence-terminology.md** | research/reference/ | 3×3 framework reference |
 
 ### Finding the Right Tool
@@ -181,8 +186,12 @@ The repository is organized into folders by function:
 | Quick web research | research/ | research-with-citations-v7.md |
 | Transcribe handwriting | transcription/ | ocr-htr-v08.md |
 | Transcribe Jewish documents | transcription/ | jewish-transcription-v2.md |
+| Analyze a historical photograph | image-analysis/ | universal-image-analysis-v3.md |
+| Read a Jewish cemetery headstone | hebrew-headstones/ | hebrew-headstone-helper-v9.md |
 | Restore a photo | photo-restoration/ | restoration-v2.md |
+| Write a genealogical narrative | writing-tools/ | narrative-assistant-v3.md |
 | Extract facts from text | writing-tools/ | fact-extractor-v4.txt |
+| Get language/usage advice | writing-tools/ | lingua-maven-v9.md |
 | Ongoing research partner | assistants/ | vibe-genealogy-assistant-v4.md |
 | Analyze a GEDCOM file | assistants/ | gedcom-analysis-v3.md |
 
@@ -414,7 +423,10 @@ This single original source contains primary, secondary, and potentially indeter
 
 5. **Add specialized tools as needed:**
    - Handwritten documents → `ocr-htr-v08.md`
-   - Old photographs → `restoration-v2.md`
+   - Historical photographs → `universal-image-analysis-v3.md`
+   - Jewish cemetery headstones → `hebrew-headstone-helper-v9.md`
+   - Damaged photographs → `restoration-v2.md`
+   - Narrative writing → `narrative-assistant-v3.md`
    - Fact extraction → `fact-extractor-v4.txt`
 
 6. **Check back periodically** — The repository is actively maintained with new versions and tools
@@ -435,9 +447,9 @@ Open-Genealogy tools work well in sequence. Example workflow:
 
 **Another example — Photo with document:**
 
-1. **Restore** — Use `restoration-v2.md` to improve a damaged photograph
-2. **Analyze inscription** — If the photo has writing, use transcription tools
-3. **Research context** — Use GRA v8 to identify research questions raised by the image
+1. **Analyze** — Use `universal-image-analysis-v3.md` to identify people, date the image, and read inscriptions
+2. **Restore** (if needed) — Use `restoration-v2.md` to improve a damaged photograph
+3. **Research context** — Use GRA v8 to pursue research questions raised by the analysis
 
 ### Quick Reference: Which Tool When
 
@@ -448,8 +460,12 @@ Open-Genealogy tools work well in sequence. Example workflow:
 | Ongoing session partner | Vibe assistant | assistants/vibe-genealogy-assistant-v4.md |
 | Handwritten documents | Diplomatic transcription | transcription/ocr-htr-v08.md |
 | Hebrew/Yiddish documents | Jewish transcription | transcription/jewish-transcription-v2.md |
+| Historical photographs | Image analysis | image-analysis/universal-image-analysis-v3.md |
+| Jewish cemetery headstones | Headstone helper | hebrew-headstones/hebrew-headstone-helper-v9.md |
 | Damaged photographs | Photo restoration | photo-restoration/restoration-v2.md |
 | Conservative photo repair | Photo conservation | photo-restoration/photo-conservator-v2.md |
+| Write a genealogical narrative | Narrative assistant | writing-tools/narrative-assistant-v3.md |
+| Language and usage advice | Lingua Maven | writing-tools/lingua-maven-v9.md |
 | Extract facts from text | Fact extractor | writing-tools/fact-extractor-v4.txt |
 | Turn facts into narrative | Fact narrator | writing-tools/fact-narrator-v4.txt |
 | GEDCOM file analysis | GEDCOM specialist | assistants/gedcom-analysis-v3.md |
