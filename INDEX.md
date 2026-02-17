@@ -121,11 +121,13 @@ Complete AI personas for ongoing genealogical work.
 
 ## Scripts
 
-| File | Description |
-|------|-------------|
-| [transcribe-4.py](scripts/transcribe-4.py) | Single-file transcription |
-| [transcribe-4o-chunk.py](scripts/transcribe-4o-chunk.py) | Long-audio chunking |
-| [transcribe-v02.py](scripts/transcribe_v02.py) | Minimal reference |
+| File | Description | Status |
+|------|-------------|--------|
+| [transcribe-4o-chunk-v2.py](scripts/transcribe-4o-chunk-v2.py) | Long-audio transcription with chunking and overlap trimming | **recommended** |
+| [batch_transcribe_v2.py](scripts/batch_transcribe_v2.py) | Batch wrapper — process a folder of audio files | **recommended** |
+| [transcribe-4.py](scripts/transcribe-4.py) | Single-file transcription | stable |
+| [transcribe-4o-chunk.py](scripts/transcribe-4o-chunk.py) | Long-audio chunking (v1) | legacy |
+| [transcribe-v02.py](scripts/transcribe_v02.py) | Minimal reference | stable |
 
 ---
 
