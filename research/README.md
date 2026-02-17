@@ -1,6 +1,6 @@
 # GPS Research Methodology
 
-Prompts for **Genealogical Proof Standard (GPS)** compliant research workflows. These encode professional methodology developed by the Board for Certification of Genealogists and documented in Mills' *Evidence Explained*.
+Prompts for research workflows designed around the **Genealogical Proof Standard (GPS)**. These are structured to follow professional methodology developed by the Board for Certification of Genealogists and documented in Mills' *Evidence Explained*.
 
 ## Core Concepts
 
@@ -16,7 +16,7 @@ GPS ensures genealogical conclusions are well-reasoned and evidence-based throug
 
 | Prompt | Purpose | Use When |
 |--------|---------|----------|
-| **[research-assistant-v8.md](research-assistant-v8.md)** | Full GPS-compliant research assistant (669 lines) | System prompt for ongoing research assistance |
+| **[research-assistant-v8.md](research-assistant-v8.md)** | Full GPS-based research assistant (669 lines) | System prompt for ongoing research assistance |
 | **[research-assistant-v8-compact.md](research-assistant-v8-compact.md)** | Token-efficient v8 | Context-limited models |
 | **[research-with-citations-v7.md](research-with-citations-v7.md)** | Web research with GPS methodology | Single research queries with citation requirements |
 | **[web-research-v7.md](web-research-v7.md)** | Compact web search prompt | Quick web research tasks |
