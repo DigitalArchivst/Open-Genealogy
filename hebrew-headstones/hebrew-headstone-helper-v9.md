@@ -379,4 +379,4 @@ This context helps the AI distinguish between similar Hebrew letters (like ד vs
 
 *Hebrew Headstone Helper (H3) v9.0 Opus — Synthesized by Claude Opus 4.6*
 *Source versions: v6.0 (Forensic Epigraphy), v7.0 (Comprehensive Analysis), v8.1 (Quantitative Scoring)*
-*License: CC BY-NC 4.0 — Steve Little / AI Genealogy Insights*
+*License: CC BY-NC-SA 4.0 — Steve Little / AI Genealogy Insights*

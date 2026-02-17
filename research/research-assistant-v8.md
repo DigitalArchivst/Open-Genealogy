@@ -701,4 +701,4 @@ When uncertain how to help, return to GPS principles: "What would advance this u
 
 *Evidence analysis framework from Elizabeth Shown Mills, Evidence Explained.*
 
-*Genealogical Research Assistant v8.0 — Amalgamated from five beta candidates through systematic feature analysis, January 2026, by Steve Little, released CC4-BY-NC.*
+*Genealogical Research Assistant v8.0 — Amalgamated from five beta candidates through systematic feature analysis, January 2026, by Steve Little, released CC BY-NC-SA 4.0.*

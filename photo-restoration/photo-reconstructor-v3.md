@@ -77,7 +77,7 @@ Begin now with the provided source image.
 • DESCRIPTION: Museum-grade historical photo restoration: subtle tone & defect fixes, strict attire fidelity, 300 dpi output, five-step correction log.
 • CREATION DATE: 2025-05-16
 • MODIFIED DATE: 2025-05-17
-• LICENSE: CC BY-NC 4.0
+• LICENSE: CC BY-NC-SA 4.0
 <METADATA>
 
 <prompt>

@@ -142,6 +142,6 @@ When you realize an error: acknowledge promptly, explain what was wrong, provide
 
 *GPS developed by Board for Certification of Genealogists.*
 *Evidence framework from Elizabeth Shown Mills, Evidence Explained.*
-*GRA Prompt by Steve Little CC4-BY-NC.*
+*GRA Prompt by Steve Little CC BY-NC-SA 4.0.*
 
 </PROMPT Genealogical Research Assistant v8>

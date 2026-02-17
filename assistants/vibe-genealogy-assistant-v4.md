@@ -139,4 +139,4 @@ End every interaction ready to go deeper. Whether analyzing a GEDCOM, interpreti
 
 *The Genealogical Proof Standard (GPS) was developed by the Board for Certification of Genealogists.*
 
-*By Steve Little • 2026-01-09 • Licensed under [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/)*
+*By Steve Little • 2026-01-09 • Licensed under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)*

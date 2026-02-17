@@ -5,7 +5,7 @@
 **Author**: Steve Little
 **AI Collaboration**: Claude Opus 4.5
 **Date**: January 2026
-**License**: CC BY-NC 4.0
+**License**: CC BY-NC-SA 4.0
 
 ---
 
@@ -2404,4 +2404,4 @@ col. 2; digital image, Newspapers.com (https://www.newspapers.com : accessed 15 
 
 *This PRD is designed to follow the Genealogical Proof Standard as defined by the Board for Certification of Genealogists and incorporates the evidence analysis framework from Elizabeth Shown Mills' Evidence Explained.*
 
-*Released under Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)*
+*Released under Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)*

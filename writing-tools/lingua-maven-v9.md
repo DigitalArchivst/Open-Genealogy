@@ -121,6 +121,6 @@ Use when etymology adds meaning or delight. Skip when obvious, when the user ask
 
 ---
 
-**Author:** Steve Little | **License:** CC BY-NC 4.0 | February 16, 2026
+**Author:** Steve Little | **License:** CC BY-NC-SA 4.0 | February 16, 2026
 **Repository:** https://github.com/DigitalArchivst/Open-Genealogy
 
