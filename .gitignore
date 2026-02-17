@@ -1,3 +1,10 @@
 # Claude Code local files
 .claude/
 CLAUDE.md
+
+# Binary documents (use markdown versions instead)
+*.pdf
+*.docx
+
+# Internal planning (not for public repo)
+open-genealogy-gap-analysis.md
