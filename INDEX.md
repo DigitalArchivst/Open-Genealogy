@@ -88,7 +88,7 @@ Complete catalog of prompts, scripts, and tools.
 | [document-distiller-v2.md](writing-tools/document-distiller-v2.md) | Distill documents |
 | [lingua-maven-v9.md](writing-tools/lingua-maven-v9.md) | AHD-inspired language advisor with usage analysis and sensitivity review |
 | [linguistic-profiler-v3.md](writing-tools/linguistic-profiler-v3.md) | Profile writing style |
-| [narrative-assistant-v3.md](writing-tools/narrative-assistant-v3.md) | GPS-compliant narratives and proof arguments |
+| [narrative-assistant-v3.md](writing-tools/narrative-assistant-v3.md) | GPS-informed narratives and proof arguments |
 | [image-citation-builder-v2.md](writing-tools/image-citation-builder-v2.md) | Image citations |
 | [image-infographic-workflow-v1.md](writing-tools/image-infographic-workflow-v1.md) | Two-tier image/infographic workflow (Notebook LM + Claude Opus) |
 | [infographic-v7.md](writing-tools/infographic-v7.md) | Infographic format (legacy) |

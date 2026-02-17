@@ -36,7 +36,7 @@
 
 ### 1.1 Purpose
 
-This PRD defines requirements for an AI-powered system that transforms submitted genealogical record images into GPS-compliant analytical outputs. The system produces accurate transcriptions, rigorous source/information/evidence characterization, cross-record correlation, conflict resolution, and actionable research plans—all while maintaining the epistemic humility and methodological rigor demanded by professional genealogical standards.
+This PRD defines requirements for an AI-powered system designed to guide analysis of submitted genealogical record images into GPS-informed analytical outputs. The system produces accurate transcriptions, rigorous source/information/evidence characterization, cross-record correlation, conflict resolution, and actionable research plans—all while maintaining the epistemic humility and methodological rigor demanded by professional genealogical standards.
 
 ### 1.2 Core Capability
 
@@ -85,7 +85,7 @@ Existing AI tools for genealogical research typically:
 
 ### 2.3 The Opportunity
 
-An AI system that rigorously implements GPS methodology can:
+An AI system designed to follow GPS methodology can:
 
 - **Democratize professional-quality analysis** for users who lack formal training
 - **Accelerate expert workflows** by handling mechanical extraction and classification
@@ -98,7 +98,7 @@ An AI system that rigorously implements GPS methodology can:
 
 ### 3.1 Vision Statement
 
-Transform how genealogists interact with record images by providing AI analysis that meets the same methodological standards expected of credentialed professionals—not as a replacement for human judgment, but as a rigorous first pass that surfaces what the records contain, how confident we can be, what conflicts exist, and what remains unknown.
+Improve how genealogists interact with record images by providing AI analysis that aims to follow the same methodological standards expected of credentialed professionals—not as a replacement for human judgment, but as a rigorous first pass that surfaces what the records contain, how confident we can be, what conflicts exist, and what remains unknown.
 
 ### 3.2 Design Principles
 
@@ -197,7 +197,7 @@ All analytical conclusions include explicit reasoning. The user should be able t
 **Profile**: Working toward certification or considering professional work; actively studying GPS methodology; wants to see rigorous analysis modeled.
 
 **Needs**:
-- GPS-compliant analysis as a learning model
+- GPS-informed analysis as a learning model
 - Explicit application of preponderance principles
 - Citation formatting per Evidence Explained
 - Proof vehicle selection guidance
@@ -963,7 +963,7 @@ status: provisional | confirmed
 
 #### FR-10.2: Evidence Sufficiency Assessment
 
-The system SHALL assess whether evidence is sufficient for GPS-compliant conclusion.
+The system SHALL assess whether evidence is sufficient for a GPS-informed conclusion.
 
 **Sufficiency Criteria**:
 - Is research reasonably exhaustive for the question? (Usually "not yet" with user-provided images only)
@@ -1782,7 +1782,7 @@ Each output MUST pass:
 - Transcribe if Latin alphabet (noting language)
 - Note: "Translation required for full analysis"
 - Extract what is extractable without translation
-- Recommend translation before GPS-compliant analysis
+- Recommend translation before GPS-informed analysis
 
 ### 11.2 Document Identification Failures
 
@@ -2402,6 +2402,6 @@ col. 2; digital image, Newspapers.com (https://www.newspapers.com : accessed 15 
 
 ---
 
-*This PRD implements the Genealogical Proof Standard as defined by the Board for Certification of Genealogists and incorporates the evidence analysis framework from Elizabeth Shown Mills' Evidence Explained.*
+*This PRD is designed to follow the Genealogical Proof Standard as defined by the Board for Certification of Genealogists and incorporates the evidence analysis framework from Elizabeth Shown Mills' Evidence Explained.*
 
 *Released under Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)*

@@ -21,4 +21,4 @@ Models tested: Claude, ChatGPT, Gemini, Grok
 
 ## Methodology
 
-Uses [research-with-citations-v7.md](../research/research-with-citations-v7.md) prompt encoding GPS methodology.
+Uses [research-with-citations-v7.md](../research/research-with-citations-v7.md) prompt structured around GPS methodology.

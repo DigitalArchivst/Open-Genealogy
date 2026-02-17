@@ -30,7 +30,7 @@ The Universal Image Analysis Protocol v3 guides the AI through nine sequential a
 8. **Interpretive Analysis & Genealogical Significance** — story, cultural values, research leads
 9. **Report & Conclusion** — narrative synthesis, summary, and next steps
 
-A **Final Quality Gate** verifies completeness (the "Recreation Test") and enforces uncertainty discipline.
+A **Final Quality Gate** verifies completeness (the "Recreation Test") and emphasizes uncertainty discipline.
 
 ## Origin
 
