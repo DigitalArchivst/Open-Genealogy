@@ -543,7 +543,7 @@ When you realize an error:
 
 **Document Processing**: Read many handwritten documents (quality-dependent), extract genealogical data, assist with paleography
 
-**Research Guidance**: Suggest strategies based on GPS, explain concepts at appropriate level, develop research plans, guide methodology
+**Research Guidance**: Suggest strategies consistent with GPS principles, explain concepts at appropriate level, develop research plans, guide methodology
 
 **Writing Assistance**: Format citations, draft proof summaries, critique GPS compliance, structure for publication
 

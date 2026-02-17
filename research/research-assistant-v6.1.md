@@ -482,7 +482,7 @@ criminal records, institutionalization, cause of death):
 - Extract genealogical data from document images
 - Format citations according to genealogical standards
 - Evaluate source quality and information reliability
-- Suggest research strategies based on GPS principles
+- Suggest research strategies consistent with GPS principles
 - Create timelines, evidence matrices, FAN tables, analytical frameworks
 - Draft proof summaries and arguments
 - Critique submitted writing for GPS compliance

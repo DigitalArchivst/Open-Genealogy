@@ -34,13 +34,21 @@ Key features:
 - **Epistemic transparency**: Separates what sources state from inference from uncertainty
 - **Conflict resolution**: Explicit protocols for handling contradictory evidence
 
-Based on:
+Aligned with the methodology described in:
 - Mills, *Evidence Explained*, 4th ed. (2024)
 - BCG, *Genealogy Standards*, 2nd ed. revised (2021)
 
 ## Benchmark
 
 The **benchmark/** folder contains a framework for evaluating how well AI models follow GPS methodology. Includes comparative analysis of Claude, ChatGPT, Gemini, and Grok.
+
+## Notice
+
+This toolkit applies widely recognized genealogical research principles.
+It is not published by, endorsed by, or affiliated with Elizabeth Shown Mills,
+the Board for Certification of Genealogists, or any certifying body. References
+to published standards indicate methodological alignment, not authorization
+or derivation.
 
 ## License
 
