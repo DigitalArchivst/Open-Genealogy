@@ -130,13 +130,13 @@ Complete AI personas for ongoing genealogical work.
 
 ---
 
-## Benchmark
+## Evaluation Framework
 
 | Resource | Description |
 |----------|-------------|
-| [benchmark/](benchmark/) | AI evaluation framework |
-| [ashe-county-nc/](benchmark/case-studies/ashe-county-nc/) | Case study: Claude, ChatGPT, Gemini, Grok |
-| [genealogical-writing-rubric.md](benchmark/rubrics/genealogical-writing-rubric.md) | Evaluate published genealogical writing (GPS-derived, 60-point scale) |
+| [genealogical-writing-rubric.md](benchmark/rubrics/genealogical-writing-rubric.md) | GPS-derived 60-point rubric for evaluating published genealogical writing |
+| [benchmark/](benchmark/) | Framework overview, methodology, and case study invitations |
+| [ashe-county-nc/](benchmark/case-studies/ashe-county-nc/) | Case study: Claude, ChatGPT, Gemini, Grok on Ashe County research |
 
 ---
 

@@ -448,23 +448,35 @@ This single original source contains primary, secondary, and potentially indeter
 
 ### Combining Multiple Tools
 
-Open-Genealogy tools work well in sequence. Example workflow:
+Open-Genealogy tools are modular — each does one job well, and they chain together into workflows. Here are four common chains:
 
-**Scenario:** You have a handwritten letter from 1875 and want to extract and analyze its genealogical content.
+#### Workflow 1: Handwritten Document to Research
 
-1. **Transcribe** — Use ocr-htr-v08.md to create a diplomatic transcription preserving original spelling and layout
+1. **Transcribe** — ocr-htr-v08.md creates a diplomatic transcription preserving original spelling and layout
+2. **Extract facts** — fact-extractor-v4.md pulls structured data: names, dates, places, relationships
+3. **Analyze** — research-assistant-v8.md (GRA v8) evaluates the evidence and suggests next research steps
+4. **Write up** — fact-narrator-v4.md drafts narrative prose from your findings
 
-2. **Extract facts** — Use fact-extractor-v4.md to pull structured data: names, dates, places, relationships
+#### Workflow 2: Historical Photograph
 
-3. **Analyze** — Use research-assistant-v8.md (GRA v8) to evaluate the evidence and suggest next research steps
+1. **Analyze** — universal-image-analysis-v3.md identifies people, dates the image, reads inscriptions
+2. **Restore** (if needed) — restoration-v2.md improves a damaged photograph
+3. **Cite** — image-citation-builder-v2.md creates a standardized citation for the image
+4. **Research context** — GRA v8 pursues research questions raised by the analysis
 
-4. **Write up** — Use fact-narrator-v4.md to draft narrative prose from your findings
+#### Workflow 3: Audio Interview to Knowledge Base
 
-**Another example — Photo with document:**
+1. **Transcribe** — transcribe-4o-chunk-v2.py converts audio to text (handles long recordings automatically)
+2. **Abstract** — conversation-abstractor-v2.md creates a formal summary of the conversation
+3. **Extract** — transcript-resource-forge-v2.md transforms the transcript into structured resources (summary, action items, knowledge)
 
-1. **Analyze** — Use universal-image-analysis-v3.md to identify people, date the image, and read inscriptions
-2. **Restore** (if needed) — Use restoration-v2.md to improve a damaged photograph
-3. **Research context** — Use GRA v8 to pursue research questions raised by the analysis
+#### Workflow 4: Research Question to Proof Narrative
+
+1. **Research** — GRA v8 guides evidence gathering, applies the Three-Layer Model
+2. **Profile voice** — linguistic-profiler-v3.md captures the writing style you want to match
+3. **Draft narrative** — narrative-assistant-v3.md produces a GPS-informed biographical sketch or proof argument
+4. **Polish language** — lingua-maven-v9.md reviews usage, sensitivity, and audience calibration
+5. **Final edit** — quick-editor-v3.md catches grammar, punctuation, and flow issues
 
 ### Quick Reference: Which Tool When
 
@@ -485,6 +497,18 @@ Open-Genealogy tools work well in sequence. Example workflow:
 | Turn facts into narrative | Fact narrator | writing-tools/fact-narrator-v4.md |
 | GEDCOM file analysis | GEDCOM specialist | assistants/gedcom-analysis-v3.md |
 | Edit/cleanup text | Quick editor | writing-tools/quick-editor-v3.md |
+
+### Platform Notes
+
+These prompts work across major LLMs. A few things to keep in mind:
+
+| Consideration | Details |
+| ------------- | ------- |
+| **System prompt vs. chat** | Long prompts like GRA v8 (704 lines) work best as system prompts or custom instructions. If your platform only has a chat box, use the compact variant instead. |
+| **Image handling** | Document analysis and photo prompts require vision capability. ChatGPT (GPT-4o), Claude, and Gemini all support image uploads. Check your model's current capabilities. |
+| **Token limits** | Compact/compressed variants exist for models with smaller context windows. See the research/ README for a comparison of what's cut. |
+| **Scripts** | The Python transcription scripts in scripts/ use the OpenAI Whisper API and require an OpenAI API key regardless of which LLM you use for other tasks. |
+| **Custom GPTs** | The gpt-configs/ folder contains configurations specific to OpenAI's Custom GPT platform. Other prompts are platform-agnostic. |
 
 ### Getting Help
 
