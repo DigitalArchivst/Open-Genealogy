@@ -1,6 +1,6 @@
 # Open-Genealogy
 
-A toolkit of **AI prompts and utilities for genealogical research**, built on professional standards.
+A toolkit of **AI prompts and utilities for genealogical research**, designed to follow the Genealogical Proof Standard. For genealogists at every level — from hobbyists exploring their first census record to credentialed professionals managing client work.
 
 ## What's Here
 
@@ -11,12 +11,12 @@ A toolkit of **AI prompts and utilities for genealogical research**, built on pr
 | **[Image Analysis](image-analysis/)** | Forensic image interpretation for historical photographs | [universal-image-analysis-v3.md](image-analysis/universal-image-analysis-v3.md) |
 | **[Hebrew Headstones](hebrew-headstones/)** | Jewish cemetery headstone analysis with gematria dating | [hebrew-headstone-helper-v9.md](hebrew-headstones/hebrew-headstone-helper-v9.md) |
 | **[Photo Restoration](photo-restoration/)** | Historical photograph restoration | [restoration-v2.md](photo-restoration/restoration-v2.md) |
-| **[Writing Tools](writing-tools/)** | Fact extraction, summaries, editing | [fact-extractor-v4.txt](writing-tools/fact-extractor-v4.txt) |
+| **[Writing Tools](writing-tools/)** | Narrative writing, fact extraction, language advising, editing | [narrative-assistant-v3.md](writing-tools/narrative-assistant-v3.md) |
 | **[Assistants](assistants/)** | Complete AI personas for ongoing work | [vibe-genealogy-assistant-v4.md](assistants/vibe-genealogy-assistant-v4.md) |
 | **[Scripts](scripts/)** | Audio transcription utilities | [transcribe-4.py](scripts/transcribe-4.py) |
 | **[Benchmark](benchmark/)** | AI research evaluation framework | [README.md](benchmark/README.md) |
 
-**Full catalog:** [INDEX.md](INDEX.md)
+**Full catalog:** [INDEX.md](INDEX.md) | **Detailed guide:** [GETTING-STARTED.md](GETTING-STARTED.md) | **Guided tour:** [TOUR-REPORT.md](TOUR-REPORT.md)
 
 ## Quick Start
 
@@ -24,6 +24,8 @@ A toolkit of **AI prompts and utilities for genealogical research**, built on pr
 2. Copy the recommended prompt into your LLM (ChatGPT, Claude, Gemini, etc.)
 3. Provide your input (document scan, photo, research question)
 4. Follow the output structure
+
+New here? The [Getting Started guide](GETTING-STARTED.md) walks through setup, first use, and common workflows.
 
 ## Featured: GPS Research Methodology
 
