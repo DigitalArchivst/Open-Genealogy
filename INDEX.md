@@ -10,6 +10,7 @@ Complete catalog of prompts, scripts, and tools.
 |------|-------------|
 | [GETTING-STARTED.md](GETTING-STARTED.md) | Guide for new users: GitHub basics, repository overview, GRA v8 usage |
 | [ANNOTATED-INDEX.md](ANNOTATED-INDEX.md) | Detailed descriptions of all sections (~125 words each) |
+| [AI-SKILLS-PROGRESSION.md](AI-SKILLS-PROGRESSION.md) | 44-skill learning path from chatbot basics through autonomous agents |
 
 ---
 

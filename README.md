@@ -20,7 +20,7 @@ A toolkit of **AI prompts and utilities for genealogical research**, designed to
 | **[Scripts](scripts/)** | Audio transcription utilities | [transcribe-4.py](scripts/transcribe-4.py) |
 | **[Benchmark](benchmark/)** | AI research evaluation framework | [README.md](benchmark/README.md) |
 
-**Full catalog:** [INDEX.md](INDEX.md) | **Detailed guide:** [GETTING-STARTED.md](GETTING-STARTED.md) | **Guided tour:** [TOUR-REPORT.md](TOUR-REPORT.md)
+**Full catalog:** [INDEX.md](INDEX.md) | **Detailed guide:** [GETTING-STARTED.md](GETTING-STARTED.md) | **Guided tour:** [TOUR-REPORT.md](TOUR-REPORT.md) | **Skills path:** [AI-SKILLS-PROGRESSION.md](AI-SKILLS-PROGRESSION.md)
 
 ## Quick Start
 
