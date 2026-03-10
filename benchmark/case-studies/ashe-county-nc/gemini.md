@@ -124,7 +124,7 @@ By 1799, Ashe County had transitioned from a contested indigenous hunting ground
 4. [AUTHORED] Historic Bethabara Park. "Interactive Maps: Spangenberg Diary." HistoricBethabara.org, n.d. [https://historicbethabara.org/interactive-maps/](https://historicbethabara.org/interactive-maps/). Accessed 2025-12-31.
 5. [AUTHORED] The Cabins at Healing Springs. "History of Ashe County, NC." Blog, 2016. [https://blog.cabinsathealingsprings.com/2016/10/history-of-ashe-county-nc.html](https://blog.cabinsathealingsprings.com/2016/10/history-of-ashe-county-nc.html). Accessed 2025-12-31.
 6. [AUTHORED] Carolana. "The American Revolution in North Carolina - Big Glades." Carolana.com, n.d. [https://www.carolana.com/NC/Revolution/revolution_big_glades.html](https://www.carolana.com/NC/Revolution/revolution_big_glades.html). Accessed 2025-12-31.
-7. [DERIVATIVE] RootsWeb. "Revolutionary War Times and the Ride of Captain Martin Gambill." RootsWeb, n.d. [https://sites.rootsweb.com/~tmetrvlr/bio9.html](https://sites.rootsweb.com/~tmetrvlr/bio9.html). Accessed 2025-12-31.
+7. [DERIVATIVE] RootsWeb. "Revolutionary War Times and the Ride of Captain Martin Gambill." RootsWeb, n.d. [Archived version](https://web.archive.org/web/20240821121849/http://sites.rootsweb.com/~tmetrvlr/bio9.html) (original URL no longer accessible). Accessed 2025-12-31.
 8. [AUTHORED] Martin, Jonathan. "Ashe County (1799)." North Carolina History Project, n.d. [https://northcarolinahistory.org/encyclopedia/ashe-county-1799/](https://northcarolinahistory.org/encyclopedia/ashe-county-1799/). Accessed 2025-12-31.
 
 **Would you like me to research specific land grants or family genealogies (like the Cox or Helton families) for this period?**
