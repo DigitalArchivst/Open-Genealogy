@@ -14,27 +14,34 @@ Prompts for extracting information from historical photographs, documents, and o
 
 | File | Description | Status |
 |------|-------------|--------|
-| [universal-image-analysis-v3.md](universal-image-analysis-v3.md) | 9-layer forensic image analysis protocol | **recommended** |
+| [deep-look-v2.md](deep-look-v2.md) | 10-layer forensic image analysis with structured data extraction and catalog record | **recommended** |
+| [universal-image-analysis-v3.md](universal-image-analysis-v3.md) | 9-layer forensic image analysis protocol | previous version |
 
 ## How It Works
 
-The Universal Image Analysis Protocol v3 guides the AI through nine sequential analytical layers:
+Deep Look v2 guides the AI through ten sequential analytical layers:
 
-1. **First Impression & Overview** — what the image shows at a glance
-2. **Physical & Technical Properties** — medium, quality, color, materials
-3. **Lighting Analysis** — source, direction, mood, intentional shaping
-4. **Visual Composition & Design** — layout, elements, typography, color palette
-5. **Text & Inscriptions** — complete transcription of all visible text including edges, stamps, and film markings
-6. **Content & Subject Matter** — people, places, objects, symbols, and what is absent
-7. **Context, Provenance & Historical Reasoning** — dating, location, purpose, creator intent
-8. **Interpretive Analysis & Genealogical Significance** — story, cultural values, research leads
-9. **Report & Conclusion** — narrative synthesis, summary, and next steps
+1. **First Impression** — what the image shows at a glance
+2. **Physical & Technical Properties** — medium, process, condition, color, materials
+3. **Lighting** — source, direction, quality, shadows, intentional shaping
+4. **Composition & Design** — layout, composition principles, elements, typography, palette
+5. **Text & Inscriptions** — complete transcription including edges, stamps, watermarks, film markings, multi-hand analysis, archaic term translation
+6. **Deep Description** — people, places, objects, symbols, and what is absent
+7. **Structured Data Extraction** — facts extracted into tables (people, dates/locations, other data) with confidence ratings
+8. **Context & Provenance** — dating, geography, purpose, artistic lineage, authenticity
+9. **Interpretation & Research Leads** — story, values, significance, genealogical leads (record sets, repositories, search strategies)
+10. **Report & Catalog Record** — narrative synthesis, conclusion, archival catalog entry with keywords and alt-text
 
-A **Final Quality Gate** verifies completeness (the "Recreation Test") and emphasizes uncertainty discipline.
+A **Quality Gate** verifies completeness (the "Recreation Test"), flags uncertainties, and suggests next steps.
 
 ## Origin
 
-Version 3 was synthesized from a feature matrix comparison of three earlier image analysis prompts — each strong in different areas — using the "super-prompt" technique of combining best-in-class features. The comparison evaluated 60 characteristics across the three source prompts. Notable addition in v3: Layer 5 explicitly examines edges, borders, stamps, watermarks, and film markings — features that earlier prompts consistently missed.
+Deep Look v2 was created by merging two complementary prompts through an expert council process:
+
+- **Universal Image Interrogation Protocol v2** — strong on visual description, composition, and interpretive analysis
+- **Historical Document Analysis Framework** — strong on structured data extraction, metadata, and cataloging
+
+The merge was informed by Universal Image Analysis v3 (the previous recommended prompt in this folder), which contributed lighting analysis, composition principles, "what is absent" analysis, artistic lineage, and narrative synthesis. A five-expert council (archival scientist, art historian, genealogist, prompt engineer, information architect) reconciled priorities and validated the final structure. The prompt was then field-tested and independently evaluated, confirming that the structured table extraction in Layer 7 acts as a forcing function that improves model observational accuracy.
 
 ## Related
 

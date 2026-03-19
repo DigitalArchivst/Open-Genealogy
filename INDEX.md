@@ -49,7 +49,8 @@ Complete catalog of prompts, scripts, and tools.
 
 | File | Description | Status |
 |------|-------------|--------|
-| [universal-image-analysis-v3.md](image-analysis/universal-image-analysis-v3.md) | 9-layer forensic image analysis protocol | **recommended** |
+| [deep-look-v2.md](image-analysis/deep-look-v2.md) | 10-layer forensic image analysis with structured data extraction and catalog record | **recommended** |
+| [universal-image-analysis-v3.md](image-analysis/universal-image-analysis-v3.md) | 9-layer forensic image analysis protocol | previous |
 
 ---
 
