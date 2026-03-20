@@ -6,6 +6,9 @@ CLAUDE.md
 *.pdf
 *.docx
 
+# Exception: companion PDFs that are deliberate deliverables
+!image-analysis/Deep-Look-v2-Four-Models-Full-Results.pdf
+
 # Internal planning (not for public repo)
 open-genealogy-gap-analysis.md
 open-genealogy-pdr.md
