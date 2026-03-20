@@ -15,6 +15,7 @@ Prompts for extracting information from historical photographs, documents, and o
 | File | Description | Status |
 |------|-------------|--------|
 | [deep-look-v2.md](deep-look-v2.md) | 10-layer forensic image analysis with structured data extraction and catalog record | **recommended** |
+| [Deep-Look-v2-Four-Models-Full-Results.pdf](Deep-Look-v2-Four-Models-Full-Results.pdf) | Four-model comparison (Claude, GPT-5.4, Gemini, Grok) with full outputs and scoring matrix | companion |
 | [universal-image-analysis-v3.md](universal-image-analysis-v3.md) | 9-layer forensic image analysis protocol | previous version |
 
 ## How It Works
