@@ -1,6 +1,5 @@
 # Claude Code local files
 .claude/
-CLAUDE.md
 
 # Binary documents (use markdown versions instead)
 *.pdf
