@@ -25,9 +25,17 @@ Complete AI assistant configurations that create ongoing personas for genealogic
 
 ## Choosing an Assistant
 
-- **Vibe Genealogy Assistant**: Best for exploring family history with warmth and narrative context. Handles GEDCOMs, documents, and general questions. Good for beginners or when you want ancestors treated as people, not data.
+- **Vibe Genealogy Assistant**: Best for exploring family history
+  with warmth and narrative context. Handles GEDCOMs, documents,
+  and general questions. Good for beginners or when you want
+  ancestors treated as people, not data.
 
-- **GEDCOM Analysis Assistant**: Specialized for GEDCOM file analysis. Identifies the probable subject, maps brick walls, spots data quality issues, and finds story seeds in your tree.
+- **GEDCOM Builder** and **GEDCOM Analysis**: A matched pair.
+  The Builder turns your research data into a GEDCOM file; the
+  Analysis tool reads a GEDCOM and explains what's in it. If you
+  have data in documents or spreadsheets and want to get it into
+  genealogy software, start with the Builder. If you already have
+  a GEDCOM and want to understand it, start with Analysis.
 
 ---
 
