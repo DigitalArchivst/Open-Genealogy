@@ -111,6 +111,19 @@ Complete AI personas for ongoing genealogical work.
 
 ---
 
+## Skills (Claude Code)
+
+Platform-specific tools combining prompts with companion scripts.
+Requires [Claude Code](https://claude.ai/code).
+
+| Folder | Description | Status |
+| ------ | ----------- | ------ |
+| [gedcom-creator/](skills/gedcom-creator/) | GEDCOM 5.5.1 file generator from natural language, JSON, or markdown | **new** |
+
+**Note:** Standalone prompt versions are planned for `assistants/`.
+
+---
+
 ## GPT Configs
 
 | File | Description |

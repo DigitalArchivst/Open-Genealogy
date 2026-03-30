@@ -17,6 +17,7 @@ A toolkit of **AI prompts and utilities for genealogical research**, designed to
 | **[Photo Restoration](photo-restoration/)** | Historical photograph restoration | [restoration-v2.md](photo-restoration/restoration-v2.md) |
 | **[Writing Tools](writing-tools/)** | Narrative writing, fact extraction, language advising, editing | [narrative-assistant-v3.md](writing-tools/narrative-assistant-v3.md) |
 | **[Assistants](assistants/)** | Complete AI personas for ongoing work | [vibe-genealogy-assistant-v4.md](assistants/vibe-genealogy-assistant-v4.md) |
+| **[Skills](skills/)** | Claude Code tools with companion scripts | [gedcom-creator](skills/gedcom-creator/) |
 | **[Scripts](scripts/)** | Audio transcription utilities | [transcribe-4.py](scripts/transcribe-4.py) |
 | **[Benchmark](benchmark/)** | AI research evaluation framework | [README.md](benchmark/README.md) |
 

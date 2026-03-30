@@ -1,0 +1,170 @@
+{
+  "submitter": "Your Name",
+  "individuals": [
+    {
+      "id": "I1",
+      "given": "John",
+      "surname": "Smith",
+      "prefix": "",
+      "suffix": "",
+      "nickname": "",
+      "sex": "M",
+      "events": [
+        {
+          "type": "BIRT",
+          "date": "15 MAR 1845",
+          "place": "Richmond, Henrico County, Virginia, USA"
+        },
+        {
+          "type": "DEAT",
+          "date": "2 JAN 1920",
+          "place": "Henrico County, Virginia, USA"
+        },
+        {
+          "type": "CENS",
+          "date": "1870",
+          "place": "Henrico County, Virginia, USA",
+          "source_id": "S1",
+          "source_page": "Page 42, Dwelling 118, Family 125"
+        }
+      ],
+      "notes": ["Civil War veteran. Further research needed on military service."],
+      "family_child": "",
+      "family_child_pedi": "",
+      "family_spouse": ["F1"]
+    },
+    {
+      "id": "I2",
+      "given": "Mary",
+      "surname": "Jones",
+      "prefix": "",
+      "suffix": "",
+      "nickname": "",
+      "sex": "F",
+      "events": [
+        {
+          "type": "BIRT",
+          "date": "ABT 1848",
+          "place": "Virginia, USA"
+        },
+        {
+          "type": "DEAT",
+          "date": "AFT 1880",
+          "place": ""
+        }
+      ],
+      "notes": [],
+      "family_child": "",
+      "family_child_pedi": "",
+      "family_spouse": ["F1"]
+    },
+    {
+      "id": "I3",
+      "given": "William",
+      "surname": "Smith",
+      "prefix": "",
+      "suffix": "",
+      "nickname": "Will",
+      "sex": "M",
+      "events": [
+        {
+          "type": "BIRT",
+          "date": "1870",
+          "place": "Henrico County, Virginia, USA"
+        }
+      ],
+      "notes": [],
+      "family_child": "F1",
+      "family_child_pedi": "birth",
+      "family_spouse": []
+    },
+    {
+      "id": "I4",
+      "given": "Sarah",
+      "surname": "Smith",
+      "prefix": "",
+      "suffix": "",
+      "nickname": "",
+      "sex": "F",
+      "events": [
+        {
+          "type": "BIRT",
+          "date": "1873",
+          "place": "Henrico County, Virginia, USA"
+        }
+      ],
+      "notes": [],
+      "family_child": "F1",
+      "family_child_pedi": "birth",
+      "family_spouse": []
+    },
+    {
+      "id": "I5",
+      "given": "Thomas",
+      "surname": "Smith",
+      "prefix": "",
+      "suffix": "Jr.",
+      "nickname": "",
+      "sex": "M",
+      "events": [
+        {
+          "type": "BIRT",
+          "date": "1876",
+          "place": "Henrico County, Virginia, USA"
+        }
+      ],
+      "notes": [],
+      "family_child": "F1",
+      "family_child_pedi": "birth",
+      "family_spouse": []
+    }
+  ],
+  "families": [
+    {
+      "id": "F1",
+      "spouse1": "I1",
+      "spouse2": "I2",
+      "children": ["I3", "I4", "I5"],
+      "events": [
+        {
+          "type": "MARR",
+          "date": "10 JUN 1868",
+          "place": "Richmond, Henrico County, Virginia, USA",
+          "source_id": "S2",
+          "source_page": "Marriage Register, Volume 3, Page 87"
+        }
+      ],
+      "notes": []
+    }
+  ],
+  "sources": [
+    {
+      "id": "S1",
+      "title": "1870 United States Federal Census",
+      "author": "United States Census Bureau",
+      "publication": "Washington, D.C.: National Archives and Records Administration",
+      "repository_id": "R1",
+      "notes": []
+    },
+    {
+      "id": "S2",
+      "title": "Virginia Marriage Records",
+      "author": "",
+      "publication": "",
+      "repository_id": "R2",
+      "notes": []
+    }
+  ],
+  "repositories": [
+    {
+      "id": "R1",
+      "name": "National Archives and Records Administration",
+      "address": "700 Pennsylvania Avenue NW, Washington, DC 20408"
+    },
+    {
+      "id": "R2",
+      "name": "Library of Virginia",
+      "address": "800 E Broad St, Richmond, VA 23219"
+    }
+  ]
+}
