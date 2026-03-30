@@ -157,10 +157,15 @@ def is_presumed_living(individual):
 
 
 def _extract_year(individual):
-    """Extract birth year from an individual's events."""
-    for event in individual.get("events", []):
-        if event.get("type") == "BIRT" and event.get("date"):
-            return _parse_year_from_date(event["date"])
+    """Extract birth year from an individual's events.
+
+    Checks BIRT first, then BAPM and CHR as proxies (common in parish
+    register data where baptism is the only recorded birth-adjacent event).
+    """
+    for etype in ("BIRT", "BAPM", "CHR"):
+        for event in individual.get("events", []):
+            if event.get("type") == etype and event.get("date"):
+                return _parse_year_from_date(event["date"])
     return None
 
 

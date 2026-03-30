@@ -108,6 +108,7 @@ Complete AI personas for ongoing genealogical work.
 |------|-------------|
 | [vibe-genealogy-assistant-v4.md](assistants/vibe-genealogy-assistant-v4.md) | Warm, story-first genealogy helper |
 | [gedcom-analysis-v3.md](assistants/gedcom-analysis-v3.md) | GEDCOM file analysis specialist |
+| [gedcom-builder-v1.md](assistants/gedcom-builder-v1.md) | GEDCOM file creation from research data (**new**) |
 
 ---
 

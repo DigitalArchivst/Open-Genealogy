@@ -1,0 +1,179 @@
+0 HEAD
+1 SOUR CLAUDE_CODE_GEDCOM
+2 VERS 1.0
+2 NAME Claude Code GEDCOM Skill
+1 DEST ANY
+1 DATE 30 MAR 2026
+1 GEDC
+2 VERS 5.5.1
+2 FORM LINEAGE-LINKED
+1 CHAR UTF-8
+1 SUBM @U1@
+0 @U1@ SUBM
+1 NAME Your Name
+0 @I1@ INDI
+1 NAME William /Whitchurch/
+2 GIVN William
+2 SURN Whitchurch
+1 SEX M
+1 BAPM
+2 DATE 18 SEP 1580
+2 PLAC Steeple Ashton, Wiltshire, England
+2 SOUR @S1@
+3 PAGE PR, f.3r
+1 WILL
+2 DATE 14 MAR 1649/50
+2 PLAC Steeple Ashton, Wiltshire, England
+1 PROB
+2 DATE 22 MAY 1650
+2 PLAC Wiltshire, England
+2 SOUR @S2@
+3 PAGE TNA PROB 11/189
+1 BURI
+2 DATE 20 MAR 1649/50
+2 PLAC Steeple Ashton, Wiltshire, England
+2 SOUR @S1@
+3 PAGE PR, f.42r; described as 'senior'
+1 FAMS @F1@
+1 NOTE Described as 'senior' in burial register, distinguishing from son William (I4).
+0 @I2@ INDI
+1 NAME [Living] /[Living]/
+2 GIVN [Living]
+2 SURN [Living]
+1 SEX F
+1 FAMS @F1@
+0 @I3@ INDI
+1 NAME Robert /Whitchurch/
+2 GIVN Robert
+2 SURN Whitchurch
+1 SEX M
+1 BAPM
+2 DATE 3 MAY 1606
+2 PLAC Steeple Ashton, Wiltshire, England
+2 SOUR @S1@
+3 PAGE PR, f.14v
+1 FAMC @F1@
+2 PEDI birth
+1 FAMS @F2@
+1 NOTE Named as 'my son Robert' and appointed executor in will of William Whitchurch (I1), 1649/50.
+0 @I4@ INDI
+1 NAME William /Whitchurch/
+2 GIVN William
+2 SURN Whitchurch
+1 SEX M
+1 BAPM
+2 DATE 22 SEP 1608
+2 PLAC Steeple Ashton, Wiltshire, England
+2 SOUR @S1@
+3 PAGE PR, f.16r
+1 FAMC @F1@
+2 PEDI birth
+1 FAMS @F3@
+1 NOTE Son of William Whitchurch senior (I1). Named in father's will of 1649/50 as 'my son William.' Distinguished from father by burial descriptor 'senior' on I1.
+0 @I5@ INDI
+1 NAME Joan /Whitchurch/
+2 GIVN Joan
+2 SURN Whitchurch
+1 SEX F
+1 BAPM
+2 DATE 11 JAN 1610/11
+2 PLAC Steeple Ashton, Wiltshire, England
+2 SOUR @S1@
+3 PAGE PR, f.17v
+1 FAMC @F1@
+2 PEDI birth
+1 NOTE Named as 'my daughter Joan' in will of William Whitchurch (I1), 1649/50.
+0 @I6@ INDI
+1 NAME [Living] /[Living]/
+2 GIVN [Living]
+2 SURN [Living]
+1 SEX F
+1 FAMS @F2@
+0 @I7@ INDI
+1 NAME Samuel /Whitchurch/
+2 GIVN Samuel
+2 SURN Whitchurch
+1 SEX M
+1 BAPM
+2 DATE 8 MAR 1636/37
+2 PLAC Steeple Ashton, Wiltshire, England
+2 SOUR @S1@
+3 PAGE PR, f.33r
+1 FAMC @F2@
+2 PEDI birth
+0 @I8@ INDI
+1 NAME Anne /Whitchurch/
+2 GIVN Anne
+2 SURN Whitchurch
+1 SEX F
+1 BAPM
+2 DATE 15 APR 1640
+2 PLAC Steeple Ashton, Wiltshire, England
+2 SOUR @S1@
+3 PAGE PR, f.35v
+1 FAMC @F2@
+2 PEDI birth
+1 NOTE Daughter of Robert Whitchurch (I3). Second Anne in the family -- grandmother Anne (I2) was buried 1643.
+0 @I9@ INDI
+1 NAME Joan /Whitchurch/
+2 GIVN Joan
+2 SURN Whitchurch
+1 SEX F
+1 BAPM
+2 DATE 2 FEB 1645/46
+2 PLAC Steeple Ashton, Wiltshire, England
+2 SOUR @S1@
+3 PAGE PR, f.38r
+1 FAMC @F3@
+2 PEDI birth
+0 @I10@ INDI
+1 NAME [Living] /[Living]/
+2 GIVN [Living]
+2 SURN [Living]
+1 SEX F
+1 FAMS @F3@
+0 @F1@ FAM
+1 HUSB @I1@
+1 WIFE @I2@
+1 CHIL @I3@
+1 CHIL @I4@
+1 CHIL @I5@
+1 MARR
+2 DATE 15 OCT 1601
+2 PLAC Steeple Ashton, Wiltshire, England
+2 SOUR @S1@
+3 PAGE PR, f.8r; by banns
+1 NOTE Family established by marriage register (1601) and confirmed by will of William Whitchurch senior (1649/50), which names wife Anne, son Robert (executor), son William, and daughter Joan.
+1 SOUR @S2@
+2 PAGE Will of William Whitchurch, 14 Mar 1649/50: names wife Anne, son Robert, son William, daughter Joan
+2 QUAY 3
+0 @F2@ FAM
+1 HUSB @I3@
+1 WIFE @I6@
+1 CHIL @I7@
+1 CHIL @I8@
+1 MARR
+2 DATE 22 NOV 1635
+2 PLAC Steeple Ashton, Wiltshire, England
+2 SOUR @S1@
+3 PAGE PR, f.31v; by licence
+0 @F3@ FAM
+1 HUSB @I4@
+1 WIFE @I10@
+1 CHIL @I9@
+1 NOTE No marriage entry found in register. Family inferred from baptism entries naming William Whitchurch as father, post-1643 (after burial of William senior). Wife Anne identified by co-occurrence as mother.
+0 @S1@ SOUR
+1 TITL Parish Register, Steeple Ashton, Wiltshire
+1 REPO @R1@
+1 NOTE Manuscript register covering baptisms, marriages, and burials 1577-1800.
+0 @S2@ SOUR
+1 TITL Will of William Whitchurch of Steeple Ashton, 1649/50
+1 REPO @R2@
+1 NOTE Probate copy. Will dated 14 March 1649/50, proved 22 May 1650.
+0 @R1@ REPO
+1 NAME Wiltshire and Swindon Archives
+1 ADDR Cocklebury Road, Chippenham, Wiltshire SN15 3QN, England
+0 @R2@ REPO
+1 NAME The National Archives
+1 ADDR Kew, Richmond, Surrey TW9 4DU, England
+0 TRLR

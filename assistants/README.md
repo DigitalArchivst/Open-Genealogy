@@ -7,7 +7,8 @@ Complete AI assistant configurations that create ongoing personas for genealogic
 | Assistant | Purpose | Best For |
 |-----------|---------|----------|
 | [vibe-genealogy-assistant-v4.md](vibe-genealogy-assistant-v4.md) | Warm, story-first genealogy helper | Beginners, family history exploration, GEDCOM analysis |
-| [gedcom-analysis-v3.md](gedcom-analysis-v3.md) | GEDCOM file specialist | Understanding family tree files, finding research opportunities |
+| [gedcom-analysis-v3.md](gedcom-analysis-v3.md) | GEDCOM file analysis | Understanding family tree files, finding research opportunities |
+| [gedcom-builder-v1.md](gedcom-builder-v1.md) | GEDCOM file creation | Turning research data into importable GEDCOM files |
 
 ## How to Use
 

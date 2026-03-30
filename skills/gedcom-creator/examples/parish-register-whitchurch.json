@@ -1,0 +1,333 @@
+{
+  "submitter": "Your Name",
+  "individuals": [
+    {
+      "id": "I1",
+      "given": "William",
+      "surname": "Whitchurch",
+      "prefix": "",
+      "suffix": "",
+      "nickname": "",
+      "sex": "M",
+      "events": [
+        {
+          "type": "BAPM",
+          "date": "18 SEP 1580",
+          "place": "Steeple Ashton, Wiltshire, England",
+          "source_id": "S1",
+          "source_page": "PR, f.3r"
+        },
+        {
+          "type": "WILL",
+          "date": "14 MAR 1649/50",
+          "place": "Steeple Ashton, Wiltshire, England"
+        },
+        {
+          "type": "PROB",
+          "date": "22 MAY 1650",
+          "place": "Wiltshire, England",
+          "source_id": "S2",
+          "source_page": "TNA PROB 11/189"
+        },
+        {
+          "type": "BURI",
+          "date": "20 MAR 1649/50",
+          "place": "Steeple Ashton, Wiltshire, England",
+          "source_id": "S1",
+          "source_page": "PR, f.42r; described as 'senior'"
+        }
+      ],
+      "notes": [
+        "Described as 'senior' in burial register, distinguishing from son William (I4)."
+      ],
+      "family_child": "",
+      "family_child_pedi": "",
+      "family_spouse": ["F1"]
+    },
+    {
+      "id": "I2",
+      "given": "Anne",
+      "surname": "Whitchurch",
+      "prefix": "",
+      "suffix": "",
+      "nickname": "",
+      "sex": "F",
+      "events": [
+        {
+          "type": "BURI",
+          "date": "14 JUN 1643",
+          "place": "Steeple Ashton, Wiltshire, England",
+          "source_id": "S1",
+          "source_page": "PR, f.43v; described as 'wife of William'"
+        }
+      ],
+      "notes": [
+        "Maiden surname unknown. Identified as wife of William Whitchurch (I1) by burial descriptor 'wife of William' and co-occurrence as mother in baptism entries 1601-1615."
+      ],
+      "family_child": "",
+      "family_child_pedi": "",
+      "family_spouse": ["F1"]
+    },
+    {
+      "id": "I3",
+      "given": "Robert",
+      "surname": "Whitchurch",
+      "prefix": "",
+      "suffix": "",
+      "nickname": "",
+      "sex": "M",
+      "events": [
+        {
+          "type": "BAPM",
+          "date": "3 MAY 1606",
+          "place": "Steeple Ashton, Wiltshire, England",
+          "source_id": "S1",
+          "source_page": "PR, f.14v"
+        }
+      ],
+      "notes": [
+        "Named as 'my son Robert' and appointed executor in will of William Whitchurch (I1), 1649/50."
+      ],
+      "family_child": "F1",
+      "family_child_pedi": "birth",
+      "family_spouse": ["F2"]
+    },
+    {
+      "id": "I4",
+      "given": "William",
+      "surname": "Whitchurch",
+      "prefix": "",
+      "suffix": "",
+      "nickname": "",
+      "sex": "M",
+      "events": [
+        {
+          "type": "BAPM",
+          "date": "22 SEP 1608",
+          "place": "Steeple Ashton, Wiltshire, England",
+          "source_id": "S1",
+          "source_page": "PR, f.16r"
+        }
+      ],
+      "notes": [
+        "Son of William Whitchurch senior (I1). Named in father's will of 1649/50 as 'my son William.' Distinguished from father by burial descriptor 'senior' on I1."
+      ],
+      "family_child": "F1",
+      "family_child_pedi": "birth",
+      "family_spouse": ["F3"]
+    },
+    {
+      "id": "I5",
+      "given": "Joan",
+      "surname": "Whitchurch",
+      "prefix": "",
+      "suffix": "",
+      "nickname": "",
+      "sex": "F",
+      "events": [
+        {
+          "type": "BAPM",
+          "date": "11 JAN 1610/11",
+          "place": "Steeple Ashton, Wiltshire, England",
+          "source_id": "S1",
+          "source_page": "PR, f.17v"
+        }
+      ],
+      "notes": [
+        "Named as 'my daughter Joan' in will of William Whitchurch (I1), 1649/50."
+      ],
+      "family_child": "F1",
+      "family_child_pedi": "birth",
+      "family_spouse": []
+    },
+    {
+      "id": "I6",
+      "given": "Jane",
+      "surname": "Harding",
+      "prefix": "",
+      "suffix": "",
+      "nickname": "",
+      "sex": "F",
+      "events": [],
+      "notes": [
+        "Maiden surname from marriage register entry."
+      ],
+      "family_child": "",
+      "family_child_pedi": "",
+      "family_spouse": ["F2"]
+    },
+    {
+      "id": "I7",
+      "given": "Samuel",
+      "surname": "Whitchurch",
+      "prefix": "",
+      "suffix": "",
+      "nickname": "",
+      "sex": "M",
+      "events": [
+        {
+          "type": "BAPM",
+          "date": "8 MAR 1636/37",
+          "place": "Steeple Ashton, Wiltshire, England",
+          "source_id": "S1",
+          "source_page": "PR, f.33r"
+        }
+      ],
+      "notes": [],
+      "family_child": "F2",
+      "family_child_pedi": "birth",
+      "family_spouse": []
+    },
+    {
+      "id": "I8",
+      "given": "Anne",
+      "surname": "Whitchurch",
+      "prefix": "",
+      "suffix": "",
+      "nickname": "",
+      "sex": "F",
+      "events": [
+        {
+          "type": "BAPM",
+          "date": "15 APR 1640",
+          "place": "Steeple Ashton, Wiltshire, England",
+          "source_id": "S1",
+          "source_page": "PR, f.35v"
+        }
+      ],
+      "notes": [
+        "Daughter of Robert Whitchurch (I3). Second Anne in the family -- grandmother Anne (I2) was buried 1643."
+      ],
+      "family_child": "F2",
+      "family_child_pedi": "birth",
+      "family_spouse": []
+    },
+    {
+      "id": "I9",
+      "given": "Joan",
+      "surname": "Whitchurch",
+      "prefix": "",
+      "suffix": "",
+      "nickname": "",
+      "sex": "F",
+      "events": [
+        {
+          "type": "BAPM",
+          "date": "2 FEB 1645/46",
+          "place": "Steeple Ashton, Wiltshire, England",
+          "source_id": "S1",
+          "source_page": "PR, f.38r"
+        }
+      ],
+      "notes": [],
+      "family_child": "F3",
+      "family_child_pedi": "birth",
+      "family_spouse": []
+    },
+    {
+      "id": "I10",
+      "given": "Anne",
+      "surname": "",
+      "prefix": "",
+      "suffix": "",
+      "nickname": "",
+      "sex": "F",
+      "events": [],
+      "notes": [
+        "Wife of William Whitchurch junior (I4). Maiden surname unknown. Identified by co-occurrence as mother in baptism entries from 1643 onward."
+      ],
+      "family_child": "",
+      "family_child_pedi": "",
+      "family_spouse": ["F3"]
+    }
+  ],
+  "families": [
+    {
+      "id": "F1",
+      "spouse1": "I1",
+      "spouse2": "I2",
+      "children": ["I3", "I4", "I5"],
+      "events": [
+        {
+          "type": "MARR",
+          "date": "15 OCT 1601",
+          "place": "Steeple Ashton, Wiltshire, England",
+          "source_id": "S1",
+          "source_page": "PR, f.8r; by banns"
+        }
+      ],
+      "source_citations": [
+        {
+          "source_id": "S2",
+          "source_page": "Will of William Whitchurch, 14 Mar 1649/50: names wife Anne, son Robert, son William, daughter Joan",
+          "quality": 3
+        }
+      ],
+      "notes": [
+        "Family established by marriage register (1601) and confirmed by will of William Whitchurch senior (1649/50), which names wife Anne, son Robert (executor), son William, and daughter Joan."
+      ]
+    },
+    {
+      "id": "F2",
+      "spouse1": "I3",
+      "spouse2": "I6",
+      "children": ["I7", "I8"],
+      "events": [
+        {
+          "type": "MARR",
+          "date": "22 NOV 1635",
+          "place": "Steeple Ashton, Wiltshire, England",
+          "source_id": "S1",
+          "source_page": "PR, f.31v; by licence"
+        }
+      ],
+      "source_citations": [],
+      "notes": []
+    },
+    {
+      "id": "F3",
+      "spouse1": "I4",
+      "spouse2": "I10",
+      "children": ["I9"],
+      "events": [],
+      "source_citations": [],
+      "notes": [
+        "No marriage entry found in register. Family inferred from baptism entries naming William Whitchurch as father, post-1643 (after burial of William senior). Wife Anne identified by co-occurrence as mother."
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Parish Register, Steeple Ashton, Wiltshire",
+      "author": "",
+      "publication": "",
+      "repository_id": "R1",
+      "notes": [
+        "Manuscript register covering baptisms, marriages, and burials 1577-1800."
+      ]
+    },
+    {
+      "id": "S2",
+      "title": "Will of William Whitchurch of Steeple Ashton, 1649/50",
+      "author": "",
+      "publication": "",
+      "repository_id": "R2",
+      "notes": [
+        "Probate copy. Will dated 14 March 1649/50, proved 22 May 1650."
+      ]
+    }
+  ],
+  "repositories": [
+    {
+      "id": "R1",
+      "name": "Wiltshire and Swindon Archives",
+      "address": "Cocklebury Road, Chippenham, Wiltshire SN15 3QN, England"
+    },
+    {
+      "id": "R2",
+      "name": "The National Archives",
+      "address": "Kew, Richmond, Surrey TW9 4DU, England"
+    }
+  ]
+}
