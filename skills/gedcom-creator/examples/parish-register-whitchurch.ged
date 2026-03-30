@@ -37,11 +37,17 @@
 1 FAMS @F1@
 1 NOTE Described as 'senior' in burial register, distinguishing from son William (I4).
 0 @I2@ INDI
-1 NAME [Living] /[Living]/
-2 GIVN [Living]
-2 SURN [Living]
+1 NAME Anne /Whitchurch/
+2 GIVN Anne
+2 SURN Whitchurch
 1 SEX F
+1 BURI
+2 DATE 14 JUN 1643
+2 PLAC Steeple Ashton, Wiltshire, England
+2 SOUR @S1@
+3 PAGE PR, f.43v; described as 'wife of William'
 1 FAMS @F1@
+1 NOTE Maiden surname unknown. Identified as wife of William Whitchurch (I1) by burial descriptor 'wife of William' and co-occurrence as mother in baptism entries 1601-1615.
 0 @I3@ INDI
 1 NAME Robert /Whitchurch/
 2 GIVN Robert

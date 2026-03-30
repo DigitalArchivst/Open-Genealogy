@@ -106,7 +106,12 @@ Parse tabular data into the canonical JSON format.
 - **NEVER narrow imprecise dates** ("the 1920s" is NOT "ABT 1925")
 - When the same name appears multiple times, treat as the same
   person unless context indicates otherwise. If ambiguous, ASK.
-- When input contains contradictory facts, HALT and ask the user
+- **Contradictions across sources:** When different documents disagree,
+  present both readings and ask the user to resolve.
+- **Contradictions within a single source:** Record the most internally
+  consistent reading. Add a NOTE documenting both values and flag it
+  in the confirmation preview. Example: "Source gives marriage as both
+  1789 and 1791. ABT 1789 used; user should verify."
 - For gender, use what the user states or `U` if unknown.
   NEVER assume gender from names.
 
@@ -161,6 +166,11 @@ disambiguation. Preserve descriptors verbatim ("senior,"
 These are primary disambiguation evidence. A burial with no
 descriptor in a period when multiple people share the name is
 genuinely ambiguous — flag it, do not guess.
+
+**Important:** When a burial entry mentions a person (e.g., "Anne,
+wife of William"), ensure that person gets a BURI event on their
+own INDI record — not just a mention in someone else's NOTE. This
+helps the living-person filter correctly identify them as deceased.
 
 **Wills (supplementary):**
 
@@ -223,7 +233,9 @@ ambiguities in the confirmation step for the user to resolve.
 | "after 1865" / "since 1865" | `AFT 1865` |
 | "between 1860 and 1870" | `BET 1860 AND 1870` |
 | "the 1860s" | `BET 1860 AND 1869` |
+| "from 1870 to 1880" / service period | `FROM 1870 TO 1880` |
 | "mid-1800s" or vague decades | **ASK the user** |
+| "aged 20 at marriage in 1789" | `CAL 1769` (calculated from stated age) |
 | "2 Feb 1731/32" (dual-dating) | `2 FEB 1731/32` |
 
 ### Step 3: Show Confirmation (MANDATORY)
@@ -362,16 +374,68 @@ Individual events (under INDI):
 Family events (under FAM):
 `MARR`, `DIV`
 
+### Event Parsing Conventions
+
+| Tag | What to extract | Date | Common in |
+| --- | --------------- | ---- | --------- |
+| `MILI` | Military service, rank | Service period (`FROM...TO`) | Biographies, obituaries, pensions |
+| `PROB` | Probate of a will | Probate date (not will date) | Court records, will tables |
+| `WILL` | Writing of a will | Date will was written | Will tables (separate from PROB) |
+| `OCCU` | Occupation or profession | Period if known | Census, directories, obituaries |
+| `RESI` | Residence | Period of residence | Census, directories, letters |
+
+For PROB and WILL from the same document: create both events on
+the same individual. The will-writing date goes on WILL; the
+probate date goes on PROB.
+
+### Nested Sources
+
+When the user's input is an authored source (newspaper article,
+biography, county history) that describes a derivative source
+(a will, deed, court record), create separate SOUR records:
+
+```json
+"sources": [
+  {
+    "id": "S1",
+    "title": "Springfield Gazette, 14 May 1909",
+    "author": "William Curtis",
+    "notes": ["Authored source; secondary information for events"]
+  },
+  {
+    "id": "S2",
+    "title": "Will of John Smith, 1794",
+    "notes": ["Derivative source, described in S1"]
+  }
+]
+```
+
+Cite S1 on events described in the article (BIRT, DEAT, MILI).
+Cite S2 on relationships established by the will (FAM-level SOUR).
+This preserves the citation chain a researcher needs to follow
+back to the original document.
+
 ### Living Person Handling
 
-The Python script auto-redacts presumed-living individuals:
+The Python script auto-redacts presumed-living individuals using
+a layered detection system:
 
-- No death event AND birth within 110 years → living
-- No death event AND no birth date → presume living
-- Redaction: NAME becomes `[Living] /[Living]/`, events stripped
+1. **Death indicators:** DEAT, BURI, PROB, or WILL event → deceased
+2. **Birth year:** BIRT/BAPM/CHR date 110+ years ago → deceased
+3. **Any-event inference:** OCCU in 1794 → born no later than 1779
+   → deceased. Uses minimum-age assumptions per event type.
+4. **Default:** No dates, no death evidence → presume living
 
-The user can override with `--include-living` flag if creating a
-private file. Warn them if they do.
+Redaction: NAME becomes `[Living] /[Living]/`, events stripped.
+
+**Override flags:**
+
+- `--all-deceased` — skip all redaction (for historical sources
+  where everyone is obviously deceased)
+- `--deceased-before YEAR` — treat individuals with all events
+  before YEAR as deceased (for mixed modern/historical datasets)
+- `--include-living` — skip all redaction (legacy flag; prefer
+  `--all-deceased` for historical data)
 
 ### Size Limits (v1)
 

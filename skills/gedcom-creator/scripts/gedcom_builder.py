@@ -135,24 +135,43 @@ def sanitize_value(value):
 # Living person detection
 # ---------------------------------------------------------------------------
 
+DEATH_INDICATORS = {"DEAT", "BURI", "PROB", "WILL"}
+
+# Minimum plausible age for non-birth events (for era inference)
+EVENT_MIN_AGE = {
+    "BIRT": 0, "BAPM": 0, "CHR": 0, "DEAT": 0, "BURI": 0,
+    "RESI": 0, "CENS": 0, "ADOP": 0, "IMMI": 0, "EMIG": 0,
+    "OCCU": 15, "MILI": 15, "NATU": 15,
+    "MARR": 14, "WILL": 18, "PROB": 18,
+}
+
+
 def is_presumed_living(individual):
     """Determine if an individual should be treated as living.
 
-    Conservative default: presume living unless death is confirmed.
+    Conservative default: presume living unless death is confirmed
+    or all evidence places the person in a historical era.
     """
-    # Check for death event
+    # Step 1: Death-indicating events (DEAT, BURI, PROB, WILL)
     for event in individual.get("events", []):
-        if event.get("type") == "DEAT":
-            return False  # Has death event — deceased
+        if event.get("type") in DEATH_INDICATORS:
+            return False
 
-    # Check birth year against threshold
+    # Step 2: Birth year check (BIRT, BAPM, CHR)
     birth_year = _extract_year(individual)
     if birth_year:
         current_year = date.today().year
         if current_year - birth_year >= LIVING_THRESHOLD_YEARS:
-            return False  # Born 110+ years ago, no death — still flag as deceased
+            return False
 
-    # No death event, and either young enough or no birth date — presume living
+    # Step 3: Any-event date inference
+    latest_birth = _extract_latest_plausible_birth_year(individual)
+    if latest_birth:
+        current_year = date.today().year
+        if current_year - latest_birth >= LIVING_THRESHOLD_YEARS:
+            return False
+
+    # No death evidence, and either young enough or no dates at all
     return True
 
 
@@ -167,6 +186,37 @@ def _extract_year(individual):
             if event.get("type") == etype and event.get("date"):
                 return _parse_year_from_date(event["date"])
     return None
+
+
+def _extract_latest_plausible_birth_year(individual):
+    """Estimate the latest possible birth year from ANY dated event.
+
+    For each dated event, subtract the minimum plausible age for that
+    event type. Return the earliest result (most conservative).
+    E.g., OCCU in 1794 -> born no later than 1779.
+    """
+    latest_birth = None
+    for event in individual.get("events", []):
+        etype = event.get("type", "")
+        year = _parse_year_from_date(event.get("date", ""))
+        if year is None:
+            continue
+        min_age = EVENT_MIN_AGE.get(etype, 0)
+        implied_birth = year - min_age
+        if latest_birth is None or implied_birth < latest_birth:
+            latest_birth = implied_birth
+    return latest_birth
+
+
+def _get_latest_event_year(individual):
+    """Return the latest (most recent) event year for an individual."""
+    latest = None
+    for event in individual.get("events", []):
+        year = _parse_year_from_date(event.get("date", ""))
+        if year is not None:
+            if latest is None or year > latest:
+                latest = year
+    return latest
 
 
 def _parse_year_from_date(date_str):
@@ -209,7 +259,7 @@ def build_indi_record(ind, living_ids, sources_map):
         suffix = sanitize_value(ind.get("suffix", ""))
         nickname = sanitize_value(ind.get("nickname", ""))
 
-        name_str = f"{given} /{surname}/"
+        name_str = f"{given} /{surname}/" if given else f"/{surname}/"
         if suffix:
             name_str += f" {suffix}"
         lines.extend(split_long_value(1, "NAME", name_str))
@@ -661,7 +711,8 @@ def merge_json_files(paths):
 # Main build pipeline
 # ---------------------------------------------------------------------------
 
-def build_gedcom(data, submitter="Unknown", include_living=False):
+def build_gedcom(data, submitter="Unknown", include_living=False,
+                 all_deceased=False, deceased_before=None):
     """Build complete GEDCOM 5.5.1 from canonical JSON data."""
     report = {
         "individuals": 0, "families": 0, "sources": 0, "repositories": 0,
@@ -672,9 +723,15 @@ def build_gedcom(data, submitter="Unknown", include_living=False):
     report["repairs"] = repairs
 
     living_ids = set()
-    if not include_living:
+    skip_redaction = include_living or all_deceased
+    if not skip_redaction:
         for ind in data.get("individuals", []):
             if is_presumed_living(ind):
+                # Check --deceased-before override
+                if deceased_before is not None:
+                    latest_yr = _get_latest_event_year(ind)
+                    if latest_yr is not None and latest_yr < deceased_before:
+                        continue  # Events are historical — don't redact
                 living_ids.add(ind["id"])
                 name = f"{ind.get('given', '')} {ind.get('surname', '')}".strip()
                 birth_year = _extract_year(ind)
@@ -768,7 +825,14 @@ def main():
     parser.add_argument("--submitter", "-s", default="Unknown",
                         help="Submitter name for SUBM record")
     parser.add_argument("--include-living", action="store_true",
-                        help="Include living person details (WARNING: review before sharing)")
+                        help="Skip all redaction (WARNING: review before sharing). "
+                             "For historical data, prefer --all-deceased.")
+    parser.add_argument("--all-deceased", action="store_true",
+                        help="Treat all individuals as deceased "
+                             "(use for historical sources)")
+    parser.add_argument("--deceased-before", type=int, metavar="YEAR",
+                        help="Treat individuals with all events before "
+                             "YEAR as deceased (e.g., --deceased-before 1900)")
     args = parser.parse_args()
 
     try:
@@ -799,7 +863,11 @@ def main():
         output_path = f"{surname}-family.ged"
 
     lines, report = build_gedcom(
-        data, submitter=args.submitter, include_living=args.include_living,
+        data,
+        submitter=args.submitter,
+        include_living=args.include_living,
+        all_deceased=args.all_deceased,
+        deceased_before=args.deceased_before,
     )
 
     if report["validation_errors"]:

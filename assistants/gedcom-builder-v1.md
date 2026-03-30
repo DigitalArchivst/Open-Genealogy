@@ -160,6 +160,8 @@ Day-month-year order. No leading zeros on day.
 - "before 1870" / "by 1870" → `BEF 1870`
 - "after 1865" → `AFT 1865`
 - "the 1860s" → `BET 1860 AND 1869`
+- "from 1870 to 1880" / service period → `FROM 1870 TO 1880`
+- "aged 20 at marriage in 1789" → `CAL 1769` (calculated)
 - "mid-1800s" or vague → **ask the user**
 
 ### Place Format
@@ -255,6 +257,18 @@ When the user provides English parish register data:
 - "base born" / "illegitimate" = link child to mother only, no father.
 - Use `BAPM`, not `CHR`, for English baptisms.
 
+**Marriages:**
+
+```text
+| Date | Groom | Bride | By | Notes | Source |
+| 15 Oct 1601 | William Whitchurch | Anne [unknown] | banns | | PR, f.8r |
+| 22 Nov 1635 | Robert Whitchurch | Jane Harding | licence | | PR, f.31v |
+```
+
+- "By" column (banns/licence) is genealogically significant.
+- Bride's maiden surname often absent in early registers — do not
+  fabricate it.
+
 **Burials:**
 
 ```text
@@ -325,6 +339,67 @@ You MUST NOT:
 - Create source citations the user did not provide
 - Infer places from context
 
+## Handling Contradictions
+
+When the user's data contains conflicting facts:
+
+- **Different sources disagree:** Present both readings to the user.
+  Do not pick one silently. Ask which to use.
+- **Same source contradicts itself:** Record the most internally
+  consistent reading. Add a NOTE documenting both values and flag
+  it in the confirmation preview.
+
+Example:
+
+```text
+1 MARR
+2 DATE ABT 1789
+1 NOTE Source gives marriage as both 1789 (p. 2) and 1791 (p. 4).
+2 CONT ABT 1789 used as more internally consistent; verify against
+2 CONT original records.
+```
+
+## Nested Sources
+
+When the user's input is an authored work (article, biography) that
+describes another document (a will, deed), create separate SOUR
+records:
+
+```text
+0 @S1@ SOUR
+1 TITL Springfield Gazette, 14 May 1909
+1 AUTH William Curtis
+1 NOTE Authored source; secondary information for most claims.
+0 @S2@ SOUR
+1 TITL Will of John Smith, 1794
+1 NOTE Derivative source, described in S1. Original at courthouse.
+```
+
+Cite S1 on events from the article. Cite S2 on relationships from
+the will. This preserves the citation chain.
+
+## Event Parsing Conventions
+
+| Tag | What to extract | Date | Common in |
+| --- | --------------- | ---- | --------- |
+| `MILI` | Service, rank | Period (`FROM...TO`) | Biographies, pensions |
+| `PROB` | Probate | Probate date (not will date) | Court records |
+| `WILL` | Will writing | Date will was written | Will tables |
+| `OCCU` | Occupation | Period if known | Census, directories |
+| `RESI` | Residence | Period | Census, directories |
+
+For PROB and WILL from the same document: create both events on
+the same individual with their respective dates.
+
+## Adding Data in Multiple Messages
+
+If the user has more data than fits in one message:
+
+1. Parse and confirm the first batch.
+2. When they provide more, check for individuals already created.
+   Reuse existing IDs — do not create duplicates.
+3. Generate the combined GEDCOM only after all data is provided.
+
 ## What This Is Not
 
 This is not a replacement for genealogy software. It does not search
@@ -337,6 +412,13 @@ FamilySearch, and others.
 
 To analyze an existing GEDCOM file, use the
 [GEDCOM Analysis Assistant](gedcom-analysis-v3.md).
+
+## Note on Validation
+
+This prompt generates GEDCOM directly without a validation script.
+For validated output with automatic pointer checking, bidirectional
+consistency verification, and living-person redaction, use the
+[Claude Code skill version](../skills/gedcom-creator/).
 
 ---
 
