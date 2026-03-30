@@ -336,6 +336,18 @@ def build_fam_record(fam):
         if note:
             lines.extend(split_long_value(1, "NOTE", note))
 
+    # Family-level source citations (e.g., wills establishing relationships)
+    for src_ref in fam.get("source_citations", []):
+        src_id = src_ref.get("source_id", "")
+        if src_id:
+            lines.append(f"1 SOUR @{src_id}@")
+            page = sanitize_value(src_ref.get("source_page", ""))
+            if page:
+                lines.extend(split_long_value(2, "PAGE", page))
+            quay = src_ref.get("quality", "")
+            if quay in (0, 1, 2, 3, "0", "1", "2", "3"):
+                lines.append(f"2 QUAY {quay}")
+
     return lines
 
 
@@ -476,6 +488,13 @@ def validate(data, gedcom_lines):
                         ))
 
     for fam in data.get("families", []):
+        for src_ref in fam.get("source_citations", []):
+            src = src_ref.get("source_id", "")
+            if src and src not in sour_ids:
+                errors.append(ValidationError(
+                    "DANGLING_POINTER",
+                    f"Family {fam['id']} source_citation references {src} which does not exist"
+                ))
         for child in fam.get("children", []):
             if child:
                 ind_obj = _find_by_id(data.get("individuals", []), child)
@@ -599,6 +618,41 @@ def auto_repair_pointers(data):
 
 
 # ---------------------------------------------------------------------------
+# Multi-file merge
+# ---------------------------------------------------------------------------
+
+def merge_json_files(paths):
+    """Merge multiple canonical JSON files into one dataset."""
+    merged = {
+        "submitter": "",
+        "individuals": [],
+        "families": [],
+        "sources": [],
+        "repositories": [],
+    }
+    seen_ids = set()
+
+    for path in paths:
+        with open(path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+
+        if not merged["submitter"] and data.get("submitter"):
+            merged["submitter"] = data["submitter"]
+
+        for key in ("individuals", "families", "sources", "repositories"):
+            for record in data.get(key, []):
+                rid = record.get("id", "")
+                if rid in seen_ids:
+                    print(f"WARNING: Duplicate ID '{rid}' in {path}. "
+                          f"Keeping first occurrence.", file=sys.stderr)
+                    continue
+                seen_ids.add(rid)
+                merged[key].append(record)
+
+    return merged
+
+
+# ---------------------------------------------------------------------------
 # Main build pipeline
 # ---------------------------------------------------------------------------
 
@@ -703,7 +757,8 @@ def main():
     parser = argparse.ArgumentParser(
         description="Build GEDCOM 5.5.1 files from canonical JSON input."
     )
-    parser.add_argument("input", help="Path to canonical JSON input file")
+    parser.add_argument("input", nargs="+",
+                        help="Path(s) to canonical JSON input file(s)")
     parser.add_argument("--output", "-o", help="Output .ged file path")
     parser.add_argument("--submitter", "-s", default="Unknown",
                         help="Submitter name for SUBM record")
@@ -712,11 +767,21 @@ def main():
     args = parser.parse_args()
 
     try:
-        with open(args.input, "r", encoding="utf-8") as f:
-            data = json.load(f)
+        if len(args.input) > 1:
+            data = merge_json_files(args.input)
+        else:
+            with open(args.input[0], "r", encoding="utf-8") as f:
+                data = json.load(f)
     except (json.JSONDecodeError, FileNotFoundError) as e:
         print(f"Error reading input: {e}", file=sys.stderr)
         sys.exit(1)
+
+    # Size limit warnings
+    n_indi = len(data.get("individuals", []))
+    n_fam = len(data.get("families", []))
+    if n_indi > 200 or n_fam > 100:
+        print(f"Note: Large dataset (I:{n_indi}, F:{n_fam}). "
+              f"Output may be large.", file=sys.stderr)
 
     output_path = args.output
     if not output_path:

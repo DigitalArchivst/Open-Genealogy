@@ -83,6 +83,9 @@
 2 PLAC Richmond, Henrico County, Virginia, USA
 2 SOUR @S2@
 3 PAGE Marriage Register, Volume 3, Page 87
+1 SOUR @S2@
+2 PAGE Marriage bond confirms John Smith and Mary Jones
+2 QUAY 3
 0 @S1@ SOUR
 1 TITL 1870 United States Federal Census
 1 AUTH United States Census Bureau

@@ -110,6 +110,109 @@ Parse tabular data into the canonical JSON format.
 - For gender, use what the user states or `U` if unknown.
   NEVER assume gender from names.
 
+#### Parish Register Table Formats
+
+When the user provides data from English parish registers, expect
+these table structures:
+
+**Baptisms:**
+
+```text
+| Date | Child | Father | Mother | Notes | Source |
+| 14 Feb 1603/04 | William | William Whitchurch | | | PR, f.12r |
+| 3 May 1606 | Robert | William Whitchurch | Anne | | PR, f.14v |
+| 11 Jan 1610/11 | Samuel | William Whitchurch | | base born | PR, f.17v |
+```
+
+Parsing notes for baptisms:
+
+- Mother is frequently absent in pre-1640 registers. Do NOT infer
+  her. Treat blank as unrecorded, not "unknown wife."
+- "base born" / "bastard" / "illegitimate" means no father should
+  be assigned to the family unit. Link child to mother only.
+- Use `BAPM` (baptism) for English parish register entries, not
+  `CHR` (christening) unless the register explicitly says christening.
+- Folio references (f.12r, f.14v) are standard manuscript citations.
+
+**Marriages:**
+
+```text
+| Date | Groom | Bride | By | Notes | Source |
+| 15 Oct 1601 | William Whitchurch | Anne [unknown] | banns | | PR, f.8r |
+| 22 Nov 1635 | Robert Whitchurch | Jane Harding | licence | | PR, f.31v |
+```
+
+Parsing notes: "By" column (banns/licence) is genealogically
+significant. Bride's maiden surname is often absent in early
+registers — do NOT fabricate it.
+
+**Burials:**
+
+```text
+| Date | Name | Descriptor | Notes | Source |
+| 8 Mar 1641/42 | William Whitchurch | senior | | PR, f.42r |
+| 14 Jun 1643 | Anne Whitchurch | wife of William | | PR, f.43v |
+| 2 Dec 1680 | William Whitchurch | | | PR, f.67r |
+```
+
+Parsing notes: The **Descriptor column is critical** for
+disambiguation. Preserve descriptors verbatim ("senior,"
+"the elder," "wife of William," "widow," "son of Robert").
+These are primary disambiguation evidence. A burial with no
+descriptor in a period when multiple people share the name is
+genuinely ambiguous — flag it, do not guess.
+
+**Wills (supplementary):**
+
+```text
+| Date | Testator | Relationships | Probate | Source |
+| 12 Jan 1641/42 | William Whitchurch | wife Anne; son Robert; son William; dau Joan | 3 Apr 1642 | TNA PROB 11/189 |
+```
+
+The Relationships column provides direct evidence for family
+links. Each named relationship becomes a source citation on the
+FAM record (see Family-Level Source Citations below).
+
+#### Name Disambiguation for Recycled Names
+
+When processing registers where the same given names repeat across
+generations (e.g., successive William Whitchurches), maintain a
+mental "person register" with active date windows:
+
+**Step 1: Assign active windows.**
+Each known individual gets a plausible active range:
+baptism + 16 years to baptism + 55 years (for fathering children).
+
+**Step 2: When a new entry names a person, check candidates.**
+
+- **Exactly one candidate** in the active window: assign
+  tentatively. Add a NOTE: "Assigned to [ID] based on date
+  plausibility."
+- **Zero candidates**: create a new individual. Add a NOTE:
+  "New individual — no existing candidate in active window."
+- **Multiple candidates**: DO NOT ASSIGN. Flag as ambiguous:
+  "AMBIGUOUS: [entry] could be [I3] (bapt. 1580) or [I7]
+  (bapt. 1610). User must resolve."
+
+**Step 3: Use register descriptors as primary evidence.**
+"Senior" / "junior" / "the elder" / "wife of" / "son of" —
+these disambiguate directly. Note: in English registers,
+senior/junior means elder/younger currently alive in the parish,
+NOT necessarily father/son.
+
+**Step 4: Use wills to confirm or resolve.**
+A will naming "my son William" written by a William who was
+buried the following week is direct relationship evidence.
+
+**Step 5: Use spousal co-occurrence.**
+If baptism entries name the mother as "Anne" from 1601-1615 and
+"Joan" from 1618-1630, check the burial register for an Anne
+between 1615-1618. If found: one man, sequential wives. If not:
+possibly two different men.
+
+**NEVER silently merge ambiguous individuals.** Present all
+ambiguities in the confirmation step for the user to resolve.
+
 #### Date Mapping
 
 | User says | GEDCOM output |
@@ -226,6 +329,7 @@ This is what you produce; the Python script consumes it.
           "place": "Richmond, Henrico County, Virginia, USA"
         }
       ],
+      "source_citations": [],
       "notes": []
     }
   ],
@@ -277,8 +381,86 @@ private file. Warn them if they do.
 | Families | 100 |
 | Sources | 50 |
 
-If input exceeds limits, warn and suggest splitting into multiple
-files.
+If input exceeds limits, use batch mode (below).
+
+## Batch Mode (Multi-Source Input)
+
+When the user is processing a large source (parish register, set of
+wills, census pages) that exceeds a single prompt:
+
+1. **Parse each batch independently** to canonical JSON.
+2. **Write each batch** to a numbered file:
+   `<project>-batch-01.json`, `<project>-batch-02.json`, etc.
+3. **Show a running summary** after each batch:
+   "Batch 2: 18 individuals, 4 families. Running total: 38 I, 9 F."
+4. **Before writing a new batch**, read prior batch files to check
+   for existing individuals. Reference their existing ID — do NOT
+   create duplicates.
+5. **Generate once at the end** with all batch files:
+
+```bash
+python scripts/gedcom_builder.py batch-01.json batch-02.json \
+  --output parish-register.ged --submitter "User Name"
+```
+
+The script merges all files, checks for duplicate IDs, and
+validates the combined graph.
+
+**ID convention:** Each batch starts numbering where the previous
+ended. Read the last batch file to determine next available IDs.
+
+**Suggest batch mode when:**
+
+- User mentions a register, collection, or set of documents
+- Input would exceed ~50 individuals in a single prompt
+- User says "I have more to add" or "there are 20 wills too"
+
+## Family-Level Source Citations
+
+When a source (such as a will) establishes a family relationship
+rather than an individual event, attach the citation to the FAM
+record — not to an individual's event.
+
+The family JSON supports `source_citations`:
+
+```json
+{
+  "id": "F1",
+  "spouse1": "I1",
+  "spouse2": "",
+  "children": ["I2", "I3"],
+  "events": [],
+  "source_citations": [
+    {
+      "source_id": "S1",
+      "source_page": "Will names 'my son Robert' as executor",
+      "quality": 3
+    }
+  ],
+  "notes": [
+    "Relationship established by will of William Whitchurch (1650). Names Robert as son and executor."
+  ]
+}
+```
+
+This produces GEDCOM:
+
+```text
+0 @F1@ FAM
+1 HUSB @I1@
+1 CHIL @I2@
+1 CHIL @I3@
+1 NOTE Relationship established by will of William Whitchurch...
+1 SOUR @S1@
+2 PAGE Will names 'my son Robert' as executor
+2 QUAY 3
+```
+
+**QUAY values:** 0=unreliable, 1=questionable, 2=secondary,
+3=direct and primary. A testator naming his own children is QUAY 3.
+
+Use this pattern for wills, settlements, court records, or any
+source that directly establishes who belongs to a family.
 
 ## Anti-Fabrication Rules
 
