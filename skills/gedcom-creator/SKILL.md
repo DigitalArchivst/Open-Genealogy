@@ -252,8 +252,8 @@ This is what you produce; the Python script consumes it.
 ### Supported Event Types
 
 Individual events (under INDI):
-`BIRT`, `DEAT`, `BURI`, `CHR`, `RESI`, `OCCU`, `CENS`,
-`IMMI`, `EMIG`, `NATU`, `MILI`, `PROB`, `WILL`
+`BIRT`, `DEAT`, `BURI`, `CHR`, `BAPM`, `RESI`, `OCCU`, `CENS`,
+`IMMI`, `EMIG`, `NATU`, `MILI`, `PROB`, `WILL`, `ADOP`
 
 Family events (under FAM):
 `MARR`, `DIV`

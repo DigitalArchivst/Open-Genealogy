@@ -31,8 +31,8 @@ LIVING_THRESHOLD_YEARS = 110
 CRLF = "\r\n"
 
 VALID_INDI_EVENTS = {
-    "BIRT", "DEAT", "BURI", "CHR", "RESI", "OCCU",
-    "CENS", "IMMI", "EMIG", "NATU", "MILI", "PROB", "WILL",
+    "BIRT", "DEAT", "BURI", "CHR", "BAPM", "RESI", "OCCU",
+    "CENS", "IMMI", "EMIG", "NATU", "MILI", "PROB", "WILL", "ADOP",
 }
 VALID_FAM_EVENTS = {"MARR", "DIV"}
 
