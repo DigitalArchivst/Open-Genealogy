@@ -330,6 +330,185 @@ class TestExampleRegression(unittest.TestCase):
                          "parish-register output differs from expected .ged")
 
 
+class TestLivingWillNotDeceased(unittest.TestCase):
+    """v1.3 bug fix: WILL event must NOT classify a person as deceased."""
+
+    def test_living_person_with_will_is_redacted(self):
+        """A living person who drafted a will should still be redacted."""
+        data = {
+            "individuals": [{
+                "id": "I1", "given": "John", "surname": "Modern",
+                "sex": "M",
+                "events": [
+                    {"type": "BIRT", "date": "15 MAR 1960", "place": "Virginia"},
+                    {"type": "WILL", "date": "1 MAR 2022", "place": "Virginia"},
+                ],
+                "family_child": "", "family_spouse": [],
+            }],
+            "families": [], "sources": [], "repositories": [],
+        }
+        lines, report = _build(data)
+        self.assertEqual(len(report["redactions"]), 1,
+                         "Living person with WILL should be redacted")
+        self.assertIn("[Living]", _ged_text(lines))
+
+    def test_historical_will_still_deceased_via_inference(self):
+        """A historical will (1642) with no other death evidence should
+        still be classified as deceased via any-event date inference."""
+        data = {
+            "individuals": [{
+                "id": "I1", "given": "William", "surname": "Whitchurch",
+                "sex": "M",
+                "events": [
+                    {"type": "WILL", "date": "12 JAN 1641", "place": "Somewhere"},
+                ],
+                "family_child": "", "family_spouse": [],
+            }],
+            "families": [], "sources": [], "repositories": [],
+        }
+        lines, report = _build(data)
+        self.assertEqual(len(report["redactions"]), 0,
+                         "1641 will should infer historical era — not redacted")
+        self.assertIn("William /Whitchurch/", _ged_text(lines))
+
+    def test_prob_still_indicates_death(self):
+        """PROB (probate) should still indicate death — only WILL was removed."""
+        data = {
+            "individuals": [{
+                "id": "I1", "given": "Jane", "surname": "Doe",
+                "sex": "F",
+                "events": [
+                    {"type": "BIRT", "date": "1960"},
+                    {"type": "PROB", "date": "2024"},
+                ],
+                "family_child": "", "family_spouse": [],
+            }],
+            "families": [], "sources": [], "repositories": [],
+        }
+        lines, report = _build(data)
+        self.assertEqual(len(report["redactions"]), 0,
+                         "PROB should still classify as deceased")
+        self.assertIn("Jane /Doe/", _ged_text(lines))
+
+
+class TestDeceasedBeforeUndated(unittest.TestCase):
+    """v1.3 bug fix: --deceased-before with undated individuals."""
+
+    def test_undated_individual_exempted(self):
+        """An undated individual should NOT be redacted when
+        --deceased-before is set."""
+        data = {
+            "individuals": [{
+                "id": "I1", "given": "Unknown", "surname": "Person",
+                "sex": "U", "events": [],
+                "family_child": "", "family_spouse": [],
+            }],
+            "families": [], "sources": [], "repositories": [],
+        }
+        lines, report = _build(data, deceased_before=1600)
+        self.assertEqual(len(report["redactions"]), 0,
+                         "Undated individual with --deceased-before should not be redacted")
+        self.assertIn("Unknown /Person/", _ged_text(lines))
+
+    def test_dated_above_threshold_still_redacted(self):
+        """An individual with events ABOVE the deceased-before threshold
+        should still be redacted if otherwise presumed living."""
+        data = {
+            "individuals": [{
+                "id": "I1", "given": "Recent", "surname": "Person",
+                "sex": "M",
+                "events": [{"type": "BIRT", "date": "1990"}],
+                "family_child": "", "family_spouse": [],
+            }],
+            "families": [], "sources": [], "repositories": [],
+        }
+        lines, report = _build(data, deceased_before=1900)
+        self.assertEqual(len(report["redactions"]), 1,
+                         "Person born 1990 with --deceased-before 1900 should still be redacted")
+
+
+class TestCONTEmission(unittest.TestCase):
+    """v1.3 feature: embedded newlines in notes produce CONT lines."""
+
+    def test_multiline_note_produces_cont(self):
+        """A note with embedded newlines should emit CONT lines."""
+        data = {
+            "individuals": [{
+                "id": "I1", "given": "Test", "surname": "CONT",
+                "sex": "M",
+                "events": [{"type": "BIRT", "date": "1800"},
+                           {"type": "DEAT", "date": "1870"}],
+                "notes": ["First paragraph.\nSecond paragraph.\nThird paragraph."],
+                "family_child": "", "family_spouse": [],
+            }],
+            "families": [], "sources": [], "repositories": [],
+        }
+        lines, report = _build(data)
+        ged = _ged_text(lines)
+        self.assertIn("1 NOTE First paragraph.", ged)
+        self.assertIn("2 CONT Second paragraph.", ged)
+        self.assertIn("2 CONT Third paragraph.", ged)
+
+
+class TestAutoRepairWarning(unittest.TestCase):
+    """v1.3 fix: auto-repair logs warning when both spouse slots filled."""
+
+    def test_third_spouse_logs_warning(self):
+        """If three individuals claim FAMS to the same family,
+        auto-repair should log a warning for the third."""
+        data = {
+            "individuals": [
+                {"id": "I1", "given": "A", "surname": "X", "sex": "M",
+                 "events": [{"type": "DEAT", "date": "1900"}],
+                 "family_child": "", "family_spouse": ["F1"]},
+                {"id": "I2", "given": "B", "surname": "Y", "sex": "F",
+                 "events": [{"type": "DEAT", "date": "1900"}],
+                 "family_child": "", "family_spouse": ["F1"]},
+                {"id": "I3", "given": "C", "surname": "Z", "sex": "M",
+                 "events": [{"type": "DEAT", "date": "1900"}],
+                 "family_child": "", "family_spouse": ["F1"]},
+            ],
+            "families": [
+                {"id": "F1", "spouse1": "I1", "spouse2": "I2",
+                 "children": [], "events": [], "source_citations": [],
+                 "notes": []},
+            ],
+            "sources": [], "repositories": [],
+        }
+        lines, report = _build(data)
+        warning_found = any("Cannot assign I3" in r for r in report["repairs"])
+        self.assertTrue(warning_found,
+                        "Should log warning when third spouse can't be assigned")
+
+
+class TestSameSexCoupleNote(unittest.TestCase):
+    """v1.3 feature: same-sex couples get a NOTE about HUSB/WIFE limitation."""
+
+    def test_same_sex_male_couple(self):
+        """Two male spouses should produce a NOTE about positional assignment."""
+        data = {
+            "individuals": [
+                {"id": "I1", "given": "John", "surname": "A", "sex": "M",
+                 "events": [{"type": "DEAT", "date": "2020"}],
+                 "family_child": "", "family_spouse": ["F1"]},
+                {"id": "I2", "given": "James", "surname": "B", "sex": "M",
+                 "events": [{"type": "DEAT", "date": "2020"}],
+                 "family_child": "", "family_spouse": ["F1"]},
+            ],
+            "families": [
+                {"id": "F1", "spouse1": "I1", "spouse2": "I2",
+                 "children": [], "events": [], "source_citations": [],
+                 "notes": []},
+            ],
+            "sources": [], "repositories": [],
+        }
+        lines, report = _build(data)
+        ged = _ged_text(lines)
+        self.assertIn("HUSB @I1@", ged)
+        self.assertIn("WIFE @I2@", ged)
+        self.assertIn("positional assignment", ged.lower())
+
+
 # ---------------------------------------------------------------------------
 # Runner
 # ---------------------------------------------------------------------------

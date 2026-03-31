@@ -291,6 +291,12 @@ Date interpretations:
 Does this look correct? I'll generate the GEDCOM when you confirm.
 ```
 
+**Family Role column format:**
+
+- Single role: `Spouse in F1` or `Child in F1`
+- Multiple roles: `Child in F1; Spouse in F2` (semicolon-separated)
+- No family links: `Unlinked`
+
 Wait for the user to confirm or correct before proceeding. This step
 is not optional.
 
@@ -319,6 +325,12 @@ Anyone who might be alive gets protected:
 
 - No death date AND born within 110 years → presumed living
 - No death date AND no birth date → presumed living
+- A WILL event does NOT mean the person is deceased (living people
+  draft wills). Probate (PROB) does indicate death.
+
+**WILL and PROB events go on the testator only.** Named beneficiaries
+("my wife Anne") are documented via FAM-level source citations, not
+by adding WILL events to their records.
 
 For living persons, replace NAME with `[Living] /[Living]/` and omit
 birth details, residence, occupation, and notes. Keep FAMC/FAMS
@@ -365,7 +377,9 @@ When the user provides English parish register data:
 
 - Preserve descriptors verbatim ("senior," "wife of William").
 - A burial with no descriptor when multiple people share the name
-  is genuinely ambiguous. Flag it.
+  is genuinely ambiguous. Flag it in the confirmation preview with
+  `AMBIGUOUS:` prefix and list candidate IDs. Do not create a GEDCOM
+  record until the user resolves.
 
 **Wills:**
 
@@ -424,6 +438,9 @@ You MUST NOT:
 - Assume gender from names
 - Create source citations the user did not provide
 - Infer places from context
+- Infer relationships from naming patterns alone (e.g., "William
+  son of William" identifies the father's given name but is not
+  proof of which William is the father)
 
 ### Handling Contradictions
 
@@ -434,6 +451,10 @@ When the user's data contains conflicting facts:
 - **Same source contradicts itself:** Record the most internally
   consistent reading. Add a NOTE documenting both values and flag
   it in the confirmation preview.
+  **Tiebreaker:** If no reading is more internally consistent than
+  another, record BOTH readings in a NOTE and leave the DATE field
+  empty. Flag for user resolution in the confirmation preview. Do
+  not silently pick one.
 
 ### Nested Sources
 

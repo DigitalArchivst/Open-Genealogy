@@ -7,7 +7,7 @@ description: >-
 license: MIT
 compatibility: Requires Claude Code and Python 3.6+
 metadata:
-  version: "1.0.0"
+  version: "1.3.0"
   author: Steve Little
   spec: GEDCOM 5.5.1 (1999)
 ---
@@ -112,6 +112,10 @@ Parse tabular data into the canonical JSON format.
   consistent reading. Add a NOTE documenting both values and flag it
   in the confirmation preview. Example: "Source gives marriage as both
   1789 and 1791. ABT 1789 used; user should verify."
+  **Tiebreaker:** If no reading is more internally consistent than
+  another, record BOTH readings in a NOTE and leave the DATE field
+  empty. Flag for user resolution in the confirmation preview. Do
+  not silently pick one.
 - For gender, use what the user states or `U` if unknown.
   NEVER assume gender from names.
 
@@ -165,7 +169,10 @@ disambiguation. Preserve descriptors verbatim ("senior,"
 "the elder," "wife of William," "widow," "son of Robert").
 These are primary disambiguation evidence. A burial with no
 descriptor in a period when multiple people share the name is
-genuinely ambiguous — flag it, do not guess.
+genuinely ambiguous — flag it in the confirmation preview with
+an `AMBIGUOUS:` prefix and list candidate IDs. Do not create a
+GEDCOM record for the burial until the user resolves which
+individual it belongs to.
 
 **Important:** When a burial entry mentions a person (e.g., "Anne,
 wife of William"), ensure that person gets a BURI event on their
@@ -263,6 +270,15 @@ Date interpretations:
 
 Shall I generate the GEDCOM file?
 ```
+
+**Family Role column format:**
+
+- Single role: `Spouse in F1` or `Child in F1`
+- Multiple roles: `Child in F1; Spouse in F2` (semicolon-separated)
+- No family links: `Unlinked`
+
+This column is derived from `family_child` and `family_spouse` in
+the JSON — it is display-only and not stored.
 
 If the user says yes (or equivalent), proceed. If they correct
 anything, update the JSON intermediate and re-confirm.
@@ -420,7 +436,7 @@ back to the original document.
 The Python script auto-redacts presumed-living individuals using
 a layered detection system:
 
-1. **Death indicators:** DEAT, BURI, PROB, or WILL event → deceased
+1. **Death indicators:** DEAT, BURI, or PROB event → deceased
 2. **Birth year:** BIRT/BAPM/CHR date 110+ years ago → deceased
 3. **Any-event inference:** OCCU in 1794 → born no later than 1779
    → deceased. Uses minimum-age assumptions per event type.
@@ -437,6 +453,17 @@ Redaction: NAME becomes `[Living] /[Living]/`, events stripped.
 - `--include-living` — skip all redaction (legacy flag; prefer
   `--all-deceased` for historical data)
 
+**Important:** A WILL event is NOT a death indicator. Living people
+draft wills. PROB (probate) IS a death indicator because probate
+follows death. Historical wills without a PROB event are still
+caught by the any-event date inference system (a WILL in 1642
+implies birth no later than 1624 → deceased).
+
+**WILL and PROB event ownership:** Both tags go on the **testator's**
+INDI record only. Named beneficiaries ("my wife Anne," "my son
+Robert") are documented via FAM-level source citations and NOTEs —
+never by adding WILL or PROB events to the beneficiary's record.
+
 ### Size Limits (v1)
 
 | Limit | Value |
@@ -444,6 +471,11 @@ Redaction: NAME becomes `[Living] /[Living]/`, events stripped.
 | Individuals | 200 |
 | Families | 100 |
 | Sources | 50 |
+
+**Proactive check:** Before full extraction, estimate the likely
+individual count from the source. If it appears to exceed ~50
+individuals per prompt or ~200 total, suggest batch mode before
+building the JSON intermediate.
 
 If input exceeds limits, use batch mode (below).
 
@@ -472,6 +504,9 @@ validates the combined graph.
 
 **ID convention:** Each batch starts numbering where the previous
 ended. Read the last batch file to determine next available IDs.
+If the environment does not support file reads (e.g., standalone
+prompt in ChatGPT), maintain a running ID counter in conversation
+context instead.
 
 **Suggest batch mode when:**
 
@@ -526,6 +561,16 @@ This produces GEDCOM:
 Use this pattern for wills, settlements, court records, or any
 source that directly establishes who belongs to a family.
 
+## Known Limitations
+
+**HUSB/WIFE tags and same-sex couples:** GEDCOM 5.5.1 defines only
+HUSB and WIFE as spouse tags — there is no gender-neutral alternative.
+The script uses individual sex fields to guide assignment (M→HUSB,
+F→WIFE) and swaps when sex fields indicate the default is wrong. For
+same-sex couples, a NOTE documents that positional assignment was used
+and no gender assumption is intended. GEDCOM 7.0 addresses this
+limitation; GEDCOM 5.5.1 does not.
+
 ## Anti-Fabrication Rules
 
 You MUST NOT:
@@ -537,6 +582,12 @@ You MUST NOT:
 - Assume gender from names
 - Create source citations the user did not provide
 - Infer places from context
+- Infer relationships from naming patterns alone (e.g., "William
+  son of William" identifies the father's given name but is NOT
+  proof of which William is the father — in a recycled-name parish,
+  it could be father, grandfather, uncle, or godfather. Only assign
+  when the register explicitly states the relationship or when
+  disambiguation evidence resolves to exactly one candidate.)
 
 When data is missing, omit the field. **An incomplete GEDCOM is
 always preferable to an inaccurate one.**

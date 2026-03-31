@@ -54,6 +54,7 @@ HEADER_TEMPLATE = (
     "2 VERS 5.5.1\r\n"
     "2 FORM LINEAGE-LINKED\r\n"
     "1 CHAR UTF-8\r\n"
+    "1 LANG English\r\n"
     "1 SUBM @U1@\r\n"
     "0 @U1@ SUBM\r\n"
     "1 NAME {submitter}\r\n"
@@ -116,17 +117,50 @@ def split_long_value(level, tag, value):
     return lines
 
 
+def split_note_value(level, tag, value):
+    """Split a note value into GEDCOM lines, preserving paragraph breaks as CONT.
+
+    Embedded newlines become CONT lines (preserving paragraph structure).
+    Long lines within a paragraph are split via CONC as usual.
+    Returns a list of GEDCOM lines (without line terminators).
+    """
+    if "\n" not in value:
+        return split_long_value(level, tag, value)
+
+    paragraphs = value.split("\n")
+    lines = []
+    for i, para in enumerate(paragraphs):
+        if i == 0:
+            lines.extend(split_long_value(level, tag, para))
+        else:
+            # CONT preserves the line break
+            if para:
+                lines.extend(split_long_value(level + 1, "CONT", para))
+            else:
+                # Empty paragraph = blank CONT line
+                lines.append(f"{level + 1} CONT")
+    return lines
+
+
 # ---------------------------------------------------------------------------
 # Sanitization
 # ---------------------------------------------------------------------------
 
-def sanitize_value(value):
-    """Strip characters that could corrupt GEDCOM structure."""
+def sanitize_value(value, preserve_newlines=False):
+    """Strip characters that could corrupt GEDCOM structure.
+
+    When preserve_newlines is True, embedded newlines are kept so
+    they can be emitted as CONT lines (GEDCOM §5.4).
+    """
     if not value:
         return ""
-    # Remove newlines and carriage returns
+    if preserve_newlines:
+        # Normalize to \n only, strip trailing whitespace per line
+        value = value.replace("\r\n", "\n").replace("\r", "\n")
+        lines = [line.rstrip() for line in value.split("\n")]
+        return "\n".join(lines).strip()
+    # Default: flatten to single line
     value = value.replace("\r\n", " ").replace("\r", " ").replace("\n", " ")
-    # Strip trailing whitespace
     value = value.rstrip()
     return value
 
@@ -135,7 +169,10 @@ def sanitize_value(value):
 # Living person detection
 # ---------------------------------------------------------------------------
 
-DEATH_INDICATORS = {"DEAT", "BURI", "PROB", "WILL"}
+DEATH_INDICATORS = {"DEAT", "BURI", "PROB"}
+# WILL is intentionally excluded: a living person may draft a will.
+# PROB (probate) remains because probate follows death in all jurisdictions.
+# Historical wills without PROB are caught by any-event date inference.
 
 # Minimum plausible age for non-birth events (for era inference)
 EVENT_MIN_AGE = {
@@ -152,7 +189,7 @@ def is_presumed_living(individual):
     Conservative default: presume living unless death is confirmed
     or all evidence places the person in a historical era.
     """
-    # Step 1: Death-indicating events (DEAT, BURI, PROB, WILL)
+    # Step 1: Death-indicating events (DEAT, BURI, PROB)
     for event in individual.get("events", []):
         if event.get("type") in DEATH_INDICATORS:
             return False
@@ -280,13 +317,13 @@ def build_indi_record(ind, living_ids, sources_map):
         sex = "U"
     lines.append(f"1 SEX {sex}")
 
-    # Events (skip if living, except DEAT which won't exist for living)
+    # Events (strip all events for living persons)
     for event in ind.get("events", []):
         etype = event.get("type", "")
         if etype not in VALID_INDI_EVENTS:
             continue
-        if is_living and etype != "DEAT":
-            continue  # Strip events for living persons
+        if is_living:
+            continue
 
         edate = sanitize_value(event.get("date", ""))
         eplace = sanitize_value(event.get("place", ""))
@@ -325,9 +362,9 @@ def build_indi_record(ind, living_ids, sources_map):
     # Notes (skip for living)
     if not is_living:
         for note in ind.get("notes", []):
-            note = sanitize_value(note)
+            note = sanitize_value(note, preserve_newlines=True)
             if note:
-                lines.extend(split_long_value(1, "NOTE", note))
+                lines.extend(split_note_value(1, "NOTE", note))
 
     # Individual-level source citations (non-event)
     if not is_living:
@@ -345,18 +382,43 @@ def build_indi_record(ind, living_ids, sources_map):
     return lines
 
 
-def build_fam_record(fam):
-    """Build a GEDCOM FAM record from the canonical JSON."""
+def build_fam_record(fam, ind_map=None):
+    """Build a GEDCOM FAM record from the canonical JSON.
+
+    Uses sex fields from ind_map (if provided) to guide HUSB/WIFE
+    assignment. GEDCOM 5.5.1 only defines HUSB and WIFE — there is
+    no gender-neutral spouse tag. When sex doesn't match the assigned
+    tag, a NOTE documents the limitation.
+    """
     lines = []
     xref = f"@{fam['id']}@"
     lines.append(f"0 {xref} FAM")
 
     sp1 = fam.get("spouse1", "")
     sp2 = fam.get("spouse2", "")
+    ind_map = ind_map or {}
+
+    # Determine HUSB/WIFE assignment using sex fields when available
+    sp1_sex = ind_map.get(sp1, {}).get("sex", "U") if sp1 else "U"
+    sp2_sex = ind_map.get(sp2, {}).get("sex", "U") if sp2 else "U"
+
+    # Default: sp1=HUSB, sp2=WIFE. Swap if sex fields indicate otherwise.
+    sp1_tag, sp2_tag = "HUSB", "WIFE"
+    sex_note = None
+    if sp1 and sp2:
+        if sp1_sex == "F" and sp2_sex == "M":
+            sp1_tag, sp2_tag = "WIFE", "HUSB"
+        elif sp1_sex == sp2_sex and sp1_sex in ("M", "F"):
+            sex_note = (f"GEDCOM 5.5.1 requires HUSB/WIFE tags. "
+                        f"Both spouses have SEX {sp1_sex}; positional "
+                        f"assignment used. No gender assumption intended.")
+
     if sp1:
-        lines.append(f"1 HUSB @{sp1}@")
+        lines.append(f"1 {sp1_tag} @{sp1}@")
     if sp2:
-        lines.append(f"1 WIFE @{sp2}@")
+        lines.append(f"1 {sp2_tag} @{sp2}@")
+    if sex_note:
+        lines.extend(split_long_value(1, "NOTE", sex_note))
 
     for child_id in fam.get("children", []):
         if child_id:
@@ -387,9 +449,9 @@ def build_fam_record(fam):
                 lines.extend(split_long_value(3, "PAGE", src_page))
 
     for note in fam.get("notes", []):
-        note = sanitize_value(note)
+        note = sanitize_value(note, preserve_newlines=True)
         if note:
-            lines.extend(split_long_value(1, "NOTE", note))
+            lines.extend(split_note_value(1, "NOTE", note))
 
     # Family-level source citations (e.g., wills establishing relationships)
     for src_ref in fam.get("source_citations", []):
@@ -429,9 +491,9 @@ def build_sour_record(source):
         lines.append(f"1 REPO @{repo_id}@")
 
     for note in source.get("notes", []):
-        note = sanitize_value(note)
+        note = sanitize_value(note, preserve_newlines=True)
         if note:
-            lines.extend(split_long_value(1, "NOTE", note))
+            lines.extend(split_note_value(1, "NOTE", note))
 
     return lines
 
@@ -668,6 +730,11 @@ def auto_repair_pointers(data):
                     elif not fam.get("spouse2"):
                         fam["spouse2"] = ind["id"]
                         repairs.append(f"Set {fams_id} spouse2={ind['id']}")
+                    else:
+                        repairs.append(
+                            f"WARNING: Cannot assign {ind['id']} as spouse "
+                            f"in {fams_id} — both spouse slots filled"
+                        )
 
     return repairs
 
@@ -677,7 +744,10 @@ def auto_repair_pointers(data):
 # ---------------------------------------------------------------------------
 
 def merge_json_files(paths):
-    """Merge multiple canonical JSON files into one dataset."""
+    """Merge multiple canonical JSON files into one dataset.
+
+    Returns (merged_data, warnings) where warnings is a list of strings.
+    """
     merged = {
         "submitter": "",
         "individuals": [],
@@ -686,6 +756,7 @@ def merge_json_files(paths):
         "repositories": [],
     }
     seen_ids = set()
+    warnings = []
 
     for path in paths:
         with open(path, "r", encoding="utf-8") as f:
@@ -698,13 +769,15 @@ def merge_json_files(paths):
             for record in data.get(key, []):
                 rid = record.get("id", "")
                 if rid in seen_ids:
-                    print(f"WARNING: Duplicate ID '{rid}' in {path}. "
-                          f"Keeping first occurrence.", file=sys.stderr)
+                    msg = (f"Duplicate ID '{rid}' in {path}. "
+                           f"Keeping first occurrence.")
+                    warnings.append(msg)
+                    print(f"WARNING: {msg}", file=sys.stderr)
                     continue
                 seen_ids.add(rid)
                 merged[key].append(record)
 
-    return merged
+    return merged, warnings
 
 
 # ---------------------------------------------------------------------------
@@ -730,7 +803,11 @@ def build_gedcom(data, submitter="Unknown", include_living=False,
                 # Check --deceased-before override
                 if deceased_before is not None:
                     latest_yr = _get_latest_event_year(ind)
-                    if latest_yr is not None and latest_yr < deceased_before:
+                    if latest_yr is None:
+                        # Undated individual in a historical source —
+                        # user explicitly set a cutoff, so treat as deceased
+                        continue
+                    if latest_yr < deceased_before:
                         continue  # Events are historical — don't redact
                 living_ids.add(ind["id"])
                 name = f"{ind.get('given', '')} {ind.get('surname', '')}".strip()
@@ -751,13 +828,14 @@ def build_gedcom(data, submitter="Unknown", include_living=False,
     lines = [line for line in header_text.rstrip(CRLF).split(CRLF)]
 
     sources_map = {s["id"]: s for s in data.get("sources", [])}
+    ind_map = {ind["id"]: ind for ind in data.get("individuals", [])}
 
     for ind in data.get("individuals", []):
         lines.extend(build_indi_record(ind, living_ids, sources_map))
         report["individuals"] += 1
 
     for fam in data.get("families", []):
-        lines.extend(build_fam_record(fam))
+        lines.extend(build_fam_record(fam, ind_map))
         report["families"] += 1
 
     for source in data.get("sources", []):
@@ -797,6 +875,11 @@ def format_report(report, output_path):
         for r in report["repairs"]:
             parts.append(f"  - {r}")
 
+    if report["warnings"]:
+        parts.append(f"Warnings: {len(report['warnings'])}")
+        for w in report["warnings"]:
+            parts.append(f"  - {w}")
+
     if report["validation_errors"]:
         parts.append(f"Validation: FAILED ({len(report['validation_errors'])} errors)")
         for e in report["validation_errors"]:
@@ -835,9 +918,10 @@ def main():
                              "YEAR as deceased (e.g., --deceased-before 1900)")
     args = parser.parse_args()
 
+    merge_warnings = []
     try:
         if len(args.input) > 1:
-            data = merge_json_files(args.input)
+            data, merge_warnings = merge_json_files(args.input)
         else:
             with open(args.input[0], "r", encoding="utf-8") as f:
                 data = json.load(f)
@@ -869,6 +953,7 @@ def main():
         all_deceased=args.all_deceased,
         deceased_before=args.deceased_before,
     )
+    report["warnings"].extend(merge_warnings)
 
     if report["validation_errors"]:
         print(format_report(report, output_path))
