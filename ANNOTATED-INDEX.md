@@ -41,6 +41,13 @@ Essential reference documentation (92 lines) explaining the Evidence Analysis Pr
 
 ---
 
+### 1.5 reference/witherspoon-statue-ceremony-1909.md
+#### Historical Newspaper Article — Witherspoon Family
+
+Transcribed newspaper article by William E. Curtis, published in *The Star and the Chicago Record Herald* (May 1909), reporting on the unveiling of the John Witherspoon statue in Washington, D.C. The article serves as a rich genealogical source for the Witherspoon family, documenting descendants across multiple generations — including Vice President John Cabell Breckinridge, Dr. David Ramsey (historian and congressman), and numerous military officers, clergy, and public figures. Covers biographical details of Witherspoon's children (James, John Jr., David, Anne, Frances, Mary Ann), his two marriages, his will and estate, and surname spelling variations (Weytherspoon, Wethirspoon, Wotherspoon, etc.). Includes primary-source excerpts: a letter from Benjamin Franklin and a commission letter from Gen. Francis Marion. Classified as an original source with secondary information providing direct evidence for family relationships and biographical facts.
+
+---
+
 ## 2. TRANSCRIPTION/
 ### Diplomatic Transcription for Historical Documents
 

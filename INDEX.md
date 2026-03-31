@@ -28,7 +28,7 @@ Complete catalog of prompts, scripts, and tools.
 | [contract-first-genealogy-v3.1.md](research/contract-first-genealogy-v3.1.md) | Contract-lock workflow | stable |
 | [research-agent-assignment-v2.1.md](research/research-agent-assignment-v2.1.md) | Research agent specification | stable |
 
-**Reference:** [evidence-terminology.md](research/reference/evidence-terminology.md)
+**Reference:** [evidence-terminology.md](research/reference/evidence-terminology.md) ·  [witherspoon-statue-ceremony-1909.md](research/reference/witherspoon-statue-ceremony-1909.md)
 **Archive:** [research/archive/](research/archive/) — legacy versions (research-assignment-v0, research-with-citations-v2)
 
 ---
