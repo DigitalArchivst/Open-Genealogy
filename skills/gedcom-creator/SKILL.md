@@ -7,7 +7,7 @@ description: >-
 license: MIT
 compatibility: Requires Claude Code and Python 3.6+
 metadata:
-  version: "1.3.0"
+  version: "1.3.1"
   author: Steve Little
   spec: GEDCOM 5.5.1 (1999)
 ---
@@ -64,6 +64,30 @@ September 12, 1950 in Boston."
 "Generate a GEDCOM from this JSON: [paste structured data]"
 ```
 
+## Image Input
+
+When the user uploads an image (document, chart, headstone,
+certificate, screenshot) instead of text:
+
+1. Describe what you see: document type, layout, readability.
+2. Extract what you can read with confidence.
+3. For text you cannot read clearly, use `[illegible]` as a
+   placeholder value and note it.
+4. For structural positions visible but unnamed (e.g., a box in
+   a pedigree chart with unreadable text), create the individual
+   as `Unknown /Unknown/` and preserve family links.
+5. When an image explicitly shows gender (colored icons, M/F
+   markers, or HUSB/WIFE column position), use it. The
+   prohibition on assuming gender from names does not apply to
+   explicit visual indicators.
+6. Report what you could and could not read before showing the
+   confirmation preview.
+
+**Pedigree charts:** The subject is at the left or center. Lines
+connect to ancestors (parents, grandparents), not spouses.
+Spouses may appear adjacent but are linked by marriage, not
+descent. Read carefully — do not confuse a parent with a spouse.
+
 ## Processing Pipeline
 
 ### Step 1: Detect Environment
@@ -82,7 +106,7 @@ Determine the correct Python command and script path:
 
 ### Step 2: Parse User Input to JSON Intermediate
 
-Accept input in any of three modes:
+Accept input in any of four modes:
 
 **Mode 1 — Conversational (Primary):**
 Parse natural language descriptions of people and families into the
@@ -94,6 +118,10 @@ pass through.
 
 **Mode 3 — Markdown Table (Advanced):**
 Parse tabular data into the canonical JSON format.
+
+**Mode 4 — Image (Vision):**
+Follow the Image Input protocol above, then build the canonical
+JSON from extracted data.
 
 #### Parsing Rules
 
@@ -265,8 +293,14 @@ Sources: [count]
 | I2 | Mary Jones | | | Spouse in F1 |
 | I3 | William Smith | 1870 | | Child in F1 |
 
+Families:
+  F1: John Smith (I1) + Mary Jones (I2) → William Smith (I3)
+
 Date interpretations:
   - "around 1868" → ABT 1868
+
+[For images: "Extracted X of ~Y visible individuals.
+Z positions were not readable — created as Unknown."]
 
 Shall I generate the GEDCOM file?
 ```
@@ -442,7 +476,12 @@ a layered detection system:
    → deceased. Uses minimum-age assumptions per event type.
 4. **Default:** No dates, no death evidence → presume living
 
-Redaction: NAME becomes `[Living] /[Living]/`, events stripped.
+**Individual redaction:** NAME becomes `[Living] /[Living]/`,
+events stripped, notes stripped. FAMC/FAMS pointers kept.
+
+**Family redaction:** When all spouses in a FAM are living or
+redacted, MARR/DIV dates and places are also stripped from that
+FAM. CHIL pointers are kept for structural integrity.
 
 **Override flags:**
 
@@ -579,7 +618,7 @@ You MUST NOT:
 - Fill gaps in a pedigree with plausible ancestors
 - Generate dates, places, or events not explicitly provided
 - Narrow imprecise dates ("the 1920s" MUST NOT become "ABT 1925")
-- Assume gender from names
+- Assume gender from names (explicit visual indicators are OK)
 - Create source citations the user did not provide
 - Infer places from context
 - Infer relationships from naming patterns alone (e.g., "William

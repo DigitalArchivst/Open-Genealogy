@@ -509,6 +509,72 @@ class TestSameSexCoupleNote(unittest.TestCase):
         self.assertIn("positional assignment", ged.lower())
 
 
+class TestFAMLivingRedaction(unittest.TestCase):
+    """v1.3.1 bug fix: FAM events stripped when all spouses are living."""
+
+    def test_marr_stripped_when_both_spouses_living(self):
+        """MARR date/place should not appear when both spouses are living."""
+        data = {
+            "individuals": [
+                {"id": "I1", "given": "John", "surname": "Modern",
+                 "sex": "M",
+                 "events": [{"type": "BIRT", "date": "1980"}],
+                 "family_child": "", "family_spouse": ["F1"]},
+                {"id": "I2", "given": "Jane", "surname": "Modern",
+                 "sex": "F",
+                 "events": [{"type": "BIRT", "date": "1982"}],
+                 "family_child": "", "family_spouse": ["F1"]},
+            ],
+            "families": [
+                {"id": "F1", "spouse1": "I1", "spouse2": "I2",
+                 "children": [], "source_citations": [], "notes": [],
+                 "events": [{"type": "MARR", "date": "15 JUN 2005",
+                             "place": "Norfolk, Virginia"}]},
+            ],
+            "sources": [], "repositories": [],
+        }
+        lines, report = _build(data)
+        ged = _ged_text(lines)
+        # Both spouses should be redacted
+        self.assertEqual(len(report["redactions"]), 2)
+        # MARR should NOT appear in the FAM record
+        fam_block = ged.split("0 @F1@ FAM")[1].split("\n0 ")[0]
+        self.assertNotIn("MARR", fam_block,
+                         "MARR should be stripped when both spouses are living")
+        self.assertNotIn("Norfolk", fam_block)
+
+    def test_marr_kept_when_one_spouse_deceased(self):
+        """MARR should remain when at least one spouse is deceased."""
+        data = {
+            "individuals": [
+                {"id": "I1", "given": "John", "surname": "Mixed",
+                 "sex": "M",
+                 "events": [{"type": "BIRT", "date": "1950"},
+                            {"type": "DEAT", "date": "2020"}],
+                 "family_child": "", "family_spouse": ["F1"]},
+                {"id": "I2", "given": "Jane", "surname": "Mixed",
+                 "sex": "F",
+                 "events": [{"type": "BIRT", "date": "1955"}],
+                 "family_child": "", "family_spouse": ["F1"]},
+            ],
+            "families": [
+                {"id": "F1", "spouse1": "I1", "spouse2": "I2",
+                 "children": [], "source_citations": [], "notes": [],
+                 "events": [{"type": "MARR", "date": "10 SEP 1975",
+                             "place": "Richmond, Virginia"}]},
+            ],
+            "sources": [], "repositories": [],
+        }
+        lines, report = _build(data)
+        ged = _ged_text(lines)
+        # Only I2 is living (I1 has DEAT)
+        self.assertEqual(len(report["redactions"]), 1)
+        fam_block = ged.split("0 @F1@ FAM")[1].split("\n0 ")[0]
+        self.assertIn("MARR", fam_block,
+                      "MARR should remain when one spouse is deceased")
+        self.assertIn("Richmond", fam_block)
+
+
 # ---------------------------------------------------------------------------
 # Runner
 # ---------------------------------------------------------------------------

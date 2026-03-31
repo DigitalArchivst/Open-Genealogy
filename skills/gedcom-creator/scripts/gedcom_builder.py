@@ -382,13 +382,16 @@ def build_indi_record(ind, living_ids, sources_map):
     return lines
 
 
-def build_fam_record(fam, ind_map=None):
+def build_fam_record(fam, ind_map=None, living_ids=None):
     """Build a GEDCOM FAM record from the canonical JSON.
 
     Uses sex fields from ind_map (if provided) to guide HUSB/WIFE
     assignment. GEDCOM 5.5.1 only defines HUSB and WIFE — there is
     no gender-neutral spouse tag. When sex doesn't match the assigned
     tag, a NOTE documents the limitation.
+
+    When all spouses in the family are in living_ids, family events
+    (MARR, DIV) are stripped to prevent privacy leaks through FAM records.
     """
     lines = []
     xref = f"@{fam['id']}@"
@@ -424,10 +427,17 @@ def build_fam_record(fam, ind_map=None):
         if child_id:
             lines.append(f"1 CHIL @{child_id}@")
 
+    # Strip family events when all spouses are living (privacy)
+    living_ids = living_ids or set()
+    spouses = [s for s in (sp1, sp2) if s]
+    all_spouses_living = spouses and all(s in living_ids for s in spouses)
+
     for event in fam.get("events", []):
         etype = event.get("type", "")
         if etype not in VALID_FAM_EVENTS:
             continue
+        if all_spouses_living:
+            continue  # Strip family events for living couples
 
         edate = sanitize_value(event.get("date", ""))
         eplace = sanitize_value(event.get("place", ""))
@@ -835,7 +845,7 @@ def build_gedcom(data, submitter="Unknown", include_living=False,
         report["individuals"] += 1
 
     for fam in data.get("families", []):
-        lines.extend(build_fam_record(fam, ind_map))
+        lines.extend(build_fam_record(fam, ind_map, living_ids))
         report["families"] += 1
 
     for source in data.get("sources", []):
