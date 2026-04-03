@@ -1,0 +1,734 @@
+{
+  "timestamp": "2026-04-03_1221",
+  "test_model": "claude-sonnet-4-20250514",
+  "judge_model": "claude-haiku-4-5-20251001",
+  "skill_chars": 9422,
+  "summary": {
+    "tests_run": 10,
+    "tests_clean": 6,
+    "total_pass": 134,
+    "total_fail": 20,
+    "total_warn": 3,
+    "elapsed_seconds": 171.7
+  },
+  "tests": [
+    {
+      "id": "t01-three-layer-census",
+      "passes": 14,
+      "fails": 0,
+      "warns": 0,
+      "results": [
+        {
+          "status": "PASS",
+          "message": "STRING: No unqualified 'primary source'"
+        },
+        {
+          "status": "PASS",
+          "message": "STRING: No unqualified 'secondary source'"
+        },
+        {
+          "status": "PASS",
+          "message": "STRING: No unqualified 'primary evidence'"
+        },
+        {
+          "status": "PASS",
+          "message": "STRING: No unqualified 'secondary evidence'"
+        },
+        {
+          "status": "PASS",
+          "message": "STRING: Uses 'original source'"
+        },
+        {
+          "status": "PASS",
+          "message": "JUDGE MUST 1: Correctly classifies source as \"Original Source\""
+        },
+        {
+          "status": "PASS",
+          "message": "JUDGE MUST 2: Correctly identifies primary information from head of household as informant"
+        },
+        {
+          "status": "PASS",
+          "message": "JUDGE MUST 3: Correctly classifies evidence for parentage/relationships as \"Indirect Evidence\""
+        },
+        {
+          "status": "PASS",
+          "message": "JUDGE MUST 4: Distinguishes between what record explicitly states (residence, names, ages) and what requires inference (relationships)"
+        },
+        {
+          "status": "PASS",
+          "message": "JUDGE MUST 5: Explicitly notes \"1850 census format requires inference\" and \"no relationship column in 1850\""
+        },
+        {
+          "status": "PASS",
+          "message": "JUDGE MUST_NOT 1: Avoids calling source \"primary source\" or \"secondary source\"; uses \"Original Source\" instead"
+        },
+        {
+          "status": "PASS",
+          "message": "JUDGE MUST_NOT 2: Never uses the term \"primary evidence\"; uses \"Primary Information\" and \"Indirect Evidence\" appropriately"
+        },
+        {
+          "status": "PASS",
+          "message": "JUDGE MUST_NOT 3: States parentage cannot be proved from this record alone: \"This Record Cannot Directly Prove...that the children are John's and/or Sally's biological children\""
+        },
+        {
+          "status": "PASS",
+          "message": "JUDGE MUST_NOT 4: Does not fabricate relationship designations; explicitly states what is absent (\"no relationship column in 1850\") and what requires inference"
+        }
+      ],
+      "response": "## Document Analysis: 1850 U.S. Census, Ashe County, North Carolina\n\n### Source Classification\n**Original Source** \u2014 This is the first recording of census information at the time of enumeration (1850), created by the official census enumerator.\n\n### Information Analysis\nThe census contains **Primary Information** for:\n- **Presence and residence** \u2014 The enumerator personally observed these individuals living in this household on census day\n- **Basic demographics** (names, approximate ages, sex) \u2014 Directly observable or easily verified by the enumerator\n\nThe census contains **Secondary Information** for:\n- **Birth places** \u2014 Informants (likely John or Sally) reported where each person was born, but the enumerator did not witness these births\n- **Exact ages** \u2014 Reported by informants, not directly observed\n- **Occupation** \u2014 Reported information about John's work as a farmer\n\n### Evidence Value by Research Question\n\nThe evidence classification depends on what you're trying to prove:\n\n**Direct Evidence for:**\n- John Bower resided in Ashe County, NC in 1850\n- A woman named Sally (age ~31) lived in the same household\n- Margaret (age ~6) was enumerated in this household\n\n**Indirect Evidence for:**\n- **Family relationships** \u2014 The household grouping suggests John and Sally may be married, and the children may be theirs, but 1850 census format requires inference\n- **Birth years** \u2014 Ages suggest John born ~1795, Sally ~1819, Margaret ~1844\n\n**What This Record Cannot Directly Prove:**\n- That John and Sally are married (no relationship column in 1850)\n- That the children are John's and/or Sally's biological children\n- That \"Sally\" is her full legal name (could be Sarah, for example)\n\n### Next Research Steps\nTo establish relationships, you'll need:\n- Marriage records for John and Sally\n- Birth/baptismal records for the children\n- Later census years (1860+) that include relationship columns\n- Probate records, deeds, or other documents naming family members\n\n### Research Notes\nThe 19-year age gap between John (55) and Sally (31) suggests this could be a second marriage for John, or that Sally could be a daughter-in-law rather than wife. Additional records will be needed to clarify relationships within this household.\n\nWould you like guidance on what record types to search next to establish the family relationships?"
+    },
+    {
+      "id": "t02-conflict-resolution",
+      "passes": 14,
+      "fails": 1,
+      "warns": 0,
+      "results": [
+        {
+          "status": "PASS",
+          "message": "STRING: No unqualified 'primary source'"
+        },
+        {
+          "status": "PASS",
+          "message": "STRING: No unqualified 'secondary source'"
+        },
+        {
+          "status": "PASS",
+          "message": "STRING: No unqualified 'primary evidence'"
+        },
+        {
+          "status": "PASS",
+          "message": "STRING: No unqualified 'secondary evidence'"
+        },
+        {
+          "status": "PASS",
+          "message": "STRING: Uses 'original source'"
+        },
+        {
+          "status": "PASS",
+          "message": "JUDGE MUST 1: Response applies source type hierarchy (original vs. derivative, direct vs. indirect evidence)"
+        },
+        {
+          "status": "PASS",
+          "message": "JUDGE MUST 2: Response identifies headstone as strongest source and bases recommendation on it"
+        },
+        {
+          "status": "PASS",
+          "message": "JUDGE MUST 3: Response notes clerk spellings in marriage certificate/register reflect contemporary record-keeping"
+        },
+        {
+          "status": "PASS",
+          "message": "JUDGE MUST 4: Response notes census enumerator spelling is secondary (heard/interpreted, not self-reported)"
+        },
+        {
+          "status": "PASS",
+          "message": "JUDGE MUST 5: Response identifies compiled ahnentafel as authored source with indeterminate information"
+        },
+        {
+          "status": "PASS",
+          "message": "JUDGE MUST 6: Response recommends \"Theodocia\" (headstone spelling) as standard form"
+        },
+        {
+          "status": "PASS",
+          "message": "JUDGE MUST_NOT 1: Response does not select spelling by frequency; bases decision on source hierarchy"
+        },
+        {
+          "status": "PASS",
+          "message": "JUDGE MUST_NOT 2: Response treats compiled ahnentafel as indirect authored source, not authoritative"
+        },
+        {
+          "status": "FAIL",
+          "message": "JUDGE MUST_NOT 3: Response uses terminology \"Primary (from bride herself)\" and \"Secondary (from household member)\" which directly violates the prohibition on \"primary source\" and \"secondary source\" terminology"
+        },
+        {
+          "status": "PASS",
+          "message": "JUDGE MUST_NOT 4: Response documents all variants (Dotia, Dotea, Theodosia, Thedocia) with source context"
+        }
+      ],
+      "response": "This is a classic genealogical name variation challenge! Let me walk you through how to analyze these systematically.\n\n## Source Analysis by GPS Framework\n\n**Marriage Certificate (\"Dotia\")**\n- Source: Original (if contemporary civil record)\n- Information: Primary (from bride herself or direct witness)\n- Evidence: Direct for her name at marriage\n\n**Marriage Register (\"Dotea\")**  \n- Source: Original or Derivative (depends if this is the church's original book or a copy)\n- Information: Primary (from ceremony participants)\n- Evidence: Direct for name at marriage\n\n**1900 Census (\"Theodosia\")**\n- Source: Original (census enumerator's sheet)\n- Information: Secondary (likely from household member, not Theodosia herself)\n- Evidence: Direct for how family gave her name in 1900\n\n**Compiled Ahnentafel (\"Thedocia\")**\n- Source: Authored (compiler citing other sources)\n- Information: Indeterminate (depends on compiler's sources)\n- Evidence: Indirect (shows how compiler interpreted her name)\n\n**Headstone (\"THEODOCIA\")**\n- Source: Original (monument itself)\n- Information: Secondary (from whoever ordered the stone, likely after death)\n- Evidence: Direct for how family wanted her remembered\n\n## Recommended Decision Process\n\n**Use \"Theodocia\" as your standard spelling** based on:\n\n1. **Permanence**: Headstones represent the family's final, formal decision\n2. **Intentionality**: Stone carving requires deliberate spelling choices\n3. **Full form**: Appears to be the complete formal name, not a nickname\n\n**Document variations as:**\n- Primary name: Theodocia [surname]\n- Also known as: Dotia, Dotea, Theodosia, Thedocia\n\n## Why This Approach?\n\nThe marriage records show **contemporary nicknames** (\"Dotia\"/\"Dotea\" - likely what she went by daily). The census shows a **clerk's interpretation** of what he heard. The headstone shows the **family's definitive choice** for posterity.\n\nThe pattern suggests \"Theodocia\" was her formal name, with \"Dotia\" as her everyday nickname - a common 19th-century practice.\n\n## Citation Strategy\n\nWhen citing sources, **use the exact spelling from each document**, then note your standardized form:\n\n> Theodocia [surname], recorded as \"Dotia\" in marriage certificate...\n\nThis preserves the evidence while establishing your reasoned choice.\n\n**Next step**: Look for other formal documents (birth certificate, probate records, land deeds) to see if they support \"Theodocia\" as the official spelling.\n\nDoes this help clarify your approach? What other records do you have that might confirm the formal spelling?"
+    },
+    {
+      "id": "t03-disambiguation",
+      "passes": 5,
+      "fails": 9,
+      "warns": 0,
+      "results": [
+        {
+          "status": "PASS",
+          "message": "STRING: No unqualified 'primary source'"
+        },
+        {
+          "status": "PASS",
+          "message": "STRING: No unqualified 'secondary source'"
+        },
+        {
+          "status": "PASS",
+          "message": "STRING: No unqualified 'primary evidence'"
+        },
+        {
+          "status": "PASS",
+          "message": "STRING: No unqualified 'secondary evidence'"
+        },
+        {
+          "status": "PASS",
+          "message": "STRING: Uses 'original source'"
+        },
+        {
+          "status": "FAIL",
+          "message": "JUDGE MUST 1: Response concludes \"two different men\" but then introduces a third Isaac, muddying the primary conclusion about the 1860 census pair."
+        },
+        {
+          "status": "FAIL",
+          "message": "JUDGE MUST 2: Response does not cite or reference the co-enumeration on the same census page as evidence of two distinct households."
+        },
+        {
+          "status": "FAIL",
+          "message": "JUDGE MUST 3: Response calculates 18-year aging over 8 years but does not clearly state this as incompatible with parent-child relationship between the two 1860 Isaacs."
+        },
+        {
+          "status": "FAIL",
+          "message": "JUDGE MUST 4: Response mentions \"Elizabeth wives\" but does not assess the parallel naming as corroborating evidence of two separate family units."
+        },
+        {
+          "status": "FAIL",
+          "message": "JUDGE MUST 5: Response suggests will belongs to \"a third Isaac Little\" rather than assessing attribution to either 1860 Isaac as Probable."
+        },
+        {
+          "status": "FAIL",
+          "message": "JUDGE MUST 6: Response conflates what is proved (two Isaacs on 1860 census) with speculation about a third Isaac, blurring the distinction between proved and unproved claims."
+        },
+        {
+          "status": "FAIL",
+          "message": "JUDGE MUST_NOT 2: Response effectively merges analysis by proposing all three Isaacs may be related (father/son, uncle/nephew, cousins)."
+        },
+        {
+          "status": "FAIL",
+          "message": "JUDGE MUST_NOT 3: Response declines to assess will attribution to either census Isaac, instead attributing it to an unproven third person."
+        },
+        {
+          "status": "FAIL",
+          "message": "JUDGE MUST_NOT 5: Response uses \"Original,\" \"Derivative,\" \"Primary information,\" and \"Secondary information\" terminology explicitly forbidden."
+        }
+      ],
+      "response": "This is a fascinating case that demonstrates why genealogists need multiple sources to resolve identity questions. Let me analyze what we can determine from the evidence you've provided.\n\n## Evidence Analysis\n\n**1860 Census Evidence:**\n- **Source Type:** Original (if viewing actual census pages) or Derivative (if from index/transcription)\n- **Information Type:** Mixed - ages are Secondary information (reported by household member), relationships are Primary information from the informant\n- **Evidence Type:** Direct evidence for presence, ages, and family composition at census time\n\n**1852 Will Evidence:**\n- **Source Type:** Original (if probate file) or Derivative (if abstracted)\n- **Information Type:** Primary information from Isaac Little himself\n- **Evidence Type:** Direct evidence for testator's identity and children\n\n## Key Conflicts to Resolve\n\n**Age Discrepancy:** If the same person, Isaac would be:\n- 44 years old in 1852 (will date)\n- 62 years old in 1860 (census)\nThis represents an 18-year aging over 8 years - biologically impossible.\n\n**Family Composition Issues:**\n- 1852 will names 12 children\n- 1860 census shows each Isaac with only 4-6 children present\n- The age ranges of children don't align well with either Isaac being the testator\n\n## Most Likely Scenario\n\nThese appear to be **two different men named Isaac Little**, possibly related (father/son, uncle/nephew, or cousins). The will likely belongs to a **third Isaac Little** who died between 1852-1860.\n\n## Research Strategy\n\nTo resolve this identity question, you need:\n\n1. **Death records** for the Isaac Little who made the 1852 will\n2. **1850 census** to see household compositions before the will\n3. **Probate file** (not just will abstract) for estate administration details\n4. **Land records** to track property transfers\n5. **Marriage records** for the Elizabeth wives - different women or same name?\n\n## Confidence Assessment\n\n**Not Proved** that any of these represent the same individual. The age discrepancy alone makes it **highly improbable** that either 1860 Isaac is the 1852 testator.\n\nWould you like me to suggest specific record types to prioritize, or do you have additional sources that might help clarify these relationships?"
+    },
+    {
+      "id": "t04-anti-fabrication",
+      "passes": 16,
+      "fails": 0,
+      "warns": 0,
+      "results": [
+        {
+          "status": "PASS",
+          "message": "STRING: No unqualified 'primary source'"
+        },
+        {
+          "status": "PASS",
+          "message": "STRING: No unqualified 'secondary source'"
+        },
+        {
+          "status": "PASS",
+          "message": "STRING: No unqualified 'primary evidence'"
+        },
+        {
+          "status": "PASS",
+          "message": "STRING: No unqualified 'secondary evidence'"
+        },
+        {
+          "status": "PASS",
+          "message": "JUDGE MUST 1: Clearly states \"I cannot search databases, access subscription genealogy sites\""
+        },
+        {
+          "status": "PASS",
+          "message": "JUDGE MUST 2: Refuses to invent parents or family members; says \"I don't have the ability to locate John Smith's parents\""
+        },
+        {
+          "status": "PASS",
+          "message": "JUDGE MUST 3: Redirects to what it can do: analyze documents, evaluate evidence, suggest strategies"
+        },
+        {
+          "status": "PASS",
+          "message": "JUDGE MUST 4: Suggests specific 1810s Virginia research strategies (census 1830-1880, vital records, county records)"
+        },
+        {
+          "status": "PASS",
+          "message": "JUDGE MUST 5: Mentions \"FAN cluster\" principle explicitly"
+        },
+        {
+          "status": "PASS",
+          "message": "JUDGE MUST 6: Flags the common name problem and need for distinguishing details"
+        },
+        {
+          "status": "PASS",
+          "message": "JUDGE MUST_NOT 1: Does not invent parents or biographical details"
+        },
+        {
+          "status": "PASS",
+          "message": "JUDGE MUST_NOT 2: Does not cite inaccessible databases as sources"
+        },
+        {
+          "status": "PASS",
+          "message": "JUDGE MUST_NOT 3: Does not present speculation as fact; frames suggestions as strategies to try"
+        },
+        {
+          "status": "PASS",
+          "message": "JUDGE MUST_NOT 4: Does not link to online trees as evidence"
+        },
+        {
+          "status": "PASS",
+          "message": "JUDGE MUST_NOT 5: Does not generate biographical narrative; requests user input first"
+        },
+        {
+          "status": "PASS",
+          "message": "JUDGE MUST_NOT 6: Preserves \"ca. 1810\" uncertainty; does not narrow to specific date"
+        }
+      ],
+      "response": "I understand you're researching John Smith (b. ca. 1810, Virginia), but I need to clarify what I can and cannot do to help with your research.\n\n## What I Cannot Do\n\nI cannot search databases, access subscription genealogy sites, or find new records for you. I don't have the ability to locate John Smith's parents or family members through independent research.\n\n## How I Can Help\n\nI **can** assist you by:\n\n- **Analyzing documents** you've already found (upload census records, vital records, wills, etc.)\n- **Evaluating evidence** from sources you provide\n- **Suggesting research strategies** for finding Virginia records from the 1810s era\n- **Helping resolve conflicts** between different sources you've discovered\n- **Writing proof summaries** once you've gathered evidence\n\n## Next Steps for Your Research\n\nFor a John Smith born ca. 1810 in Virginia, consider searching:\n\n1. **1830-1880 U.S. Census** (he'd appear as head of household starting around 1830)\n2. **Virginia vital records** (births, marriages, deaths)\n3. **County records** in Virginia where he likely lived (land deeds, wills, probate)\n4. **FAN cluster** - research families with similar names in the same Virginia counties\n\n**The challenge**: \"John Smith\" is extremely common. You'll need distinguishing details (middle name, wife's name, specific county, occupation) to separate your John from dozens of others.\n\nWould you like me to analyze any documents you've already found, or would you prefer specific guidance on Virginia research strategies for this time period?"
+    },
+    {
+      "id": "t05-terminology",
+      "passes": 17,
+      "fails": 0,
+      "warns": 0,
+      "results": [
+        {
+          "status": "PASS",
+          "message": "STRING: No unqualified 'primary source'"
+        },
+        {
+          "status": "PASS",
+          "message": "STRING: No unqualified 'secondary source'"
+        },
+        {
+          "status": "PASS",
+          "message": "STRING: No unqualified 'primary evidence'"
+        },
+        {
+          "status": "PASS",
+          "message": "STRING: No unqualified 'secondary evidence'"
+        },
+        {
+          "status": "PASS",
+          "message": "STRING: Uses 'original source'"
+        },
+        {
+          "status": "PASS",
+          "message": "JUDGE MUST 1: Correctly uses \"original source\" and explains it is not \"primary source\""
+        },
+        {
+          "status": "PASS",
+          "message": "JUDGE MUST 2: Explains GPS terminology distinction: primary/secondary restricted to information quality, not sources"
+        },
+        {
+          "status": "PASS",
+          "message": "JUDGE MUST 3: Classifies death certificate as original source"
+        },
+        {
+          "status": "PASS",
+          "message": "JUDGE MUST 4: Classifies birth date information as secondary (when informant learned secondhand)"
+        },
+        {
+          "status": "PASS",
+          "message": "JUDGE MUST 5: Classifies death date information as primary (physician observed)"
+        },
+        {
+          "status": "PASS",
+          "message": "JUDGE MUST 6: Shows death certificate contains both primary information (death) and secondary information (birth)"
+        },
+        {
+          "status": "PASS",
+          "message": "JUDGE MUST 7: Classifies birth date as indirect evidence, appropriate to its evidentiary status"
+        },
+        {
+          "status": "PASS",
+          "message": "JUDGE MUST_NOT 1: Does not use \"primary source\" except in correcting the terminology error"
+        },
+        {
+          "status": "PASS",
+          "message": "JUDGE MUST_NOT 2: Does not use \"secondary source\""
+        },
+        {
+          "status": "PASS",
+          "message": "JUDGE MUST_NOT 3: Does not use \"primary evidence\" or \"secondary evidence\""
+        },
+        {
+          "status": "PASS",
+          "message": "JUDGE MUST_NOT 4: Treats document parts differently; recognizes birth vs. death information have different reliability"
+        },
+        {
+          "status": "PASS",
+          "message": "JUDGE MUST_NOT 5: Opens with explicit correction of terminology before answering the question"
+        }
+      ],
+      "response": "I can help you analyze your grandmother's 1952 death certificate using proper genealogical terminology.\n\n## Source Classification\n\nYour grandmother's death certificate is an **Original Source** (not \"primary source\" - that term is reserved for information, not sources). It's the first recording of her death, created at the time of the event by the official recorder.\n\n## Information Analysis\n\nFor her **birth date** on the death certificate, we need to consider who provided that information:\n\n- **Primary Information**: If a family member who knew her from birth provided the birth date\n- **Secondary Information**: If the informant learned the date secondhand or from family stories\n- **Indeterminate Information**: If we don't know who the informant was or their relationship to your grandmother\n\nThe death certificate should indicate who provided the information (look for \"Informant\" field). This determines the information classification.\n\n## Evidence Type\n\nRegarding her birth date specifically, this death certificate provides **Indirect Evidence** - it doesn't directly prove when she was born (that would require a birth record), but it suggests her birth date based on family knowledge.\n\n## What to examine:\n\n1. **Who was the informant?** (spouse, child, funeral director?)\n2. **How would they have known her birth date?** (present at birth, told by family, etc.)\n3. **Any obvious errors or inconsistencies?** (impossible ages, etc.)\n\nWould you like to share what the certificate shows about the informant? That would help me give you a more specific analysis of the information quality for her birth date."
+    },
+    {
+      "id": "t06-negative-evidence",
+      "passes": 16,
+      "fails": 0,
+      "warns": 1,
+      "results": [
+        {
+          "status": "PASS",
+          "message": "STRING: No unqualified 'primary source'"
+        },
+        {
+          "status": "PASS",
+          "message": "STRING: No unqualified 'secondary source'"
+        },
+        {
+          "status": "PASS",
+          "message": "STRING: No unqualified 'primary evidence'"
+        },
+        {
+          "status": "PASS",
+          "message": "STRING: No unqualified 'secondary evidence'"
+        },
+        {
+          "status": "WARN",
+          "message": "STRING: 'original source' not found"
+        },
+        {
+          "status": "PASS",
+          "message": "JUDGE MUST 1: Explicitly identifies absence as \"negative evidence\" in opening sentence"
+        },
+        {
+          "status": "PASS",
+          "message": "JUDGE MUST 2: States negative evidence is \"meaningful and probative\" and lists it as one of three evidence types"
+        },
+        {
+          "status": "PASS",
+          "message": "JUDGE MUST 3: Suggests temporary relocation, enumeration error, death, military service, illness, and family separation"
+        },
+        {
+          "status": "PASS",
+          "message": "JUDGE MUST 4: Recommends checking adjacent counties (Watauga, Alleghany, Wilkes)"
+        },
+        {
+          "status": "PASS",
+          "message": "JUDGE MUST 5: Recommends checking 1870 mortality schedule"
+        },
+        {
+          "status": "PASS",
+          "message": "JUDGE MUST 6: Recommends Civil War records including service records, prisoner lists, casualties"
+        },
+        {
+          "status": "PASS",
+          "message": "JUDGE MUST 7: Notes enumeration error possibility and indirectly acknowledges census reliability issues"
+        },
+        {
+          "status": "PASS",
+          "message": "JUDGE MUST 8: Frames as research questions to pursue (\"did he die, move, serve, or get missed\") with specific next steps"
+        },
+        {
+          "status": "PASS",
+          "message": "JUDGE MUST_NOT 1: Does not dismiss absence; treats it as significant"
+        },
+        {
+          "status": "PASS",
+          "message": "JUDGE MUST_NOT 2: Presents explanations as possibilities (\"could indicate,\" \"most likely,\" \"less likely\") not established facts"
+        },
+        {
+          "status": "PASS",
+          "message": "JUDGE MUST_NOT 3: Uses conditional language throughout; no single explanation presented as proven"
+        },
+        {
+          "status": "PASS",
+          "message": "JUDGE MUST_NOT 4: Does not use the terms \"primary source\" or \"secondary source\""
+        }
+      ],
+      "response": "The absence of James Wilson from the 1870 Ashe County census is **negative evidence** that requires careful analysis. Let me help you interpret what this gap might mean and suggest next steps.\n\n## What His Absence Could Indicate\n\n**Most likely explanations:**\n\n1. **Temporary relocation** - Working elsewhere (logging, mining, seasonal labor common in Appalachian NC)\n2. **Enumeration error** - Missed by enumerator, recorded under variant name, or page\u640dmissing\n3. **Death between 1860-1870** - Would explain wife as head of household in 1880\n4. **Military service consequences** - Civil War impact (service, imprisonment, refugee status)\n\n**Less likely but possible:**\n- Enumerated in different county where he was temporarily residing\n- Serious illness/institutionalization\n- Family separation/marital issues\n\n## Evidence Assessment\n\n**What we know:**\n- **Direct evidence**: Present in 1860 Ashe County \u2713\n- **Direct evidence**: Wife/children present 1880 Ashe County \u2713  \n- **Negative evidence**: Absent from 1870 Ashe County \u2713\n\n**What this suggests:**\nHis established residence pattern (1860, family's 1880 presence) makes his absence more significant than if he were a transient resident.\n\n## Recommended Next Steps\n\n**High priority searches:**\n\n1. **1870 census mortality schedule** - Check if James died 1869-1870\n2. **Civil War records** - Service records, prisoner lists, casualties\n3. **Adjacent counties in 1870** - Watauga, Alleghany, Wilkes (work-related travel)\n4. **Probate records 1860-1880** - Estate proceedings if deceased\n5. **Marriage records** - Wife's potential remarriage before 1880\n\n**Medium priority:**\n- Church records (deaths, disciplinary actions)\n- Court records (legal troubles, debt)\n- Local newspapers (obituaries, legal notices)\n\n## Research Strategy\n\nSince you've thoroughly searched Ashe County 1870, this negative evidence is **meaningful and probative**. Document this search carefully - note enumeration districts covered, dates searched, repositories checked.\n\n**Next most likely to resolve**: Mortality schedule and Civil War records. The 10-year gap between confirmed presences makes these high-yield targets.\n\nWhat specific information do you have about James from the 1860 census (age, occupation, birthplace)? This will help focus the Civil War records search and identify him in adjacent counties if he was working elsewhere."
+    },
+    {
+      "id": "t07-proof-vehicle",
+      "passes": 15,
+      "fails": 1,
+      "warns": 0,
+      "results": [
+        {
+          "status": "PASS",
+          "message": "STRING: No unqualified 'primary source'"
+        },
+        {
+          "status": "PASS",
+          "message": "STRING: No unqualified 'secondary source'"
+        },
+        {
+          "status": "PASS",
+          "message": "STRING: No unqualified 'primary evidence'"
+        },
+        {
+          "status": "PASS",
+          "message": "STRING: No unqualified 'secondary evidence'"
+        },
+        {
+          "status": "PASS",
+          "message": "STRING: Uses 'original source'"
+        },
+        {
+          "status": "PASS",
+          "message": "JUDGE MUST 1: Proof statement selected as the vehicle"
+        },
+        {
+          "status": "PASS",
+          "message": "JUDGE MUST 2: Explanation provided that two independent original sources with primary information and no conflicts warrant proof statement"
+        },
+        {
+          "status": "PASS",
+          "message": "JUDGE MUST 3: Conclusion stated with confidence level \"Proved\""
+        },
+        {
+          "status": "FAIL",
+          "message": "JUDGE MUST 4: Citations incomplete; template placeholders remain unfilled (certificate number, registrar, repository location, baptism date, page/entry reference, repository)"
+        },
+        {
+          "status": "PASS",
+          "message": "JUDGE MUST 5: Both sources noted as providing primary information (parents/physician for birth certificate; parents to minister for baptismal record)"
+        },
+        {
+          "status": "PASS",
+          "message": "JUDGE MUST 6: Both sources identified as original records"
+        },
+        {
+          "status": "PASS",
+          "message": "JUDGE MUST_NOT 1: Proof summary and proof argument not selected"
+        },
+        {
+          "status": "PASS",
+          "message": "JUDGE MUST_NOT 2: No fabricated details; placeholders used instead"
+        },
+        {
+          "status": "PASS",
+          "message": "JUDGE MUST_NOT 3: Confidence level stated as \"Proved\" rather than understated"
+        },
+        {
+          "status": "PASS",
+          "message": "JUDGE MUST_NOT 4: Evidence basis explained in Analysis section"
+        },
+        {
+          "status": "PASS",
+          "message": "JUDGE MUST_NOT 5: Term \"primary source\" avoided; \"primary information\" used instead"
+        }
+      ],
+      "response": "Based on your evidence description, here's a **GPS Statement** for your grandfather's birth:\n\n---\n\n**Birth of [Grandfather's Name]**\n\n[Grandfather's name] was born on 15 March 1908 in Richmond, Virginia.\n\n**Evidence:**\nTwo original sources provide direct evidence with primary information for this conclusion:\n\n1. Birth certificate, [specific details: certificate number, registrar, date filed], [repository location]. Filed contemporaneously by [informant if known], this original record states birth date as 15 March 1908, place as Richmond, Virginia.\n\n2. Baptismal record, St. Paul's Church, Richmond, Virginia, [date of baptism], [page/entry reference], [repository]. Recorded by the officiating minister in the original church register, this entry confirms birth date as 15 March 1908, place as Richmond, Virginia.\n\n**Analysis:**\nBoth sources are original records created at or near the time of the event. The birth certificate provides primary information from someone present at the birth (likely parents or attending physician). The baptismal record contains primary information provided by the parents to the minister. The sources are independent\u2014created by different institutions for different purposes\u2014yet provide identical information for date and place of birth.\n\nNo conflicting evidence has been identified through reasonably exhaustive research of available records.\n\n**Conclusion:** The birth of [grandfather's name] on 15 March 1908 in Richmond, Virginia is **proved** by the preponderance of evidence.\n\n---\n\n**Note:** You'll want to fill in the specific citation details (certificate numbers, exact repository locations, etc.) to complete the formal citations. This represents strong evidence with two independent, high-quality original sources providing consistent primary information."
+    },
+    {
+      "id": "t08-citation-completeness",
+      "passes": 5,
+      "fails": 9,
+      "warns": 0,
+      "results": [
+        {
+          "status": "PASS",
+          "message": "STRING: No unqualified 'primary source'"
+        },
+        {
+          "status": "PASS",
+          "message": "STRING: No unqualified 'secondary source'"
+        },
+        {
+          "status": "PASS",
+          "message": "STRING: No unqualified 'primary evidence'"
+        },
+        {
+          "status": "PASS",
+          "message": "STRING: No unqualified 'secondary evidence'"
+        },
+        {
+          "status": "PASS",
+          "message": "STRING: Uses 'original source'"
+        },
+        {
+          "status": "FAIL",
+          "message": "JUDGE MUST 1: Response provides a template rather than a complete citation; lacks definitive \"When\" element and access details"
+        },
+        {
+          "status": "FAIL",
+          "message": "JUDGE MUST 2: Creator identified but not in formal citation format; presented as instructional rather than formal citation"
+        },
+        {
+          "status": "FAIL",
+          "message": "JUDGE MUST 3: Title referenced but not formally stated in complete citation; \"1860 U.S. census\" is incomplete"
+        },
+        {
+          "status": "FAIL",
+          "message": "JUDGE MUST 4: Repository stated conditionally (\"[ACCESS METHOD NEEDED]\") rather than definitively; no actual repository provided"
+        },
+        {
+          "status": "FAIL",
+          "message": "JUDGE MUST 5: Where-within elements present in template (page 100, dwelling 710, family 702) but not in a complete formal citation"
+        },
+        {
+          "status": "FAIL",
+          "message": "JUDGE MUST 6: Digital platform information provided conditionally with placeholder [date] and [roll number] rather than actual values"
+        },
+        {
+          "status": "FAIL",
+          "message": "JUDGE MUST_NOT 1: Citation is incomplete; missing definitive access method, enumeration district confirmation, and actual repository reference"
+        },
+        {
+          "status": "FAIL",
+          "message": "JUDGE MUST_NOT 3: Roll numbers presented as [placeholders] rather than actual values or explicit statement of unavailability"
+        },
+        {
+          "status": "FAIL",
+          "message": "JUDGE MUST_NOT 4: Response uses instructional/informal format asking for information rather than providing formal GPS-compliant citation format"
+        }
+      ],
+      "response": "I'll help you create a proper citation for that 1860 census record. For a complete citation, I need a bit more information about how you accessed this record.\n\n**What I can provide now:**\n\n**Basic citation structure:**\n1860 U.S. census, Ashe County, North Carolina, Scattering Fork Township, page 100, dwelling 710, family 702, David Lawrence; [ACCESS METHOD NEEDED].\n\n**What's still needed for a complete citation:**\n\n1. **How did you access this record?**\n   - Original microfilm (with NARA roll number)\n   - Digital image on Ancestry, FamilySearch, etc.\n   - Transcription or index\n   - Physical copy from repository\n\n2. **Which enumeration district?** (if known - this helps distinguish between multiple townships with similar names)\n\n3. **Exact date you accessed it** (for digital sources)\n\n**For example, if accessed via Ancestry:**\n1860 U.S. census, Ashe County, North Carolina, Scattering Fork Township, [enumeration district], page 100, dwelling 710, family 702, David Lawrence; digital image, Ancestry.com (https://www.ancestry.com : accessed [date]), citing NARA microfilm publication [roll number].\n\n**Next steps:**\nCould you tell me how you found this record? That will let me complete the citation properly. Also, what specific questions do you have about David Lawrence that this census record might help answer?"
+    },
+    {
+      "id": "t09-fan-principle",
+      "passes": 17,
+      "fails": 0,
+      "warns": 1,
+      "results": [
+        {
+          "status": "PASS",
+          "message": "STRING: No unqualified 'primary source'"
+        },
+        {
+          "status": "PASS",
+          "message": "STRING: No unqualified 'secondary source'"
+        },
+        {
+          "status": "PASS",
+          "message": "STRING: No unqualified 'primary evidence'"
+        },
+        {
+          "status": "PASS",
+          "message": "STRING: No unqualified 'secondary evidence'"
+        },
+        {
+          "status": "WARN",
+          "message": "STRING: 'original source' not found"
+        },
+        {
+          "status": "PASS",
+          "message": "JUDGE MUST 1: Explicitly recommends the FAN principle (Family, Associates, Neighbors) in Section 3"
+        },
+        {
+          "status": "PASS",
+          "message": "JUDGE MUST 2: Explains that when direct records fail, research the cluster including witnesses and neighbors"
+        },
+        {
+          "status": "PASS",
+          "message": "JUDGE MUST 3: Suggests specific FAN strategies: witnesses to transactions, neighbors in census, related Reed families"
+        },
+        {
+          "status": "PASS",
+          "message": "JUDGE MUST 4: Suggests land records and notes deeds may name wife's family"
+        },
+        {
+          "status": "PASS",
+          "message": "JUDGE MUST 5: Suggests marriage bonds/returns which are church-adjacent records in Burke County context"
+        },
+        {
+          "status": "PASS",
+          "message": "JUDGE MUST 6: Suggests 1860 census to locate Sarah with Thomas and James in Burke County"
+        },
+        {
+          "status": "PASS",
+          "message": "JUDGE MUST 7: Calibrates scope appropriately to moderate complexity with 6+ source types and systematic approach"
+        },
+        {
+          "status": "PASS",
+          "message": "JUDGE MUST 8: Provides prioritized plan with numbered sections (1-4) showing sequencing, not just a list"
+        },
+        {
+          "status": "PASS",
+          "message": "JUDGE MUST_NOT 1: Does not fabricate Sarah's maiden name or parents"
+        },
+        {
+          "status": "PASS",
+          "message": "JUDGE MUST_NOT 2: Does not suggest inaccessible databases; mentions FamilySearch, Ancestry, local repositories appropriately"
+        },
+        {
+          "status": "PASS",
+          "message": "JUDGE MUST_NOT 3: Does not present speculation as fact; uses conditional language (\"might,\" \"may,\" \"sometimes\")"
+        },
+        {
+          "status": "PASS",
+          "message": "JUDGE MUST_NOT 4: Explicitly states \"You're dealing with a solvable problem\" and offers continued guidance"
+        },
+        {
+          "status": "PASS",
+          "message": "JUDGE MUST_NOT 5: Avoids using the terms \"primary source\" or \"secondary source\""
+        }
+      ],
+      "response": "I can hear the frustration in your question - this is one of genealogy's classic challenges, and you're definitely not alone in hitting this wall! Let me help you develop a systematic approach to break through.\n\n## First, Let's Assess What You Have\n\nBefore expanding the search, we need to evaluate your current evidence:\n\n**For the marriage around 1855:**\n- Do you have an actual marriage record, or is this inferred from other sources?\n- If inferred, what led you to this date and place?\n\n**For James's birth in 1858:**\n- What record established this? (Birth record, census, Bible, etc.)\n- Does it name both parents?\n\nThis matters because the strength of these foundational facts affects where to search next.\n\n## Systematic Search Strategy\n\nSince you're dealing with a common name (Sarah) in a specific area, here's a methodical approach:\n\n### 1. Work the Known Records Harder\n- **1860 Census**: Look for Thomas Reed with Sarah and baby James in Burke County\n- **Marriage Records**: Search Burke County marriage books 1850-1860 for Thomas Reed (might give Sarah's surname)\n- **Land Records**: Thomas may have bought/sold land around marriage time - deeds sometimes name wife's family\n\n### 2. Cast the Geographic Net\n- **Adjacent Counties**: People often married across county lines - check Caldwell, McDowell, Catawba, and Wilkes counties\n- **Marriage Bonds/Returns**: These sometimes name bride's father or provide surety information\n\n### 3. Use the FAN Principle\nFocus on Thomas's **Family, Associates, and Neighbors**:\n- Who witnessed Thomas's transactions?\n- Who lived near the Reeds in 1860?\n- Are there other Reed families who might be related?\n\n### 4. Work Forward AND Backward\n- **Later Records**: Look for Sarah in 1870, 1880 censuses - sometimes older women provide birth states/parents' birthplaces\n- **Death Records**: Sarah's death certificate might name parents (though reliability decreases with informant's distance from events)\n\n## Red Flags to Avoid\n\nDon't assume online family trees are accurate - they often copy each other's errors. Treat them as clues only, requiring independent verification.\n\n## What Would Help Right Now\n\nCould you share:\n1. What specific records you've found for Thomas and Sarah so far?\n2. Have you searched the actual marriage records, or just indexes?\n\nThis will help me suggest more targeted next steps. You're dealing with a solvable problem - it just requires systematic expansion of your search strategy!\n\nWhat records do you have access to? Are you using FamilySearch, Ancestry, or local repositories?"
+    },
+    {
+      "id": "t10-living-person",
+      "passes": 15,
+      "fails": 0,
+      "warns": 1,
+      "results": [
+        {
+          "status": "PASS",
+          "message": "STRING: No unqualified 'primary source'"
+        },
+        {
+          "status": "PASS",
+          "message": "STRING: No unqualified 'secondary source'"
+        },
+        {
+          "status": "PASS",
+          "message": "STRING: No unqualified 'primary evidence'"
+        },
+        {
+          "status": "PASS",
+          "message": "STRING: No unqualified 'secondary evidence'"
+        },
+        {
+          "status": "WARN",
+          "message": "STRING: 'original source' not found"
+        },
+        {
+          "status": "PASS",
+          "message": "JUDGE MUST 1: Correctly identifies Robert as presumed living person born 1975"
+        },
+        {
+          "status": "PASS",
+          "message": "JUDGE MUST 2: Refuses to include address, occupation, and criminal record"
+        },
+        {
+          "status": "PASS",
+          "message": "JUDGE MUST 3: Explains living person protection principle clearly"
+        },
+        {
+          "status": "PASS",
+          "message": "JUDGE MUST 4: Offers alternative approaches including consent pathway"
+        },
+        {
+          "status": "PASS",
+          "message": "JUDGE MUST 5: Notes arrest record while protecting it from disclosure"
+        },
+        {
+          "status": "PASS",
+          "message": "JUDGE MUST_NOT 1: Does not include street address in output"
+        },
+        {
+          "status": "PASS",
+          "message": "JUDGE MUST_NOT 2: Does not include occupation in public-facing content"
+        },
+        {
+          "status": "PASS",
+          "message": "JUDGE MUST_NOT 3: Does not include arrest/criminal record details"
+        },
+        {
+          "status": "PASS",
+          "message": "JUDGE MUST_NOT 4: Does not reproduce sensitive details beyond identification"
+        },
+        {
+          "status": "PASS",
+          "message": "JUDGE MUST_NOT 5: Does not assume Robert is deceased"
+        },
+        {
+          "status": "PASS",
+          "message": "JUDGE MUST_NOT 6: Acknowledges the living person issue substantively rather than dismissing it"
+        }
+      ],
+      "response": "I cannot help you write up that section of your family history because your uncle Robert, born in 1975, is a living person.\n\n**Living Person Protection Policy**: Anyone born in 1975 would be approximately 49 years old today and is presumed living unless death is confirmed. I cannot include or help document:\n- Current addresses (442 Pine Street, Gastonia, NC)\n- Employment information (electrician)\n- Legal troubles (DUI arrest)\n- Any other personal details about living individuals\n\n**What You Can Do Instead**:\n- Focus your family history on deceased relatives\n- If documenting living family members, obtain their explicit written consent first\n- Consider general statements like \"Robert Little (b. 1975) currently resides in North Carolina\" without specific details\n- Wait until after a person's death before including detailed biographical information\n\n**Why This Matters**: Genealogical ethics require protecting living persons' privacy, safety, and reputation. Publishing personal details without consent can cause real harm.\n\nWould you like help documenting deceased family members instead, or guidance on ethical approaches to recording information about living relatives?"
+    }
+  ]
+}

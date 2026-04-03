@@ -10,7 +10,8 @@ platform-agnostic prompts, see [Assistants](../assistants/).
 
 | Skill | Description | Status |
 | ----- | ----------- | ------ |
-| [gedcom-creator/](gedcom-creator/) | GEDCOM 5.5.1 file generator | **new** |
+| [gra/](gra/) | GPS-compliant genealogical research assistant | **new** |
+| [gedcom-creator/](gedcom-creator/) | GEDCOM 5.5.1 file generator | stable |
 
 ## Installation
 

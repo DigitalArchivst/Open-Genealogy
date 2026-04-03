@@ -11,13 +11,14 @@ A toolkit of **AI prompts and utilities for genealogical research**, designed to
 | Category | Description | Start Here |
 |----------|-------------|------------|
 | **[Research](research/)** | GPS-based research methodology | [research-assistant-v8.md](research/research-assistant-v8.md) |
+| **[GRA Skill](skills/gra/)** | GPS research assistant for Claude Code (v8.5) | [SKILL.md](skills/gra/SKILL.md) |
 | **[Transcription](transcription/)** | Diplomatic transcription for handwritten documents | [ocr-htr-v08.md](transcription/ocr-htr-v08.md) |
 | **[Image Analysis](image-analysis/)** | Forensic image interpretation for historical photographs | [deep-look-v2.md](image-analysis/deep-look-v2.md) |
 | **[Hebrew Headstones](hebrew-headstones/)** | Jewish cemetery headstone analysis with gematria dating | [hebrew-headstone-helper-v9.md](hebrew-headstones/hebrew-headstone-helper-v9.md) |
 | **[Photo Restoration](photo-restoration/)** | Historical photograph restoration | [restoration-v2.md](photo-restoration/restoration-v2.md) |
 | **[Writing Tools](writing-tools/)** | Narrative writing, fact extraction, language advising, editing | [narrative-assistant-v3.md](writing-tools/narrative-assistant-v3.md) |
 | **[Assistants](assistants/)** | AI personas, GEDCOM creation and analysis | [gedcom-builder-v1.md](assistants/gedcom-builder-v1.md) |
-| **[Skills](skills/)** | Claude Code tools with companion scripts | [gedcom-creator](skills/gedcom-creator/) |
+| **[Skills](skills/)** | Claude Code skills with companion files | [skills/](skills/) |
 | **[Scripts](scripts/)** | Audio transcription utilities | [transcribe-4.py](scripts/transcribe-4.py) |
 | **[Benchmark](benchmark/)** | AI research evaluation framework | [README.md](benchmark/README.md) |
 
