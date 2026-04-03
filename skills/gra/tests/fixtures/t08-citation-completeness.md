@@ -43,7 +43,7 @@ throughout 81 record notes).
 
 ## Ground Truth
 
-A GPS-compliant citation for the 1860 census requires: Who
+A GPS-informed citation for the 1860 census requires: Who
 (Bureau of the Census), What (Population Schedule, Eighth
 Census), When (1860), Where (NARA or digital access platform),
 Where-within (Ashe County, NC, Scattering Fork township, p.100,

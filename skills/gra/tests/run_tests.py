@@ -184,7 +184,7 @@ def judge_rubric(response, fixture):
         for i, item in enumerate(fixture.get("must_not", []))
     )
 
-    judge_prompt = f"""You are a GPS methodology compliance judge.
+    judge_prompt = f"""You are a GPS methodology alignment judge.
 Evaluate the RESPONSE against each criterion below.
 
 For each criterion, respond with exactly one line:

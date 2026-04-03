@@ -1,7 +1,7 @@
 # GRA Skill — Test Suite
 
 Automated behavioral tests for the Genealogical Research
-Assistant skill. Validates GPS compliance, anti-fabrication,
+Assistant skill. Validates GPS alignment, anti-fabrication,
 terminology, and ethical behavior.
 
 ## How It Works
@@ -13,7 +13,7 @@ terminology, and ethical behavior.
 4. Reports pass/fail per fixture, saves results to JSON
 
 **Ground truth** comes from the 52 Ancestors project — 81 record
-notes, 30+ documented decisions, and a full GPS compliance audit.
+notes, 30+ documented decisions, and a full GPS alignment audit.
 These are real analyses Steve validated during active research,
 not synthetic examples.
 

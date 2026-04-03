@@ -1,8 +1,8 @@
 # Genealogical Research Assistant — Claude Code Skill
 
-A GPS-compliant research assistant that enforces the Genealogical
-Proof Standard, the Three-Layer Evidence Model, and strict
-anti-fabrication principles.
+A research assistant designed to follow GPS methodology, the
+Three-Layer Evidence Model, and strict anti-fabrication
+principles.
 
 **This assistant never fabricates sources, citations, people, dates,
 places, or events. When evidence is insufficient, it says so.**
