@@ -17,14 +17,15 @@ Complete catalog of prompts, scripts, and tools.
 
 | File | Description | Status |
 |------|-------------|--------|
-| [research-assistant-v8.md](research/research-assistant-v8.md) | Full GPS-based research assistant (669 lines) | **recommended** |
-| [research-assistant-v8-compact.md](research/research-assistant-v8-compact.md) | Token-efficient v8 | **recommended** |
-| [research-with-citations-v7.md](research/research-with-citations-v7.md) | Web research with GPS methodology | **recommended** |
-| [web-research-v7.md](research/web-research-v7.md) | Compact web search prompt | **recommended** |
-| [research-assistant-v7.md](research/research-assistant-v7.md) | Previous full version | stable |
-| [research-assistant-v7-compressed.md](research/research-assistant-v7-compressed.md) | Token-efficient v7 | stable |
-| [research-assistant-v6.1.md](research/research-assistant-v6.1.md) | Earlier full version | stable |
-| [research-assistant-v6.1-compressed.md](research/research-assistant-v6.1-compressed.md) | Token-efficient v6.1 | stable |
+| [research-assistant-v8.5-compact.md](research/research-assistant-v8.5-compact.md) | GPS-aligned compact research assistant (~1,000 words) | **recommended** |
+| [research-assistant-v8.md](research/research-assistant-v8.md) | Full GPS-based research assistant (669 lines) | stable |
+| [research-assistant-v8-compact.md](research/research-assistant-v8-compact.md) | Token-efficient v8 | stable |
+| [research-with-citations-v7.md](research/research-with-citations-v7.md) | Web research with GPS methodology | stable |
+| [web-research-v7.md](research/web-research-v7.md) | Compact web search prompt | stable |
+| [research-assistant-v7.md](research/research-assistant-v7.md) | Previous full version | archive |
+| [research-assistant-v7-compressed.md](research/research-assistant-v7-compressed.md) | Token-efficient v7 | archive |
+| [research-assistant-v6.1.md](research/research-assistant-v6.1.md) | Earlier full version | archive |
+| [research-assistant-v6.1-compressed.md](research/research-assistant-v6.1-compressed.md) | Token-efficient v6.1 | archive |
 | [contract-first-genealogy-v3.1.md](research/contract-first-genealogy-v3.1.md) | Contract-lock workflow | stable |
 | [research-agent-assignment-v2.1.md](research/research-agent-assignment-v2.1.md) | Research agent specification | stable |
 
@@ -108,7 +109,8 @@ Complete AI personas for ongoing genealogical work.
 |------|-------------|
 | [vibe-genealogy-assistant-v4.md](assistants/vibe-genealogy-assistant-v4.md) | Warm, story-first genealogy helper |
 | [gedcom-analysis-v3.md](assistants/gedcom-analysis-v3.md) | GEDCOM file analysis specialist |
-| [gedcom-builder-v1.md](assistants/gedcom-builder-v1.md) | GEDCOM file creation from research data (**new**) |
+| [gedcom-builder-v1.md](assistants/gedcom-builder-v1.md) | GEDCOM file creation from research data |
+| [gedcom-creator-mini.md](assistants/gedcom-creator-mini.md) | Compact GEDCOM creator for Custom GPTs |
 
 ---
 
@@ -119,9 +121,8 @@ Requires [Claude Code](https://claude.ai/code).
 
 | Folder | Description | Status |
 | ------ | ----------- | ------ |
-| [gedcom-creator/](skills/gedcom-creator/) | GEDCOM 5.5.1 file generator from natural language, JSON, or markdown | **new** |
-
-**Note:** Standalone prompt versions are planned for `assistants/`.
+| [gra/](skills/gra/) | GPS-aligned genealogical research assistant (v8.5.1c + full + companion) | **new** |
+| [gedcom-creator/](skills/gedcom-creator/) | GEDCOM 5.5.1 file generator from natural language, JSON, or markdown | stable |
 
 ---
 
