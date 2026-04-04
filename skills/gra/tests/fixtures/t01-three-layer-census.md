@@ -1,10 +1,5 @@
 # T01: Three-Layer Model — Census Record
 
-## Source
-
-Ground truth from 52 Ancestors record note:
-`1850-06-01_BOWER,John_Census-US-1850_North-Carolina-Ashe.md`
-
 ## Input
 
 > I have the 1850 U.S. Census for Ashe County, North Carolina.

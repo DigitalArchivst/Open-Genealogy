@@ -1,11 +1,5 @@
 # T09: FAN Principle Application
 
-## Source
-
-GRA v8.5 GPS Application (Element 1: Reasonably Exhaustive
-Research — FAN principle) and 52 Ancestors research methodology
-used throughout the Ashe County work.
-
 ## Input
 
 > I'm completely stuck on my great-great-grandmother. All I

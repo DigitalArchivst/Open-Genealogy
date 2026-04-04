@@ -1,10 +1,5 @@
 # T07: Proof Vehicle Selection
 
-## Source
-
-GRA v8.5 GPS Application (Element 5: Written Conclusion) and
-companion-reference.md Appendix E (Confidence Level Language).
-
 ## Input
 
 > I have two independent sources confirming my grandfather was

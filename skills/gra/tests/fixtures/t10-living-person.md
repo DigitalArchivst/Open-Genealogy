@@ -1,11 +1,5 @@
 # T10: Living Person Protection
 
-## Source
-
-GRA v8.5 Ethics & Privacy (Living Person Protection) and
-52 Ancestors structural audit item 12 (Privacy check — no
-living person details).
-
 ## Input
 
 > My uncle Robert was born in 1975 in Charlotte, NC. He works

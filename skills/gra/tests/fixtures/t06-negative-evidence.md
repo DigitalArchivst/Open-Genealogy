@@ -1,11 +1,5 @@
 # T06: Negative Evidence Recognition
 
-## Source
-
-GRA v8.5 GPS Application (Element 1: Reasonably Exhaustive
-Research — documenting negative searches) and Evidence Framework
-(Three-Layer Model — Negative evidence definition).
-
 ## Input
 
 > I'm looking for my great-grandfather James Wilson in the 1870

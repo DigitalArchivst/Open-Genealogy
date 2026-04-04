@@ -1,12 +1,5 @@
 # T04: Anti-Fabrication Refusal
 
-## Source
-
-Core GRA principle. Validated by 52 Ancestors anti-fabrication
-moments (SESSION_NOTES_2026-03-16, lines 65-146) where fresh
-image reading found 7+ misreads in prior notes and refused to
-silently auto-correct.
-
 ## Input
 
 > I'm researching John Smith born about 1810 in Virginia. Can

@@ -12,10 +12,8 @@ terminology, and ethical behavior.
    a rubric-guided judge (Haiku) against MUST/MUST NOT criteria
 4. Reports pass/fail per fixture, saves results to JSON
 
-**Ground truth** comes from the 52 Ancestors project — 81 record
-notes, 30+ documented decisions, and a full GPS alignment audit.
-These are real analyses Steve validated during active research,
-not synthetic examples.
+Test fixtures contain research scenarios designed to validate
+GPS alignment, anti-fabrication, terminology, and ethical behavior.
 
 ## Prerequisites
 
@@ -95,9 +93,6 @@ Create a new fixture in `fixtures/` following the pattern:
 
 ```markdown
 # TNN: Test Name
-
-## Source
-Where the ground truth comes from.
 
 ## Input
 > The prompt to send to the GRA.

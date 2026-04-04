@@ -1,11 +1,5 @@
 # T08: Citation Completeness
 
-## Source
-
-GRA v8.5 GPS Application (Element 2: Complete Citations) and
-52 Ancestors record note pattern (5-element citations used
-throughout 81 record notes).
-
 ## Input
 
 > I found information about my ancestor in the 1860 census.

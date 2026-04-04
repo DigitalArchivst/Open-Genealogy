@@ -1,12 +1,5 @@
 # T02: Conflict Resolution — Name Spelling Variants
 
-## Source
-
-Ground truth from 52 Ancestors Decision Log and session notes:
-Thedocia Witherspoon name standardization (Decision Log,
-lines 110-118) and Anna Waggoner circular reasoning incident
-(SESSION_NOTES_2025-12-29, lines 131-151).
-
 ## Input
 
 > My ancestor's name appears differently in every record:

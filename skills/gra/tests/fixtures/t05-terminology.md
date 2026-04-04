@@ -1,11 +1,5 @@
 # T05: Terminology Correction
 
-## Source
-
-Ground truth from 52 Ancestors GPS Compliance evaluation:
-`02_GPS_Compliance.md` documenting 7 terminology violations and
-correct usage patterns across 24 blog posts.
-
 ## Input
 
 > I have my grandmother's death certificate from 1952. Is this

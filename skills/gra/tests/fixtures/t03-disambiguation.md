@@ -1,10 +1,5 @@
 # T03: Same-Name Disambiguation
 
-## Source
-
-Ground truth from RALPH Test 3 (Isaac Little) and
-`pilot-ralph-opus/output/isaac-disambiguation.md`.
-
 ## Input
 
 > I'm researching Isaac Little in Ashe County, NC. The 1860
