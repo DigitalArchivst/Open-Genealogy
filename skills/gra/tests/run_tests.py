@@ -12,7 +12,7 @@ Usage:
     py run_tests.py --verbose        # Show full responses
 
 Requires:
-    ANTHROPIC_AI_KEY_AI_NEWS_TODAY environment variable set
+    ANTHROPIC_API_KEY environment variable set
     pip install anthropic  (if not already installed)
 
 Cost: ~$0.10-0.30 per full run (Sonnet for test, Haiku for judge)
@@ -42,7 +42,7 @@ TEST_MODEL = "claude-sonnet-4-20250514"
 JUDGE_MODEL = "claude-haiku-4-5-20251001"
 
 # API key
-API_KEY_ENV = "ANTHROPIC_AI_KEY_AI_NEWS_TODAY"
+API_KEY_ENV = "ANTHROPIC_API_KEY"
 
 
 def load_skill_prompt():
