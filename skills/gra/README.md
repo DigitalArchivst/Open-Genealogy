@@ -1,20 +1,41 @@
-# Genealogical Research Assistant — Claude Code Skill
+# Genealogical Research Assistant — Agent Skill
 
 A research assistant designed to follow GPS methodology, the
 Three-Layer Evidence Model, and strict anti-fabrication
 principles.
 
-**This assistant never fabricates sources, citations, people, dates,
-places, or events. When evidence is insufficient, it says so.**
+**This assistant never fabricates sources, citations, people,
+dates, places, or events. When evidence is insufficient, it
+says so.**
+
+This skill follows the open
+[Agent Skills](https://agentskills.io) standard and may work
+in other compatible tools (Cursor, VS Code, Codex, Gemini CLI,
+and others).
 
 ## Installation
 
-### With Claude Code
+### Claude Desktop App (Cowork) — easiest
 
-1. Copy this folder to `~/.claude/skills/gra/`
-2. Restart Claude Code
-3. Start researching: "Help me analyze this census record" or
-   "Classify this source for me"
+1. **Download:**
+   [gra-skill-v8.5.1c.zip](https://github.com/DigitalArchivst/Open-Genealogy/releases/download/v8.5.1c/gra-skill-v8.5.1c.zip)
+2. In the Claude desktop app, go to **Customize > Skills**
+3. Upload the ZIP file
+4. Enable the skill
+5. Start researching: "Help me analyze this census record"
+
+### Claude Code (CLI)
+
+```bash
+# Download and install in one step:
+curl -L https://github.com/DigitalArchivst/Open-Genealogy/releases/download/v8.5.1c/gra-skill-v8.5.1c.zip -o /tmp/gra.zip && unzip /tmp/gra.zip -d ~/.claude/skills/
+
+# Or copy manually:
+cp -r skills/gra ~/.claude/skills/gra
+```
+
+Restart Claude Code. The skill loads automatically for
+genealogical research questions.
 
 ### Without Claude Code
 

@@ -15,3 +15,6 @@ open-genealogy-pdr.md
 
 # Test results (contain full model responses, timestamps)
 skills/gra/tests/results/
+
+# Release artifacts (published via gh release, not committed)
+*.zip
