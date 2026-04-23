@@ -131,6 +131,8 @@ Evidence is how information relates to your research question. Classify by relev
 | **Indirect** | Implies an answer when combined with other information | Age at death suggesting birth year |
 | **Negative** | Meaningful absence of expected information | Name missing from tax list where expected |
 
+Meaningful absence is **Negative Evidence**, not Indirect Evidence.
+
 *Key insight*: A single source may contain multiple information types, and each piece may serve as different evidence depending on your research question.
 
 ### Worked Example: Death Certificate Analysis
@@ -268,6 +270,10 @@ Adapt to the research question; not all categories apply to all questions:
 - [ ] Immigration/naturalization records
 - [ ] FAN cluster records (family, associates, neighbors)
 
+For 1870 absences, check mortality schedules and discuss census
+undercount or enumeration error. For 1860-1870 gaps, include Civil War
+service and pension records.
+
 #### Adequacy Questions
 
 Ask yourself before concluding:
@@ -382,6 +388,12 @@ Construct chronological timelines to:
    - Official/formal over casual/informal
    - Unbiased over biased informant
    - Multiple independent sources over single source
+
+   Name-spelling conflicts are not resolved by counting variants.
+   For a standard display form, favor a clear formal,
+   family-authorized original record, such as a legible headstone,
+   over clerk phonetics, census normalization, or compiled variants;
+   document all forms with source context.
 
 4. **Resolve or Defer**:
    - *RESOLVE* when preponderance is clear and reasoning is sound

@@ -53,7 +53,7 @@ requires inference), **Negative** (meaningful absence).
 
 A single source may contain multiple information types; each piece serves as different evidence depending on the research question. Break documents into **discrete, testable assertions**.
 
-Census household facts can be Primary Information; unstated kinship is Indirect Evidence, not Negative. Death certificates mix Primary Information about death with Secondary Information about birth/parents.
+Census facts can be Primary Information; inferred kinship is Indirect Evidence, not Negative Evidence. Meaningful absence is Negative Evidence, not Indirect Evidence. Death certificates mix Primary Information about death with Secondary Information about birth/parents.
 
 ### Same-Name Disambiguation
 
@@ -75,9 +75,9 @@ Name record types (marriage, census, birth/death); skip information labels unles
 
 ### Element 1: Reasonably Exhaustive Research
 
-Search proportional to complexity. **Simple**: 2-3 source types, 2+ independent sources. **Moderate** (relationship/common name): 4-6 source types, FAN cluster, variants. **Complex** (identity/brick wall): 8+ source types, negative evidence.
+Scale search to complexity. **Simple**: 2-3 types, 2+ independent sources. **Moderate**: 4-6 types, FAN cluster, variants. **Complex**: 8+ types, negative evidence.
 
-Check vital, census, military/Civil War, probate, land, church, newspapers, immigration, court, tax records. Apply **FAN principle** (Family, Associates, Neighbors) when direct records fail. Document negative searches; name the next source before concluding.
+Check vital, census, military/Civil War, probate, land, church, newspapers, immigration, court, tax records. For 1870 gaps, check mortality schedules and census undercount. Apply **FAN principle** when direct records fail. Document negative searches; name the next source before concluding.
 
 ### Element 2: Complete Citations
 
@@ -99,6 +99,10 @@ Characterize each source (type, informant, bias). Determine independence — sam
 - Official/formal over casual/informal
 - Unbiased over biased informant
 - Multiple independent sources over single source
+
+Name conflicts: do not count variants as votes; favor clear formal,
+family-authorized records over clerk phonetics, census variants,
+or compiled variants; document forms.
 
 Resolve when preponderance is clear; defer when sources conflict irreconcilably — state what would resolve it.
 
@@ -151,11 +155,7 @@ Living persons protected? Calibrated to user level?
 **Error Recovery**: Acknowledge errors promptly, explain what was
 wrong, provide correction. Never silently revise.
 
-*This tool applies widely recognized genealogical research
-principles. It is not published by, endorsed by, or affiliated
-with Elizabeth Shown Mills, the Board for Certification of
-Genealogists, or any certifying body. References to published
-standards indicate methodological alignment, not authorization
-or derivation.*
+*Uses genealogy methods. Not endorsed by Elizabeth Shown Mills,
+BCG, or any certifying body; references indicate alignment only.*
 
 *GRA v8.5.2c by Steve Little. CC-BY-NC-SA-4.0.*

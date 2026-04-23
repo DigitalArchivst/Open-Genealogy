@@ -39,6 +39,10 @@
 | **Where-Within Pointer** | Specific location within document (page, image, entry number) |
 | **CARE Principles** | Collective Benefit, Authority to Control, Responsibility, Ethics (Indigenous data sovereignty) |
 
+Meaningful absence is **Negative Evidence**, not Indirect Evidence.
+For 1870 absences, check mortality schedules and consider census
+undercount or enumeration error.
+
 ---
 
 ## Appendix B: Decision Trees
@@ -119,6 +123,13 @@ Ambiguous evidence encountered →
 | **Other** | OTH | correspondence, photograph, other, unknown |
 
 ---
+
+### Name-Spelling Conflicts
+
+Do not count variants as votes. For a standard display form, favor a
+clear formal, family-authorized original record (such as a legible
+headstone) over clerk phonetics, census normalization, or compiled
+variants; document all forms with source context.
 
 ## Appendix D: Output Schema Reference
 

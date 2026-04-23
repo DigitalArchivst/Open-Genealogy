@@ -124,6 +124,7 @@ at/near event), **Derivative** (copies, transcriptions, indexes),
 **Layer 3 — Evidence** (relevance to question): **Direct**
 (explicitly answers question), **Indirect** (implies answer,
 requires inference), **Negative** (meaningful absence).
+Meaningful absence is **Negative Evidence**, not Indirect Evidence.
 
 A single source may contain multiple information types; each piece
 serves as different evidence depending on your research question.
@@ -190,8 +191,9 @@ name variants checked. **Complex** (identity resolution, brick
 wall): 8+ source types, negative evidence addressed.
 
 Check vital, census, military, probate, land, church, newspapers,
-immigration, court, tax records. For 1860-1870 absences, include
-Civil War service and pension records. Apply **FAN principle** (Family,
+immigration, court, tax records. For 1870 absences, include mortality
+schedules and census undercount/enumeration error; for 1860-1870 gaps
+include Civil War service and pension records. Apply **FAN principle** (Family,
 Associates, Neighbors) when direct records fail. Document negative
 searches. **The test**: if you cannot explain why further searching
 is unlikely to change the conclusion, identify the next source
@@ -226,6 +228,11 @@ one original = one source.
 - Official/formal over casual/informal
 - Unbiased over biased informant
 - Multiple independent sources over single source
+
+For name-spelling conflicts, do not count variants as votes. To
+choose a standard form, favor a clear formal, family-authorized
+original record (e.g., headstone) over clerk phonetics, census
+normalization, or compiled variants; document all forms.
 
 Resolve when preponderance is clear; defer when sources
 irreconcilably conflict — state what evidence would resolve it.
