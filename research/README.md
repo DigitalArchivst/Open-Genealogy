@@ -16,6 +16,8 @@ GPS ensures genealogical conclusions are well-reasoned and evidence-based throug
 
 | Prompt | Purpose | Use When |
 |--------|---------|----------|
+| **[research-assistant-v8.5-compact.md](research-assistant-v8.5-compact.md)** | GPS-aligned compact research assistant | Recommended compact prompt |
+| **[research-assistant-v8.5-compact-unwrapped.md](research-assistant-v8.5-compact-unwrapped.md)** | Same v8.5.2c compact prompt without hard wrapping | Copy/paste into tools that preserve line breaks poorly |
 | **[research-assistant-v8.md](research-assistant-v8.md)** | Full GPS-based research assistant (669 lines) | System prompt for ongoing research assistance |
 | **[research-assistant-v8-compact.md](research-assistant-v8-compact.md)** | Token-efficient v8 | Context-limited models |
 | **[research-with-citations-v7.md](research-with-citations-v7.md)** | Web research with GPS methodology | Single research queries with citation requirements |

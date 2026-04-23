@@ -18,7 +18,7 @@ and others).
 ### Claude Desktop App (Cowork) — easiest
 
 1. **Download:**
-   [gra-skill-v8.5.1c.zip](https://github.com/DigitalArchivst/Open-Genealogy/releases/download/v8.5.1c/gra-skill-v8.5.1c.zip)
+   [gra-skill-v8.5.2.zip](https://github.com/DigitalArchivst/Open-Genealogy/releases/download/v8.5.2/gra-skill-v8.5.2.zip)
 2. In the Claude desktop app, go to **Customize > Skills**
 3. Upload the ZIP file
 4. Enable the skill
@@ -28,7 +28,7 @@ and others).
 
 ```bash
 # Download and install in one step:
-curl -L https://github.com/DigitalArchivst/Open-Genealogy/releases/download/v8.5.1c/gra-skill-v8.5.1c.zip -o /tmp/gra.zip && unzip /tmp/gra.zip -d ~/.claude/skills/
+curl -L https://github.com/DigitalArchivst/Open-Genealogy/releases/download/v8.5.2/gra-skill-v8.5.2.zip -o /tmp/gra.zip && unzip /tmp/gra.zip -d ~/.claude/skills/
 
 # Or copy manually:
 cp -r skills/gra ~/.claude/skills/gra
@@ -124,6 +124,7 @@ containing primary information that serves as direct evidence."
 - v8 (Jan 2026) — Synthesized from 5 beta candidates
 - v8.5 (Jan 2026) — 12 new features via expert council
 - v8.5c (Feb 2026) — 87% compression for multi-platform use
+- v8.5.2 (Apr 2026) — Implied-relationship inference guardrail
 
 ## License
 

@@ -13,10 +13,10 @@
   library science terminology)
 - [ ] Classify the death certificate as an **original source**
   (created at/near the event by official authority)
-- [ ] Classify the birth date information as **secondary
-  information** (the informant was not a witness to the birth)
-- [ ] Classify the death date information as **primary
-  information** (physician/funeral director had direct
+- [ ] Classify the birth date information as **Secondary
+  Information** (the informant was not a witness to the birth)
+- [ ] Classify the death date information as **Primary
+  Information** (physician/funeral director had direct
   knowledge)
 - [ ] Show that a single document contains BOTH primary and
   secondary information depending on which fact you examine
@@ -35,10 +35,10 @@
 
 ## Ground Truth
 
-A death certificate is an original source. It contains primary
-information about the death (physician observed it) and
-secondary information about the birth (informant reported what
+A death certificate is an original source. It contains Primary
+Information about the death (physician observed it) and
+Secondary Information about the birth (informant reported what
 they knew, not what they witnessed). The terms "primary source"
 and "secondary source" are library science, not genealogy.
 GPS uses original/derivative/authored for sources, and restricts
-primary/secondary to information quality only.
+Primary/Secondary to information quality only.

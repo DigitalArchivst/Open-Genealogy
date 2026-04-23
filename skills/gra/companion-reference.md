@@ -1,8 +1,8 @@
-# GRA v8.5 Compact — Companion Reference
+# GRA v8.5.2 Compact — Companion Reference
 
-**Version**: 8.5c Reference
-**Date**: 2026-02-27
-**Purpose**: Expanded reference material for the GRA v8.5 compact prompt. Upload as a knowledge/project file alongside the compact instructions.
+**Version**: 8.5.2c Reference
+**Date**: 2026-04-23
+**Purpose**: Expanded reference material for the GRA v8.5.2 compact prompt. Upload as a knowledge/project file alongside the compact instructions.
 
 *This file contains decision trees, templates, terminology, document codes, output schemas, and features omitted from the compact version for space. The compact prompt instructs the model to reference this file when available.*
 
@@ -38,6 +38,10 @@
 | **Assertion** | Single atomic claim from a source |
 | **Where-Within Pointer** | Specific location within document (page, image, entry number) |
 | **CARE Principles** | Collective Benefit, Authority to Control, Responsibility, Ethics (Indigenous data sovereignty) |
+
+Meaningful absence is **Negative Evidence**, not Indirect Evidence.
+For 1870 absences, check mortality schedules and consider census
+undercount or enumeration error.
 
 ---
 
@@ -119,6 +123,13 @@ Ambiguous evidence encountered →
 | **Other** | OTH | correspondence, photograph, other, unknown |
 
 ---
+
+### Name-Spelling Conflicts
+
+Do not count variants as votes. For a standard display form, favor a
+clear formal, family-authorized original record (such as a legible
+headstone) over clerk phonetics, census normalization, or compiled
+variants; document all forms with source context.
 
 ## Appendix D: Output Schema Reference
 
@@ -208,11 +219,15 @@ RESOLUTION: [ ] Resolved: [conclusion] [ ] Deferred: [why and what would resolve
 
 **Principle**: Never guess silently. Mark all uncertainty so users can assess reliability.
 
+### Implied Relationship Guardrail
+
+When a record implies a relationship (e.g., shared surname, courtesy title, co-residence), state the inference explicitly and identify what evidence would confirm or refute it. Do not treat implied relationships as established facts.
+
 ---
 
 ## Appendix G: Features Omitted from Compact
 
-These features are present in the full v8.5 prompt but were cut from the compact version for space. The model can apply these concepts when this reference file is available.
+These features are present in the full v8.5.2 prompt but were cut from the compact version for space. The model can apply these concepts when this reference file is available.
 
 ### G1. Same-Evidence-Different-Conclusions (M2)
 
@@ -360,7 +375,7 @@ When unclear, default to Serious Hobbyist. Level affects explanation depth; pers
 - **Analysis**: Evaluate evidence quality, apply Three-Layer Framework, identify correlations and conflicts, create timelines and matrices, atomize claims
 - **Document Processing**: Read many handwritten documents (quality-dependent), extract genealogical data, assist with paleography, apply uncertainty markers
 - **Research Guidance**: Suggest strategies based on GPS, explain concepts at appropriate level, develop research plans, guide methodology
-- **Writing**: Format citations, draft proof summaries/arguments, critique GPS compliance
+- **Writing**: Format citations, draft proof summaries/arguments, critique GPS alignment
 - **Adaptive Support**: Detect user level, infer research purpose, adjust scaffolding
 
 ### What I Cannot Do
@@ -375,7 +390,7 @@ When unclear, default to Serious Hobbyist. Level affects explanation depth; pers
 
 ---
 
-*Companion to GRA v8.5c compact prompt.*
+*Companion to GRA v8.5.2c compact prompt.*
 *GPS developed by Board for Certification of Genealogists.*
 *Evidence framework from Elizabeth Shown Mills, Evidence Explained.*
-*GRA v8.5c by Steve Little. CC4-BY-NC.*
+*GRA v8.5.2c by Steve Little. CC-BY-NC-SA-4.0.*
