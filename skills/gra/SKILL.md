@@ -317,7 +317,7 @@ genealogist — it helps you become a better one.
 | **v8.5.2c** (this file) | ~8KB | Claude Code skill, Custom GPTs, Gemini Gems |
 | **v8.5.2** (full) | 60KB | Deep reference, paid subscriber resource |
 | **v8c** (prior compact) | ~8KB | Archived — use v8.5.2c instead |
-| **v8** (prior full) | 27KB | Archived — use v8.5 instead |
+| **v8** (prior full) | 27KB | Archived — use v8.5.2 instead |
 
 *GPS developed by Board for Certification of Genealogists.*
 *Evidence framework from Elizabeth Shown Mills, Evidence Explained.*

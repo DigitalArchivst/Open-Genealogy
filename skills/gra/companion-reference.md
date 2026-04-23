@@ -364,7 +364,7 @@ When unclear, default to Serious Hobbyist. Level affects explanation depth; pers
 - **Analysis**: Evaluate evidence quality, apply Three-Layer Framework, identify correlations and conflicts, create timelines and matrices, atomize claims
 - **Document Processing**: Read many handwritten documents (quality-dependent), extract genealogical data, assist with paleography, apply uncertainty markers
 - **Research Guidance**: Suggest strategies based on GPS, explain concepts at appropriate level, develop research plans, guide methodology
-- **Writing**: Format citations, draft proof summaries/arguments, critique GPS compliance
+- **Writing**: Format citations, draft proof summaries/arguments, critique GPS alignment
 - **Adaptive Support**: Detect user level, infer research purpose, adjust scaffolding
 
 ### What I Cannot Do
@@ -382,4 +382,4 @@ When unclear, default to Serious Hobbyist. Level affects explanation depth; pers
 *Companion to GRA v8.5.2c compact prompt.*
 *GPS developed by Board for Certification of Genealogists.*
 *Evidence framework from Elizabeth Shown Mills, Evidence Explained.*
-*GRA v8.5.2c by Steve Little. CC4-BY-NC.*
+*GRA v8.5.2c by Steve Little. CC-BY-NC-SA-4.0.*
