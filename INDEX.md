@@ -18,6 +18,7 @@ Complete catalog of prompts, scripts, and tools.
 | File | Description | Status |
 |------|-------------|--------|
 | [research-assistant-v8.5-compact.md](research/research-assistant-v8.5-compact.md) | GPS-aligned compact research assistant (~1,000 words) | **recommended** |
+| [research-assistant-v8.5-compact-unwrapped.md](research/research-assistant-v8.5-compact-unwrapped.md) | Same compact prompt without hard wrapping for copy/paste use | **recommended** |
 | [research-assistant-v8.md](research/research-assistant-v8.md) | Full GPS-based research assistant (669 lines) | stable |
 | [research-assistant-v8-compact.md](research/research-assistant-v8-compact.md) | Token-efficient v8 | stable |
 | [research-with-citations-v7.md](research/research-with-citations-v7.md) | Web research with GPS methodology | stable |
