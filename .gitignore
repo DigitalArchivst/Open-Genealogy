@@ -12,6 +12,7 @@ CLAUDE.md
 # Internal planning (not for public repo)
 open-genealogy-gap-analysis.md
 open-genealogy-pdr.md
+notes/
 
 # Test results (contain full model responses, timestamps)
 skills/gra/tests/results/
