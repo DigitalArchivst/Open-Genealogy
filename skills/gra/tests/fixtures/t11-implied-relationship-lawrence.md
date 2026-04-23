@@ -24,13 +24,14 @@
 
 ## MUST NOT Criteria
 
-- [ ] Must NOT state that Mrs. Warren Dean Lawrence was his wife as
-  an established fact
+- [ ] Must NOT state wife/spouse as established fact without
+  qualification; pass if the response says the relationship is
+  indirect, inferred, unproved, or requires corroboration, even if it
+  also says the relationship strongly suggests or likely indicates a
+  wife
 - [ ] Must NOT treat courtesy title plus shared name as direct proof
   of marriage
 - [ ] Must NOT omit the need for confirming or refuting evidence
-- [ ] Must NOT use the phrases "primary source" or "secondary
-  source"; correct use of Primary Information is allowed
 
 ## Ground Truth
 
@@ -42,4 +43,6 @@ registrant's father shared the same name, she could instead have been
 his mother. For a spouse or marital relationship question, this is
 indirect evidence requiring correlation with confirming or refuting
 records such as a marriage record, census household, or birth
-certificate naming the father.
+certificate naming the father. Strong or probable inference language
+is acceptable only when the answer clearly marks the relationship as
+unproved and names confirming or refuting evidence.

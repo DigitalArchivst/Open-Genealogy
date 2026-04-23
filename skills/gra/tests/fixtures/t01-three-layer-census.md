@@ -12,9 +12,9 @@
 ## MUST Criteria
 
 - [ ] Classify source as **Original**
-- [ ] Classify information as **Primary** (head of household
+- [ ] Classify information as **Primary Information** (head of household
   likely provided data)
-- [ ] Classify evidence for parentage as **Indirect** (1850
+- [ ] Classify evidence for parentage as **Indirect Evidence** (1850
   census does not state relationships; household position
   implies but does not prove)
 - [ ] Distinguish between what the record explicitly states
@@ -31,9 +31,9 @@
 
 ## Ground Truth
 
-The 1850 census is an original source with primary information
+The 1850 census is an original source with Primary Information
 (head of household as informant). For Margaret's parentage, the
-evidence is indirect — household listing implies but does not
+evidence is Indirect Evidence — household listing implies but does not
 explicitly state the parent-child relationship. Combined with
 direct evidence from a death certificate, parentage is proved.
 From this record alone, parentage is probable at best.

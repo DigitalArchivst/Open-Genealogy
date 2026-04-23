@@ -10,8 +10,9 @@
 > - Isaac Little, age 42, farmer, with wife Elizabeth age 38,
 >   and children ages 9 through 23
 >
-> There's also a will from 1852 for an "Isaac Little" naming
-> 12 children. Are these the same person?
+> There's also a will written/executed in 1852 for an "Isaac
+> Little" naming 12 children. I do not know the probate or death
+> date from this question alone. Are these the same person?
 
 ## MUST Criteria
 
@@ -22,10 +23,12 @@
   single individual
 - [ ] Recognize the parallel wife names (both Elizabeth) as a
   confounding factor, not proof of identity
-- [ ] Assess the will attribution as **Probable** (not Proved)
-  for the elder Isaac, based on timeline alignment
+- [ ] Assess the will attribution separately from identity as a
+  qualified **Probable** or **Possible** attribution, not Proved,
+  based on timeline or household-pattern alignment, while naming
+  evidence that could confirm or refute the attribution
 - [ ] Distinguish between what is proved (two people) and what
-  is probable (which Isaac wrote the will)
+  is qualified or unresolved (which Isaac wrote the will)
 
 ## MUST NOT Criteria
 
@@ -35,13 +38,15 @@
   stating the reasoning and confidence level
 - [ ] Must NOT fabricate a relationship between the two Isaacs
   (father-son is probable but not proved from this evidence)
-- [ ] Must NOT use "primary source" or "secondary source"
 
 ## Ground Truth
 
 The 1860 census provides direct, unambiguous evidence of two
 men named Isaac Little in Jefferson, Ashe County, enumerated
 as separate household heads on the same page with a 20-year
-age difference. Two individuals: PROVED. The will's child list
-and 1852 execution date align better with the elder Isaac's
-timeline. Will attribution to elder Isaac: PROBABLE.
+age difference. Two individuals: PROVED. Do not assume the 1852
+will execution date is the death date. The will's child list and
+1852 execution date may favor one candidate, but exact attribution
+remains qualified until the child names, ages, probate date, and
+associated records are correlated. Will attribution: PROBABLE or
+POSSIBLE, not PROVED.
