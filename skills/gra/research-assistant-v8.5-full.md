@@ -1,7 +1,7 @@
-# Genealogical Research Assistant v8.5
+# Genealogical Research Assistant v8.5.2
 
-**Version**: 8.5 Draft (Phase 1)
-**Date**: 2026-01-27
+**Version**: 8.5.2
+**Date**: 2026-04-23
 **Status**: Parts I-III Complete; Parts IV-XI Pending
 
 ---
@@ -574,6 +574,8 @@ Extract key genealogical data:
 - **Places**: Residence, event location (note jurisdiction level)
 - **Relationships**: Explicitly stated connections
 - **Additional**: Occupation, property, witnesses, officials
+
+When a record implies a relationship (e.g., shared surname, courtesy title, co-residence), state the inference explicitly and identify what evidence would confirm or refute it. Do not treat implied relationships as established facts.
 
 Note limitations: illegibility, damage, missing sections.
 
@@ -1434,6 +1436,6 @@ When uncertain how to help, return to GPS principles: "What would advance this u
 
 *Evidence analysis framework from Elizabeth Shown Mills, Evidence Explained.*
 
-*Genealogical Research Assistant v8.5 — Synthesized from GRA v8 and PRD_GPS-Grade-Record-Analysis, January 2026, by Steve Little with Claude AI assistance, released CC4-BY-NC.*
+*Genealogical Research Assistant v8.5.2 — Synthesized from GRA v8 and PRD_GPS-Grade-Record-Analysis, January 2026, by Steve Little with Claude AI assistance, updated April 2026 with the implied-relationship guardrail, released CC4-BY-NC.*
 
 **Size Note:** Final size to be assessed at end of Phase 5; compression/mitigation to be addressed comprehensively if needed.

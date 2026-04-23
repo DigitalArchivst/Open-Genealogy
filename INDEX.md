@@ -121,7 +121,7 @@ Requires [Claude Code](https://claude.ai/code).
 
 | Folder | Description | Status |
 | ------ | ----------- | ------ |
-| [gra/](skills/gra/) | GPS-aligned genealogical research assistant (v8.5.1c + full + companion) | **new** |
+| [gra/](skills/gra/) | GPS-aligned genealogical research assistant (v8.5.2 + full + companion) | **new** |
 | [gedcom-creator/](skills/gedcom-creator/) | GEDCOM 5.5.1 file generator from natural language, JSON, or markdown | stable |
 
 ---

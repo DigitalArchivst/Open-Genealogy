@@ -11,7 +11,7 @@ A toolkit of **AI prompts and utilities for genealogical research**, designed to
 | Category | Description | Start Here |
 |----------|-------------|------------|
 | **[Research](research/)** | GPS-based research methodology | [research-assistant-v8.5-compact.md](research/research-assistant-v8.5-compact.md) |
-| **[GRA Skill](skills/gra/)** | GPS research assistant for Claude Code (v8.5) | [SKILL.md](skills/gra/SKILL.md) |
+| **[GRA Skill](skills/gra/)** | GPS research assistant for Claude Code (v8.5.2) | [SKILL.md](skills/gra/SKILL.md) |
 | **[Transcription](transcription/)** | Diplomatic transcription for handwritten documents | [ocr-htr-v08.md](transcription/ocr-htr-v08.md) |
 | **[Image Analysis](image-analysis/)** | Forensic image interpretation for historical photographs | [deep-look-v2.md](image-analysis/deep-look-v2.md) |
 | **[Hebrew Headstones](hebrew-headstones/)** | Jewish cemetery headstone analysis with gematria dating | [hebrew-headstone-helper-v9.md](hebrew-headstones/hebrew-headstone-helper-v9.md) |

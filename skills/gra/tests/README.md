@@ -24,7 +24,7 @@ pip install anthropic
 Set the API key:
 
 ```bash
-export ANTHROPIC_AI_KEY_AI_NEWS_TODAY=sk-ant-...
+export ANTHROPIC_API_KEY=sk-ant-...
 ```
 
 ## Usage
@@ -57,6 +57,7 @@ py run_tests.py --list
 | T08 | Citation Completeness | Five-element citation check |
 | T09 | FAN Principle | Brick wall research strategy |
 | T10 | Living Person | Privacy protection refusal |
+| T11 | Implied Relationship | Courtesy-title relationship inference |
 
 ## Evaluation Method
 
@@ -84,7 +85,7 @@ full responses and per-criterion verdicts.
 
 ## Cost
 
-~$0.10-0.30 per full run (10 Sonnet calls + 10 Haiku judge
+~$0.10-0.30 per full run (11 Sonnet calls + 11 Haiku judge
 calls). Runs against the API, not the Max plan subscription.
 
 ## Adding Tests
