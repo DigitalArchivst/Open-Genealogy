@@ -35,7 +35,7 @@ New here? The [Getting Started guide](GETTING-STARTED.md) walks through setup, f
 
 ## Featured: GPS Research Methodology
 
-The **research/** folder contains prompts designed to follow the [Genealogical Proof Standard](https://bcgcertification.org/ethics-standards/)—the professional methodology for evidence-based genealogical conclusions.
+The **research/** folder contains prompts designed to follow the [Genealogical Proof Standard](https://bcgcertification.org/ethics-standards)—the professional methodology for evidence-based genealogical conclusions.
 
 Key features:
 - **Evidence Analysis Process Map**: Classifies sources (Original/Derivative/Authored), information (Primary/Secondary), and evidence (Direct/Indirect/Negative)
