@@ -1,6 +1,6 @@
-# Writing, Summaries & Content Tools
+# Writing, Briefing, Summaries & Content Tools
 
-Prompts for text processing, fact extraction, and narrative synthesis.
+Prompts for text processing, web briefing, fact extraction, and narrative synthesis.
 
 ## Available Tools
 
@@ -8,6 +8,7 @@ Prompts for text processing, fact extraction, and narrative synthesis.
 - **fact-narrator-v4.md** - Turn facts into narrative
 - **conversation-abstractor-v2.md** - Formal conversation abstracts
 - **chat-summarizer-v3.md** - Quick summaries
+- **news-hound-v6.md** - Turn one webpage into a concise, plain-English public brief with context, impact points, jargon definitions, and source URL
 - **document-distiller-v2.md** - Distill to essentials
 - **lingua-maven-v9.md** - AHD-inspired language advisor: usage analysis, sensitivity review, audience calibration, writing analysis
 - **linguistic-profiler-v3.md** - Profile writing style

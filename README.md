@@ -16,7 +16,7 @@ A toolkit of **AI prompts and utilities for genealogical research**, designed to
 | **[Image Analysis](image-analysis/)** | Forensic image interpretation for historical photographs | [deep-look-v2.md](image-analysis/deep-look-v2.md) |
 | **[Hebrew Headstones](hebrew-headstones/)** | Jewish cemetery headstone analysis with gematria dating | [hebrew-headstone-helper-v9.md](hebrew-headstones/hebrew-headstone-helper-v9.md) |
 | **[Photo Restoration](photo-restoration/)** | Historical photograph restoration | [restoration-v2.md](photo-restoration/restoration-v2.md) |
-| **[Writing Tools](writing-tools/)** | Narrative writing, fact extraction, language advising, editing | [narrative-assistant-v3.md](writing-tools/narrative-assistant-v3.md) |
+| **[Writing Tools](writing-tools/)** | Narrative writing, web briefing, fact extraction, language advising, editing | [narrative-assistant-v3.md](writing-tools/narrative-assistant-v3.md) |
 | **[Assistants](assistants/)** | AI personas, GEDCOM creation and analysis | [gedcom-builder-v1.md](assistants/gedcom-builder-v1.md) |
 | **[Skills](skills/)** | Claude Code skills with companion files | [skills/](skills/) |
 | **[Scripts](scripts/)** | Audio transcription utilities | [transcribe-4.py](scripts/transcribe-4.py) |

@@ -88,6 +88,7 @@ Complete catalog of prompts, scripts, and tools.
 | [fact-narrator-v4.md](writing-tools/fact-narrator-v4.md) | Facts to narrative |
 | [conversation-abstractor-v2.md](writing-tools/conversation-abstractor-v2.md) | Conversation abstracts |
 | [chat-summarizer-v3.md](writing-tools/chat-summarizer-v3.md) | Quick summaries |
+| [news-hound-v6.md](writing-tools/news-hound-v6.md) | General webpage summarizer for concise public briefs with context, impact points, jargon definitions, and source URL |
 | [document-distiller-v2.md](writing-tools/document-distiller-v2.md) | Distill documents |
 | [lingua-maven-v9.md](writing-tools/lingua-maven-v9.md) | AHD-inspired language advisor with usage analysis and sensitivity review |
 | [linguistic-profiler-v3.md](writing-tools/linguistic-profiler-v3.md) | Profile writing style |
