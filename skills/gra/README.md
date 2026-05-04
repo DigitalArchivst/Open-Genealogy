@@ -13,12 +13,32 @@ This skill follows the open
 in other compatible tools (Cursor, VS Code, Codex, Gemini CLI,
 and others).
 
+The install ZIP is a runtime package: it contains the skill,
+license, app metadata, and reference files needed by an agent.
+Developer tests and fixtures stay in the repository source tree.
+
+## Compatibility
+
+The GRA materials are designed to be portable across agent and
+chat tools.
+
+- **Claude Desktop / Claude Code**: Native skill. Install the ZIP as an
+  Agent Skill.
+- **OpenAI Codex**: Native skill metadata. `agents/openai.yaml` provides
+  Codex-facing metadata.
+- **ChatGPT**: Prompt/project mode. Use `SKILL.md` as custom instructions;
+  upload references as knowledge or context where supported.
+- **Google Gemini**: Prompt/gem mode. Use `SKILL.md` as instructions; provide
+  references as supporting files or context where supported.
+- **LM Studio / local models**: System-prompt mode. Use `SKILL.md` as the
+  system prompt; add references when context allows.
+
 ## Installation
 
 ### Claude Desktop App (Cowork) — easiest
 
 1. **Download:**
-   [gra-skill-v8.5.2.zip](https://github.com/DigitalArchivst/Open-Genealogy/releases/download/v8.5.2/gra-skill-v8.5.2.zip)
+   [gra-skill-v8.5.3.zip][gra-v853-zip]
 2. In the Claude desktop app, go to **Customize > Skills**
 3. Upload the ZIP file
 4. Enable the skill
@@ -28,7 +48,9 @@ and others).
 
 ```bash
 # Download and install in one step:
-curl -L https://github.com/DigitalArchivst/Open-Genealogy/releases/download/v8.5.2/gra-skill-v8.5.2.zip -o /tmp/gra.zip && unzip /tmp/gra.zip -d ~/.claude/skills/
+# Set GRA_ZIP_URL to the release asset URL shown above.
+curl -L "$GRA_ZIP_URL" -o /tmp/gra.zip
+unzip /tmp/gra.zip -d ~/.claude/skills/
 
 # Or copy manually:
 cp -r skills/gra ~/.claude/skills/gra
@@ -41,11 +63,11 @@ genealogical research questions.
 
 The prompt files work in any LLM:
 
-| File | Size | Use For |
-| ---- | ---- | ------- |
-| `SKILL.md` | ~8KB | System prompt for GPTs, Gems, Projects |
-| `research-assistant-v8.5-full.md` | 60KB | Full methodology for any LLM chat |
-| `companion-reference.md` | 18KB | Upload as knowledge file alongside compact |
+- `SKILL.md` (~8KB): System prompt for GPTs, Gems, and Projects.
+- `references/research-assistant-v8.5-full.md` (60KB): Full methodology for
+  any LLM chat.
+- `references/companion-reference.md` (18KB): Upload as a knowledge file
+  alongside the compact prompt.
 
 ## What You Can Say
 
@@ -76,11 +98,11 @@ genealogist. It helps you become a better one.
 
 ## Three Versions, One Methodology
 
-| Version | File | Size | Best For |
-| ------- | ---- | ---- | -------- |
-| Compact | `SKILL.md` | ~8KB | Daily use, skill prompt |
-| Full | `research-assistant-v8.5-full.md` | 60KB | Deep methodology |
-| Reference | `companion-reference.md` | 18KB | Templates, schemas |
+- **Compact**: `SKILL.md`, ~8KB. Best for daily use as a skill prompt.
+- **Full**: `references/research-assistant-v8.5-full.md`, 60KB. Best for
+  deep methodology.
+- **Reference**: `references/companion-reference.md`, 18KB. Best for
+  templates and schemas.
 
 The compact version captures the core GPS methodology. The full
 version adds detailed protocols for user calibration, document
@@ -125,10 +147,11 @@ containing primary information that serves as direct evidence."
 - v8.5 (Jan 2026) — 12 new features via expert council
 - v8.5c (Feb 2026) — 87% compression for multi-platform use
 - v8.5.2 (Apr 2026) — Implied-relationship inference guardrail
+- v8.5.3 (May 2026) — Packaging release with standalone runtime ZIP
 
 ## License
 
-[Creative Commons BY-NC-SA 4.0](../../LICENSE)
+[Creative Commons BY-NC-SA 4.0](LICENSE)
 
 ## Author
 
@@ -137,4 +160,7 @@ AI Program Director, National Genealogical Society
 
 ---
 
-*Part of the [Open-Genealogy](https://github.com/DigitalArchivst/Open-Genealogy) toolkit.*
+*Part of the [Open-Genealogy][open-genealogy] toolkit.*
+
+[gra-v853-zip]: https://github.com/DigitalArchivst/Open-Genealogy/releases/download/v8.5.3/gra-skill-v8.5.3.zip
+[open-genealogy]: https://github.com/DigitalArchivst/Open-Genealogy

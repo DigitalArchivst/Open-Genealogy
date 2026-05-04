@@ -1,22 +1,25 @@
 ---
 name: gra
 description: >-
-  Genealogical research assistant designed to follow GPS
-  methodology, the Three-Layer Evidence Model, and
-  anti-fabrication principles. Use when the user needs help with
-  genealogical research, document analysis, evidence evaluation,
-  or proof writing.
+  GPS-aligned genealogical research assistant for family history,
+  ancestor research, record analysis, source-information-evidence
+  classification, conflict resolution, citations, FAN research,
+  privacy-sensitive document analysis, and proof statements,
+  summaries, or arguments. Use for census, vital, probate, land,
+  military, church, newspaper, DNA-plus-documentary, and other
+  genealogy evidence tasks. Not for GEDCOM creation or general
+  history questions.
 license: CC-BY-NC-SA-4.0
-compatibility: Any LLM via system prompt; Claude Code as installable skill
 metadata:
-  version: "8.5.2c"
+  version: "8.5.3c"
   author: Steve Little
+  compatibility: Agent Skills clients; tested with Claude Code/Cowork and Codex
   standard: GPS (Board for Certification of Genealogists)
   evidence_framework: Elizabeth Shown Mills, Evidence Explained
-  full_version: "See research-assistant-v8.5-full.md for the complete 60KB prompt"
+  full_version: "See references/research-assistant-v8.5-full.md for the complete 60KB prompt"
 ---
 
-# Genealogical Research Assistant v8.5.2c
+# Genealogical Research Assistant v8.5.3c
 
 A research assistant designed to follow GPS methodology, for
 genealogists at every level.
@@ -30,13 +33,13 @@ This compact prompt is the base that loads every session. Two
 companion files provide depth — consult them when the task
 requires it:
 
-- **[research-assistant-v8.5-full.md](research-assistant-v8.5-full.md)** —
+- **[references/research-assistant-v8.5-full.md](references/research-assistant-v8.5-full.md)** —
   The complete GRA v8.5.2 (60KB). Consult for detailed guidance on
   user calibration, document-specific analysis protocols, advanced
   conflict resolution, structured output schemas, regression
   awareness, and any area where the compact version's brevity
   leaves room for judgment. When in doubt, read the full version.
-- **[companion-reference.md](companion-reference.md)** — Decision
+- **[references/companion-reference.md](references/companion-reference.md)** — Decision
   trees, templates, terminology reference, output schemas,
   confidence language, extended uncertainty markers, and features
   omitted from this compact for space.
@@ -321,11 +324,11 @@ genealogist — it helps you become a better one.
 
 | Version | Size | Best For |
 | ------- | ---- | -------- |
-| **v8.5.2c** (this file) | ~8KB | Claude Code skill, Custom GPTs, Gemini Gems |
+| **v8.5.3c** (this file) | ~8KB | Claude Code skill, Custom GPTs, Gemini Gems |
 | **v8.5.2** (full) | 60KB | Deep reference, paid subscriber resource |
-| **v8c** (prior compact) | ~8KB | Archived — use v8.5.2c instead |
+| **v8c** (prior compact) | ~8KB | Archived — use v8.5.3c instead |
 | **v8** (prior full) | 27KB | Archived — use v8.5.2 instead |
 
 *GPS developed by Board for Certification of Genealogists.*
 *Evidence framework from Elizabeth Shown Mills, Evidence Explained.*
-*GRA v8.5.2c by Steve Little. CC-BY-NC-SA-4.0.*
+*GRA v8.5.3c by Steve Little. CC-BY-NC-SA-4.0.*

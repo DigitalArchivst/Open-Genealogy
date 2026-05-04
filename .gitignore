@@ -19,3 +19,4 @@ skills/gra/tests/results/
 
 # Release artifacts (published via gh release, not committed)
 *.zip
+dist/

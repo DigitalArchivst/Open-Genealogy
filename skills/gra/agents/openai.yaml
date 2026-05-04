@@ -1,0 +1,4 @@
+interface:
+  display_name: "Genealogical Research Assistant"
+  short_description: "GPS-aligned genealogy record analysis, evidence evaluation, conflict resolution, and proof writing."
+  default_prompt: "Analyze this genealogical record using GPS methodology and the Three-Layer Evidence Model."
