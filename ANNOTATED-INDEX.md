@@ -332,7 +332,7 @@ aggressive reconstruction.
 
 ### Text Processing and Narrative Synthesis
 
-Sixteen utility prompts supporting the complete genealogical writing
+Seventeen utility prompts supporting the complete genealogical writing
 lifecycle—from raw document extraction through narrative synthesis to
 publication polish. The section implements a modular philosophy: discrete tools
 handling specific tasks can be chained into custom workflows. **Fact-extractor**
@@ -340,8 +340,10 @@ converts documents into structured LABEL: Value pairs; **fact-narrator**
 reverses this, generating prose from structured data.
 **Conversation-abstractor** and **chat-summarizer** process interviews and
 discussions. **News-hound** turns webpages into concise public briefs.
-**Document-distiller** removes redundancy. **Linguistic-profiler** analyzes
-writing style. **Image-citation-builder** automates image documentation.
+**Document-distiller** removes redundancy. **Event-materials-synthesizer**
+turns event artifacts into audience-ready learning resources.
+**Linguistic-profiler** analyzes writing style. **Image-citation-builder**
+automates image documentation.
 Editorial tools (**quick-editor**, **quick-cleanup**, **content-decoder**)
 handle polish phases. **Transcript-resource-forge** transforms meeting
 recordings into structured outputs. These tools recognize that genealogical
@@ -380,7 +382,9 @@ quick summaries of discussions. **News-hound** creates concise, context-rich
 briefs from individual webpages for general readers, including what changed, who
 is affected, and plain-English jargon definitions. **Document-distiller**
 removes redundancy while preserving essential information—useful for condensing
-verbose sources. **Linguistic-profiler** analyzes writing voice, vocabulary
+verbose sources. **Event-materials-synthesizer** converts event artifacts into
+recaps, resources, FAQs, exercises, prompt packs, debriefs, and follow-up
+messages. **Linguistic-profiler** analyzes writing voice, vocabulary
 patterns, and structural tendencies—helpful for maintaining consistency across
 collaborative projects or ghostwriting. **Quick-editor** and **quick-cleanup**
 handle grammar, consistency, and readability improvements. **Content-decoder**
