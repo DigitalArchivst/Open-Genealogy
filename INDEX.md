@@ -52,8 +52,9 @@ Complete catalog of prompts, scripts, and tools.
   - Description: Research agent specification
   - Status: stable
 
-**Reference:**
-[evidence-terminology.md](research/reference/evidence-terminology.md)
+**References:**
+- [evidence-terminology.md](research/reference/evidence-terminology.md)
+- [obituary-source-handling.md](research/reference/obituary-source-handling.md)
 **Archive:** [research/archive/](research/archive/) — legacy versions
 (research-assignment-v0, research-with-citations-v2)
 

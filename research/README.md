@@ -87,7 +87,9 @@ The prompts use the **Evidence Analysis Process Map** vocabulary:
 | **INFORMATION** | Primary, Secondary, Indeterminate | Content classified by informant's knowledge |
 | **EVIDENCE** | Direct, Indirect, Negative | Interpretation relative to research question |
 
-See [reference/evidence-terminology.md](reference/evidence-terminology.md) for detailed definitions.
+See [reference/evidence-terminology.md](reference/evidence-terminology.md) for
+detailed definitions. For an applied example, see
+[reference/obituary-source-handling.md](reference/obituary-source-handling.md).
 
 ## References
 
