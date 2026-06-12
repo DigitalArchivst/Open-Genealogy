@@ -11,6 +11,9 @@ managing client work.
 
 ## What's Here
 
+- **[Genealogy AI Starter Workspace](genealogy-ai-starter-workspace/)**
+  - Description: Project-folder starter kit for Codex, Claude Code, and Cowork
+  - Start Here: [README.md](genealogy-ai-starter-workspace/README.md)
 - **[Research](research/)**
   - Description: GPS-based research methodology
   - Start Here:

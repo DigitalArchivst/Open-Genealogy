@@ -10,6 +10,9 @@ Complete catalog of prompts, scripts, and tools.
   repository overview, GRA v8 usage
 - [ANNOTATED-INDEX.md](ANNOTATED-INDEX.md): Detailed descriptions of all
   sections (~125 words each)
+- [genealogy-ai-starter-workspace/](genealogy-ai-starter-workspace/):
+  Attendee-ready starter project folder for using Codex, Claude Code, or Claude
+  Cowork with genealogical research files, logs, prompts, and guardrails
 
 ---
 
