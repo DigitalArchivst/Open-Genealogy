@@ -66,7 +66,7 @@ The immigration example is included because immigration research quickly becomes
 | `notes/research-log.md` | Working log of searches and research actions |
 | `notes/negative-search-log.md` | Working log for searches that found nothing |
 | `example/immigration-identity-profile.md` | Immigration research profile template and teaching example |
-| `records/` | Put copies of record images, downloads, and transcriptions here |
+| `records/` | Sample record images, a manifest, and a place for record downloads and transcriptions |
 | `templates/` | Clean templates for registers and logs |
 
 ## Tool Fit
