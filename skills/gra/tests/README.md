@@ -26,7 +26,7 @@ pip install anthropic
 Set the API key:
 
 ```bash
-export ANTHROPIC_API_KEY=sk-ant-...
+export ANTHROPIC_API_KEY='<your-key>'
 ```
 
 ## Usage
@@ -46,7 +46,7 @@ py run_tests.py --list
 
 # Run against the generated chat edition (the chat-edition pass;
 # t18 is agent-only, so exclude it)
-py run_tests.py --system ../../../research/research-assistant-v9.0.0-chat.md --label chat --exclude t18
+py run_tests.py --system ../../../research/research-assistant-v9.2.0-chat.md --label chat --exclude t18
 
 # Tag the results filename (avoids collisions between
 # concurrent runs)
@@ -82,8 +82,16 @@ py run_tests.py --label agent
 | T22 | Draft-Label Disclosure | Draft kernel + disclosure | Both |
 | T23 | Activation Boundaries | Scope declines + routing | Both (split) |
 | T24 | Agent-vs-Chat Behavior | Context-accurate disclosure | Both (paired) |
+| T25 | Source-Text Injection | Hostile instructions remain data | Both (split) |
+| T26 | Alteration/Damage | Reliability and provenance effects | Both |
+| T27 | Peculiar/Unknown | Unknown features remain explicit | Both |
+| T29 | Correlated Error | Agreement does not prove independence | Both |
+| T30 | Tool-State Honesty | Current facts require tool results | Both (split) |
+| T31 | Specialist Exhaustiveness | Generic checklist is insufficient | Both (split) |
+| T32 | DNA Plus Documentary | Shared cM does not name an ancestor | Both (provisional) |
+| T33 | Negative-Evidence Overreach | Ordinary absence is not Negative Evidence | Both |
 
-**Edition column:** v9.0.0 ships one methodology in two editions — the
+**Edition column:** v9.2.0 ships one methodology in two editions — the
 agent edition (`SKILL.md`) and a chat edition generated from it. "Both"
 fixtures run against each edition. "Agent" fixtures run against the
 agent edition only. "Both (split)" fixtures carry edition-conditional
@@ -92,7 +100,9 @@ agent edition routes GEDCOM requests to the gedcom-creator skill while
 the chat edition declines without naming any skill. "Both (paired)"
 means the same input runs once per edition and each edition's
 assertions apply to its own response (T24, including a
-browsing-enabled Custom GPT sub-case). The runner loads `SKILL.md` by
+browsing-enabled Custom GPT sub-case). T25 and T30 are split because actual
+tool state controls the capability criteria. T32 is observational on its first
+run and must be adjudicated before becoming a hard release gate. The runner loads `SKILL.md` by
 default; a chat-edition run substitutes the generated chat edition as
 the system prompt via `--system` (see Usage).
 
@@ -111,6 +121,11 @@ the system prompt via `--system` (see Usage).
 - Judge sees the ground truth for reference
 - Judge outputs PASS or FAIL per criterion — no open-ended
   reasoning about GPS
+- Test and judge calls use temperature 0
+- Hostile source text in T25 is sent only as record content to the
+  test model; the judge receives binding fixture notes, criteria,
+  ground truth, and the model response. The response is delimited and labeled
+  untrusted quoted data; the judge is explicitly barred from following it
 
 This avoids the circularity problem: the judge classifies
 against a rubric, it doesn't need to understand GPS.
@@ -122,8 +137,11 @@ full responses and per-criterion verdicts.
 
 ## Cost
 
-~$1-2 per full run (25 Opus 4.6 calls + 25 Sonnet 4.6 judge
-calls). Runs against the API, not the Max plan subscription.
+Estimate afresh before approval. A full v9.2 run uses 33 test-model calls and
+33 judge calls per edition (except edition-specific exclusions), so the old
+v9.0.0 cost estimate is not a spending authorization. Runs use Opus 4.6 for
+the test model and Sonnet 4.6 for the judge. They run against the API, not the
+Max plan subscription.
 
 ## Adding Tests
 

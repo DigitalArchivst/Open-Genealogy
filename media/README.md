@@ -5,8 +5,10 @@ Audio and video assets that accompany the toolkit.
 ## Contents
 
 | File | Description | Duration |
-|------|-------------|----------|
+| --- | --- | --- |
 | steve-on-5-part-prompt.mp3 | Steve Little explains the five-part prompt structure used across the research and analysis tools | Audio |
+
+Rights and reuse status: [RIGHTS.md](RIGHTS.md).
 
 ## Usage
 

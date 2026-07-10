@@ -17,8 +17,9 @@
   both candidates have an Elizabeth, so the matching name
   cannot identify which Isaac is the ancestor
 - [ ] State that co-enumeration of two Isaac Littles on the
-  same census page establishes two distinct men who must not
-  be merged
+  same census page gives two distinct entries that must not be
+  merged without identity proof; test duplicate enumeration,
+  alias, transcription, and record-linkage error
 - [ ] Differentiate the candidates through age (the roughly
   twenty-year gap), household composition, and timeline
   correlation with other records
@@ -46,8 +47,10 @@ This is the same-spouse coincidence trap: with common given
 names, two same-name men in one community often had wives who
 shared a given name, so a matching spouse name discriminates
 nothing — it is never the sole differentiator. Co-enumeration
-on a single census page proves the two Isaacs are distinct
-persons. Separation proceeds through age (the twenty-year gap
+on a single census page creates two entries and strongly supports
+two people when correlated with the age and household differences;
+it does not by itself prove identity across records. Separation
+proceeds through age (the twenty-year gap
 suggests different generations, possibly kin — a FAN-cluster
 clue), household composition (children's names and ages), and
 timeline correlation with marriage, land, tax, and probate

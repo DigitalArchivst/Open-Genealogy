@@ -1,6 +1,9 @@
 # Open-Genealogy: A Tour-Guide Script for First-Time GitHub Explorers
 
-> **What is this?** An alternative onboarding format for those who prefer learning through dialogue. A fictional guide walks three students through the repository, explaining each section in plain language. For a traditional walkthrough, see [GETTING-STARTED.md](GETTING-STARTED.md). For a catalog, see [INDEX.md](INDEX.md).
+> **Historical tour.** This is an archival onboarding script from before the GRA
+> v9 two-edition route. It is retained as a historical artifact, not as a
+> complete current tour. Start with the [GRA v9 Agent Skill or Chat Edition](README.md#start-with-gra-v920), use [INDEX.md](INDEX.md) for the current catalog,
+> and see [GETTING-STARTED.md](GETTING-STARTED.md) for current setup guidance.
 
 ---
 
@@ -146,4 +149,3 @@
 **Student 3:** Can we come back later?
 
 **Guide:** Absolutely. GitHub is open 24/7—just bring your curiosity.
-

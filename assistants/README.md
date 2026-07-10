@@ -5,7 +5,7 @@ Complete AI assistant configurations that create ongoing personas for genealogic
 ## Available Assistants
 
 | Assistant | Purpose | Best For |
-|-----------|---------|----------|
+| --- | --- | --- |
 | [vibe-genealogy-assistant-v4.md](vibe-genealogy-assistant-v4.md) | Warm, story-first genealogy helper | Beginners, family history exploration, GEDCOM analysis |
 | [gedcom-analysis-v3.md](gedcom-analysis-v3.md) | GEDCOM file analysis | Understanding family tree files, finding research opportunities |
 | [gedcom-builder-v1.md](gedcom-builder-v1.md) | GEDCOM file creation | Turning research data into importable GEDCOM files |
@@ -19,7 +19,7 @@ Complete AI assistant configurations that create ongoing personas for genealogic
 ## Difference from Task Prompts
 
 | Type | Use Case | Example |
-|------|----------|---------|
+| --- | --- | --- |
 | **Assistant** (this folder) | "Be my genealogy helper" | Ongoing conversation, multiple tasks |
 | **Task prompt** (research/, transcription/) | "Do this specific job" | One document, one analysis |
 

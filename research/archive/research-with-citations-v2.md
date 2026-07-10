@@ -6,7 +6,7 @@ EXAMPLE OUTPUT FORMAT:
 According to the New York State Senate, grand larceny in the fourth degree occurs when stolen property exceeds $1,000 in value.[1] This is classified as a Class E felony.[1]
 
 Sources Cited:
-[1] [PRIMARY] NY Penal Law § 155.30 (2024). https://www.nysenate.gov/legislation/laws/PEN/155.30
+[1] [PRIMARY] NY Penal Law § 155.30 (2024). [Official online text; may require browser access](https://www.nysenate.gov/legislation/laws/PEN/155.30)
 
 CRITICAL: SEARCH FIRST
 ✓ Use web search BEFORE responding

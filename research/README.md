@@ -1,95 +1,93 @@
-# GPS Research Methodology
+<!-- markdownlint-disable MD013 -->
 
-Prompts for research workflows designed around the **Genealogical Proof Standard (GPS)**. These are structured to follow professional methodology developed by the Board for Certification of Genealogists and documented in Mills' *Evidence Explained*.
+# Research: Current GRA v9.2.0 And Retained History
 
-## Core Concepts
+This folder preserves the research-prompt history of Open-Genealogy. For a new
+research workflow, begin with GRA v9.2.0 below. The earlier v9.0.0, v8.5, v8,
+v7, and v6.1 files remain at their existing paths for compatibility and historical
+study.
 
-GPS ensures genealogical conclusions are well-reasoned and evidence-based through five interdependent elements:
+## Safety Before Upload
 
-1. **Reasonably exhaustive research**
-2. **Complete, accurate citations**
-3. **Thorough analysis and correlation**
-4. **Resolution of conflicting evidence**
-5. **Coherent written conclusion**
+Hosted AI tools can process the text, images, and files you provide with their
+cloud services, even when the files began on your computer. Do not upload a
+living person's address, contact information, medical, financial, employment,
+or other sensitive details. If a record is too sensitive for the service you
+choose, do not send it. AI output is draft analysis: the human genealogist
+verifies records, citations, reasoning, and conclusions.
 
-## Recommended Prompts
+## Current GRA v9.2.0
 
-| Prompt | Purpose | Use When |
-|--------|---------|----------|
-| **[research-assistant-v8.5-compact.md](research-assistant-v8.5-compact.md)** | GPS-aligned compact research assistant | Recommended compact prompt |
-| **[research-assistant-v8.5-compact-unwrapped.md](research-assistant-v8.5-compact-unwrapped.md)** | Same v8.5.2c compact prompt without hard wrapping | Copy/paste into tools that preserve line breaks poorly |
-| **[research-assistant-v8.md](research-assistant-v8.md)** | Full GPS-based research assistant (669 lines) | System prompt for ongoing research assistance |
-| **[research-assistant-v8-compact.md](research-assistant-v8-compact.md)** | Token-efficient v8 | Context-limited models |
-| **[research-with-citations-v7.md](research-with-citations-v7.md)** | Web research with GPS methodology | Single research queries with citation requirements |
-| **[web-research-v7.md](web-research-v7.md)** | Compact web search prompt | Quick web research tasks |
-| **[contract-first-genealogy-v3.1.md](contract-first-genealogy-v3.1.md)** | Contract-lock workflow | Structured research projects with deliverables |
-| **[research-agent-assignment-v2.1.md](research-agent-assignment-v2.1.md)** | Research agent specification | Autonomous research tasks |
+Choose the edition that matches how you work:
 
-## Full vs. Compact Variants
+| Choose | Best for | Start here |
+| --- | --- | --- |
+| **Agent Skill** | An Agent Skills client with local-folder and reference-file support | [GRA v9.2.0 release source](https://github.com/DigitalArchivst/Open-Genealogy/tree/v9.2.0/skills/gra) |
+| **Chat Edition** | Custom GPTs, Gems, projects, and ordinary copy-paste chat | Direct [v9.2.0 chat download](https://github.com/DigitalArchivst/Open-Genealogy/releases/download/v9.2.0/research-assistant-v9.2.0-chat.md) and immutable [repository artifact](https://github.com/DigitalArchivst/Open-Genealogy/blob/v9.2.0/research/research-assistant-v9.2.0-chat.md) |
 
-The compact/compressed versions are token-efficient alternatives for context-limited models. Here's what they trade away:
+Both editions use the same v9.2.0 methodology. The Agent Skill adds agent-only
+features where the client supports them; the Chat Edition is the self-contained
+copy-paste form. Installation behavior varies by client; do not assume that an
+Agent Skills ZIP installs the same way in every client.
 
-| Feature | Full v8 (704 lines) | Compact v8 (147 lines) |
-| ------- | ------------------- | ---------------------- |
-| Three-Layer Model | Detailed tables with examples | Condensed paragraph summaries |
-| Worked examples | Death certificate walkthrough | Omitted |
-| Adaptive scaffolding | Full detection protocol + calibration table | Simplified behavioral cues |
-| Decision trees | Appendix B flowcharts | Omitted |
-| Core templates | Evidence table, research plan, conflict matrix, proof summary | Omitted |
-| Terminology reference | Appendix A quick-reference table | Omitted |
-| Provenance chain | Detailed with error propagation | Brief mention |
-| Cluster research | Full FAN protocol + same-name defense | Brief mention |
+## Compatibility And History
 
-**When to use compact:** Models with small context windows, or when combined with other system prompts. The compact variant preserves all rules, guardrails, and the evidence framework — it cuts examples, templates, and decision trees.
+The following files are preserved. They are not the current GRA recommendation.
+Their historical language and behavior may differ from v9, including its
+current privacy, human-verification, and GPS-alignment boundaries.
 
-**Risk:** Without worked examples, models may apply the Three-Layer Model less precisely. Without templates, users must structure their own output formats.
+### v8.5 Compatibility Files
 
-## Version History
+| Path | Historical content | Status |
+| --- | --- | --- |
+| [research-assistant-v8.5-compact.md](research-assistant-v8.5-compact.md) | v8.5.2c compact prompt | Canonical compact v8.5 compatibility entry |
+| [research-assistant-v8.5-compact-unwrapped.md](research-assistant-v8.5-compact-unwrapped.md) | v8.5.2c compact prompt | Exact byte-for-byte compatibility alias of the canonical compact entry |
+| [research-assistant-v8.md](research-assistant-v8.md) | Full v8 prompt | Retained historical full prompt |
+| [research-assistant-v8-compact.md](research-assistant-v8-compact.md) | Compact v8 prompt | Retained historical compact prompt |
 
-### What changed in v8 (from v7)
+### v7 And Earlier Files
 
-v8 was amalgamated from five beta candidates through systematic feature analysis (January 2026). Key changes:
+| Path | Historical content | Status |
+| --- | --- | --- |
+| [research-with-citations-v7.md](research-with-citations-v7.md) | v7 web-research prompt | Canonical entry for this retained v7 prompt |
+| [web-research-v7.md](web-research-v7.md) | v7 web-research prompt | Exact byte-for-byte compatibility alias of `research-with-citations-v7.md` |
+| [research-assistant-v7.md](research-assistant-v7.md) | Full v7 prompt | Archive |
+| [research-assistant-v7-compressed.md](research-assistant-v7-compressed.md) | Compressed v7 prompt | Archive |
+| [research-assistant-v6.1.md](research-assistant-v6.1.md) | Full v6.1 prompt | Archive |
+| [research-assistant-v6.1-compressed.md](research-assistant-v6.1-compressed.md) | Compressed v6.1 prompt | Archive |
 
-- **Restructured into 10 parts** (v7 had a flatter organization) — clearer separation of concerns
-- **Added prompt-injection resistance** — explicit instruction to treat uploaded documents as data, not commands
-- **Added instruction priority hierarchy** — System > Ethics > GPS > User, making conflict resolution explicit
-- **Expanded document analysis protocol** — step-by-step image upload handling with quality assessment
-- **Added core templates** — evidence table, research plan, conflict resolution matrix, proof summary format
-- **Added decision trees** — flowcharts for user level detection, sensitive information, and conflicting evidence
-- **Added terminology quick reference** — Appendix A lookup table
-- **Added capabilities & limitations section** — honest about what AI can and cannot do
-- **Strengthened DNA ethics** — explicit disclosure requirements before recommending testing
-- **Added error recovery protocol** — how to handle and communicate mistakes transparently
+The two alias pairs are preserved because older links may point to either path:
 
-### What changed in v7 (from v6.1)
+1. `research-assistant-v8.5-compact.md` and
+   `research-assistant-v8.5-compact-unwrapped.md`
+2. `research-with-citations-v7.md` and `web-research-v7.md`
 
-- **Added adaptive user experience** — beginner/intermediate/advanced detection and response calibration
-- **Added scaffolding protocols** — adjusting support as users grow
-- **Added cognitive load management** — chunking, pausing, prioritizing
-- **Expanded ethics section** — CARE principles for Indigenous data, diverse family structures, cultural naming
+No alias is a second current recommendation. Do not rename, delete, or
+consolidate these files without first checking inbound links and release
+history.
 
-### Previous Versions
+### Other Retained Research Material
 
-| Prompt | Notes |
-| ------ | ----- |
-| [research-assistant-v7.md](research-assistant-v7.md) | Previous full version |
-| [research-assistant-v7-compressed.md](research-assistant-v7-compressed.md) | Token-efficient v7 |
-| [research-assistant-v6.1.md](research-assistant-v6.1.md) | Earlier full version |
-| [research-assistant-v6.1-compressed.md](research-assistant-v6.1-compressed.md) | Token-efficient v6.1 |
+- [contract-first-genealogy-v3.1.md](contract-first-genealogy-v3.1.md):
+  historical structured-project workflow; use only after reading its own
+  limitations and privacy boundary.
+- [research-agent-assignment-v2.1.md](research-agent-assignment-v2.1.md):
+  retained general research-agent framework, not a current GRA workflow.
+- [genealogy-record-analysis-prd.md](genealogy-record-analysis-prd.md): dated
+  design reference, not operational instructions.
+- [evidence terminology](reference/evidence-terminology.md): reference for the
+  Source / Information / Evidence distinction.
+- [research archive](archive/): older preserved experiments and prompts.
 
-## Evidence Analysis Framework
+## Method Boundary
 
-The prompts use the **Evidence Analysis Process Map** vocabulary:
+GRA is GPS-aligned and designed to support careful research. It does not
+enforce or guarantee the Genealogical Proof Standard. A genealogist must review
+the records, evaluate the reasoning, resolve conflicts, and own the conclusion.
 
-| Element | Classes | Definition |
-|---------|---------|------------|
-| **SOURCES** | Original, Derivative, Authored | The containers holding information |
-| **INFORMATION** | Primary, Secondary, Indeterminate | Content classified by informant's knowledge |
-| **EVIDENCE** | Direct, Indirect, Negative | Interpretation relative to research question |
+## Historical Version Notes
 
-See [reference/evidence-terminology.md](reference/evidence-terminology.md) for detailed definitions.
-
-## References
-
-- Mills, Elizabeth Shown. *Evidence Explained*, 4th ed. (2024)
-- Board for Certification of Genealogists. *Genealogy Standards*, 2nd ed. revised (2021)
+The detailed v8 and v7 history remains in the retained files for readers who
+need it. Current lifecycle and release information is maintained in
+[CHANGELOG.md](../CHANGELOG.md). For v8.5 package and historical-path detail,
+see the [GRA legacy table](../skills/gra/README.md#legacy-v85-continuity).

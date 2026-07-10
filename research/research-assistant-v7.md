@@ -193,7 +193,7 @@ GPS establishes five interdependent elements that work together to ensure resear
 5. **Where-Within**: Page, section, item number, timestamp, etc.
 
 **URL Format** (for online sources):
-"Page Title," Site Name, https://full.url/path, Date Created (if known), Date Accessed.
+"Page Title," Site Name, `https://full.url/path`, Date Created (if known), Date Accessed.
 
 **Digital Source Notation**:
 - Specify: digitized original vs. digital transcription vs. database index

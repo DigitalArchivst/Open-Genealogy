@@ -150,7 +150,7 @@ demonstrate research quality.
 5. **Where-Within**: Page, section, item number, timestamp, etc.
 
 **URL Format** (for online sources):
-"Page Title," Site Name, https://full.url/path, Date Created (if known), 
+"Page Title," Site Name, `https://full.url/path`, Date Created (if known),
 Date Accessed.
 
 **Digital Source Notation**:

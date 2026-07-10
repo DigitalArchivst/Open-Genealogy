@@ -2,7 +2,7 @@
 """
 GEDCOM 5.5.1 Builder — Claude Code Skill Companion Script
 
-License: MIT
+License: MIT (this file only; see ../LICENSE)
 
 Converts canonical JSON intermediate to valid GEDCOM 5.5.1 files.
 The LLM parses user input into JSON; this script handles mechanics:
@@ -17,6 +17,7 @@ import argparse
 import json
 import sys
 import os
+import re
 from datetime import datetime, date
 from pathlib import Path
 from collections import defaultdict
@@ -36,12 +37,16 @@ VALID_INDI_EVENTS = {
 }
 VALID_FAM_EVENTS = {"MARR", "DIV"}
 
-GEDCOM_DATE_PREFIXES = {"ABT", "BEF", "AFT", "CAL", "EST", "INT"}
-GEDCOM_DATE_RANGE = {"BET", "FROM"}
 GEDCOM_MONTHS = {
     "JAN", "FEB", "MAR", "APR", "MAY", "JUN",
     "JUL", "AUG", "SEP", "OCT", "NOV", "DEC",
 }
+GEDCOM_DATE_QUALIFIERS = {"ABT", "BEF", "AFT", "CAL", "EST"}
+GEDCOM_YEAR_PATTERN = re.compile(r"^[0-9]{3,4}(?:/[0-9]{2})?$")
+GEDCOM_XREF_ID_PATTERN = re.compile(r"^[A-Za-z0-9_]{1,20}$")
+GEDCOM_SOURCE_POINTER_PATTERN = re.compile(
+    r"^[0-9]+ SOUR @([A-Za-z0-9_]{1,20})@$"
+)
 
 HEADER_TEMPLATE = (
     "0 HEAD\r\n"
@@ -166,6 +171,67 @@ def sanitize_value(value, preserve_newlines=False):
 
 
 # ---------------------------------------------------------------------------
+# Canonical GEDCOM date validation
+# ---------------------------------------------------------------------------
+
+def _is_simple_gedcom_date(tokens):
+    """Validate DATE, DATE_MONTH, or DATE_YEAR tokens lexically."""
+    if len(tokens) == 1:
+        return bool(GEDCOM_YEAR_PATTERN.fullmatch(tokens[0]))
+    if len(tokens) == 2:
+        month, year = tokens
+        return (month in GEDCOM_MONTHS
+                and bool(GEDCOM_YEAR_PATTERN.fullmatch(year)))
+    if len(tokens) == 3:
+        day, month, year = tokens
+        return (day.isascii() and day.isdigit() and 1 <= int(day) <= 31
+                and month in GEDCOM_MONTHS
+                and bool(GEDCOM_YEAR_PATTERN.fullmatch(year)))
+    return False
+
+
+def is_valid_gedcom_date(value):
+    """Return True for the canonical GEDCOM date forms this tool accepts.
+
+    Accepted forms are a simple date, a qualified simple date, a
+    BET...AND range, or a FROM/TO period. This is lexical validation;
+    it does not decide whether a calendar date such as 31 FEB existed.
+    """
+    if not isinstance(value, str) or not value:
+        return False
+    if value != " ".join(value.split()):
+        return False
+
+    tokens = value.split(" ")
+    if _is_simple_gedcom_date(tokens):
+        return True
+
+    if tokens[0] in GEDCOM_DATE_QUALIFIERS:
+        return _is_simple_gedcom_date(tokens[1:])
+
+    if tokens[0] == "BET":
+        if tokens.count("AND") != 1:
+            return False
+        separator = tokens.index("AND")
+        return (_is_simple_gedcom_date(tokens[1:separator])
+                and _is_simple_gedcom_date(tokens[separator + 1:]))
+
+    if tokens[0] == "FROM":
+        if "TO" not in tokens:
+            return _is_simple_gedcom_date(tokens[1:])
+        if tokens.count("TO") != 1:
+            return False
+        separator = tokens.index("TO")
+        return (_is_simple_gedcom_date(tokens[1:separator])
+                and _is_simple_gedcom_date(tokens[separator + 1:]))
+
+    if tokens[0] == "TO":
+        return _is_simple_gedcom_date(tokens[1:])
+
+    return False
+
+
+# ---------------------------------------------------------------------------
 # Living person detection
 # ---------------------------------------------------------------------------
 
@@ -221,7 +287,7 @@ def _extract_year(individual):
     for etype in ("BIRT", "BAPM", "CHR"):
         for event in individual.get("events", []):
             if event.get("type") == etype and event.get("date"):
-                return _parse_year_from_date(event["date"])
+                return _date_upper_bound_year(event["date"])
     return None
 
 
@@ -235,7 +301,7 @@ def _extract_latest_plausible_birth_year(individual):
     latest_birth = None
     for event in individual.get("events", []):
         etype = event.get("type", "")
-        year = _parse_year_from_date(event.get("date", ""))
+        year = _date_upper_bound_year(event.get("date", ""))
         if year is None:
             continue
         min_age = EVENT_MIN_AGE.get(etype, 0)
@@ -245,15 +311,68 @@ def _extract_latest_plausible_birth_year(individual):
     return latest_birth
 
 
-def _get_latest_event_year(individual):
-    """Return the latest (most recent) event year for an individual."""
-    latest = None
+def _get_latest_bounded_event_year(individual):
+    """Return the latest event upper bound, or None if any date is open."""
+    bounded_years = []
     for event in individual.get("events", []):
-        year = _parse_year_from_date(event.get("date", ""))
-        if year is not None:
-            if latest is None or year > latest:
-                latest = year
-    return latest
+        event_date = event.get("date", "")
+        if not event_date:
+            continue
+        year = _date_upper_bound_year(event_date)
+        if year is None:
+            return None
+        bounded_years.append(year)
+    return max(bounded_years) if bounded_years else None
+
+
+def _simple_date_year(tokens):
+    """Return the latest year represented by a simple GEDCOM date."""
+    if not tokens:
+        return None
+    year_token = tokens[-1]
+    if "/" not in year_token:
+        try:
+            return int(year_token)
+        except (TypeError, ValueError):
+            return None
+
+    first_year, second_suffix = year_token.split("/", 1)
+    try:
+        first_year = int(first_year)
+        second_year = ((first_year // 100) * 100) + int(second_suffix)
+    except (TypeError, ValueError):
+        return None
+    if second_year < first_year:
+        second_year += 100
+    return max(first_year, second_year)
+
+
+def _date_upper_bound_year(date_str):
+    """Return a finite upper-bound year for a GEDCOM date when available."""
+    if not isinstance(date_str, str) or not date_str:
+        return None
+
+    tokens = date_str.split()
+    if tokens[0] == "AFT":
+        return None
+    if tokens[0] == "FROM":
+        if "TO" not in tokens:
+            return None
+        return _simple_date_year(tokens[tokens.index("TO") + 1:])
+    if tokens[0] == "BET":
+        if "AND" not in tokens:
+            return None
+        return _simple_date_year(tokens[tokens.index("AND") + 1:])
+    if tokens[0] == "TO":
+        return _simple_date_year(tokens[1:])
+    if tokens[0] == "BEF":
+        year = _simple_date_year(tokens[1:])
+        if year is not None and len(tokens) == 2 and "/" not in tokens[1]:
+            return year - 1
+        return year
+    if tokens[0] in {"ABT", "CAL", "EST"}:
+        return _simple_date_year(tokens[1:])
+    return _simple_date_year(tokens)
 
 
 def _parse_year_from_date(date_str):
@@ -276,9 +395,10 @@ def _parse_year_from_date(date_str):
 # GEDCOM record builders
 # ---------------------------------------------------------------------------
 
-def build_indi_record(ind, living_ids, sources_map):
+def build_indi_record(ind, living_ids, sources_map, suppressed_source_ids=None):
     """Build a GEDCOM INDI record from the canonical JSON."""
     lines = []
+    suppressed_source_ids = suppressed_source_ids or set()
     xref = f"@{ind['id']}@"
     lines.append(f"0 {xref} INDI")
 
@@ -340,7 +460,8 @@ def build_indi_record(ind, living_ids, sources_map):
 
         # Inline source citation
         src_id = event.get("source_id", "")
-        if src_id and not is_living:
+        if (src_id and not is_living
+                and src_id not in suppressed_source_ids):
             lines.append(f"2 SOUR @{src_id}@")
             src_page = sanitize_value(event.get("source_page", ""))
             if src_page:
@@ -370,7 +491,7 @@ def build_indi_record(ind, living_ids, sources_map):
     if not is_living:
         for src_ref in ind.get("source_citations", []):
             src_id = src_ref.get("source_id", "")
-            if src_id:
+            if src_id and src_id not in suppressed_source_ids:
                 lines.append(f"1 SOUR @{src_id}@")
                 page = sanitize_value(src_ref.get("source_page", ""))
                 if page:
@@ -382,7 +503,9 @@ def build_indi_record(ind, living_ids, sources_map):
     return lines
 
 
-def build_fam_record(fam, ind_map=None, living_ids=None):
+def build_fam_record(fam, ind_map=None, living_ids=None,
+                     include_redacted_family_details=False,
+                     suppressed_source_ids=None):
     """Build a GEDCOM FAM record from the canonical JSON.
 
     Uses sex fields from ind_map (if provided) to guide HUSB/WIFE
@@ -390,16 +513,24 @@ def build_fam_record(fam, ind_map=None, living_ids=None):
     no gender-neutral spouse tag. When sex doesn't match the assigned
     tag, a NOTE documents the limitation.
 
-    When all spouses in the family are in living_ids, family events
-    (MARR, DIV) are stripped to prevent privacy leaks through FAM records.
+    When any linked spouse is in living_ids, family events, notes, and
+    citations are stripped unless the private-use override is enabled.
+    Spouse and child links are always retained for structural validity.
     """
     lines = []
+    suppressed_source_ids = suppressed_source_ids or set()
     xref = f"@{fam['id']}@"
     lines.append(f"0 {xref} FAM")
 
     sp1 = fam.get("spouse1", "")
     sp2 = fam.get("spouse2", "")
     ind_map = ind_map or {}
+    living_ids = living_ids or set()
+    spouses = [spouse for spouse in (sp1, sp2) if spouse]
+    has_redacted_spouse = any(spouse in living_ids for spouse in spouses)
+    suppress_family_details = (
+        has_redacted_spouse and not include_redacted_family_details
+    )
 
     # Determine HUSB/WIFE assignment using sex fields when available
     sp1_sex = ind_map.get(sp1, {}).get("sex", "U") if sp1 else "U"
@@ -420,24 +551,19 @@ def build_fam_record(fam, ind_map=None, living_ids=None):
         lines.append(f"1 {sp1_tag} @{sp1}@")
     if sp2:
         lines.append(f"1 {sp2_tag} @{sp2}@")
-    if sex_note:
+    if sex_note and not suppress_family_details:
         lines.extend(split_long_value(1, "NOTE", sex_note))
 
     for child_id in fam.get("children", []):
         if child_id:
             lines.append(f"1 CHIL @{child_id}@")
 
-    # Strip family events when all spouses are living (privacy)
-    living_ids = living_ids or set()
-    spouses = [s for s in (sp1, sp2) if s]
-    all_spouses_living = spouses and all(s in living_ids for s in spouses)
-
     for event in fam.get("events", []):
         etype = event.get("type", "")
         if etype not in VALID_FAM_EVENTS:
             continue
-        if all_spouses_living:
-            continue  # Strip family events for living couples
+        if suppress_family_details:
+            continue
 
         edate = sanitize_value(event.get("date", ""))
         eplace = sanitize_value(event.get("place", ""))
@@ -452,28 +578,30 @@ def build_fam_record(fam, ind_map=None, living_ids=None):
             lines.extend(split_long_value(2, "PLAC", eplace))
 
         src_id = event.get("source_id", "")
-        if src_id:
+        if src_id and src_id not in suppressed_source_ids:
             lines.append(f"2 SOUR @{src_id}@")
             src_page = sanitize_value(event.get("source_page", ""))
             if src_page:
                 lines.extend(split_long_value(3, "PAGE", src_page))
 
-    for note in fam.get("notes", []):
-        note = sanitize_value(note, preserve_newlines=True)
-        if note:
-            lines.extend(split_note_value(1, "NOTE", note))
+    if not suppress_family_details:
+        for note in fam.get("notes", []):
+            note = sanitize_value(note, preserve_newlines=True)
+            if note:
+                lines.extend(split_note_value(1, "NOTE", note))
 
     # Family-level source citations (e.g., wills establishing relationships)
-    for src_ref in fam.get("source_citations", []):
-        src_id = src_ref.get("source_id", "")
-        if src_id:
-            lines.append(f"1 SOUR @{src_id}@")
-            page = sanitize_value(src_ref.get("source_page", ""))
-            if page:
-                lines.extend(split_long_value(2, "PAGE", page))
-            quay = src_ref.get("quality", "")
-            if quay in (0, 1, 2, 3, "0", "1", "2", "3"):
-                lines.append(f"2 QUAY {quay}")
+    if not suppress_family_details:
+        for src_ref in fam.get("source_citations", []):
+            src_id = src_ref.get("source_id", "")
+            if src_id and src_id not in suppressed_source_ids:
+                lines.append(f"1 SOUR @{src_id}@")
+                page = sanitize_value(src_ref.get("source_page", ""))
+                if page:
+                    lines.extend(split_long_value(2, "PAGE", page))
+                quay = src_ref.get("quality", "")
+                if quay in (0, 1, 2, 3, "0", "1", "2", "3"):
+                    lines.append(f"2 QUAY {quay}")
 
     return lines
 
@@ -508,6 +636,35 @@ def build_sour_record(source):
     return lines
 
 
+def collect_sensitive_source_ids(data, living_ids):
+    """Find sources cited by records containing living-person data."""
+    sensitive = set()
+
+    for ind in data.get("individuals", []):
+        if ind.get("id") not in living_ids:
+            continue
+        for event in ind.get("events", []):
+            if event.get("source_id"):
+                sensitive.add(event["source_id"])
+        for citation in ind.get("source_citations", []):
+            if citation.get("source_id"):
+                sensitive.add(citation["source_id"])
+
+    for fam in data.get("families", []):
+        member_ids = [fam.get(role, "") for role in ("spouse1", "spouse2")]
+        member_ids.extend(fam.get("children", []))
+        if not any(member_id in living_ids for member_id in member_ids):
+            continue
+        for event in fam.get("events", []):
+            if event.get("source_id"):
+                sensitive.add(event["source_id"])
+        for citation in fam.get("source_citations", []):
+            if citation.get("source_id"):
+                sensitive.add(citation["source_id"])
+
+    return sensitive
+
+
 def build_repo_record(repo):
     """Build a GEDCOM REPO record from the canonical JSON."""
     lines = []
@@ -539,60 +696,125 @@ class ValidationError:
         return f"[{self.severity}] {self.code}: {self.message}"
 
 
+def validate_identifiers(data):
+    """Reject malformed or duplicate record IDs before graph processing."""
+    errors = []
+    seen = {"U1": "generated submitter record"}
+
+    for collection in ("individuals", "families", "sources", "repositories"):
+        for index, record in enumerate(data.get(collection, [])):
+            record_id = record.get("id")
+            location = f"{collection}[{index}]"
+            if (not isinstance(record_id, str)
+                    or not GEDCOM_XREF_ID_PATTERN.fullmatch(record_id)):
+                errors.append(ValidationError(
+                    "MALFORMED_ID",
+                    f"{location} has invalid ID {record_id!r}; use 1-20 "
+                    "ASCII letters, digits, or underscores without @ signs"
+                ))
+            if isinstance(record_id, str):
+                if record_id in seen:
+                    errors.append(ValidationError(
+                        "DUPLICATE_ID",
+                        f"{location} reuses ID {record_id!r} already used by "
+                        f"{seen[record_id]}"
+                    ))
+                else:
+                    seen[record_id] = location
+
+    return errors
+
+
+def validate_dates(data):
+    """Validate every non-empty individual and family event date."""
+    errors = []
+    for collection in ("individuals", "families"):
+        for record in data.get(collection, []):
+            record_id = record.get("id", "<missing ID>")
+            for event_index, event in enumerate(record.get("events", [])):
+                event_date = event.get("date", "")
+                if event_date != "" and not is_valid_gedcom_date(event_date):
+                    errors.append(ValidationError(
+                        "INVALID_DATE",
+                        f"{record_id} event {event_index + 1} has unsupported "
+                        f"date {event_date!r}"
+                    ))
+    return errors
+
+
+def _append_pointer_error(errors, owner, field, reference, target_ids):
+    """Append one lexical or resolution error for a pointer value."""
+    if reference == "":
+        return
+    if (not isinstance(reference, str)
+            or not GEDCOM_XREF_ID_PATTERN.fullmatch(reference)):
+        errors.append(ValidationError(
+            "MALFORMED_POINTER",
+            f"{owner} {field} has invalid pointer target {reference!r}"
+        ))
+    elif reference not in target_ids:
+        errors.append(ValidationError(
+            "DANGLING_POINTER",
+            f"{owner} {field} references {reference} which does not exist"
+        ))
+
+
 def validate(data, gedcom_lines):
     """Run all validation checks. Returns list of ValidationError."""
-    errors = []
+    identifier_errors = validate_identifiers(data)
+    if identifier_errors:
+        return identifier_errors
+
+    errors = validate_dates(data)
 
     indi_ids = {ind["id"] for ind in data.get("individuals", [])}
     fam_ids = {fam["id"] for fam in data.get("families", [])}
     sour_ids = {s["id"] for s in data.get("sources", [])}
     repo_ids = {r["id"] for r in data.get("repositories", [])}
-    all_ids = indi_ids | fam_ids | sour_ids | repo_ids | {"U1"}
 
     # --- Pointer resolution ---
     for ind in data.get("individuals", []):
         famc = ind.get("family_child", "")
-        if famc and famc not in fam_ids:
-            errors.append(ValidationError(
-                "DANGLING_POINTER",
-                f"{ind['id']} references family_child {famc} which does not exist"
-            ))
+        _append_pointer_error(
+            errors, ind["id"], "family_child", famc, fam_ids,
+        )
         for fams in ind.get("family_spouse", []):
-            if fams and fams not in fam_ids:
-                errors.append(ValidationError(
-                    "DANGLING_POINTER",
-                    f"{ind['id']} references family_spouse {fams} which does not exist"
-                ))
+            _append_pointer_error(
+                errors, ind["id"], "family_spouse", fams, fam_ids,
+            )
         for event in ind.get("events", []):
             src = event.get("source_id", "")
-            if src and src not in sour_ids:
-                errors.append(ValidationError(
-                    "DANGLING_POINTER",
-                    f"{ind['id']} event references source {src} which does not exist"
-                ))
+            _append_pointer_error(
+                errors, ind["id"], "event source_id", src, sour_ids,
+            )
+        for src_ref in ind.get("source_citations", []):
+            src = src_ref.get("source_id", "")
+            _append_pointer_error(
+                errors, ind["id"], "source_citation source_id", src, sour_ids,
+            )
 
     for fam in data.get("families", []):
         for role in ("spouse1", "spouse2"):
             ref = fam.get(role, "")
-            if ref and ref not in indi_ids:
-                errors.append(ValidationError(
-                    "DANGLING_POINTER",
-                    f"Family {fam['id']} {role} references {ref} which does not exist"
-                ))
+            _append_pointer_error(
+                errors, f"Family {fam['id']}", role, ref, indi_ids,
+            )
         for child in fam.get("children", []):
-            if child and child not in indi_ids:
-                errors.append(ValidationError(
-                    "DANGLING_POINTER",
-                    f"Family {fam['id']} child references {child} which does not exist"
-                ))
+            _append_pointer_error(
+                errors, f"Family {fam['id']}", "child", child, indi_ids,
+            )
+        for event in fam.get("events", []):
+            src = event.get("source_id", "")
+            _append_pointer_error(
+                errors, f"Family {fam['id']}", "event source_id", src,
+                sour_ids,
+            )
 
     for src in data.get("sources", []):
         repo = src.get("repository_id", "")
-        if repo and repo not in repo_ids:
-            errors.append(ValidationError(
-                "DANGLING_POINTER",
-                f"Source {src['id']} references repository {repo} which does not exist"
-            ))
+        _append_pointer_error(
+            errors, f"Source {src['id']}", "repository_id", repo, repo_ids,
+        )
 
     # --- Bidirectional pointer consistency ---
     for ind in data.get("individuals", []):
@@ -617,11 +839,10 @@ def validate(data, gedcom_lines):
     for fam in data.get("families", []):
         for src_ref in fam.get("source_citations", []):
             src = src_ref.get("source_id", "")
-            if src and src not in sour_ids:
-                errors.append(ValidationError(
-                    "DANGLING_POINTER",
-                    f"Family {fam['id']} source_citation references {src} which does not exist"
-                ))
+            _append_pointer_error(
+                errors, f"Family {fam['id']}",
+                "source_citation source_id", src, sour_ids,
+            )
         for child in fam.get("children", []):
             if child:
                 ind_obj = _find_by_id(data.get("individuals", []), child)
@@ -654,19 +875,36 @@ def validate(data, gedcom_lines):
                     parents.append(fam_obj["spouse2"])
                 parent_map[ind["id"]] = parents
 
+    finished = set()
+    active_path = []
+    active_nodes = set()
+
+    def find_cycle(node):
+        if node in active_nodes:
+            cycle_start = active_path.index(node)
+            return active_path[cycle_start:] + [node]
+        if node in finished:
+            return None
+
+        active_path.append(node)
+        active_nodes.add(node)
+        for parent in parent_map.get(node, []):
+            cycle = find_cycle(parent)
+            if cycle:
+                return cycle
+        active_path.pop()
+        active_nodes.remove(node)
+        finished.add(node)
+        return None
+
     for ind_id in parent_map:
-        visited = set()
-        queue = [ind_id]
-        while queue:
-            node = queue.pop(0)
-            if node in visited:
-                errors.append(ValidationError(
-                    "CYCLE_DETECTED",
-                    f"Circular parent-child relationship involving {node}"
-                ))
-                break
-            visited.add(node)
-            queue.extend(parent_map.get(node, []))
+        cycle = find_cycle(ind_id)
+        if cycle:
+            errors.append(ValidationError(
+                "CYCLE_DETECTED",
+                "Circular parent-child relationship: " + " -> ".join(cycle)
+            ))
+            break
 
     # --- Line length check ---
     for i, line in enumerate(gedcom_lines):
@@ -779,11 +1017,9 @@ def merge_json_files(paths):
             for record in data.get(key, []):
                 rid = record.get("id", "")
                 if rid in seen_ids:
-                    msg = (f"Duplicate ID '{rid}' in {path}. "
-                           f"Keeping first occurrence.")
-                    warnings.append(msg)
-                    print(f"WARNING: {msg}", file=sys.stderr)
-                    continue
+                    raise ValueError(
+                        f"Duplicate ID {rid!r} encountered while merging {path}"
+                    )
                 seen_ids.add(rid)
                 merged[key].append(record)
 
@@ -795,12 +1031,24 @@ def merge_json_files(paths):
 # ---------------------------------------------------------------------------
 
 def build_gedcom(data, submitter="Unknown", include_living=False,
-                 all_deceased=False, deceased_before=None):
+                 all_deceased=False, deceased_before=None,
+                 include_redacted_family_details=False):
     """Build complete GEDCOM 5.5.1 from canonical JSON data."""
     report = {
         "individuals": 0, "families": 0, "sources": 0, "repositories": 0,
-        "redactions": [], "repairs": [], "validation_errors": [], "warnings": [],
+        "redactions": [], "family_redactions": [], "repairs": [],
+        "validation_errors": [], "warnings": [],
     }
+
+    identifier_errors = validate_identifiers(data)
+    if identifier_errors:
+        report["validation_errors"] = [str(e) for e in identifier_errors]
+        return [], report
+
+    date_errors = validate_dates(data)
+    if date_errors:
+        report["validation_errors"] = [str(e) for e in date_errors]
+        return [], report
 
     repairs = auto_repair_pointers(data)
     report["repairs"] = repairs
@@ -812,12 +1060,9 @@ def build_gedcom(data, submitter="Unknown", include_living=False,
             if is_presumed_living(ind):
                 # Check --deceased-before override
                 if deceased_before is not None:
-                    latest_yr = _get_latest_event_year(ind)
-                    if latest_yr is None:
-                        # Undated individual in a historical source —
-                        # user explicitly set a cutoff, so treat as deceased
-                        continue
-                    if latest_yr < deceased_before:
+                    latest_yr = _get_latest_bounded_event_year(ind)
+                    if (latest_yr is not None
+                            and latest_yr < deceased_before):
                         continue  # Events are historical — don't redact
                 living_ids.add(ind["id"])
                 name = f"{ind.get('given', '')} {ind.get('surname', '')}".strip()
@@ -838,23 +1083,70 @@ def build_gedcom(data, submitter="Unknown", include_living=False,
     lines = [line for line in header_text.rstrip(CRLF).split(CRLF)]
 
     sources_map = {s["id"]: s for s in data.get("sources", [])}
+    sensitive_source_ids = collect_sensitive_source_ids(data, living_ids)
+    suppressed_source_ids = (
+        sensitive_source_ids if not include_redacted_family_details else set()
+    )
     ind_map = {ind["id"]: ind for ind in data.get("individuals", [])}
 
     for ind in data.get("individuals", []):
-        lines.extend(build_indi_record(ind, living_ids, sources_map))
+        lines.extend(build_indi_record(
+            ind, living_ids, sources_map, suppressed_source_ids
+        ))
         report["individuals"] += 1
 
     for fam in data.get("families", []):
-        lines.extend(build_fam_record(fam, ind_map, living_ids))
+        linked_spouses = [
+            fam.get(role, "") for role in ("spouse1", "spouse2")
+            if fam.get(role, "")
+        ]
+        has_redacted_spouse = any(
+            spouse in living_ids for spouse in linked_spouses
+        )
+        if has_redacted_spouse and not include_redacted_family_details:
+            report["family_redactions"].append(fam["id"])
+        lines.extend(build_fam_record(
+            fam,
+            ind_map,
+            living_ids,
+            include_redacted_family_details=include_redacted_family_details,
+            suppressed_source_ids=suppressed_source_ids,
+        ))
         report["families"] += 1
 
-    for source in data.get("sources", []):
+    if include_redacted_family_details and any(
+            any(fam.get(role, "") in living_ids
+                for role in ("spouse1", "spouse2"))
+            for fam in data.get("families", [])):
+        report["warnings"].append(
+            "PRIVATE-USE OVERRIDE: family events, notes, and citations "
+            "linked to redacted people were included and may identify them."
+        )
+
+    referenced_source_ids = set()
+    for line in lines:
+        match = GEDCOM_SOURCE_POINTER_PATTERN.fullmatch(line)
+        if match:
+            referenced_source_ids.add(match.group(1))
+
+    retained_sources = [
+        source for source in data.get("sources", [])
+        if (source["id"] in referenced_source_ids
+                and source["id"] not in suppressed_source_ids)
+    ]
+    retained_repo_ids = {
+        source.get("repository_id", "") for source in retained_sources
+        if source.get("repository_id", "")
+    }
+
+    for source in retained_sources:
         lines.extend(build_sour_record(source))
         report["sources"] += 1
 
     for repo in data.get("repositories", []):
-        lines.extend(build_repo_record(repo))
-        report["repositories"] += 1
+        if repo["id"] in retained_repo_ids:
+            lines.extend(build_repo_record(repo))
+            report["repositories"] += 1
 
     lines.append("0 TRLR")
 
@@ -879,6 +1171,13 @@ def format_report(report, output_path):
         parts.append(f"Living persons redacted: {len(report['redactions'])}")
         for r in report["redactions"]:
             parts.append(f"  - {r['name']} ({r['id']}) -- {r['reason']}")
+
+    if report["family_redactions"]:
+        family_ids = ", ".join(report["family_redactions"])
+        parts.append(
+            "Family details suppressed because a linked spouse was redacted: "
+            f"{family_ids}"
+        )
 
     if report["repairs"]:
         parts.append(f"Auto-repairs applied: {len(report['repairs'])}")
@@ -924,8 +1223,16 @@ def main():
                         help="Treat all individuals as deceased "
                              "(use for historical sources)")
     parser.add_argument("--deceased-before", type=int, metavar="YEAR",
-                        help="Treat individuals with all events before "
+                        help="Treat individuals with at least one dated "
+                             "event and all finite date upper bounds before "
                              "YEAR as deceased (e.g., --deceased-before 1900)")
+    parser.add_argument(
+        "--include-redacted-family-details",
+        action="store_true",
+        help=("PRIVATE-USE OVERRIDE: include family events, notes, and "
+              "citations linked to redacted spouses. These details may "
+              "identify living people; review before any sharing."),
+    )
     args = parser.parse_args()
 
     merge_warnings = []
@@ -935,7 +1242,7 @@ def main():
         else:
             with open(args.input[0], "r", encoding="utf-8") as f:
                 data = json.load(f)
-    except (json.JSONDecodeError, FileNotFoundError) as e:
+    except (json.JSONDecodeError, FileNotFoundError, ValueError) as e:
         print(f"Error reading input: {e}", file=sys.stderr)
         sys.exit(1)
 
@@ -962,6 +1269,7 @@ def main():
         include_living=args.include_living,
         all_deceased=args.all_deceased,
         deceased_before=args.deceased_before,
+        include_redacted_family_details=args.include_redacted_family_details,
     )
     report["warnings"].extend(merge_warnings)
 

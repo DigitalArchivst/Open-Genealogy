@@ -94,11 +94,11 @@ descent. Read carefully — do not confuse a parent with a spouse.
 
 Individual: `0 @I1@ INDI` with `1 NAME Given /Surname/`,
 `1 SEX M/F/U`, events (`1 BIRT`, `1 DEAT`, etc.) with
-`2 DATE` and `2 PLAC`. `1 FAMC @F1@` = child in family.
+`2 DATE` and `2 PLAC`. `1 FAMC` \@F1@ = child in family.
 `1 FAMS @F1@` = spouse in family.
 
 Family: `0 @F1@ FAM` with `1 HUSB @I1@`, `1 WIFE @I2@`,
-`1 CHIL @I3@`. Marriage: `1 MARR` with `2 DATE`/`2 PLAC`.
+`1 CHIL` \@I3@. Marriage: `1 MARR` with `2 DATE`/`2 PLAC`.
 
 Source: `0 @S1@ SOUR` with `1 TITL`, `1 AUTH`, `1 PUBL`.
 Cite on events: `2 SOUR @S1@` under the event, with `3 PAGE`.
@@ -182,17 +182,21 @@ counts and any redactions.
 
 Anyone who might be alive is protected automatically:
 
-- No death/burial/probate event AND born within 110 years →
-  presumed living
-- No death event AND no birth date → presumed living
+- A death, burial, or probate event → deceased
+- No death indicator AND born within 110 years → presumed living
+- A sufficiently old bounded event date may establish a historical era
+- No death indicator and no bounded date evidence → presumed living
+- An `AFT` date or open-ended `FROM` date supplies no safe upper bound
 - A WILL event does NOT mean deceased (living people draft wills)
+- A spouse link alone says nothing about living status. Evaluate every
+  linked spouse independently using the same evidence rules.
 
 **Individual redaction:** NAME becomes `[Living] /[Living]/`,
 events stripped, notes stripped. FAMC/FAMS pointers kept.
 
-**Family redaction:** When all spouses in a FAM are living or
-redacted, also strip MARR/DIV dates and places from that FAM.
-Keep CHIL pointers for structural integrity.
+**Family redaction:** When any linked spouse in a FAM is redacted,
+also strip family events, dates, places, notes, and citations from that
+FAM. Keep spouse and CHIL pointers for structural integrity.
 
 Tell the user who was redacted and why. They can request
 inclusion for private use.

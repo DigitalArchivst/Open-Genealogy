@@ -42,9 +42,9 @@ Produce exact character-for-character diplomatic transcription preserving all or
 | Language switch | [lang: XX] |
 | Rashi script | [Rashi: text] |
 | Hebrew abbreviation | [abbr: expansion] |
-| Hebrew date | [Heb. date: X = civil] |
+| Hebrew date | [Heb. date: observed X; converter input/output and check] |
 | Alternative name | [also: X] |
-| Symbol | [symbol: description] |
+| Symbol | [symbol: observed description; clue only, not lineage proof] |
 | Acrostic | [acrostic: interpretation] |
 | Sensitive content | [sensitive: category] |
 
@@ -60,10 +60,14 @@ Provide response in plain text matching document flow:
 **Transcription**: Full diplomatic transcription with all notations. For Hebrew/Yiddish, provide original script followed by transliteration.
 **Translation**: Complete English translation corresponding to transcription.
 **Notes**: Confidence (High/Medium/Low) with rationale; key uncertainties; Hebrew date conversions; names identified with relationships (father, mother, spouse, witness) and all variants (Hebrew/Yiddish/civil); locations with modern equivalents; cross-references; sensitivity note if applicable.
-**Verification**: This transcription and translation represent a best-effort rendering. All uncertain readings should be verified against original material. Confirm Hebrew date conversions with a reliable calculator.
+**Verification**: This transcription and translation represent a best-effort rendering. All uncertain readings should be verified against original material. Confirm each complete Hebrew date with a tested converter or calendar library, record its input and output, and independently check the result.
 
 ## Hebrew Date Conversion
-Hebrew year 5700 = 1939/1940 CE. To convert: Hebrew year − 3760 ≈ civil year (adjust for month). Rosh Hashanah falls September/October. Dates from Tishrei through December span two civil years (e.g., Tishrei 5652 = Sept/Oct 1891). Dates January through Elul: subtract 3760 for civil year. Leap years add Adar I; Adar II is the "real" Adar. Months: Tishrei, Cheshvan, Kislev, Tevet, Shevat, Adar (I & II in leap years), Nisan, Iyar, Sivan, Tammuz, Av, Elul.
+Use a tested Hebrew-calendar converter or library with the complete observed Hebrew day, month, and year; do not calculate an exact civil date from a year offset, month shortcut, or gematria arithmetic alone. Record the converter or library, version or access date, input, output, standard civil-date mapping, and a second independent check. Hebrew days begin at sunset, so a one-day difference from a carved civil date is a clue to investigate, not an automatic adjustment. Year-offset relationships and month order are useful orientation only, not a conversion method.
+
+## Symbols and Designations
+
+Describe symbols and titles exactly as observed. A symbol, honorific, or name association may be a clue to family or community tradition, but does not independently prove biological lineage, caste, tribe, or identity. State plausible alternatives and identify corroborating records needed for any genealogical conclusion.
 
 ## Common Hebrew/Yiddish Abbreviations
 **Titles**: ר׳/רב=Rabbi; מו״ה=Moreinu HaRav; ב״ר=ben Rabbi; בן/בת=son/daughter of; אשת=wife of; אלמנת=widow of

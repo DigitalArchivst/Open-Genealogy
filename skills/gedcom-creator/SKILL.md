@@ -4,7 +4,7 @@ description: >-
   Create GEDCOM 5.5.1 compliant genealogy files from natural language,
   JSON, or markdown table input. Use when the user wants to generate
   a family tree interchange file from research data.
-license: MIT
+license: See LICENSE; MIT applies only to scripts/gedcom_builder.py
 compatibility: Requires Claude Code and Python 3.6+
 metadata:
   version: "1.3.1"
@@ -273,6 +273,20 @@ ambiguities in the confirmation step for the user to resolve.
 | "aged 20 at marriage in 1789" | `CAL 1769` (calculated from stated age) |
 | "2 Feb 1731/32" (dual-dating) | `2 FEB 1731/32` |
 
+The builder accepts these canonical lexical forms:
+
+- A three- or four-digit year, `MON YEAR`, or `DAY MON YEAR`, with an
+  optional dual year such as `1731/32`
+- A simple date prefixed by `ABT`, `BEF`, `AFT`, `CAL`, or `EST`
+- `BET date AND date`
+- `FROM date TO date`, `FROM date`, or `TO date`
+
+Months must use uppercase GEDCOM abbreviations. Natural-language,
+numeric ISO, calendar-escape, and interpreted `INT` phrases are not
+accepted in the JSON intermediate. Omit an unknown date instead of
+guessing. Validation is lexical; it does not prove that a date existed
+on a particular calendar.
+
 ### Step 3: Show Confirmation (MANDATORY)
 
 Before generating the GEDCOM, display a human-readable summary and
@@ -350,6 +364,12 @@ Display the output report from the script. It will include:
 ## Canonical JSON Schema
 
 This is what you produce; the Python script consumes it.
+
+IDs and pointer targets use 1-20 ASCII letters, digits, or underscores
+without surrounding `@` signs. IDs must be unique across every record
+type. `U1` is reserved for the generated submitter record. The `I`,
+`F`, `S`, and `R` prefixes shown below are a recommended readability
+convention, not a validation requirement.
 
 ```json
 {
@@ -479,9 +499,9 @@ a layered detection system:
 **Individual redaction:** NAME becomes `[Living] /[Living]/`,
 events stripped, notes stripped. FAMC/FAMS pointers kept.
 
-**Family redaction:** When all spouses in a FAM are living or
-redacted, MARR/DIV dates and places are also stripped from that
-FAM. CHIL pointers are kept for structural integrity.
+**Family redaction:** When any linked spouse in a FAM is living or
+redacted, all family events, dates, places, notes, and citations are
+stripped. Spouse and child pointers are kept for structural integrity.
 
 **Override flags:**
 
@@ -491,6 +511,12 @@ FAM. CHIL pointers are kept for structural integrity.
   before YEAR as deceased (for mixed modern/historical datasets)
 - `--include-living` — skip all redaction (legacy flag; prefer
   `--all-deceased` for historical data)
+
+- `--include-redacted-family-details` - narrow private-use override
+  that keeps family events, notes, and citations linked to redacted
+  spouses while preserving individual redaction. These details may
+  identify a living person. Review the output before sharing,
+  uploading, or publishing.
 
 **Important:** A WILL event is NOT a death indicator. Living people
 draft wills. PROB (probate) IS a death indicator because probate
@@ -539,7 +565,8 @@ python scripts/gedcom_builder.py batch-01.json batch-02.json \
 ```
 
 The script merges all files, checks for duplicate IDs, and
-validates the combined graph.
+validates the combined graph. A duplicate ID rejects the merge; the
+script never keeps one duplicate silently.
 
 **ID convention:** Each batch starts numbering where the previous
 ended. Read the last batch file to determine next available IDs.
@@ -594,6 +621,12 @@ This produces GEDCOM:
 2 QUAY 3
 ```
 
+If any linked spouse is redacted, the family NOTE and SOUR structures
+shown above are omitted by default. Use
+`--include-redacted-family-details` only for a reviewed private-use
+file when retaining those facts is necessary and the disclosure risk
+is understood.
+
 **QUAY values:** 0=unreliable, 1=questionable, 2=secondary,
 3=direct and primary. A testator naming his own children is QUAY 3.
 
@@ -638,20 +671,27 @@ plain English:
 
 | Script error | User-facing message |
 | ------------ | ------------------- |
+| `DUPLICATE_ID: X1` | "ID X1 is used by more than one record. Assign a unique ID before generating." |
+| `MALFORMED_ID: @I1@` | "JSON IDs use 1-20 letters, digits, or underscores without @ signs." |
+| `MALFORMED_POINTER: @F1@` | "Pointer targets use the same unwrapped ID form; use F1 rather than @F1@." |
 | `DANGLING_POINTER: @I3@` | "Sarah Smith (I3) is referenced but no record was provided. Add her or remove the reference?" |
 | `BIDIRECTIONAL_MISMATCH: I2 FAMC F1` | "Mary Jones is listed as child of Family 1, but Family 1 doesn't list her as a child. Fixing..." |
 | `CYCLE_DETECTED: I1 -> I2 -> I1` | "Circular relationship found: John is parent of Mary, but Mary is also parent of John. Please correct." |
-| `INVALID_DATE: xyz` | "Could not parse date 'xyz'. Please provide in a format like 'March 15, 1845' or 'ABT 1868'." |
+| `INVALID_DATE: xyz` | "Use canonical GEDCOM form such as '15 MAR 1845' or 'ABT 1868', or omit an unknown date." |
 
 ## Files in This Skill
 
 ```text
 gedcom-creator/
-  SKILL.md              — This file
-  README.md             — Installation and usage guide
+  SKILL.md              - This file
+  README.md             - Installation and usage guide
+  LICENSE               - MIT terms for gedcom_builder.py only
   scripts/
-    gedcom_builder.py   — Python companion script (MIT license)
+    gedcom_builder.py   - Python companion script (MIT license)
+    test_gedcom_builder.py - Offline regression and validation suite
   examples/
-    sample-input.json   — Example structured input
-    expected-output.ged — Known-good output for regression testing
+    sample-input.json   - Example structured input
+    expected-output.ged - Known-good output for regression testing
+    parish-register-whitchurch.json - Mixed historical input
+    parish-register-whitchurch.ged - Privacy-safe golden output
 ```

@@ -18,6 +18,8 @@ The five included JPEGs are public National Archives images connected to the von
 
 See `RECORD-IMAGE-MANIFEST.md` for source context, source URLs, dimensions, and handling notes.
 
+See [RIGHTS.md](RIGHTS.md) for asset-specific reuse status and the official National Archives permissions guidance.
+
 ## How To Use These Images
 
 Ask your AI assistant to inventory the folder before asking for conclusions:

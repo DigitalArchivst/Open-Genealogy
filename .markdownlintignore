@@ -1,0 +1,15 @@
+# Purpose-built prompt wrappers and legacy compact tables. Their nonstandard
+# Markdown is runtime syntax; remediation must not rewrite it for prose style.
+hebrew-headstones/hebrew-headstone-helper-v9.md
+photo-restoration/damage-removal-v3.md
+photo-restoration/photo-conservator-v2.md
+photo-restoration/photo-reconstructor-v3.md
+photo-restoration/restoration-v2.md
+writing-tools/fact-narrator-v4.md
+assistants/gedcom-builder-v1.md
+assistants/gedcom-creator-mini.md
+research/contract-first-genealogy-v3.1.md
+research/research-assistant-v6.1.md
+research/research-assistant-v7.md
+research/archive/research-with-citations-v2.md
+transcription/jewish-transcription-v2.md

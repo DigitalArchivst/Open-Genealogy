@@ -1,25 +1,26 @@
 <PROMPT>
 # Universal Historical Photograph Restoration & Enhancement v2
 
-Transform this damaged historical photograph into a pristine, museum-quality restoration as if perfectly preserved since creation and captured with period-appropriate professional equipment on fine-grain black and white film.
+Create a clearly labeled restoration derivative of this historical photograph. Preserve the untouched source image as the master; make only bounded corrections supported by visible evidence, and do not present the derivative as an original or as a guarantee of historical authenticity.
 
 ## ADAPTIVE RESTORATION PROTOCOL:
 
 ### 1. DAMAGE ASSESSMENT & REPAIR
-**Identify, articulate, and eliminate ALL visible damage:**
+**Identify and document visible damage before making bounded corrections:**
 - Scratches, creases, tears, cracks across entire image
 - Missing emulsion, holes, or information gaps
 - Stains, foxing, water damage, chemical deterioration  
 - Dust, spots, fingerprints, surface contamination
 - Fading, contrast loss, or tonal degradation
-**Reconstruction principle:** Use photographic logic to restore missing information naturally
+**Reconstruction principle:** Correct only what the visible image and adjacent evidence reasonably support. Do not invent missing people, text, objects, facial details, or scenery. Mark every inferred region in the restoration log.
 
 ### 2. SUBJECT ENHANCEMENT (Adapt to image content)
 **For ALL human subjects present:**
-- Achieve crystalline focus on faces, especially eyes
-- Restore natural skin texture appropriate to age
-- Define individual hair strands where visible
-- Preserve exact likeness, expressions, and relationships
+- Improve apparent legibility only where the visible image supports it
+- Preserve visible skin texture and likeness; do not synthesize facial detail
+- Preserve visible hair detail; do not invent individual strands
+- Preserve visible likenesses, expressions, and relationships; do not invent or
+  reconstruct uncertain facial, hair, or relational detail
 - Enhance clothing textures and period details
 
 **Compositional hierarchy:**
@@ -28,7 +29,7 @@ Transform this damaged historical photograph into a pristine, museum-quality res
 - Background: Maintain period atmosphere with appropriate detail
 
 ### 3. ENVIRONMENTAL RESTORATION
-**Preserve and enhance ALL contextual elements:**
+**Preserve visible contextual elements without adding unsupported detail:**
 - Architecture: Buildings, doors, windows, structural details
 - Signage: Text, lettering, decorative elements
 - Nature: Trees, foliage, sky, ground surfaces
@@ -48,8 +49,8 @@ Transform this damaged historical photograph into a pristine, museum-quality res
 - Edge acutance without digital artifacts
 - Period-appropriate lens characteristics
 
-### 5. PERIOD AUTHENTICITY
-**Maintain temporal accuracy:**
+### 5. HISTORICAL FIDELITY
+**Preserve period cues without claiming certainty:**
 - Preserve era-specific photographic qualities
 - Retain original poses and social dynamics
 - Keep architectural and fashion details period-correct
@@ -57,11 +58,18 @@ Transform this damaged historical photograph into a pristine, museum-quality res
 
 ### 6. TECHNICAL SPECIFICATIONS
 **Quality standards:**
-- Zero AI-generated anomalies or digital artifacts
-- Natural film grain if originally present
+- Inspect for introduced artifacts or digital effects; disclose residual damage or uncertainty rather than guaranteeing their absence
+- Retain authentic film grain and texture when present; do not manufacture a
+  smooth digital surface
 - No plastic skin, over-smoothing, or face morphing
 - Photographic realism throughout
-- Complete elimination of all damage while preserving character
+- Prefer reversible tonal and defect corrections; keep inferred reconstruction minimal and separately disclosed
+
+### 7. PRESERVATION AND PROVENANCE
+
+- Preserve an untouched master and identify the output as a restoration derivative.
+- Maintain a sidecar provenance record or restoration log rather than adding an in-image watermark, unless the user explicitly requests a visible label.
+- Record the source identifier, tool or model, date, requested changes, actual changes, inferred regions or masks, and unresolved damage or uncertainty.
 
 ## ANALYSIS REQUIREMENTS:
 Before restoration, the AI must:
@@ -72,21 +80,11 @@ Before restoration, the AI must:
 5. Recognize compositional priorities
 
 ## FINAL OBJECTIVE:
-Produce an image that appears to have been:
-- Perfectly preserved in optimal archival conditions
-- Never damaged, folded, or deteriorated
-- Professionally photographed with period equipment
-- Scanned at maximum quality from pristine original
-
-**CRITICAL:** Maintain absolute fidelity to original subjects, composition, and historical context while achieving supreme photographic clarity and complete damage removal.
+Produce a useful restoration derivative that improves legibility and presentation while preserving observed subjects, composition, and historical cues. Distinguish reversible correction from inferred reconstruction, and disclose limitations rather than implying that deterioration never occurred.
 </PROMPT>
 
-This universal prompt:
-- **Adapts automatically** to any number of subjects (1 to 20+ people)
-- **Scales to any composition** (portrait, group, landscape, indoor/outdoor)
-- **Handles any damage level** (minor spots to severe deterioration)
-- **Preserves any time period** (1850s-1980s photography)
-- **Maintains focus** on whatever is actually in the submitted image
-- **Uses analytical approach** to identify what needs attention
-
-The prompt intelligently adapts rather than prescribing specific elements, making it robust for any historical photograph while maintaining the high restoration standards you need.
+This prompt is intended to adapt to the submitted image's subjects,
+composition, damage, and period. It does not guarantee that every image,
+damage level, or historical period can be restored accurately. The operator
+must preserve the master, disclose uncertainty, and reject unsupported
+reconstruction.

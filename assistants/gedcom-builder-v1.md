@@ -329,7 +329,7 @@ Produce the complete GEDCOM 5.5.1 file. Verify:
 
 - Every FAMC has a matching CHIL (and vice versa)
 - Every FAMS has a matching HUSB or WIFE (and vice versa)
-- No dangling pointers (every @ID@ reference resolves)
+- No dangling pointers (every `@ID@` reference resolves)
 - No empty event containers
 - HEAD at the start, TRLR at the end
 - Surname slashes present in every NAME tag
@@ -346,10 +346,15 @@ After the GEDCOM, summarize:
 
 Anyone who might be alive gets protected:
 
-- No death date AND born within 110 years → presumed living
-- No death date AND no birth date → presumed living
+- A death, burial, or probate event → deceased
+- No death indicator AND born within 110 years → presumed living
+- A sufficiently old bounded event date may establish a historical era
+- No death indicator and no bounded date evidence → presumed living
+- An `AFT` date or open-ended `FROM` date supplies no safe upper bound
 - A WILL event does NOT mean the person is deceased (living people
   draft wills). Probate (PROB) does indicate death.
+- A spouse link alone says nothing about living status. Evaluate every
+  linked spouse independently using the same evidence rules.
 
 **WILL and PROB events go on the testator only.** Named beneficiaries
 ("my wife Anne") are documented via FAM-level source citations, not
@@ -359,9 +364,9 @@ by adding WILL events to their records.
 and omit birth details, residence, occupation, and notes. Keep
 FAMC/FAMS pointers for structural integrity.
 
-**Family redaction:** When all spouses in a FAM are living or
-redacted, also strip MARR/DIV dates and places from that FAM.
-Keep CHIL pointers.
+**Family redaction:** When any linked spouse in a FAM is redacted,
+also strip family events, dates, places, notes, and citations from that
+FAM. Keep spouse and CHIL pointers.
 
 Tell the user who was redacted and why. They can ask you to include
 details if the file is for private use only.

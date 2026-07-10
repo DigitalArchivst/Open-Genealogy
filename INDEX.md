@@ -6,8 +6,14 @@ Complete catalog of prompts, scripts, and tools.
 
 ## Documentation
 
-- [GETTING-STARTED.md](GETTING-STARTED.md): Guide for new users: GitHub basics,
-  repository overview, and a preserved legacy GRA v8 walkthrough
+- [GETTING-STARTED.md](GETTING-STARTED.md): Current v9-first setup, privacy
+  boundary, starter-workspace acquisition, and bounded legacy routes
+- [GETTING-STARTED-v8-legacy.md](GETTING-STARTED-v8-legacy.md): Frozen
+  historical GRA v8 walkthrough for older articles and links; not current setup
+  guidance
+- [RIGHTS.md](RIGHTS.md): Rights scope, exclusions, and reuse guidance
+- [Rights and License Matrix](docs/RIGHTS-AND-LICENSE-MATRIX.md): Plain-language
+  path guide for material with separate or limited permissions
 - [ANNOTATED-INDEX.md](ANNOTATED-INDEX.md): Detailed descriptions of all
   sections (~125 words each)
 - [genealogy-ai-starter-workspace/](genealogy-ai-starter-workspace/):
@@ -19,9 +25,12 @@ Complete catalog of prompts, scripts, and tools.
 ## Research & GPS Methodology
 
 - [research-assistant-v9.0.0-chat.md](research/research-assistant-v9.0.0-chat.md)
-  - Description: Current generated GRA chat edition for Custom GPTs, Gems,
-    and copy-paste use
-  - Status: **recommended**
+  - Description: Preserved GRA v9.0.0 Chat Edition
+  - Status: previous release
+- [research-assistant-v9.2.0-chat.md](research/research-assistant-v9.2.0-chat.md)
+  - Description: Current generated Chat Edition for Custom GPTs, Gems,
+    projects, and copy-paste use
+  - Status: **current release**
 - [research-assistant-v8.5-compact.md](research/research-assistant-v8.5-compact.md)
   - Description: Preserved GRA v8.5 compact prompt (~1,000 words)
   - Status: legacy
@@ -184,15 +193,18 @@ Complete AI personas for ongoing genealogical work.
 
 ---
 
-## Skills (Claude Code)
+## Skills (Agent Skills)
 
-Platform-specific tools combining prompts with companion scripts. Requires
-[Claude Code](https://claude.ai/code).
+Agent Skills combine instructions with supporting files. Client support and
+installation paths vary; consult each skill's platform matrix.
 
-- [gra/](skills/gra/)
-  - Description: GPS-aligned genealogical research assistant (v9.0.0 Skill
-    Edition: agent + generated chat editions)
-  - Status: **recommended**
+- [GRA v9.2.0 Agent Skill](https://github.com/DigitalArchivst/Open-Genealogy/tree/v9.2.0/skills/gra)
+  - Description: Current GPS-aligned genealogical research assistant Agent
+    Edition; the matching Chat Edition is the v9.2.0 release above
+  - Status: **current release**
+- [GRA v9.0.0 release](https://github.com/DigitalArchivst/Open-Genealogy/releases/tag/v9.0.0)
+  - Description: Preserved previous Agent Skill and Chat Edition release
+  - Status: previous release
 - [gedcom-creator/](skills/gedcom-creator/)
   - Description: GEDCOM 5.5.1 file generator from natural language, JSON, or
     markdown
@@ -242,4 +254,8 @@ Platform-specific tools combining prompts with companion scripts. Requires
 
 ## License
 
-[Creative Commons BY-NC-SA 4.0](LICENSE)
+[Creative Commons BY-NC-SA 4.0](LICENSE) covers Steve-authored content within
+its stated scope. It does not automatically cover third-party, historical, or
+limited-permission media. Consult [RIGHTS.md](RIGHTS.md) and the [Rights and
+License Matrix](docs/RIGHTS-AND-LICENSE-MATRIX.md) before reusing material with
+separate rights.

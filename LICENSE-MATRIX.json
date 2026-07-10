@@ -1,0 +1,148 @@
+{
+  "schema_version": 1,
+  "updated": "2026-07-10",
+  "policy": "RIGHTS.md",
+  "legal_code": "LICENSE",
+  "machine_readable_note": "This is descriptive path and content metadata, not a complete SPDX or REUSE document. A null SPDX expression is intentional when rights or license version are unresolved.",
+  "default_rule": {
+    "paths": [
+      "**/*"
+    ],
+    "applies_to": "Copyrightable portions authored by Steve Little only",
+    "status": "repository-baseline",
+    "spdx_license_expression": "CC-BY-NC-SA-4.0",
+    "license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+    "excludes": [
+      "third-party or historical images",
+      "captured model outputs",
+      "third-party quotations and source excerpts",
+      "logos and trademarks",
+      "material covered by a path rule below"
+    ]
+  },
+  "path_rules": [
+    {
+      "paths": [
+        "gpt-configs/open-geneagpt-v0.4.txt",
+        "gpt-configs/website-frontend-v3.txt"
+      ],
+      "status": "declared-exception",
+      "source_declaration": "Creative Commons 4.0 Attribution License",
+      "spdx_license_expression": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/"
+    },
+    {
+      "paths": [
+        "photo-restoration/archive/photo-conservator-v1.md",
+        "photo-restoration/photo-conservator-v2.md",
+        "transcription/archive/transcription-v02.txt",
+        "transcription/archive/transcription-v03.txt",
+        "transcription/archive/transcription-v04.txt"
+      ],
+      "status": "declared-exception",
+      "source_declaration": "Creative Commons BY-NC 4.0 License",
+      "spdx_license_expression": "CC-BY-NC-4.0",
+      "license_url": "https://creativecommons.org/licenses/by-nc/4.0/"
+    },
+    {
+      "paths": [
+        "image-analysis/deep-look-v2.md"
+      ],
+      "status": "unresolved-version",
+      "source_declaration": "Creative Commons BY-NC",
+      "spdx_license_expression": null,
+      "license_url": null,
+      "rights_note": "image-analysis/RIGHTS.md"
+    },
+    {
+      "paths": [
+        "image-analysis/Deep-Look-v2-Four-Models-Full-Results.pdf"
+      ],
+      "status": "mixed-artifact",
+      "spdx_license_expression": null,
+      "license_url": null,
+      "rights_note": "image-analysis/RIGHTS.md",
+      "components": {
+        "steve_editorial_content": "CC-BY-NC-SA-4.0 where no narrower local statement applies",
+        "embedded_prompt": "Creative Commons BY-NC; version unresolved",
+        "bower_family_photograph": "excluded; provenance and permission unresolved",
+        "captured_model_outputs": "excluded; no repository license grant"
+      }
+    },
+    {
+      "paths": [
+        "skills/gra/companion-reference.md",
+        "skills/gra/research-assistant-v8.5-full.md"
+      ],
+      "status": "frozen-legacy-unresolved",
+      "source_declaration": "CC4-BY-NC",
+      "spdx_license_expression": null,
+      "license_url": null
+    },
+    {
+      "paths": [
+        "writing-tools/narrative-assistant-v3.md"
+      ],
+      "status": "informal-permission-unresolved",
+      "source_declaration": "Free to use and share",
+      "spdx_license_expression": null,
+      "license_url": null
+    },
+    {
+      "paths": [
+        "skills/gedcom-creator/scripts/gedcom_builder.py"
+      ],
+      "status": "narrow-code-exception",
+      "source_declaration": "MIT applies only to scripts/gedcom_builder.py; complete terms are in skills/gedcom-creator/LICENSE",
+      "stated_spdx_identifier": "MIT",
+      "spdx_license_expression": "MIT",
+      "license_url": "https://spdx.org/licenses/MIT.html"
+    },
+    {
+      "paths": [
+        "skills/gedcom-creator/SKILL.md",
+        "skills/gedcom-creator/README.md",
+        "skills/gedcom-creator/scripts/test_gedcom_builder.py",
+        "skills/gedcom-creator/examples/**"
+      ],
+      "status": "repository-authored-content-baseline",
+      "source_declaration": "Expressly excluded from the builder script's narrow MIT grant",
+      "spdx_license_expression": "CC-BY-NC-SA-4.0",
+      "license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+    },
+    {
+      "paths": [
+        "genealogy-ai-starter-workspace/records/record-76aa2644ab.jpg",
+        "genealogy-ai-starter-workspace/records/record-04fc6a685c.jpg",
+        "genealogy-ai-starter-workspace/records/record-991c5210e8.jpg",
+        "genealogy-ai-starter-workspace/records/record-a762640c0f.jpg",
+        "genealogy-ai-starter-workspace/records/record-b16acecff8.jpg"
+      ],
+      "status": "us-government-record-images-excluded-from-repository-license",
+      "spdx_license_expression": null,
+      "license_url": null,
+      "rights_note": "genealogy-ai-starter-workspace/records/RIGHTS.md"
+    },
+    {
+      "paths": [
+        "media/steve-on-5-part-prompt.mp3"
+      ],
+      "status": "rights-holder-and-recording-provenance-unresolved",
+      "spdx_license_expression": null,
+      "license_url": null,
+      "rights_note": "media/RIGHTS.md"
+    },
+    {
+      "paths": [
+        "benchmark/case-studies/ashe-county-nc/chatgpt.md",
+        "benchmark/case-studies/ashe-county-nc/claude.md",
+        "benchmark/case-studies/ashe-county-nc/gemini.md",
+        "benchmark/case-studies/ashe-county-nc/grok.md"
+      ],
+      "status": "mixed-captured-model-output",
+      "spdx_license_expression": null,
+      "license_url": null,
+      "reason": "Steve-authored framing is covered by the baseline where separable; captured model output is not relicensed."
+    }
+  ]
+}

@@ -1,57 +1,55 @@
 # T07: Proof Vehicle Selection
 
-Judging note: phrases applying "primary" to information or
-informant knowledge — "Primary Information," "primary/firsthand
-knowledge" — are correct GPS vocabulary and do not violate the
-"primary source" ban, which covers only the literal banned
-phrases.
-
 ## Input
 
-> I have two independent sources confirming my grandfather was
-> born on March 15, 1908 in Richmond, Virginia. His birth
-> certificate (original, filed at the time) and his baptismal
-> record from St. Paul's Church (original, recorded by the
-> minister). Both say March 15, 1908, Richmond. No conflicting
-> evidence found. Can you write a conclusion about his birth?
+> I completed a reasonably exhaustive search for this birth and found two
+> independent sources confirming my grandfather was born on March 15, 1908 in
+> Richmond, Virginia. His birth certificate (original, filed at the time) and
+> his baptismal record from St. Paul's Church (original, recorded by the
+> minister). They were created independently and do not appear to copy one
+> informant or record. Both say March 15, 1908, Richmond. No conflicting
+> evidence found. Can you write a conclusion?
 
 ## MUST Criteria
 
-- [ ] Select **proof statement** as the proof vehicle (direct
-  evidence, 2+ independent sources, no conflicts)
-- [ ] Explain why a proof statement is appropriate here (not a
-  summary or argument)
-- [ ] State the conclusion with confidence level **Proved**
-- [ ] Provide a citation template for both sources using supplied
-  facts plus bracketed placeholders for missing elements (who, what,
-  when, where, where-within)
-- [ ] Note that both sources provide primary information (the
-  birth certificate registrar and the minister were
-  contemporaneous recorders)
+- [ ] Select **proof statement** as the proof vehicle for the direct-evidence
+  scenario described, rather than a summary or argument
+- [ ] State **Proved** only conditionally on accepting the supplied claims of
+  reasonably exhaustive research, genuine independence, conflict-free
+  correlation, sound reasoning, and no plausible correlated/common-source
+  error; the heading **Proved (on the evidence as supplied)** satisfies this
+  condition
+- [ ] Provide a citation template for both sources using supplied facts plus
+  bracketed placeholders for missing elements (who, what, when, where,
+  where-within)
+- [ ] Do not call the registrar or minister primary informants merely because
+  they recorded contemporaneously; classify information as Indeterminate unless
+  the supplied evidence identifies an independent eyewitness or other qualified
+  informant for the birth fact
 - [ ] Note that both sources are original
 
 ## MUST NOT Criteria
 
-- [ ] Must NOT select proof summary or proof argument (those
-  are for more complex evidence situations)
-- [ ] Must NOT fabricate citation details not provided in the input;
-  using supplied facts (March 15, 1908, Richmond, Virginia, St.
-  Paul's Church) and bracketed placeholders for missing names,
-  repositories, record numbers, dates, and where-within details is
-  expected and is not fabrication
-- [ ] Must NOT understate confidence ("Evidence suggests..." is
-  Probable, not Proved)
-- [ ] Must NOT overstate by omitting the evidence basis
+- [ ] Must NOT select proof summary or proof argument for the described
+  direct-evidence scenario
+- [ ] Must NOT fabricate citation details not provided in the input; using
+  supplied facts and bracketed placeholders is expected
+- [ ] Must NOT state Proved as unconditional fact without the supplied research
+  and independence claims being verified
 - [ ] Must NOT use "primary source"
 
 ## Ground Truth
 
-Two independent original sources with primary information, both
-providing direct evidence, no conflicts = proof statement at the
-Proved confidence level. A proof summary would be appropriate if
-there were minor conflicts; a proof argument for significant
-conflicts or complex indirect evidence. This case is the
-cleanest scenario GPS addresses. Because the prompt does not provide
-the grandfather's name or full citation details, a correct answer
-should use bracketed placeholders for the missing elements rather
-than inventing them.
+If the supplied claims of exhaustive search and genuine independence are
+verified, two independent original sources providing direct evidence, no
+conflicts, sound reasoning, and no plausible correlated/common-source path can
+support a proof statement at the Proved confidence level. A heading such as
+**Proved (on the evidence as supplied)** is an explicitly conditional
+conclusion, not an unconditional claim. The registrar and
+minister being contemporaneous recorders does not identify either as the birth
+informant, so their information quality remains Indeterminate on this record.
+Agreement alone would not. A proof summary would be appropriate if there were
+minor conflicts; a proof argument for significant conflicts or complex indirect
+evidence. Because the prompt does not provide the grandfather's name or full
+citation details, a correct answer should use bracketed placeholders rather than
+inventing them.

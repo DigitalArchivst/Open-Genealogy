@@ -9,19 +9,33 @@ follow the Genealogical Proof Standard. For genealogists at every level — from
 hobbyists exploring their first census record to credentialed professionals
 managing client work.
 
+## Start With GRA v9.2.0
+
+Before copying, pasting, or uploading a record: standard Codex, Claude, and
+other hosted AI workflows process the material with a cloud model. Do not send
+living-person details or any record that is too sensitive for the service you
+choose. Treat every AI response as draft analysis; verify records, citations,
+and conclusions yourself.
+
+Choose the GRA v9.2.0 edition that fits your client.
+
+- **[Agent Skill](https://github.com/DigitalArchivst/Open-Genealogy/tree/v9.2.0/skills/gra):** for an Agent Skills client that can work with a local folder and supporting references. Download the installable ZIP from the [v9.2.0 release](https://github.com/DigitalArchivst/Open-Genealogy/releases/tag/v9.2.0).
+- **[Chat Edition](https://github.com/DigitalArchivst/Open-Genealogy/releases/download/v9.2.0/research-assistant-v9.2.0-chat.md):** a self-contained prompt for ordinary chat, Custom GPTs, and Gems. See the immutable [repository artifact at the release tag](https://github.com/DigitalArchivst/Open-Genealogy/blob/v9.2.0/research/research-assistant-v9.2.0-chat.md).
+
+GRA v8.5, v8, and v7 remain available under the documented
+[compatibility and history route](research/README.md#compatibility-and-history).
+
 ## What's Here
 
 - **[Genealogy AI Starter Workspace](genealogy-ai-starter-workspace/)**
   - Description: Project-folder starter kit for Codex, Claude Code, and Cowork
   - Start Here: [README.md](genealogy-ai-starter-workspace/README.md)
 - **[Research](research/)**
-  - Description: GPS-based research methodology
-  - Start Here:
-    [research-assistant-v8.5-compact.md](research/research-assistant-v8.5-compact.md)
-- **[GRA Skill](skills/gra/)**
-  - Description: GPS-aligned research assistant for agent and chat tools
-    (v9.0.0 Skill Edition)
-  - Start Here: [SKILL.md](skills/gra/SKILL.md)
+  - Description: Current GRA v9.2.0 Chat Edition plus retained research history
+  - Start Here: [v9.2.0 Chat Edition](https://github.com/DigitalArchivst/Open-Genealogy/releases/download/v9.2.0/research-assistant-v9.2.0-chat.md)
+- **[GRA Skill](https://github.com/DigitalArchivst/Open-Genealogy/tree/v9.2.0/skills/gra)**
+  - Description: Current GRA v9.2.0 Agent Skill source and supporting references
+  - Start Here: [GRA v9.2.0 Agent Skill](https://github.com/DigitalArchivst/Open-Genealogy/tree/v9.2.0/skills/gra)
 - **[Transcription](transcription/)**
   - Description: Diplomatic transcription for handwritten documents
   - Start Here: [ocr-htr-v08.md](transcription/ocr-htr-v08.md)
@@ -50,8 +64,8 @@ managing client work.
   - Description: Claude Code skills with companion files
   - Start Here: [skills/](skills/)
 - **[Scripts](scripts/)**
-  - Description: Audio transcription utilities
-  - Start Here: [transcribe-4.py](scripts/transcribe-4.py)
+  - Description: Privacy-aware batch and long-audio transcription utilities
+  - Start Here: [batch_transcribe_v2.py](scripts/batch_transcribe_v2.py)
 - **[Media](media/)**
   - Description: Audio explainers and supporting media
   - Start Here: [README.md](media/README.md)
@@ -60,15 +74,17 @@ managing client work.
   - Start Here: [README.md](benchmark/README.md)
 
 **Full catalog:** [INDEX.md](INDEX.md) | **Detailed guide:**
-[GETTING-STARTED.md](GETTING-STARTED.md) | **Guided tour:**
+[GETTING-STARTED.md](GETTING-STARTED.md) | **Historical v8 guide:**
+[GETTING-STARTED-v8-legacy.md](GETTING-STARTED-v8-legacy.md) | **Guided tour:**
 [TOUR-REPORT.md](TOUR-REPORT.md)
 
 ## Quick Start
 
-1. Pick a category above
-2. Copy the recommended prompt into your LLM (ChatGPT, Claude, Gemini, etc.)
-3. Provide your input (document scan, photo, research question)
-4. Follow the output structure
+1. Read the privacy and living-person boundary above.
+2. Choose the GRA v9.2.0 Agent Skill or Chat Edition.
+3. Follow the edition-specific setup at the linked v9.2.0 release source.
+4. Provide only material you are comfortable processing with the selected tool.
+5. Verify the resulting analysis against the records.
 
 New here? The [Getting Started guide](GETTING-STARTED.md) walks through setup,
 first use, and common workflows.
@@ -96,9 +112,9 @@ Aligned with the methodology described in:
 
 ## Benchmark
 
-The **benchmark/** folder contains a framework for evaluating how well AI models
-follow GPS methodology. Includes comparative analysis of Claude, ChatGPT,
-Gemini, and Grok.
+The **benchmark/** folder preserves four historical model outputs and a teaching
+rubric for close reading. The retained evidence does not support a reproducible
+model ranking; read the benchmark's current methodology notice before using it.
 
 ## Notice
 
@@ -110,7 +126,12 @@ derivation.
 
 ## License
 
-[Creative Commons BY-NC-SA 4.0](LICENSE)
+[Creative Commons BY-NC-SA 4.0](LICENSE) covers Steve-authored content within
+its stated scope. It does not automatically cover third-party, historical, or
+limited-permission media included in the repository. Read [RIGHTS.md](RIGHTS.md)
+and the [Rights and License Matrix](docs/RIGHTS-AND-LICENSE-MATRIX.md) before
+reusing an image, audio file, captured model output, quotation, or other
+material that may have separate rights.
 
 ## Author
 

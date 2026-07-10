@@ -228,6 +228,70 @@ class TestFAMCFAMSPointerConsistency(unittest.TestCase):
         self.assertIn("FAMS @F1@", _ged_text(lines))
 
 
+class TestCycleDetection(unittest.TestCase):
+    """Cycles are recursion-path repeats, not shared ancestors."""
+
+    @staticmethod
+    def _person(person_id, family_child="", family_spouse=None):
+        return {
+            "id": person_id, "given": person_id, "surname": "Cycle",
+            "sex": "U", "events": [{"type": "DEAT", "date": "1900"}],
+            "family_child": family_child,
+            "family_spouse": family_spouse or [],
+        }
+
+    def test_pedigree_collapse_shared_ancestor_is_valid(self):
+        data = {
+            "individuals": [
+                self._person("I1", "F1"),
+                self._person("I2", "F2", ["F1"]),
+                self._person("I3", "F3", ["F1"]),
+                self._person("I4", "", ["F2", "F3"]),
+                self._person("I5", "", ["F2"]),
+                self._person("I6", "", ["F3"]),
+            ],
+            "families": [
+                {"id": "F1", "spouse1": "I2", "spouse2": "I3",
+                 "children": ["I1"], "events": [],
+                 "source_citations": [], "notes": []},
+                {"id": "F2", "spouse1": "I4", "spouse2": "I5",
+                 "children": ["I2"], "events": [],
+                 "source_citations": [], "notes": []},
+                {"id": "F3", "spouse1": "I4", "spouse2": "I6",
+                 "children": ["I3"], "events": [],
+                 "source_citations": [], "notes": []},
+            ],
+            "sources": [], "repositories": [],
+        }
+        lines, report = _build(data)
+        self.assertNotEqual(lines, [])
+        self.assertNotIn("CYCLE_DETECTED", " ".join(
+            report["validation_errors"]
+        ))
+
+    def test_true_parent_child_cycle_fails(self):
+        data = {
+            "individuals": [
+                self._person("I1", "F1", ["F2"]),
+                self._person("I2", "F2", ["F1"]),
+            ],
+            "families": [
+                {"id": "F1", "spouse1": "I2", "spouse2": "",
+                 "children": ["I1"], "events": [],
+                 "source_citations": [], "notes": []},
+                {"id": "F2", "spouse1": "I1", "spouse2": "",
+                 "children": ["I2"], "events": [],
+                 "source_citations": [], "notes": []},
+            ],
+            "sources": [], "repositories": [],
+        }
+        lines, report = _build(data)
+        self.assertNotEqual(lines, [])
+        self.assertIn("CYCLE_DETECTED", " ".join(
+            report["validation_errors"]
+        ))
+
+
 class TestDanglingPointers(unittest.TestCase):
     """Predicted bug: pointer references to nonexistent records."""
 
@@ -258,6 +322,185 @@ class TestDanglingPointers(unittest.TestCase):
         lines, report = _build(data, include_living=True)
         errors = " ".join(report["validation_errors"])
         self.assertIn("DANGLING_POINTER", errors)
+
+
+class TestIdentifierValidation(unittest.TestCase):
+    """Record IDs are unique and lexically valid before graph processing."""
+
+    def _person(self, record_id):
+        return {
+            "id": record_id, "given": "Test", "surname": "Identifier",
+            "sex": "U", "events": [{"type": "DEAT", "date": "1900"}],
+            "family_child": "", "family_spouse": [],
+        }
+
+    def test_duplicate_same_type_stops_before_pointer_validation(self):
+        first = self._person("I1")
+        second = self._person("I1")
+        second["family_child"] = "F_MISSING"
+        data = {
+            "individuals": [first, second],
+            "families": [], "sources": [], "repositories": [],
+        }
+        lines, report = _build(data)
+        errors = " ".join(report["validation_errors"])
+        self.assertEqual(lines, [])
+        self.assertEqual(report["repairs"], [])
+        self.assertIn("DUPLICATE_ID", errors)
+        self.assertNotIn("DANGLING_POINTER", errors)
+
+    def test_duplicate_across_record_types_is_rejected(self):
+        data = {
+            "individuals": [self._person("X1")],
+            "families": [],
+            "sources": [{
+                "id": "X1", "title": "Duplicate", "author": "",
+                "publication": "", "repository_id": "", "notes": [],
+            }],
+            "repositories": [],
+        }
+        lines, report = _build(data)
+        self.assertEqual(lines, [])
+        self.assertIn("DUPLICATE_ID", " ".join(report["validation_errors"]))
+
+    def test_malformed_record_ids_are_rejected(self):
+        malformed_ids = ("", "@I1@", "I 1", "I-1", "X" * 21, 1, None)
+        for record_id in malformed_ids:
+            with self.subTest(record_id=record_id):
+                data = {
+                    "individuals": [self._person(record_id)],
+                    "families": [], "sources": [], "repositories": [],
+                }
+                lines, report = _build(data)
+                errors = " ".join(report["validation_errors"])
+                self.assertEqual(lines, [])
+                self.assertIn("MALFORMED_ID", errors)
+                self.assertNotIn("DANGLING_POINTER", errors)
+
+    def test_generated_submitter_id_is_reserved(self):
+        data = {
+            "individuals": [self._person("U1")],
+            "families": [], "sources": [], "repositories": [],
+        }
+        lines, report = _build(data)
+        self.assertEqual(lines, [])
+        self.assertIn("DUPLICATE_ID", " ".join(report["validation_errors"]))
+
+    def test_batch_merge_rejects_cross_file_duplicate(self):
+        first = {
+            "individuals": [self._person("X1")],
+            "families": [], "sources": [], "repositories": [],
+        }
+        second = {
+            "individuals": [], "families": [],
+            "sources": [{"id": "X1", "title": "Duplicate"}],
+            "repositories": [],
+        }
+        with tempfile.TemporaryDirectory() as temp_dir:
+            paths = [os.path.join(temp_dir, name)
+                     for name in ("first.json", "second.json")]
+            for path, payload in zip(paths, (first, second)):
+                with open(path, "w", encoding="utf-8") as handle:
+                    json.dump(payload, handle)
+            with self.assertRaisesRegex(ValueError, "Duplicate ID"):
+                gb.merge_json_files(paths)
+
+
+class TestMalformedPointers(unittest.TestCase):
+    """Pointer values must use canonical unwrapped xref syntax."""
+
+    def test_malformed_pointer_forms_are_rejected(self):
+        data = {
+            "individuals": [
+                {
+                    "id": "I1", "given": "One", "surname": "Pointer",
+                    "sex": "M", "events": [
+                        {"type": "DEAT", "date": "1900",
+                         "source_id": "@S1@"},
+                    ],
+                    "source_citations": [{"source_id": "S1@"}],
+                    "family_child": "@F1@", "family_spouse": ["F1"],
+                },
+                {
+                    "id": "I2", "given": "Two", "surname": "Pointer",
+                    "sex": "F", "events": [{"type": "DEAT", "date": "1900"}],
+                    "family_child": "", "family_spouse": ["F1"],
+                },
+            ],
+            "families": [{
+                "id": "F1", "spouse1": "I1", "spouse2": "I2",
+                "children": [],
+                "events": [{"type": "MARR", "date": "1890",
+                            "source_id": "S 1"}],
+                "source_citations": [{"source_id": None}], "notes": [],
+            }],
+            "sources": [{
+                "id": "S1", "title": "Source", "author": "",
+                "publication": "", "repository_id": "@R1@", "notes": [],
+            }],
+            "repositories": [{"id": "R1", "name": "Archive", "address": ""}],
+        }
+        lines, report = _build(data)
+        errors = " ".join(report["validation_errors"])
+        self.assertNotEqual(lines, [])
+        self.assertEqual(errors.count("MALFORMED_POINTER"), 6)
+        self.assertNotIn("DANGLING_POINTER", errors)
+
+
+class TestDateValidation(unittest.TestCase):
+    """Canonical JSON accepts only the documented GEDCOM date lexicon."""
+
+    def test_documented_date_forms_are_accepted(self):
+        valid_dates = (
+            "1868", "MAR 1845", "15 MAR 1845", "ABT 1868",
+            "BEF 1870", "AFT 1865", "CAL 1769", "EST 1800",
+            "BET 1860 AND 1870", "FROM 1870 TO 1880", "FROM 1870",
+            "TO 1880", "2 FEB 1731/32",
+        )
+        for value in valid_dates:
+            with self.subTest(value=value):
+                self.assertTrue(gb.is_valid_gedcom_date(value))
+
+    def test_unsupported_date_forms_are_rejected(self):
+        invalid_dates = (
+            "March 15, 1845", "15 mar 1845", "0 JAN 1900",
+            "32 JAN 1900", "15 XYZ 1900", "15 MAR", "ABT",
+            "BET 1860 1870", "FROM 1870 AND 1880", "2026-07-10",
+            " 15 MAR 1845", "15  MAR 1845", "INT 1900 (estimated)",
+            "99", "10000", None, 0,
+        )
+        for value in invalid_dates:
+            with self.subTest(value=value):
+                self.assertFalse(gb.is_valid_gedcom_date(value))
+
+    def test_invalid_individual_date_stops_before_rendering(self):
+        data = {
+            "individuals": [{
+                "id": "I1", "given": "Bad", "surname": "Date", "sex": "U",
+                "events": [{"type": "BIRT", "date": "Spring 1900"}],
+                "family_child": "F_MISSING", "family_spouse": [],
+            }],
+            "families": [], "sources": [], "repositories": [],
+        }
+        lines, report = _build(data)
+        errors = " ".join(report["validation_errors"])
+        self.assertEqual(lines, [])
+        self.assertIn("INVALID_DATE", errors)
+        self.assertNotIn("DANGLING_POINTER", errors)
+
+    def test_invalid_family_date_stops_before_rendering(self):
+        data = {
+            "individuals": [],
+            "families": [{
+                "id": "F1", "spouse1": "", "spouse2": "", "children": [],
+                "events": [{"type": "MARR", "date": "1900-ish"}],
+                "source_citations": [], "notes": [],
+            }],
+            "sources": [], "repositories": [],
+        }
+        lines, report = _build(data)
+        self.assertEqual(lines, [])
+        self.assertIn("INVALID_DATE", " ".join(report["validation_errors"]))
 
 
 class TestDualDating(unittest.TestCase):
@@ -299,12 +542,16 @@ class TestExampleRegression(unittest.TestCase):
     """Diff-based regression: example JSON -> expected GED (date-insensitive)."""
 
     def _normalize(self, text):
-        """Strip the DATE line from header (changes daily) and trailing whitespace."""
+        """Normalize the dynamic header DATE and trailing whitespace."""
         out = []
+        in_header = False
         for line in text.replace("\r\n", "\n").split("\n"):
             stripped = line.rstrip()
-            if stripped.startswith("1 DATE") and len(stripped.split()) == 4:
-                # Header date line — normalize
+            if stripped == "0 HEAD":
+                in_header = True
+            elif stripped.startswith("0 "):
+                in_header = False
+            if in_header and stripped.startswith("1 DATE "):
                 out.append("1 DATE [TODAY]")
             else:
                 out.append(stripped)
@@ -328,6 +575,19 @@ class TestExampleRegression(unittest.TestCase):
         actual = "\n".join(lines)
         self.assertEqual(self._normalize(actual), self._normalize(expected),
                          "parish-register output differs from expected .ged")
+
+    def test_normalizer_preserves_event_dates(self):
+        text = (
+            "0 HEAD\n"
+            "1 DATE 10 JUL 2026\n"
+            "0 @I1@ INDI\n"
+            "1 BIRT\n"
+            "2 DATE 10 JUL 2026\n"
+            "0 TRLR\n"
+        )
+        normalized = self._normalize(text)
+        self.assertIn("1 DATE [TODAY]", normalized)
+        self.assertIn("2 DATE 10 JUL 2026", normalized)
 
 
 class TestLivingWillNotDeceased(unittest.TestCase):
@@ -391,24 +651,66 @@ class TestLivingWillNotDeceased(unittest.TestCase):
         self.assertIn("Jane /Doe/", _ged_text(lines))
 
 
-class TestDeceasedBeforeUndated(unittest.TestCase):
-    """v1.3 bug fix: --deceased-before with undated individuals."""
+class TestDeceasedBeforeInference(unittest.TestCase):
+    """The cutoff applies only when every available date is bounded."""
 
-    def test_undated_individual_exempted(self):
-        """An undated individual should NOT be redacted when
-        --deceased-before is set."""
-        data = {
+    @staticmethod
+    def _data(events):
+        return {
             "individuals": [{
                 "id": "I1", "given": "Unknown", "surname": "Person",
-                "sex": "U", "events": [],
+                "sex": "U", "events": events,
                 "family_child": "", "family_spouse": [],
             }],
             "families": [], "sources": [], "repositories": [],
         }
-        lines, report = _build(data, deceased_before=1600)
-        self.assertEqual(len(report["redactions"]), 0,
-                         "Undated individual with --deceased-before should not be redacted")
+
+    def test_undated_individual_remains_redacted(self):
+        """A cutoff is not evidence that an undated person is deceased."""
+        lines, report = _build(self._data([]), deceased_before=1600)
+        self.assertEqual(len(report["redactions"]), 1)
+        self.assertIn("[Living] /[Living]/", _ged_text(lines))
+
+    def test_open_ended_dates_do_not_supply_upper_bound(self):
+        for event_date in ("AFT 1800", "FROM 1800"):
+            for kwargs in ({}, {"deceased_before": 1900}):
+                with self.subTest(event_date=event_date, kwargs=kwargs):
+                    data = self._data([{
+                        "type": "BIRT", "date": event_date,
+                    }])
+                    lines, report = _build(data, **kwargs)
+                    self.assertEqual(len(report["redactions"]), 1)
+                    self.assertIn("[Living] /[Living]/", _ged_text(lines))
+
+    def test_cutoff_requires_all_available_dates_bounded(self):
+        data = self._data([
+            {"type": "BIRT", "date": "1950"},
+            {"type": "RESI", "date": "AFT 1980"},
+        ])
+        lines, report = _build(data, deceased_before=2000)
+        self.assertEqual(len(report["redactions"]), 1)
+        self.assertIn("[Living] /[Living]/", _ged_text(lines))
+
+    def test_cutoff_unredacts_when_all_dates_are_bounded(self):
+        data = self._data([
+            {"type": "BIRT", "date": "1950"},
+            {"type": "RESI", "date": "FROM 1970 TO 1980"},
+        ])
+        lines, report = _build(data, deceased_before=2000)
+        self.assertEqual(report["redactions"], [])
         self.assertIn("Unknown /Person/", _ged_text(lines))
+
+    def test_cutoff_does_not_unredact_latest_year_at_cutoff(self):
+        data = {
+            "individuals": [{
+                "id": "I1", "given": "Boundary", "surname": "Person",
+                "sex": "U", "events": [{"type": "BIRT", "date": "2000"}],
+                "family_child": "", "family_spouse": [],
+            }],
+            "families": [], "sources": [], "repositories": [],
+        }
+        lines, report = _build(data, deceased_before=2000)
+        self.assertEqual(len(report["redactions"]), 1)
 
     def test_dated_above_threshold_still_redacted(self):
         """An individual with events ABOVE the deceased-before threshold
@@ -510,69 +812,272 @@ class TestSameSexCoupleNote(unittest.TestCase):
 
 
 class TestFAMLivingRedaction(unittest.TestCase):
-    """v1.3.1 bug fix: FAM events stripped when all spouses are living."""
+    """Family details are private whenever any linked spouse is redacted."""
+
+    def _family_data(self, spouse1_living, spouse2_living):
+        def person(person_id, given, sex, living):
+            events = ([{"type": "BIRT", "date": "1980"}]
+                      if living else [{"type": "DEAT", "date": "2020"}])
+            return {
+                "id": person_id, "given": given, "surname": "Privacy",
+                "sex": sex, "events": events,
+                "family_child": "", "family_spouse": ["F1"],
+            }
+
+        return {
+            "individuals": [
+                person("I1", "Alex", "M", spouse1_living),
+                person("I2", "Blair", "F", spouse2_living),
+                {
+                    "id": "I3", "given": "Casey", "surname": "Privacy",
+                    "sex": "U", "events": [{"type": "DEAT", "date": "2021"}],
+                    "family_child": "F1", "family_spouse": [],
+                },
+            ],
+            "families": [{
+                "id": "F1", "spouse1": "I1", "spouse2": "I2",
+                "children": ["I3"],
+                "events": [{
+                    "type": "MARR", "date": "10 SEP 2015",
+                    "place": "Richmond, Virginia", "source_id": "S1",
+                    "source_page": "Private marriage citation",
+                }],
+                "source_citations": [{
+                    "source_id": "S1", "source_page": "Private family citation",
+                    "quality": 3,
+                }],
+                "notes": ["Private family note"],
+            }],
+            "sources": [{
+                "id": "S1", "title": "Family source", "author": "",
+                "publication": "", "repository_id": "", "notes": [],
+            }],
+            "repositories": [],
+        }
+
+    def _family_block(self, lines):
+        ged = _ged_text(lines)
+        return ged.split("0 @F1@ FAM")[1].split("\n0 ")[0]
+
+    def _assert_private_details_absent(self, fam_block):
+        self.assertNotIn("MARR", fam_block)
+        self.assertNotIn("10 SEP 2015", fam_block)
+        self.assertNotIn("Richmond, Virginia", fam_block)
+        self.assertNotIn("Private family note", fam_block)
+        self.assertNotIn("Private marriage citation", fam_block)
+        self.assertNotIn("Private family citation", fam_block)
+        self.assertNotIn("SOUR @S1@", fam_block)
+
+    def _assert_private_details_present(self, fam_block):
+        self.assertIn("MARR", fam_block)
+        self.assertIn("10 SEP 2015", fam_block)
+        self.assertIn("Richmond, Virginia", fam_block)
+        self.assertIn("Private family note", fam_block)
+        self.assertIn("Private marriage citation", fam_block)
+        self.assertIn("Private family citation", fam_block)
+        self.assertIn("SOUR @S1@", fam_block)
 
     def test_marr_stripped_when_both_spouses_living(self):
-        """MARR date/place should not appear when both spouses are living."""
-        data = {
-            "individuals": [
-                {"id": "I1", "given": "John", "surname": "Modern",
-                 "sex": "M",
-                 "events": [{"type": "BIRT", "date": "1980"}],
-                 "family_child": "", "family_spouse": ["F1"]},
-                {"id": "I2", "given": "Jane", "surname": "Modern",
-                 "sex": "F",
-                 "events": [{"type": "BIRT", "date": "1982"}],
-                 "family_child": "", "family_spouse": ["F1"]},
-            ],
-            "families": [
-                {"id": "F1", "spouse1": "I1", "spouse2": "I2",
-                 "children": [], "source_citations": [], "notes": [],
-                 "events": [{"type": "MARR", "date": "15 JUN 2005",
-                             "place": "Norfolk, Virginia"}]},
-            ],
-            "sources": [], "repositories": [],
-        }
+        """All private family details are suppressed for two living spouses."""
+        data = self._family_data(True, True)
+        data["individuals"][1]["sex"] = "M"
         lines, report = _build(data)
-        ged = _ged_text(lines)
-        # Both spouses should be redacted
         self.assertEqual(len(report["redactions"]), 2)
-        # MARR should NOT appear in the FAM record
-        fam_block = ged.split("0 @F1@ FAM")[1].split("\n0 ")[0]
-        self.assertNotIn("MARR", fam_block,
-                         "MARR should be stripped when both spouses are living")
-        self.assertNotIn("Norfolk", fam_block)
+        self.assertEqual(report["family_redactions"], ["F1"])
+        fam_block = self._family_block(lines)
+        self._assert_private_details_absent(fam_block)
+        self.assertNotIn("positional assignment", fam_block)
 
-    def test_marr_kept_when_one_spouse_deceased(self):
-        """MARR should remain when at least one spouse is deceased."""
-        data = {
+    def test_mixed_family_suppresses_details_but_keeps_links(self):
+        """One redacted spouse suppresses facts but not structural pointers."""
+        data = self._family_data(False, True)
+        lines, report = _build(data)
+        self.assertEqual(len(report["redactions"]), 1)
+        self.assertEqual(report["family_redactions"], ["F1"])
+        fam_block = self._family_block(lines)
+        self._assert_private_details_absent(fam_block)
+        self.assertIn("HUSB @I1@", fam_block)
+        self.assertIn("WIFE @I2@", fam_block)
+        self.assertIn("CHIL @I3@", fam_block)
+
+    def test_neither_spouse_living_keeps_family_details(self):
+        """A fully deceased family retains events, notes, and citations."""
+        data = self._family_data(False, False)
+        lines, report = _build(data)
+        self.assertEqual(report["redactions"], [])
+        self.assertEqual(report["family_redactions"], [])
+        self._assert_private_details_present(self._family_block(lines))
+
+    def test_narrow_override_keeps_individual_redaction(self):
+        """The private-use family override does not expose individual facts."""
+        data = self._family_data(False, True)
+        lines, report = _build(
+            data, include_redacted_family_details=True,
+        )
+        self.assertEqual(len(report["redactions"]), 1)
+        self.assertEqual(report["family_redactions"], [])
+        self._assert_private_details_present(self._family_block(lines))
+        i2_block = _ged_text(lines).split("0 @I2@ INDI")[1].split("\n0 ")[0]
+        self.assertIn("[Living] /[Living]/", i2_block)
+        self.assertNotIn("1980", i2_block)
+        self.assertTrue(any("PRIVATE-USE OVERRIDE" in warning
+                            for warning in report["warnings"]))
+
+    def test_broad_overrides_include_all_details(self):
+        """The existing all-data overrides continue to bypass redaction."""
+        for kwargs in ({"include_living": True}, {"all_deceased": True}):
+            with self.subTest(kwargs=kwargs):
+                data = self._family_data(False, True)
+                lines, report = _build(data, **kwargs)
+                self.assertEqual(report["redactions"], [])
+                self.assertEqual(report["family_redactions"], [])
+                self._assert_private_details_present(self._family_block(lines))
+                self.assertIn("Blair /Privacy/", _ged_text(lines))
+
+
+class TestGlobalPrivacyFiltering(unittest.TestCase):
+    """Suppressed citations cannot leak source or repository metadata."""
+
+    @staticmethod
+    def _data():
+        return {
             "individuals": [
-                {"id": "I1", "given": "John", "surname": "Mixed",
-                 "sex": "M",
-                 "events": [{"type": "BIRT", "date": "1950"},
-                            {"type": "DEAT", "date": "2020"}],
-                 "family_child": "", "family_spouse": ["F1"]},
-                {"id": "I2", "given": "Jane", "surname": "Mixed",
-                 "sex": "F",
-                 "events": [{"type": "BIRT", "date": "1955"}],
-                 "family_child": "", "family_spouse": ["F1"]},
+                {
+                    "id": "I1", "given": "Living", "surname": "Person",
+                    "sex": "U", "events": [{
+                        "type": "BIRT", "date": "1980",
+                        "source_id": "S_PRIVATE",
+                        "source_page": "Private birth citation",
+                    }],
+                    "source_citations": [{
+                        "source_id": "S_PRIVATE",
+                        "source_page": "Private person citation",
+                    }],
+                    "family_child": "", "family_spouse": ["F1"],
+                },
+                {
+                    "id": "I2", "given": "Deceased", "surname": "Person",
+                    "sex": "U", "events": [{
+                        "type": "DEAT", "date": "2020",
+                        "source_id": "S_PUBLIC",
+                        "source_page": "Public death citation",
+                    }],
+                    "family_child": "", "family_spouse": ["F1"],
+                },
             ],
-            "families": [
-                {"id": "F1", "spouse1": "I1", "spouse2": "I2",
-                 "children": [], "source_citations": [], "notes": [],
-                 "events": [{"type": "MARR", "date": "10 SEP 1975",
-                             "place": "Richmond, Virginia"}]},
+            "families": [{
+                "id": "F1", "spouse1": "I1", "spouse2": "I2",
+                "children": [],
+                "events": [{
+                    "type": "MARR", "date": "2005",
+                    "source_id": "S_PRIVATE",
+                    "source_page": "Private marriage citation",
+                }],
+                "source_citations": [{
+                    "source_id": "S_PRIVATE",
+                    "source_page": "Private family citation",
+                }],
+                "notes": [],
+            }],
+            "sources": [
+                {
+                    "id": "S_PRIVATE", "title": "Private source title",
+                    "author": "Private source author",
+                    "publication": "Private publication details",
+                    "repository_id": "R_PRIVATE",
+                    "notes": ["Private source note"],
+                },
+                {
+                    "id": "S_PUBLIC", "title": "Retained source title",
+                    "author": "", "publication": "",
+                    "repository_id": "R_PUBLIC", "notes": [],
+                },
+                {
+                    "id": "S_UNUSED", "title": "Unused source title",
+                    "author": "", "publication": "",
+                    "repository_id": "R_UNUSED", "notes": [],
+                },
             ],
-            "sources": [], "repositories": [],
+            "repositories": [
+                {
+                    "id": "R_PRIVATE", "name": "Private repository name",
+                    "address": "Private repository address",
+                },
+                {
+                    "id": "R_PUBLIC", "name": "Retained repository name",
+                    "address": "Retained repository address",
+                },
+                {
+                    "id": "R_UNUSED", "name": "Unused repository name",
+                    "address": "Unused repository address",
+                },
+            ],
         }
+
+    def test_whole_output_suppresses_unemitted_source_metadata(self):
+        lines, report = _build(self._data())
+        ged = _ged_text(lines)
+
+        self.assertNotIn("0 @S_PRIVATE@ SOUR", ged)
+        self.assertNotIn("Private source title", ged)
+        self.assertNotIn("Private publication details", ged)
+        self.assertNotIn("Private source note", ged)
+        self.assertNotIn("0 @R_PRIVATE@ REPO", ged)
+        self.assertNotIn("Private repository name", ged)
+        self.assertNotIn("Private repository address", ged)
+        self.assertNotIn("0 @S_UNUSED@ SOUR", ged)
+        self.assertNotIn("0 @R_UNUSED@ REPO", ged)
+
+        self.assertIn("0 @S_PUBLIC@ SOUR", ged)
+        self.assertIn("Retained source title", ged)
+        self.assertIn("0 @R_PUBLIC@ REPO", ged)
+        self.assertEqual(report["sources"], 1)
+        self.assertEqual(report["repositories"], 1)
+        self.assertEqual(report["validation_errors"], [])
+
+    def test_family_details_override_retains_required_source(self):
+        lines, report = _build(
+            self._data(), include_redacted_family_details=True,
+        )
+        ged = _ged_text(lines)
+        self.assertIn("0 @S_PRIVATE@ SOUR", ged)
+        self.assertIn("0 @R_PRIVATE@ REPO", ged)
+        self.assertNotIn("0 @S_UNUSED@ SOUR", ged)
+        self.assertNotIn("0 @R_UNUSED@ REPO", ged)
+        self.assertEqual(report["sources"], 2)
+        self.assertEqual(report["repositories"], 2)
+
+    def test_shared_source_cited_by_living_and_deceased_is_suppressed(self):
+        data = self._data()
+        data["sources"].append({
+            "id": "S_SHARED",
+            "title": "Shared source contains private metadata",
+            "author": "Private author",
+            "publication": "Private publication",
+            "repository_id": "R_SHARED",
+            "notes": ["Private shared note"],
+        })
+        data["repositories"].append({
+            "id": "R_SHARED",
+            "name": "Private shared repository",
+            "address": "Private shared address",
+        })
+        data["individuals"][0]["source_citations"].append({
+            "source_id": "S_SHARED",
+            "source_page": "Living-person page",
+        })
+        data["individuals"][1].setdefault("source_citations", []).append({
+            "source_id": "S_SHARED",
+            "source_page": "Deceased-person page",
+        })
+
         lines, report = _build(data)
         ged = _ged_text(lines)
-        # Only I2 is living (I1 has DEAT)
-        self.assertEqual(len(report["redactions"]), 1)
-        fam_block = ged.split("0 @F1@ FAM")[1].split("\n0 ")[0]
-        self.assertIn("MARR", fam_block,
-                      "MARR should remain when one spouse is deceased")
-        self.assertIn("Richmond", fam_block)
+
+        self.assertNotIn("S_SHARED", ged)
+        self.assertNotIn("Private shared", ged)
+        self.assertNotIn("R_SHARED", ged)
+        self.assertEqual(report["validation_errors"], [])
 
 
 # ---------------------------------------------------------------------------
