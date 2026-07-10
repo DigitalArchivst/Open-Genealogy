@@ -114,6 +114,23 @@ _Genealogy Standards_.
 
 ---
 
+### 1.5 reference/obituary-source-handling.md
+
+#### Applied Obituary Evidence Reference
+
+Applied reference documentation for treating obituaries as genealogical source
+containers rather than self-validating narratives. It explains why obituary
+facts should be classified individually: the source is often authored, while
+death details, relationship statements, earlier-life facts, omissions, and
+funeral details may carry different information and evidence classifications.
+The workflow covers citation capture, fact extraction, informant proximity,
+conflict preservation, correlation with independent records, and narrative use.
+It also links to an external obituary research guide for collecting records and
+turning them into sourced life-story notes before using the repository's
+narrative-writing prompts.
+
+---
+
 ## 2. TRANSCRIPTION/
 
 ### Diplomatic Transcription for Historical Documents
