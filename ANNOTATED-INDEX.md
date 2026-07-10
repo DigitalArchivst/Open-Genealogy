@@ -41,9 +41,9 @@ treating genealogical evidence with the same rigor expected of court testimony.
 
 ### 1.1 research-assistant-v8.md
 
-#### Current Flagship Prompt
+#### Legacy Full Prompt
 
-The recommended full-featured research assistant (704 lines) structured in two
+This stable legacy research assistant (704 lines) is structured in two
 parts: **Part I** establishes core identity and guardrails—anti-fabrication
 rules, terminology guidance, prompt-injection resistance, and GPS methodology
 guidance. **Part II** provides the Evidence Analysis Framework, implementing the
@@ -55,7 +55,9 @@ instructions, preventing manipulation through embedded commands. Version 8
 represents the culmination of iterative refinement across six major versions,
 balancing comprehensiveness against token efficiency. A compact variant (147
 lines) preserves core functionality for context-limited models while sacrificing
-detailed examples.
+detailed examples. The current release is
+[GRA v9.0.0 Skill Edition](skills/gra/), which provides agent and generated
+chat editions from one methodology source.
 
 ---
 

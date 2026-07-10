@@ -15,7 +15,7 @@ REQUIRED_FILES = {
     "README.md",
     "LICENSE",
     "agents/openai.yaml",
-    "references/research-assistant-v8.5-full.md",
+    "references/research-assistant-full.md",
     "references/companion-reference.md",
 }
 FORBIDDEN_PARTS = {"tests", "examples"}
@@ -73,23 +73,46 @@ def validate(skill_root: Path) -> list[str]:
                 + normalize_rel(path.relative_to(skill_root))
             )
 
-    skill_md = skill_root / "SKILL.md"
-    if skill_md.is_file():
-        text = skill_md.read_text(encoding="utf-8")
+    for markdown_path in skill_root.rglob("*.md"):
+        text = markdown_path.read_text(encoding="utf-8")
         for raw_target in iter_markdown_links(text):
             target = raw_target.split("#", 1)[0].strip()
             if not target or is_external(target):
                 continue
 
             target = unquote(target)
-            candidate = (skill_md.parent / target).resolve()
+            candidate = (markdown_path.parent / target).resolve()
             try:
                 candidate.relative_to(skill_root.resolve())
             except ValueError:
-                errors.append(f"Link escapes skill root: {raw_target}")
+                errors.append(
+                    f"Link escapes skill root in {markdown_path.name}: "
+                    f"{raw_target}"
+                )
                 continue
             if not candidate.exists():
-                errors.append(f"Broken SKILL.md link: {raw_target}")
+                errors.append(
+                    f"Broken link in {markdown_path.name}: {raw_target}"
+                )
+
+    skill_md = skill_root / "SKILL.md"
+    if skill_md.is_file():
+        text = skill_md.read_text(encoding="utf-8")
+
+        # v9 checks: edition markers must be intact (the chat edition is
+        # generated from this file), and the version display form must be
+        # present in frontmatter and H1 (release-gate 7 sweep surface).
+        for marker in ("<!-- v9:body:start -->", "<!-- v9:body:end -->"):
+            if marker not in text:
+                errors.append(f"Missing v9 edition marker: {marker}")
+        starts = len(re.findall(r"<!-- v9:(?:agent-only|chat-swap:[a-z0-9-]+):start -->", text))
+        ends = len(re.findall(r"<!-- v9:(?:agent-only|chat-swap:[a-z0-9-]+):end -->", text))
+        if starts != ends:
+            errors.append(
+                f"Unbalanced v9 edition markers: {starts} start vs {ends} end"
+            )
+        if "v9.0.0 Skill Edition" not in text:
+            errors.append("Version display form 'v9.0.0 Skill Edition' not found in SKILL.md")
 
     return errors
 

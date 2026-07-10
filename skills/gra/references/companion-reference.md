@@ -1,8 +1,8 @@
-# GRA v8.5.2 Compact — Companion Reference
+# GRA v9.0.0 Skill Edition — Companion Reference
 
-**Version**: 8.5.2c Reference
-**Date**: 2026-04-23
-**Purpose**: Expanded reference material for the GRA v8.5.2 compact prompt. Upload as a knowledge/project file alongside the compact instructions.
+**Version**: v9.0.0 Skill Edition
+**Date**: 2026-06-10
+**Purpose**: Expanded reference material for the GRA v9.0.0 compact prompt. Upload as a knowledge/project file alongside the compact instructions.
 
 *This file contains decision trees, templates, terminology, document codes, output schemas, and features omitted from the compact version for space. The compact prompt instructs the model to reference this file when available.*
 
@@ -133,16 +133,28 @@ variants; document all forms with source context.
 
 ## Appendix D: Output Schema Reference
 
+### Registered Workflow Markers
+
+One registered three-marker set governs workflow and template markers across both editions and all templates and schemas in this file. No ad hoc workflow markers may be introduced.
+
+| Marker | Meaning | Reader's Action |
+| -------- | --------- | ----------------- |
+| `[citation needed]` | A claim lacks support | Find support before repeating the claim |
+| `[VERIFY]` | A present-world fact (cost, holdings, URL, access, turnaround, repository policy) needs current confirmation | Confirm it is true now |
+| `[ADAPT]` | Template language must be tailored to the actual repository/source | Fill in and adjust before use |
+
+**Scope note**: This table governs workflow and template markers only. The transcription-uncertainty marker family (`[illegible]`, `[?reading]`, `[blank]`, `[supplied]`, and the extended set in Appendix F) is a separate, preserved family untouched by this registration.
+
 ### Evidence Table
 
 | Field | Content |
 | ------- | --------- |
 | Source | Full citation |
 | Claim | Specific assertion extracted |
-| Source Type | Original / Derivative / Authored |
-| Info Type | Primary / Secondary / Indeterminate |
+| Source Type | Original Source / Derivative Source / Authored Source |
+| Info Type | Primary Information / Secondary Information / Indeterminate Information |
 | Informant | Name if known; "unknown" if not |
-| Evidence Type | Direct / Indirect / Negative |
+| Evidence Type | Direct Evidence / Indirect Evidence / Negative Evidence |
 | Conflicts With | Reference to conflicting entry |
 | Notes | Context, reliability assessment |
 
@@ -154,6 +166,13 @@ SUBJECT: [Person(s) researched]
 KNOWN FACTS: [Established facts with citations]
 WORKING HYPOTHESIS: [What you're testing]
 
+START HERE (3-5 prioritized actions, ordered by likely yield and accessibility):
+| # | Action | Rationale | Access (cost × channel) |
+|---|--------|-----------|--------------------------|
+
+ADVISORY: [Optional — include when planned records fall in a sensitive
+category; see Plan-Time Content Advisory Template in Appendix H]
+
 SOURCES TO SEARCH:
 | Priority | Source Type | Repository | Rationale | Status |
 |----------|------------|------------|-----------|--------|
@@ -164,6 +183,8 @@ FAN CLUSTER:
 
 SUCCESS CRITERIA: [What would answer the question]
 ```
+
+The START HERE block applies when the plan recommends three or more distinct research actions. Each item carries a two-facet access label — cost (free / fee, hedged with `[VERIFY]`) × channel (online / in-person / written request) — e.g., "free, online" or "fee `[VERIFY]`, written request." No dollar fees or processing times are asserted as fact; use hedged ranges or `[VERIFY]`.
 
 ### Timeline
 
@@ -188,6 +209,46 @@ QUESTION: [Specific claim at issue]
 PREPONDERANCE ANALYSIS: [Which evidence stronger and why]
 RESOLUTION: [ ] Resolved: [conclusion] [ ] Deferred: [why and what would resolve]
 ```
+
+### Citation Template Library (Research Plans)
+
+When a research plan recommends repository types, include a citation-format template per major repository type, with bracketed placeholders. Two worked examples follow. The instruction is generative beyond these examples: for any other repository type the plan recommends (state vital-records offices, county courthouses, church archives, newspaper collections, and so on), construct a template the same way — bracketed placeholders for every element, `[ADAPT]` on the template, `[VERIFY]` on any present-world access fact, and no invented identifiers of any kind (no record-group numbers, roll or film numbers, catalog IDs, or URLs).
+
+**Disclaimer (carry with every template)**: These templates are functional starting points to check against *Evidence Explained*, not authoritative models.
+
+**Worked example — NARA records:**
+
+```text
+[Document description], [document date]; [file unit title]; [series title]; [record group title], Record Group [RG number]; National Archives [facility, city, state]. [ADAPT]
+```
+
+Every identifier is a placeholder — confirm the record group, series, and holding facility against NARA's own catalog before use. `[VERIFY]`
+
+**Worked example — online database records:**
+
+```text
+"[Database title]," database [with images], [website name] ([URL] [VERIFY] : accessed [date]), entry for [person of interest], [identifying detail, e.g., event date and place]; citing [original record the database identifies]. [ADAPT]
+```
+
+The "citing" layer reports what the database says its source is. A database entry is a derivative source; locating the original it points to remains a research step.
+
+### Structured (JSON) Output Mode
+
+Structured (JSON) output is an agent-edition feature: on request, the schema family above (record analysis / evidence table, research plan) is emitted as JSON. Three conventions govern it.
+
+**Canonical enum vocabulary — full phrases.** Machine fields use the same full phrases the terminology guardrails require; there is no bare-label exemption.
+
+| Classification | Allowed values |
+| ---------------- | ---------------- |
+| Source | `"Original Source"`, `"Derivative Source"`, `"Authored Source"` |
+| Information | `"Primary Information"`, `"Secondary Information"`, `"Indeterminate Information"` |
+| Evidence | `"Direct Evidence"`, `"Indirect Evidence"`, `"Negative Evidence"` |
+
+**Visible-failure placeholder convention.** When a field cannot be filled from the evidence, emit the defined placeholder `"[cannot fill]"` (with an optional brief reason, e.g., `"[cannot fill: informant unknown]"`) and surface every unfilled field in the accompanying prose. Failure is visible, never silent — and a field is never fabricated to satisfy the schema. This placeholder is registered here as part of the workflow-marker discipline; it is the only schema-failure token.
+
+**Research-plan schema.** The JSON research plan mirrors the skeleton above, including the START HERE block (3-5 prioritized actions) with per-item access fields pairing cost (free / fee, hedged with `[VERIFY]`) and channel (online / in-person / written request), and the optional ADVISORY field.
+
+**Scope note**: This structured-output mode is the entire v9 slice of the broader data-storage concept. Bulk JSON pipelines, GEDCOM/Gramps export, and extraction-verification workflows are out of scope for this release.
 
 ---
 
@@ -219,6 +280,8 @@ RESOLUTION: [ ] Resolved: [conclusion] [ ] Deferred: [why and what would resolve
 
 **Principle**: Never guess silently. Mark all uncertainty so users can assess reliability.
 
+These transcription-uncertainty markers are a separate, preserved family from the registered workflow markers (`[citation needed]`, `[VERIFY]`, `[ADAPT]`) defined in Appendix D.
+
 ### Implied Relationship Guardrail
 
 When a record implies a relationship (e.g., shared surname, courtesy title, co-residence), state the inference explicitly and identify what evidence would confirm or refute it. Do not treat implied relationships as established facts.
@@ -227,7 +290,7 @@ When a record implies a relationship (e.g., shared surname, courtesy title, co-r
 
 ## Appendix G: Features Omitted from Compact
 
-These features are present in the full v8.5.2 prompt but were cut from the compact version for space. The model can apply these concepts when this reference file is available.
+These features are present in the full reference prompt but were cut from the compact version for space. The model can apply these concepts when this reference file is available.
 
 ### G1. Same-Evidence-Different-Conclusions (M2)
 
@@ -343,9 +406,25 @@ When unclear, default to Serious Hobbyist. Level affects explanation depth; pers
 | Unknown parentage | NPEs, adoptions, donor conception | Content warning; gradual disclosure; respect choice not to know |
 | Criminal records | Arrests, convictions | Historical context; avoid judgment |
 | Institutionalization | Asylums, poorhouses | De-stigmatizing framing |
+| Military/POW | Prisoner-of-war records, casualty files, atrocity documentation | Preparation-framed advisory; name likely content without graphic recitation |
 | Cause of death | Suicide, violence | Sensitive framing; content warning |
 | Enslavement records | Chattel records, bills of sale | Dignity-centered framing; acknowledge humanity |
 | Disenfranchisement | Removal, internment, dispossession | Historical context; acknowledge injustice |
+
+### Plan-Time Content Advisory Template
+
+When a research plan directs the user toward records likely to contain traumatic material — military/POW, institutional (asylums, hospitals), correctional, historical trauma (slavery, genocide, forced removal, internment); illustrative categories, not an exhaustive list — include a content advisory adjacent to the plan items it concerns. Framing is preparation, not discouragement: affirm the research's value, name informationally what the records may contain and why, and never suggest delay, ask permission, or gate the plan. Plan-time advisories are distinct from the disclosure-time Sensitive Information Protocol (which governs the moment of disclosing traumatic content already read, and is unchanged).
+
+Adaptable template — tailor every bracketed element to the record type:
+
+```text
+About the [record type] in this plan: these records were created to [original record-keeping purpose], so they often document [kinds of difficult content] in plain administrative language. They are worth pursuing — they may establish [what the records can answer for this research question]. This note is preparation, so nothing in the records catches you off guard.
+```
+
+**Humane vs. clinical — the contrast pair that defines the register:**
+
+- *Humane (use)*: "POW camp records often document hunger, illness, and deaths among prisoners — the camps recorded these as routine administration. Reading them can be hard, and they are also the records most likely to tell you what happened to him."
+- *Clinical (avoid)*: "Advisory: this record set may contain content pertaining to trauma, mortality, and adverse conditions. User discretion is advised."
 
 ### Decolonization Practical Examples
 
@@ -390,7 +469,19 @@ When unclear, default to Serious Hobbyist. Level affects explanation depth; pers
 
 ---
 
-*Companion to GRA v8.5.2c compact prompt.*
+## Appendix J: AI-Use Disclosure Template
+
+A fill-in disclosure statement for users publishing AI-assisted genealogical work. It asserts independent human verification by a named author on a stated date.
+
+```text
+Portions of this work were prepared with the assistance of the Genealogical Research Assistant (GRA) v9.0.0 Skill Edition, an AI research aid. All sources, citations, and conclusions were independently verified by [author's full name] on [date]. The author takes professional responsibility for every conclusion.
+```
+
+The statement discloses AI assistance and asserts human verification. It makes no claim of GPS compliance: no AI output achieves GPS compliance — the human genealogist owns every conclusion.
+
+---
+
+*Companion to the GRA v9.0.0 Skill Edition compact prompt.*
 *GPS developed by Board for Certification of Genealogists.*
 *Evidence framework from Elizabeth Shown Mills, Evidence Explained.*
-*GRA v8.5.2c by Steve Little. CC-BY-NC-SA-4.0.*
+*GRA v9.0.0 Skill Edition by Steve Little. CC-BY-NC-SA-4.0.*

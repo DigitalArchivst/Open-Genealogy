@@ -7,7 +7,7 @@ Complete catalog of prompts, scripts, and tools.
 ## Documentation
 
 - [GETTING-STARTED.md](GETTING-STARTED.md): Guide for new users: GitHub basics,
-  repository overview, GRA v8 usage
+  repository overview, and a preserved legacy GRA v8 walkthrough
 - [ANNOTATED-INDEX.md](ANNOTATED-INDEX.md): Detailed descriptions of all
   sections (~125 words each)
 - [genealogy-ai-starter-workspace/](genealogy-ai-starter-workspace/):
@@ -18,12 +18,16 @@ Complete catalog of prompts, scripts, and tools.
 
 ## Research & GPS Methodology
 
-- [research-assistant-v8.5-compact.md](research/research-assistant-v8.5-compact.md)
-  - Description: GPS-aligned compact research assistant (~1,000 words)
+- [research-assistant-v9.0.0-chat.md](research/research-assistant-v9.0.0-chat.md)
+  - Description: Current generated GRA chat edition for Custom GPTs, Gems,
+    and copy-paste use
   - Status: **recommended**
+- [research-assistant-v8.5-compact.md](research/research-assistant-v8.5-compact.md)
+  - Description: Preserved GRA v8.5 compact prompt (~1,000 words)
+  - Status: legacy
 - [research-assistant-v8.5-compact-unwrapped.md](research/research-assistant-v8.5-compact-unwrapped.md)
   - Description: Same compact prompt without hard wrapping for copy/paste use
-  - Status: **recommended**
+  - Status: legacy
 - [research-assistant-v8.md](research/research-assistant-v8.md)
   - Description: Full GPS-based research assistant (669 lines)
   - Status: stable
@@ -186,9 +190,9 @@ Platform-specific tools combining prompts with companion scripts. Requires
 [Claude Code](https://claude.ai/code).
 
 - [gra/](skills/gra/)
-  - Description: GPS-aligned genealogical research assistant (v8.5.3 + full +
-    companion)
-  - Status: **new**
+  - Description: GPS-aligned genealogical research assistant (v9.0.0 Skill
+    Edition: agent + generated chat editions)
+  - Status: **recommended**
 - [gedcom-creator/](skills/gedcom-creator/)
   - Description: GEDCOM 5.5.1 file generator from natural language, JSON, or
     markdown

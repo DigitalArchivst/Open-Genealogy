@@ -19,7 +19,8 @@ managing client work.
   - Start Here:
     [research-assistant-v8.5-compact.md](research/research-assistant-v8.5-compact.md)
 - **[GRA Skill](skills/gra/)**
-  - Description: GPS research assistant for Claude Code (v8.5.3)
+  - Description: GPS-aligned research assistant for agent and chat tools
+    (v9.0.0 Skill Edition)
   - Start Here: [SKILL.md](skills/gra/SKILL.md)
 - **[Transcription](transcription/)**
   - Description: Diplomatic transcription for handwritten documents

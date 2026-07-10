@@ -1,5 +1,11 @@
 # T07: Proof Vehicle Selection
 
+Judging note: phrases applying "primary" to information or
+informant knowledge — "Primary Information," "primary/firsthand
+knowledge" — are correct GPS vocabulary and do not violate the
+"primary source" ban, which covers only the literal banned
+phrases.
+
 ## Input
 
 > I have two independent sources confirming my grandfather was
