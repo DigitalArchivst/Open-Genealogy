@@ -1,0 +1,17 @@
+# License Scope
+
+The MIT License below applies only to `scripts/gedcom_builder.py`.
+
+Primary evidence for this narrow exception is Steve Little's owner-authored commit `23c85caf4d3437c7c09e34d7cf5b5c1104f073fe`, dated March 30, 2026. That commit introduced the package, identified the "Python companion script" as MIT-licensed in its commit message, labeled the script itself MIT, and described prompt content separately in the README. This notice preserves that evidenced scope; it does not infer a broader relicensing intent.
+
+The README, `SKILL.md`, tests, and examples in this directory are not included in this MIT grant. They remain governed by the repository root `LICENSE` unless separately stated. This notice does not grant rights in third-party material.
+
+## MIT License
+
+Copyright (c) 2026 Steve Little
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

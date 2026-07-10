@@ -83,11 +83,14 @@ Provide the deceased's full identification in three formats:
 2. **English Meaning:** "Abraham son of Moses, the Levite"
 3. **Transliteration:** Avraham ben Moshe HaLevi
 
-### Lineage/Caste
+### Observed Designations and Traditions
 
-- **Kohen** (Priest): Indicated by הכהן or priestly blessing hands
-- **Levi** (Levite): Indicated by הלוי or pitcher/ewer symbol
-- **Israelite**: Default if no priestly/Levite designation
+Report only what the stone visibly says or depicts; do not treat an inscription, title, or symbol as proof of biological lineage.
+
+- **Kohen-associated designation or tradition:** Record the exact wording such as הכהן, or describe priestly blessing hands as an observed symbol that may indicate a Kohen tradition.
+- **Levi-associated designation or tradition:** Record the exact wording such as הלוי, or describe a pitcher/ewer as an observed symbol that may indicate a Levi tradition.
+- **No designation observed:** If neither appears, report that no Kohen- or Levi-associated designation was observed. Do not assign "Israelite" by default.
+- **Corroboration required:** State plausible alternatives, including decorative or community custom, a family tradition, an honorific or name element, and a non-literal reading. Seek corroboration in the inscription, cemetery or burial-society records, family records, and other independent evidence before drawing a lineage conclusion.
 
 **Phase 3 Confidence:** [0.00–1.00]
 
@@ -111,9 +114,9 @@ Explain all honorifics with cultural context:
 | ב"ר / בר | Ben Reb/Bar | Son of Reb | Precedes father's name |
 | מרת | Marat | Mrs./Ms. | Used for women |
 | בת | Bat | Daughter of | Precedes father's name |
-| הכהן | HaKohen | The Priest | Priestly descent |
-| הלוי | HaLevi | The Levite | Levite lineage |
-| הרב | HaRav | The Rabbi | Rabbinic ordination |
+| הכהן | HaKohen | The Priest | Observed priestly designation or tradition; not independent proof of descent |
+| הלוי | HaLevi | The Levite | Observed Levitical designation or tradition; not independent proof of descent |
+| הרב | HaRav | The Rabbi / rabbinic title | Honorific or community designation; not independent proof of ordination |
 | ז"ל | Zichrono/a Livracha | Of blessed memory | Standard memorial phrase |
 | ע"ה | Alav/Aleha HaShalom | Peace be upon him/her | Memorial phrase |
 
@@ -150,27 +153,37 @@ This phase is **critical for genealogical accuracy**. Show every step.
 
 ### 5.3 Hebrew-to-Gregorian Conversion
 
-**Use the correct algorithm (from v8.1):**
+Do not calculate an exact Gregorian date from a Hebrew year offset or a month-only shortcut. Use a tested Hebrew-calendar converter or library, such as [Hebcal's Jewish Calendar Date Converter](https://www.hebcal.com/converter), with the complete Hebrew day, month, and year.
 
-- Hebrew month ≥ Tishrei (Tishrei through Adar): subtract **3760** from Hebrew year
-- Hebrew month < Tishrei (Nisan through Elul): subtract **3761** from Hebrew year
-- Handle leap years: distinguish Adar I from Adar II
+For every conversion, record:
 
-**WARNING:** Some older references use an incorrect shortcut formula (+ 1240). This produces wrong results. Always use the 3760/3761 method above.
+- The converter or library, its version or access date, and the input date
+- The calendar convention used: the standard civil-date mapping, where the Gregorian date is the civil day containing the daylight portion of the Hebrew date
+- The sunset convention: Hebrew days begin at sunset, and whether an event time or local community convention could affect comparison with a carved civil date
+- An independent verification using a second reliable converter, calendar, or documented library
+- If no tested converter or independent check is available, state that the
+  conversion is unverified and defer the exact Gregorian date; do not claim
+  that the check was performed.
 
-*Example: 26 Tevet 5681 → Tevet is after Tishrei → 5681 - 3760 = 1921 → January 5, 1921 (verify with Hebrew calendar)*
+Boundary checks under the standard civil-date mapping:
+
+- **1 Tevet 5681 = 12 Dec 1920**
+- **26 Tevet 5681 = 6 Jan 1921**
+
+These verified examples show that a single Hebrew month can cross a Gregorian year. If the day, month, or year reading is uncertain, give alternative conversions or defer the conversion rather than presenting one exact result.
 
 ### 5.4 Sunset Rule Audit
 
-Hebrew days begin at sunset, not midnight. This creates a common one-day discrepancy:
+Hebrew days begin at sunset, not midnight. Report the converter's standard civil-date mapping separately from the event-date convention shown on the stone. Do not shift a converter result by one day merely to force a match.
 
-- If the secular date on the stone is **+1 day** from your calculation: *"Death occurred after sunset, beginning the new Hebrew day while still the same secular date"*
-- If dates match perfectly: note "No sunset adjustment needed"
-- If dates are off by more than 1 day: flag as a discrepancy requiring investigation
+- If the dates differ by one day, identify sunset timing or a local recording convention as a possible explanation, not a demonstrated fact.
+- If the dates match, record the match and the convention used; do not infer the time of death.
+- If dates differ by more than one day, or the event time matters, flag the discrepancy for investigation against contemporary records, cemetery registers, or a qualified calendar specialist.
 
 ### 5.5 Dual Date Comparison
 
 If both Hebrew and secular dates appear on the stone:
+
 - Compare your calculated Gregorian date with the carved secular date
 - Flag: ✓ (match) or ✗ (mismatch with explanation)
 
@@ -199,8 +212,8 @@ Identify all symbols and explain their genealogical significance:
 
 | Symbol | Meaning | Genealogical Value |
 |--------|---------|-------------------|
-| Hands in priestly blessing | Kohen (priestly descent) | Confirms patrilineal priestly lineage |
-| Pitcher/Ewer | Levi (Levite) | Confirms patrilineal Levite lineage |
+| Hands in priestly blessing | Kohen-associated symbol or tradition | Observed clue only; may reflect family or community tradition and requires corroboration |
+| Pitcher/Ewer | Levi-associated symbol or tradition | Observed clue only; may reflect family or community tradition and requires corroboration |
 
 ### Name & Tribal Symbols
 
@@ -271,12 +284,12 @@ Format as a clean markdown table for genealogical records:
 | **Given Name(s)** | [Hebrew & English] |
 | **Father's Name** | [Hebrew & English] |
 | **Mother's Name** | [If present] |
-| **Lineage/Caste** | [Kohen / Levi / Israelite] |
+| **Observed Designation/Tradition** | [Exact inscription or symbol; alternatives; corroboration status] |
 | **Hebrew Death Date** | [Full transcription] |
 | **Gematria Calculation** | [Arithmetic shown] |
-| **Calculated Gregorian Date** | [Month Day, Year] |
+| **Converter-Derived Gregorian Date** | [Month Day, Year; converter/library and independent check] |
 | **Secular Date on Stone** | [If present; ✓ match or ✗ mismatch] |
-| **Sunset Adjustment** | [Yes/No — explanation] |
+| **Calendar and Sunset Convention** | [Standard civil-date mapping; event-time or local convention if known] |
 | **Age at Death** | [If stated or calculable] |
 | **Spouse** | [If mentioned] |
 | **Honorifics/Titles** | [List] |
@@ -302,6 +315,7 @@ List every specific uncertainty:
 - **Name uncertainties:** "Second name unclear — could be Yitzchak or Yisrael"
 - **Date discrepancies:** "Hebrew date yields 1921 but secular date carved as 1920"
 - **Symbol questions:** "Unclear if motif represents Lion of Judah or decorative element"
+- **Designation limits:** "Priestly hands observed; they may indicate a Kohen-associated tradition but do not independently establish descent"
 
 ### Alternative Interpretations
 
@@ -333,9 +347,10 @@ Before delivering your analysis, verify:
 
 - [ ] All phase confidence scores provided (0.00–1.00)
 - [ ] Gematria arithmetic shown step-by-step and double-checked
-- [ ] Sunset Rule addressed
+- [ ] Exact date converted with a tested converter or library; calendar and sunset conventions recorded
+- [ ] Independent date verification recorded, including the 1 Tevet 5681 and 26 Tevet 5681 boundary checks when relevant
 - [ ] Three-format transcription complete (Hebrew, transliteration, English)
-- [ ] All symbols identified and interpreted
+- [ ] All symbols identified as observations, with alternatives and corroboration needs stated before any lineage conclusion
 - [ ] All honorifics and abbreviations explained
 - [ ] Friction points listed with specific examples
 - [ ] Alternative interpretations provided for ambiguous readings

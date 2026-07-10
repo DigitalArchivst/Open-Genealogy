@@ -1,9 +1,18 @@
 # Open-Genealogy: Annotated Index
 
+> **Historical annotated guide.** This document describes a pre-v9 catalog and
+> is retained for context, not as a current tool chooser. Start with the
+> [current GRA v9 Agent Skill or Chat Edition](README.md#start-with-gra-v920), and
+> use [INDEX.md](INDEX.md) for the current catalog. File counts, lifecycle
+> labels, and recommendations below may be stale.
+
 ## Root Level — The Repository
 
 **Open-Genealogy** is a curated, publication-ready AI prompt toolkit for
-genealogical research, hosted on GitHub under Creative Commons BY-NC-SA 4.0. The
+genealogical research. Steve-authored material is hosted on GitHub under
+Creative Commons BY-NC-SA 4.0 where that license applies; third-party images,
+model outputs, quotations, and unresolved assets remain subject to the
+exclusions and notices in [RIGHTS.md](RIGHTS.md). The
 repository is designed to follow the **Genealogical Proof Standard (GPS)**—the
 professional methodology developed by the Board for Certification of
 Genealogists—through reusable AI prompts, evaluation frameworks, and utility
@@ -55,9 +64,9 @@ instructions, preventing manipulation through embedded commands. Version 8
 represents the culmination of iterative refinement across six major versions,
 balancing comprehensiveness against token efficiency. A compact variant (147
 lines) preserves core functionality for context-limited models while sacrificing
-detailed examples. The current release is
-[GRA v9.0.0 Skill Edition](skills/gra/), which provides agent and generated
-chat editions from one methodology source.
+detailed examples. The v9.2.0 release provides
+[agent and generated chat editions](https://github.com/DigitalArchivst/Open-Genealogy/tree/v9.2.0/skills/gra/)
+from one methodology source.
 
 ---
 
@@ -225,26 +234,21 @@ comparison.
 ### Jewish Cemetery Headstone Analysis
 
 Specialized prompt for extracting genealogical data from Jewish cemetery
-headstones — a unique intersection of epigraphy, Hebrew linguistics, Jewish
-calendar mathematics, and funerary art interpretation that no general-purpose
-transcription tool handles adequately. The flagship **Hebrew Headstone Helper
-v9.0** guides AI through ten sequential analytical phases: forensic triage
-(image quality, legibility gate, script identification), diplomatic
-transcription in three parallel formats (Hebrew script, transliteration, English
-meaning), patronymic identification with lineage/caste classification (Kohen,
-Levi, Israelite), translation with linguistic register analysis (Biblical,
-Rabbinic, Modern Hebrew, Yiddish), date reconciliation with step-by-step
-gematria arithmetic and the critical Hebrew-to-Gregorian conversion algorithm
-(using the correct 3760/3761 method, not the common but incorrect +1240
-shortcut), physical stone description, symbol interpretation across Ashkenazi,
-Sephardi, and Mizrahi traditions, historical and cultural context, a structured
-archival summary table, and confidence assessment with friction points and
-alternative interpretations. The prompt includes a Sunset Rule audit (Hebrew
-days begin at sunset, creating systematic one-day discrepancies), a legibility
-warning gate, and a quality checklist. Version 9.0 was synthesized from three
-earlier versions using feature matrix comparison — the same methodology the
-prompt's companion course teaches. Complements the Jewish Transcription prompt
-(for documents) and the general OCR-HTR tool (for non-specialized handwriting).
+headstones. This historical entry describes an earlier helper version; its
+arithmetic Hebrew-to-Gregorian conversion claims are withdrawn from active use.
+The current approach transcribes the complete observed Hebrew date, then uses a
+tested converter or calendar library and an independent check. It records the
+standard civil-date mapping and treats a sunset-related one-day difference as a
+clue to investigate, not an automatic adjustment.
+
+The helper's retained workflow includes forensic triage, diplomatic
+transcription in Hebrew script, transliteration, and English meaning;
+patronymic extraction; linguistic analysis; physical description; historical
+context; archival summary; and confidence assessment. Symbols, titles, and
+Kohen- or Levi-associated imagery are observed clues requiring corroboration,
+not proof of biological lineage, caste, tribe, or identity. It complements the
+Jewish Transcription prompt for documents and the general OCR-HTR tool for
+non-specialized handwriting.
 
 ---
 
@@ -256,19 +260,19 @@ The recommended headstone analysis prompt (382 lines) implementing ten
 sequential phases with confidence scoring (0.00–1.00) at each stage. Key
 genealogical features: **three-format transcription** preserving exact Hebrew
 carving alongside transliteration and English meaning; **patronymic
-identification** extracting the deceased's full name chain including titles,
-lineage markers, and father's name; **gematria date conversion** with explicit
-arithmetic shown and double-checked; **Sunset Rule audit** addressing the
-systematic one-day Hebrew/secular date discrepancy; **symbol taxonomy** covering
-priestly hands (Kohen), pitcher (Levi), animal symbols (Lion/Aryeh, Deer/Tzvi,
-Wolf/Ze'ev), and regional variations; **archival summary table** formatted for
-direct entry into genealogical databases. The prompt adapts to non-Jewish
+identification** extracting the deceased's full name chain including titles and
+father's name; **converter-first date reconciliation** with a complete observed
+date, converter input/output, and independent check; **Sunset Rule audit**
+addressing a possible one-day Hebrew/secular date discrepancy; **symbol
+documentation** for priestly hands, pitchers, animal imagery, and regional
+variations as observed clues requiring corroboration; and an **archival summary
+table** formatted for direct entry into genealogical databases. The prompt adapts to non-Jewish
 headstones when encountered. Includes researcher guidance on image preparation
 (close-ups more valuable than wide shots), context provision (known names and
 dates help disambiguate weathered characters), and confidence score
 interpretation. Synthesized from v6.0 (forensic rigor, sunset audit), v7.0
-(linguistic depth, burial customs), and v8.1 (quantitative scoring, corrected
-date algorithm).
+(linguistic depth, burial customs), and v8.1. Earlier arithmetic conversion
+guidance is withdrawn; active use is converter-first.
 
 ---
 
@@ -526,18 +530,16 @@ oral traditions that exist only in living memory.
 
 ### AI Evaluation Framework
 
-Testing infrastructure for evaluating how well AI models follow GPS methodology.
-The flagship case study compares Claude, ChatGPT, Gemini, and Grok responding to
-identical research prompts on Ashe County, NC settlement history (1492-1799).
-Each model's complete output with citations is preserved, enabling systematic
-comparison of methodological adherence, research depth, citation quality, and
-evidence handling. Key findings: ChatGPT achieved highest methodology adherence
-(88.75%); Gemini generated most genealogical research leads; all models
-struggled with precise evidence classification (Direct/Indirect/Negative). The
-**genealogical-writing-rubric** provides a 60-point evaluation framework derived
-from GPS standards, enabling assessment of any genealogical writing—AI-generated
-or human-authored. This section transforms subjective quality judgments into
-systematic, reproducible evaluation.
+Historical specimens for examining how four AI outputs handled an Ashe County,
+NC research task. The retained packet lacks the complete run manifest, model
+settings, retrieval record, criterion-level score sheets, scorer calibration,
+and adjudication needed to reproduce a model ranking. The formerly published
+`88.75%` headline is therefore withdrawn from current guidance. The preserved
+outputs still support close reading, error spotting, and rubric practice when
+captured output, evaluator annotation, and verified fact are kept separate.
+The **genealogical-writing-rubric** remains a 60-point teaching framework; a
+score from it is not by itself a measure of factual accuracy, research
+exhaustiveness, GPS alignment, or model superiority.
 
 ---
 

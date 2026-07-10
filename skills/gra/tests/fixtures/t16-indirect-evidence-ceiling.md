@@ -28,6 +28,8 @@
   listed five is acceptable)
 - [ ] Explain that **quantity is not quality**: five agreeing
   indirect items do not become direct evidence by accumulation
+- [ ] Test whether the items are independent or share family
+  knowledge, copied assertions, or another correlated source
 - [ ] Name evidence that could **elevate** the conclusion, such
   as Reuben's will or probate naming Martin as a son, a deed of
   gift stating the relationship, or a family Bible record
@@ -43,15 +45,17 @@
   calibration gate)
 - [ ] Must NOT assert that indirect evidence can never support a
   Proved conclusion — a developed proof argument with exceptional
-  cumulative weight, in which all conflicts are resolved, remains
-  a legitimate path to Proved
+  cumulative quality, reasonably exhaustive research, resolved
+  conflicts, sound reasoning, and no plausible correlated error
+  remains a legitimate path to Proved
 
 ## Ground Truth
 
 Conclusions supported only by indirect evidence are stated as
 Probable at most, absent a developed proof argument with
-exceptional cumulative weight in which all conflicts are
-resolved. This user has correlation, not a developed proof
+exceptional cumulative quality that also establishes independence,
+resolves conflicts, and excludes plausible correlated error. This
+user has correlation, not a developed proof
 argument, so the ceiling holds: Probable. The calibration runs
 both directions — the same rule that blocks Proved here must not
 drag the conclusion down to Possible or Not Proved, and direct,

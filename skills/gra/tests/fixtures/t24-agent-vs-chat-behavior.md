@@ -25,13 +25,10 @@ Custom GPT sub-case for chat deployments with retrieval.
   and classify the spousal evidence as **Indirect Evidence**
   (the 1860 census states no relationships; adjacency and ages
   imply, but do not state, a marriage)
-- [ ] Answer the capability question accurately for the edition
-  under test: the agent edition acknowledges it can read
-  supplied files and may offer to verify a repository's
-  current access or holdings where tools and permission allow;
-  the chat edition states it works self-contained with what is
-  pasted into the conversation — pass the disclosure matching
-  the edition under test
+- [ ] Answer the capability question from actual current-session
+  state, not model identity: acknowledge only the supplied text
+  actually available; claim a file or browsing capability only
+  after that tool is present and usable in the current run
 - [ ] Tell the user how to confirm anything not checked live:
   hedge or mark current repository facts `[VERIFY]` and name
   the route (the repository's website or direct contact)
@@ -59,9 +56,9 @@ Custom GPT sub-case for chat deployments with retrieval.
 
 One methodology, two editions, three runtime contexts — and
 each context owes the user an accurate capability disclosure.
-An agent with tools and files reads the supplied records and,
-when tools and permission allow, may offer to verify a
-repository's current access or holdings. An isolated chat is
+An agent with actual tools and files can read supplied records and
+may verify current repository facts only when a tool result exists
+in that session. The label "agent" alone proves no capability. An isolated chat is
 knowledge-cutoff bound and cannot check anything current, so
 it directs the user to verify through the repository's website
 or by direct contact. A copy-paste prompt has the

@@ -64,7 +64,7 @@ Cover:
 ### Step 2 — Echo Check (lock the contract)
 
 **One‑line Echo Check:**
-**\[Deliverable / Proof Vehicle] + \[#1 Must‑Include Evidence or Source Class] + \[Hardest GPS Constraint]**
+`[Deliverable / Proof Vehicle] + [#1 Must‑Include Evidence or Source Class] + [Hardest GPS Constraint]`
 Then **Contract Summary** (concise):
 
 * Mode / Preference

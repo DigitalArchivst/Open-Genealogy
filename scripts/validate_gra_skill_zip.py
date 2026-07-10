@@ -7,10 +7,11 @@ import argparse
 import re
 import sys
 from pathlib import Path
+from typing import Optional
 from urllib.parse import unquote
 
 
-REQUIRED_FILES = {
+EXPECTED_FILES = {
     "SKILL.md",
     "README.md",
     "LICENSE",
@@ -18,8 +19,50 @@ REQUIRED_FILES = {
     "references/research-assistant-full.md",
     "references/companion-reference.md",
 }
-FORBIDDEN_PARTS = {"tests", "examples"}
 MARKDOWN_LINK_RE = re.compile(r"!?\[[^\]]*\]\(([^)]+)\)")
+SKILL_VERSION_RE = re.compile(
+    r'^\s*version:\s*"?v?(?P<version>\d+\.\d+\.\d+)', re.M
+)
+VERSION_SURFACES = {
+    "SKILL.md heading": (
+        "SKILL.md",
+        re.compile(
+            r"^# Genealogical Research Assistant "
+            r"v(?P<version>\d+\.\d+\.\d+) Skill Edition$",
+            re.M,
+        ),
+    ),
+    "README.md release declaration": (
+        "README.md",
+        re.compile(
+            r"^v(?P<version>\d+\.\d+\.\d+) is the current release\b",
+            re.M,
+        ),
+    ),
+    "agents/openai.yaml heading": (
+        "agents/openai.yaml",
+        re.compile(
+            r"^# GRA v(?P<version>\d+\.\d+\.\d+) Skill Edition$",
+            re.M,
+        ),
+    ),
+    "full reference heading": (
+        "references/research-assistant-full.md",
+        re.compile(
+            r"^# Genealogical Research Assistant "
+            r"v(?P<version>\d+\.\d+\.\d+) Skill Edition$",
+            re.M,
+        ),
+    ),
+    "companion reference heading": (
+        "references/companion-reference.md",
+        re.compile(
+            r"^# GRA v(?P<version>\d+\.\d+\.\d+) Skill Edition "
+            r".+$",
+            re.M,
+        ),
+    ),
+}
 
 
 def normalize_rel(path: Path) -> str:
@@ -49,7 +92,52 @@ def is_external(target: str) -> bool:
     )
 
 
-def validate(skill_root: Path) -> list[str]:
+def read_skill_version(skill_root: Path) -> str:
+    """Derive the X.Y.Z release token from SKILL.md metadata.version."""
+    skill_md = skill_root / "SKILL.md"
+    if not skill_md.is_file():
+        raise ValueError("SKILL.md is missing")
+    text = skill_md.read_text(encoding="utf-8")
+    match = SKILL_VERSION_RE.search(text)
+    if not match:
+        raise ValueError("SKILL.md metadata.version is missing or invalid")
+    return match.group("version")
+
+
+def validate_versions(
+    skill_root: Path, expected_version: Optional[str] = None
+) -> list[str]:
+    """Check every runtime version surface against SKILL.md metadata."""
+    try:
+        metadata_version = read_skill_version(skill_root)
+    except ValueError as error:
+        return [str(error)]
+
+    errors = []
+    if expected_version is not None and expected_version != metadata_version:
+        errors.append(
+            f"Requested version {expected_version} does not match "
+            f"SKILL.md metadata version {metadata_version}"
+        )
+
+    for label, (relative, pattern) in VERSION_SURFACES.items():
+        path = skill_root / relative
+        if not path.is_file():
+            continue
+        match = pattern.search(path.read_text(encoding="utf-8"))
+        if not match:
+            errors.append(f"Version declaration missing: {label}")
+        elif match.group("version") != metadata_version:
+            errors.append(
+                f"Version mismatch in {label}: {match.group('version')} "
+                f"!= {metadata_version}"
+            )
+    return errors
+
+
+def validate(
+    skill_root: Path, expected_version: Optional[str] = None
+) -> list[str]:
     errors: list[str] = []
     if not skill_root.is_dir():
         return [f"Skill root not found: {skill_root}"]
@@ -60,18 +148,13 @@ def validate(skill_root: Path) -> list[str]:
         if path.is_file()
     }
 
-    missing = sorted(REQUIRED_FILES - files)
+    missing = sorted(EXPECTED_FILES - files)
     for rel in missing:
         errors.append(f"Missing required file: {rel}")
 
-    for path in skill_root.rglob("*"):
-        rel_parts = path.relative_to(skill_root).parts
-        bad_parts = FORBIDDEN_PARTS.intersection(rel_parts)
-        if bad_parts:
-            errors.append(
-                "Forbidden runtime path present: "
-                + normalize_rel(path.relative_to(skill_root))
-            )
+    unexpected = sorted(files - EXPECTED_FILES)
+    for rel in unexpected:
+        errors.append(f"Unexpected runtime file: {rel}")
 
     for markdown_path in skill_root.rglob("*.md"):
         text = markdown_path.read_text(encoding="utf-8")
@@ -111,8 +194,7 @@ def validate(skill_root: Path) -> list[str]:
             errors.append(
                 f"Unbalanced v9 edition markers: {starts} start vs {ends} end"
             )
-        if "v9.0.0 Skill Edition" not in text:
-            errors.append("Version display form 'v9.0.0 Skill Edition' not found in SKILL.md")
+    errors.extend(validate_versions(skill_root, expected_version))
 
     return errors
 
@@ -126,9 +208,13 @@ def main() -> int:
         type=Path,
         help="Path to the extracted gra/ skill directory.",
     )
+    parser.add_argument(
+        "--version",
+        help="Expected X.Y.Z version; must match SKILL.md metadata.",
+    )
     args = parser.parse_args()
 
-    errors = validate(args.skill_root)
+    errors = validate(args.skill_root, expected_version=args.version)
     if errors:
         print("GRA runtime package validation failed:")
         for error in errors:

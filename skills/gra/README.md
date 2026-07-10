@@ -1,200 +1,155 @@
-# Genealogical Research Assistant — Agent Skill
+<!-- markdownlint-disable MD013 -->
 
-A research assistant designed to follow GPS methodology, the
-Three-Layer Evidence Model, and strict anti-fabrication
-principles.
+# Genealogical Research Assistant v9.2 Agent Skill
 
-**This assistant never fabricates sources, citations, people,
-dates, places, or events. When evidence is insufficient, it
-says so.**
+GRA v9.2 is a GPS-aligned research assistant for source-bounded genealogical
+analysis. It is instructed not to invent records, citations, people, dates,
+places, or events, but AI can still err. Verify every record, citation,
+inference, and conclusion before relying on or publishing it.
 
-This skill follows the open
-[Agent Skills](https://agentskills.io) standard and may work
-in other compatible tools (Cursor, VS Code, Codex, Gemini CLI,
-and others).
+## Release Status
 
-The install ZIP is a runtime package: it contains the skill,
-license, app metadata, and reference files needed by an agent.
-Developer tests and fixtures stay in the repository source tree.
+v9.2.0 is the current release. Its [Agent Edition](SKILL.md), generated
+[Chat Edition](https://github.com/DigitalArchivst/Open-Genealogy/releases/download/v9.2.0/research-assistant-v9.2.0-chat.md), references,
+fixtures, and packaging checks are maintained together. The
+[v9.0.0 release](https://github.com/DigitalArchivst/Open-Genealogy/releases/tag/v9.0.0)
+and all retained v8.5 links and historical artifacts remain unchanged.
 
-## Two Editions
+## Choose An Edition
 
-v9.0.0 Skill Edition ships one methodology in two builds:
+| Choose | Use it when | v9.2.0 release artifact |
+| --- | --- | --- |
+| **Agent Skill** | Your client supports a local Agent Skills folder and you want the compact skill plus reference files | Download [gra-skill-v9.2.0.zip](https://github.com/DigitalArchivst/Open-Genealogy/releases/download/v9.2.0/gra-skill-v9.2.0.zip) or inspect the [release source](https://github.com/DigitalArchivst/Open-Genealogy/tree/v9.2.0/skills/gra) |
+| **Chat Edition** | You want a self-contained prompt for chat, a Custom GPT, a Gem, or a project | Download [research-assistant-v9.2.0-chat.md](https://github.com/DigitalArchivst/Open-Genealogy/releases/download/v9.2.0/research-assistant-v9.2.0-chat.md) |
 
-- **Agent edition** — this skill (`SKILL.md` + `references/`).
-  Adds file access, consult triggers into the reference files,
-  structured output mode, and live-verification offers where
-  tools and permission allow.
-- **Chat edition** —
-  `research/research-assistant-v9.0.0-chat.md` (repository
-  root). A self-contained copy-paste prompt, generated from the
-  agent edition (never hand-edited), under 8,000 characters.
-  Use it for Custom GPTs, Gemini Gems, and plain copy-paste
-  chat. Release notes point chat users there.
+The two editions share one methodology. The Agent Skill can use file access,
+references, structured output, and verification offers only when the client
+and permissions allow. The Chat Edition omits those agent-only surfaces.
 
-The chat edition omits the agent-only surfaces (file access,
-consult triggers, structured output, live verification) and
-carries chat-accurate capability disclosures.
+## Safety Before Uploading Records
 
-## Legacy v8.5 Links
+Using a local folder does not make a hosted AI model local. Standard Codex,
+Claude Code, Claude Cowork, ChatGPT, and Gemini workflows may process the text
+or files they read with a cloud model. Do not upload or grant access to
+living-person addresses, contact information, employment, medical, financial,
+or other sensitive details. If material is too sensitive for the chosen
+service, keep it out of that service. A human genealogist remains responsible
+for the research conclusion.
 
-GRA v8.5 remains available for readers following earlier articles:
+## Platform And Installation Matrix
 
-- [Compact v8.5 prompt](https://github.com/DigitalArchivst/Open-Genealogy/blob/main/research/research-assistant-v8.5-compact.md)
-- [Full v8.5.1c prompt](https://github.com/DigitalArchivst/Open-Genealogy/blob/main/skills/gra/research-assistant-v8.5-full.md)
-- [v8.5.1c companion reference](https://github.com/DigitalArchivst/Open-Genealogy/blob/main/skills/gra/companion-reference.md)
-- [v8.5.3 full reference](https://github.com/DigitalArchivst/Open-Genealogy/blob/main/skills/gra/references/research-assistant-v8.5-full.md)
+The v9.2 ZIP was built from an explicit six-file allowlist, extracted, and
+structurally validated. Interactive installation was not rerun in every named
+client. The matrix deliberately separates
+native support documented by a platform from expected standards-based
+compatibility.
 
-## Compatibility
+| Platform | Support status | What was verified | Install or use path |
+| --- | --- | --- | --- |
+| Claude Desktop / Cowork | Native skill workflow | The v9.2 package passed structural validation; no fresh interactive install was recorded | Download the v9.2 ZIP, then use **Customize > Skills** to upload and enable it |
+| Claude Code | Native directory skill workflow | The v9.2 package structure was validated locally; no fresh interactive CLI install was recorded | Build and extract the ZIP so its `gra` folder is inside your Claude skills directory, then restart Claude Code |
+| OpenAI Codex | Native skill-directory support | Current Codex documentation was checked; the v9.2 ZIP includes `agents/openai.yaml`; no interactive Codex install was rerun | Build and extract the ZIP so its `gra` folder is inside `$HOME/.agents/skills/` for your user or `.agents/skills/` in the repository, then start or reload Codex in that scope |
+| Other Agent Skills clients | Expected compatibility, not verified client support | The v9.2 package follows the Agent Skills layout, but the specification does not define a universal installer | Consult that client's skill-install documentation; do not assume it accepts this ZIP directly |
+| ChatGPT, Gemini, and ordinary chat | Chat Edition use, not Agent Skill installation | The generated 7,968-character v9.2 artifact passed the size and provenance checks; no fresh platform-specific configuration test was recorded | Use the released Chat Edition as instructions or copy-paste content, subject to the platform's current file and instruction limits |
 
-The GRA materials are designed to be portable across agent and
-chat tools.
+### Windows Extraction Examples
 
-- **Claude Desktop / Claude Code**: Native skill. Install the ZIP as an
-  Agent Skill.
-- **OpenAI Codex**: Native skill metadata. `agents/openai.yaml` provides
-  Codex-facing metadata.
-- **ChatGPT**: Prompt/project mode. Use the chat edition as custom
-  instructions; upload references as knowledge or context where supported.
-- **Google Gemini**: Prompt/gem mode. Use the chat edition as instructions;
-  provide references as supporting files or context where supported.
-- **LM Studio / local models**: System-prompt mode. Use the chat edition as
-  the system prompt; add references when context allows.
+These source-build examples must be run from the repository root. They create
+the v9.2 package locally and place the unpacked `gra` folder in the
+documented skill location. They do not send genealogy records anywhere; the
+processing boundary begins only when a client reads your files.
 
-## Installation
+#### Codex
 
-### Claude Desktop App (Cowork) — easiest
-
-1. **Download:**
-   [gra-skill-v9.0.0.zip][gra-v900-zip]
-2. In the Claude desktop app, go to **Customize > Skills**
-3. Upload the ZIP file
-4. Enable the skill
-5. Start researching: "Help me analyze this census record"
-
-### Claude Code (CLI)
-
-```bash
-# Download and install in one step:
-# Set GRA_ZIP_URL to the release asset URL shown above.
-curl -L "$GRA_ZIP_URL" -o /tmp/gra.zip
-unzip /tmp/gra.zip -d ~/.claude/skills/
-
-# Or copy manually:
-cp -r skills/gra ~/.claude/skills/gra
+```powershell
+$zip = Join-Path $env:TEMP 'gra-skill-v9.2.0.zip'
+python scripts/package_gra_skill.py --output $zip
+New-Item -ItemType Directory -Force -Path "$HOME\.agents\skills" | Out-Null
+Expand-Archive -LiteralPath $zip -DestinationPath "$HOME\.agents\skills" -Force
 ```
 
-Restart Claude Code. The skill loads automatically for
-genealogical research questions.
+For repository-only use, replace `"$HOME\.agents\skills"` with
+`".agents\skills"` while your current directory is the repository root. Codex
+then sees `.agents\skills\gra\SKILL.md` in that repository.
 
-### Without Claude Code
+#### Claude Code
 
-The prompt files work in any LLM:
-
-- `research/research-assistant-v9.0.0-chat.md` (repository root, <8,000
-  characters): the generated chat edition — for GPTs, Gems, and
-  copy-paste chat.
-- `references/research-assistant-full.md`: Full methodology for
-  any LLM chat.
-- `references/companion-reference.md`: Upload as a knowledge file
-  alongside the compact prompt.
-
-## What You Can Say
-
-```text
-"Analyze this death certificate for me."
-
-"I found two census records that disagree on my grandmother's
-birth year. Help me resolve the conflict."
-
-"Is this an original or derivative source?"
-
-"Help me write a proof summary for the identity of William
-Smith in the 1850 census."
-
-"What records should I look for next? I'm stuck on my
-great-grandfather in 1880s Virginia."
+```powershell
+$zip = Join-Path $env:TEMP 'gra-skill-v9.2.0.zip'
+python scripts/package_gra_skill.py --output $zip
+New-Item -ItemType Directory -Force -Path "$HOME\.claude\skills" | Out-Null
+Expand-Archive -LiteralPath $zip -DestinationPath "$HOME\.claude\skills" -Force
 ```
 
-## What This Is Not
+Restart the client after installing. On macOS or Linux, extract the same ZIP so
+that the resulting `gra` directory is in the client-specific skills directory.
 
-This is not a database. It does not search records, connect to
-online trees, or access subscription sites. It analyzes what you
-provide — documents, transcriptions, research questions.
+## Legacy v8.5 Continuity
 
-It does not authenticate documents for legal purposes, provide
-legal advice, or guarantee accuracy. It does not replace a
-genealogist. It helps you become a better one.
+The paths below remain available because earlier articles and readers may refer
+to them. They are historical compatibility material, not v9 substitutes. The
+content version is taken from each file's own header; a filename or release tag
+does not override that header.
 
-## Editions and References
+| Retained path | Content version in file | Package or release relationship | Why preserved |
+| --- | --- | --- | --- |
+| [research/research-assistant-v8.5-compact.md](https://github.com/DigitalArchivst/Open-Genealogy/blob/main/research/research-assistant-v8.5-compact.md) | v8.5.2c | Tracked compatibility prompt; not established as identical to a named release ZIP | Existing compact-prompt links |
+| [research/research-assistant-v8.5-compact-unwrapped.md](https://github.com/DigitalArchivst/Open-Genealogy/blob/main/research/research-assistant-v8.5-compact-unwrapped.md) | v8.5.2c | Exact byte-for-byte alias of the preceding path | Existing copy/paste links |
+| [skills/gra/research-assistant-v8.5-full.md](https://github.com/DigitalArchivst/Open-Genealogy/blob/main/skills/gra/research-assistant-v8.5-full.md) | v8.5 Draft (Phase 1) | Restored article-linked v8.5.1c-era path; header does not establish equivalence to a release ZIP | Known article URL |
+| [skills/gra/companion-reference.md](https://github.com/DigitalArchivst/Open-Genealogy/blob/main/skills/gra/companion-reference.md) | v8.5c Reference | Restored historical companion path; no exact release-package equivalence is established by the audit | Known article URL |
+| [skills/gra/references/research-assistant-v8.5-full.md](https://github.com/DigitalArchivst/Open-Genealogy/blob/main/skills/gra/references/research-assistant-v8.5-full.md) | v8.5.2 | Runtime reference included in the v8.5.3 packaging release | v8.5.3 package continuity |
 
-- **Agent**: `SKILL.md`. Best for daily use in Agent Skills clients.
-- **Chat**: `research/research-assistant-v9.0.0-chat.md`. Best for Custom GPTs,
-  Gems, and copy-paste use.
-- **Full**: `references/research-assistant-full.md`. Best for
-  deep methodology.
-- **Companion**: `references/companion-reference.md`. Best for
-  templates and schemas.
+Two repository-wide prompt alias pairs are exact byte-for-byte duplicates:
 
-The compact version captures the core GPS methodology. The full
-version adds detailed protocols for user calibration, document
-analysis, structured output, regression awareness, and more. The
-companion reference provides the templates and decision trees
-cut from the compact for space.
+1. `research/research-assistant-v8.5-compact.md` and `research/research-assistant-v8.5-compact-unwrapped.md`
+2. `research/research-with-citations-v7.md` and `research/web-research-v7.md`
 
-In Claude Code, all three files are available. The compact loads
-as the skill prompt; the full version and reference are consulted
-as needed.
+The canonical navigation entries are `research-assistant-v8.5-compact.md` and
+`research-with-citations-v7.md`; their aliases remain in place for compatibility.
+Do not rename, delete, or consolidate either alias without an inbound-link and
+release-history review.
 
-## The Methodology
+Historical release pages remain available: [v8.5.1c](https://github.com/DigitalArchivst/Open-Genealogy/releases/tag/v8.5.1c), [v8.5.2](https://github.com/DigitalArchivst/Open-Genealogy/releases/tag/v8.5.2), [v8.5.3](https://github.com/DigitalArchivst/Open-Genealogy/releases/tag/v8.5.3), and [v9.0.0](https://github.com/DigitalArchivst/Open-Genealogy/releases/tag/v9.0.0). Release ZIPs are historical assets; corrected packages belong in a new reviewed release, not as replacements for an old asset.
 
-The Genealogical Proof Standard (GPS) has five elements:
+## Known v9.2 Limitations
 
-1. **Reasonably exhaustive research** — search proportional to
-   complexity
-2. **Complete citations** — who, what, when, where, where-within
-3. **Thorough analysis** — classify every source, information
-   type, and evidence type
-4. **Resolution of conflicts** — preponderance hierarchy, not
-   cherry-picking
-5. **Written conclusion** — proof statement, summary, or argument
+Testing identified two model behaviors that compact instructions did not
+eliminate consistently:
 
-The Three-Layer Evidence Model classifies:
+- When a record does not name its informant, the model may still suggest a
+  likely parent or attending physician and classify the information as Primary.
+  Treat an unnamed informant as Indeterminate unless the record itself supports
+  a qualified eyewitness classification.
+- In name conflicts, the Chat Edition may prefer a fuller form because it
+  appears in an Original Source. A source label or fuller spelling does not
+  establish authority; any provisional display form needs a fact-specific
+  provenance rationale.
 
-- **Sources**: Original, Derivative, or Authored
-- **Information**: Primary, Secondary, or Indeterminate
-- **Evidence**: Direct, Indirect, or Negative
+These are documented limits, not approved shortcuts. Human review remains
+responsible for correcting them. The release fixtures preserve both expectations
+for continued improvement.
 
-Never "primary source." Never "secondary source." Those are
-library science terms. In genealogy, we say "original source
-containing primary information that serves as direct evidence."
+## What GRA Is And Is Not
+
+GRA analyzes the records, transcriptions, and questions you provide. It is not
+a record database, an authenticator for legal purposes, legal advice, or a
+guarantee of accuracy. It is GPS-aligned and designed to support careful
+research; it does not enforce or certify the Genealogical Proof Standard.
+
+The full v9.2 methodology and supporting templates are bundled in the Agent Skill
+under `references/`. Chat users can use the Chat Edition directly and may add
+supporting reference files only where their platform allows it.
 
 ## Disclosing AI Assistance
 
-When publishing work produced with this assistant's help,
-include a disclosure statement. The canonical fill-in template
-(also in the companion reference, Appendix J):
+When publishing work produced with GRA's help, identify the tool and retain
+human responsibility. A starting form is:
 
-> Portions of this work were prepared with the assistance of the
-> Genealogical Research Assistant (GRA) v9.0.0 Skill Edition, an
-> AI research aid. All sources, citations, and conclusions were
-> independently verified by [author's full name] on [date]. The
-> author takes professional responsibility for every conclusion.
-
-## Development History
-
-18 months of iterative development (2024-2026):
-
-- v6.1 (Dec 2024) — Foundation
-- v7 (Jan 2025) — Enhanced evidence framework
-- v8 (Jan 2026) — Synthesized from 5 beta candidates
-- v8.5 (Jan 2026) — 12 new features via expert council
-- v8.5c (Feb 2026) — 87% compression for multi-platform use
-- v8.5.2 (Apr 2026) — Implied-relationship inference guardrail
-- v8.5.3 (May 2026) — Packaging release with standalone runtime ZIP
-- v9.0.0 (Jul 2026) — Skill Edition: two-edition architecture
-  (agent skill + generated chat edition), behavior patches,
-  teaching-case anonymization protocol
+> Portions of this work were prepared with the assistance of the Genealogical
+> Research Assistant (GRA) v9.2.0 Skill Edition, an AI research aid. All
+> sources, citations, and conclusions were independently verified by [author's
+> full name] on [date]. The author takes professional responsibility for every
+> conclusion.
 
 ## License
 
@@ -204,10 +159,3 @@ include a disclosure statement. The canonical fill-in template
 
 **Steve Little** ([@DigitalArchivst](https://github.com/DigitalArchivst))
 AI Program Director, National Genealogical Society
-
----
-
-*Part of the [Open-Genealogy][open-genealogy] toolkit.*
-
-[gra-v900-zip]: https://github.com/DigitalArchivst/Open-Genealogy/releases/download/v9.0.0/gra-skill-v9.0.0.zip
-[open-genealogy]: https://github.com/DigitalArchivst/Open-Genealogy

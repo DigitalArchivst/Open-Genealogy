@@ -6,12 +6,37 @@ Welcome. This folder is a ready-to-use AI research workspace for genealogists.
 
 It was introduced for Steve Little's Ontario Ancestors Virtual Conference 2026 session, "New AI Tools That Work on Your Machine." It is designed to open in tools such as OpenAI Codex, Claude Code, and Claude Cowork.
 
+## Before You Open This Folder
+
+This workspace may be stored on your computer, but standard Codex, Claude Code,
+and Claude Cowork workflows use cloud models to process the files they read. Do
+not put living-person addresses, contact information, employment, medical,
+financial, or other sensitive details in a folder you will share with a hosted
+AI service. If material is too sensitive for the service you choose, keep it out
+of that service. The human genealogist verifies every record, citation,
+inference, and conclusion.
+
+## Get This Folder
+
+No separate starter-workspace ZIP was present in the audited releases. Download
+the whole repository, then select this folder:
+
+1. Visit [Open-Genealogy on GitHub](https://github.com/DigitalArchivst/Open-Genealogy), select **Code**, then **Download ZIP**; or use the direct [whole-repository ZIP](https://github.com/DigitalArchivst/Open-Genealogy/archive/refs/heads/main.zip).
+2. Download the ZIP archive.
+3. Extract the archive. GitHub names the extracted top-level folder
+   `Open-Genealogy-main` for the main-branch ZIP.
+4. Open `Open-Genealogy-main/genealogy-ai-starter-workspace`.
+
+Select that final `genealogy-ai-starter-workspace` folder in your client:
+
+- **Codex:** choose it as the local project folder.
+- **Claude Code:** start Claude Code with that folder as the working folder.
+- **Claude Cowork:** choose that folder when granting folder access.
+
 ## First Ten Minutes
 
-1. Open this folder in your AI tool.
-   - Codex: choose this folder as the local project.
-   - Claude Code: start Claude Code in this folder.
-   - Claude Cowork: grant access to this folder.
+1. After reading the safety boundary above, open the selected folder in your AI
+   tool.
 2. Paste this prompt:
 
    ```text
@@ -41,10 +66,10 @@ This is not just a prompt collection. It is a small research room made of workin
 | Research question | Focus the work |
 | Source register | List each source, where it came from, and what it contains |
 | Identity profile | Gather a person's names, dates, places, relationships, clues, and open questions |
-| Variant grid | Track name and place spellings to try in searches |
+| Variant grid | Output you may create to track name and place spellings to try in searches |
 | Research log | Record what was searched and what happened |
 | Negative-search log | Record searches that found nothing |
-| Conflict table | Compare records that disagree |
+| Conflict table | Output you may create to compare records that disagree |
 | Session notes | Preserve where to resume next time |
 
 The immigration example is included because immigration research quickly becomes a real project: names change, places move, indexes mislead, laws differ by jurisdiction, and one record rarely answers the question by itself.
