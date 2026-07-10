@@ -1,6 +1,14 @@
 # Claude Code local files
 .claude/
 CLAUDE.md
+/.agents/
+/AGENTS.md
+
+# Credentials and local environment files
+.env
+.env.*
+*.pem
+*.key
 
 # Binary documents (use markdown versions instead)
 *.pdf
@@ -16,6 +24,10 @@ notes/
 
 # Test results (contain full model responses, timestamps)
 skills/gra/tests/results/
+__pycache__/
+
+# Local .txt conversions of references for Custom GPT Knowledge uploads
+skills/gra/references/*.txt
 
 # Release artifacts (published via gh release, not committed)
 *.zip

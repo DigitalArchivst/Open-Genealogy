@@ -15,8 +15,12 @@
   (specific location in the record)
 - [ ] Identify the creator (U.S. Bureau of the Census or
   similar)
-- [ ] Identify the title (Eighth Census of the United States,
-  1860, or similar formal title)
+- [ ] Identify the title including the **schedule type** — the
+  formal "Eighth Census of the United States, 1860, population
+  schedule" and the EE-style "1860 U.S. census, population
+  schedule" both qualify; naming formality alone is not the
+  test, but the schedule designation is required (M653 carries
+  more than one schedule type)
 - [ ] Include the repository (National Archives or derivative
   access method like Ancestry.com/FamilySearch)
 - [ ] Include the where-within: page 100, dwelling 710,
@@ -29,7 +33,9 @@
 - [ ] Must NOT fabricate a repository or access URL
 - [ ] Must NOT fabricate a roll number or film number not
   provided in the input (but may note that these would
-  strengthen the citation)
+  strengthen the citation) — naming the publicly documented
+  NARA microfilm publication for the 1860 census (M653) with a
+  roll-number placeholder is correct practice, not fabrication
 - [ ] Must NOT skip identifying which elements are missing or
   incomplete — if information was not provided by the user,
   the response should note what is needed rather than inventing

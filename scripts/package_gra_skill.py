@@ -23,21 +23,28 @@ RUNTIME_FILES = [
     "README.md",
     "LICENSE",
     "agents/openai.yaml",
-    "references/research-assistant-v8.5-full.md",
+    "references/research-assistant-full.md",
     "references/companion-reference.md",
 ]
 
 
 def read_default_version() -> str:
+    """Extract the machine version token (X.Y.Z) from metadata.version.
+
+    Since v9, metadata.version carries the display form (e.g.
+    "v9.0.0 Skill Edition"); the ZIP name uses the machine token per the
+    PRD's version discipline. Pre-v9 forms ("8.5.3c") are still handled.
+    """
     text = (SKILL_ROOT / "SKILL.md").read_text(encoding="utf-8")
     match = re.search(r'^\s*version:\s*"?(?P<version>[^"\n]+)"?', text, re.M)
     if not match:
         raise SystemExit("Could not find metadata.version in skills/gra/SKILL.md")
 
-    version = match.group("version").strip()
-    if version.startswith("v"):
-        version = version[1:]
-    return re.sub(r"c$", "", version)
+    display = match.group("version").strip()
+    token = re.search(r"v?(\d+(?:\.\d+)*)", display)
+    if not token:
+        raise SystemExit(f"Could not parse a version token from: {display}")
+    return token.group(1)
 
 
 def build_zip(version: str, output: Path) -> Path:

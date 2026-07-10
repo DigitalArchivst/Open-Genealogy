@@ -10,12 +10,18 @@ Usage:
     py run_tests.py t01 t05          # Run specific tests
     py run_tests.py --list           # List available tests
     py run_tests.py --verbose        # Show full responses
+    py run_tests.py --system PATH    # Alternate system prompt
+                                     # (e.g. the generated chat edition)
+    py run_tests.py --label NAME     # Tag the results filename
+    py run_tests.py --exclude t18    # Skip fixtures by id prefix
+                                     # (comma-separated)
 
 Requires:
     ANTHROPIC_API_KEY environment variable set
     pip install anthropic  (if not already installed)
 
-Cost: ~$0.10-0.30 per full run (Sonnet for test, Haiku for judge)
+Cost: ~$1-2 per full run at 25 fixtures (Opus 4.6 for test,
+Sonnet 4.6 for judge)
 """
 
 import os
@@ -38,28 +44,41 @@ FIXTURES_DIR = SCRIPT_DIR / "fixtures"
 RESULTS_DIR = SCRIPT_DIR / "results"
 
 # Models
-TEST_MODEL = "claude-sonnet-4-20250514"
-JUDGE_MODEL = "claude-haiku-4-5-20251001"
+TEST_MODEL = "claude-opus-4-6"
+JUDGE_MODEL = "claude-sonnet-4-6"
 
 # API key
 API_KEY_ENV = "ANTHROPIC_API_KEY"
 
 
-def load_skill_prompt():
-    """Load SKILL.md as the system prompt, stripping YAML frontmatter."""
-    skill_path = SKILL_DIR / "SKILL.md"
-    text = skill_path.read_text(encoding="utf-8")
-    # Strip YAML frontmatter
+def load_prompt_file(path):
+    """Load a system prompt file, stripping YAML frontmatter if present."""
+    text = path.read_text(encoding="utf-8")
     if text.startswith("---"):
         end = text.index("---", 3)
         text = text[end + 3:].strip()
     return text
 
 
+def load_skill_prompt():
+    """Load SKILL.md as the system prompt, stripping YAML frontmatter."""
+    return load_prompt_file(SKILL_DIR / "SKILL.md")
+
+
 def parse_fixture(path):
     """Parse a test fixture into structured components."""
     text = path.read_text(encoding="utf-8")
     fixture = {"id": path.stem, "path": str(path)}
+
+    # Extract preamble notes (text between the title line and the
+    # Input section: edition notes, judging notes) for the judge.
+    preamble_match = re.search(
+        r"\A#[^\n]*\n(.*?)(?=\n## Input)", text, re.DOTALL
+    )
+    if preamble_match:
+        preamble = preamble_match.group(1).strip()
+        if preamble:
+            fixture["notes"] = preamble
 
     # Extract Input section
     input_match = re.search(
@@ -115,7 +134,8 @@ def call_claude(system, user, model):
     client = anthropic.Anthropic(api_key=os.environ[API_KEY_ENV])
     response = client.messages.create(
         model=model,
-        max_tokens=2048,
+        max_tokens=4096,
+        temperature=0,
         system=system,
         messages=[{"role": "user", "content": user}],
     )
@@ -173,7 +193,7 @@ def string_checks(response, fixture):
     return results
 
 
-def judge_rubric(response, fixture):
+def judge_rubric(response, fixture, edition=None):
     """Use a rubric-guided judge to evaluate MUST/MUST NOT criteria."""
     must_text = "\n".join(
         f"  MUST {i+1}: {item}"
@@ -184,6 +204,21 @@ def judge_rubric(response, fixture):
         for i, item in enumerate(fixture.get("must_not", []))
     )
 
+    edition_note = ""
+    if edition:
+        edition_note = (
+            f"\nEDITION UNDER TEST: {edition}. Some criteria are "
+            "edition-conditional; apply the branch matching this "
+            "edition.\n"
+        )
+
+    notes_block = ""
+    if fixture.get("notes"):
+        notes_block = (
+            f"\nFIXTURE NOTES (binding guidance for judging):\n"
+            f"{fixture['notes']}\n"
+        )
+
     judge_prompt = f"""You are a GPS methodology alignment judge.
 Evaluate the RESPONSE against each criterion below.
 
@@ -192,8 +227,25 @@ PASS|criterion_id|brief reason
 or
 FAIL|criterion_id|brief reason
 
-Do not explain further. Do not add commentary. Just the verdicts.
-
+Rules:
+- Evaluate each criterion exactly once, in the order given. Decide
+  before you write; never re-evaluate or contradict a verdict
+  mid-line.
+- Judge each criterion strictly on its own wording. If a criterion
+  states a condition under which it passes, apply that condition as
+  written. A conditional criterion whose condition is unmet is
+  PASS, never FAIL.
+- Terminology: the banned phrases are exactly "primary source",
+  "secondary source", "primary evidence", and "secondary evidence"
+  (and their plurals). "Primary Information", "Secondary
+  Information", "Indeterminate Information", and phrases applying
+  primary/secondary/firsthand to informant knowledge are CORRECT
+  GPS vocabulary — never violations. Quoting, correcting, or
+  explaining why a banned phrase is wrong is NOT a violation. Fail
+  only an unqualified use, and quote the exact matched string in
+  your reason.
+- Do not explain further. Do not add commentary. Just the verdicts.
+{edition_note}{notes_block}
 CRITERIA:
 {must_text}
 {must_not_text}
@@ -212,24 +264,34 @@ RESPONSE TO EVALUATE:
         model=JUDGE_MODEL,
     )
 
+    # Parse all verdict tokens, including self-corrections embedded
+    # mid-line ("FAIL|id|...marginal pass. PASS|id|...") and duplicate
+    # lines for the same criterion: the LAST verdict per criterion
+    # wins. Reasons stop before any embedded follow-up verdict token.
+    verdict_re = re.compile(
+        r"(PASS|FAIL)\|([^|\n]+)\|((?:(?!PASS\||FAIL\|)[^\n])*)"
+    )
+    verdicts = {}
+    order = []
+    for m in verdict_re.finditer(judge_response):
+        status = m.group(1)
+        crit_display = m.group(2).strip()
+        reason = m.group(3).strip()
+        key = crit_display.replace("_", " ").upper()
+        if key not in verdicts:
+            order.append(key)
+            verdicts[key] = (status, crit_display, reason)
+        else:
+            # keep first-seen display form; last verdict wins
+            verdicts[key] = (status, verdicts[key][1], reason)
     results = []
-    for line in judge_response.strip().split("\n"):
-        line = line.strip()
-        if line.startswith("PASS") or line.startswith("FAIL"):
-            parts = line.split("|", 2)
-            if len(parts) >= 3:
-                status = parts[0].strip()
-                crit_id = parts[1].strip()
-                reason = parts[2].strip()
-                results.append((status, f"JUDGE {crit_id}: {reason}"))
-            elif len(parts) == 2:
-                status = parts[0].strip()
-                rest = parts[1].strip()
-                results.append((status, f"JUDGE: {rest}"))
+    for key in order:
+        status, crit_display, reason = verdicts[key]
+        results.append((status, f"JUDGE {crit_display}: {reason}"))
     return results
 
 
-def run_test(fixture, system_prompt, verbose=False):
+def run_test(fixture, system_prompt, verbose=False, edition=None):
     """Run a single test fixture."""
     print(f"\n{'=' * 60}")
     print(f"  {fixture['id']}")
@@ -249,7 +311,7 @@ def run_test(fixture, system_prompt, verbose=False):
     string_results = string_checks(response, fixture)
 
     # Judge checks
-    judge_results = judge_rubric(response, fixture)
+    judge_results = judge_rubric(response, fixture, edition=edition)
 
     # Combine
     all_results = string_results + judge_results
@@ -274,9 +336,25 @@ def run_test(fixture, system_prompt, verbose=False):
     }
 
 
+def pop_flag_value(args, flag):
+    """Remove `flag value` from args and return the value, or None."""
+    if flag in args:
+        i = args.index(flag)
+        if i + 1 < len(args):
+            value = args[i + 1]
+            del args[i:i + 2]
+            return value
+        del args[i]
+    return None
+
+
 def main():
-    verbose = "--verbose" in sys.argv or "-v" in sys.argv
-    list_only = "--list" in sys.argv
+    args = sys.argv[1:]
+    system_path = pop_flag_value(args, "--system")
+    label = pop_flag_value(args, "--label")
+    exclude = pop_flag_value(args, "--exclude")
+    verbose = "--verbose" in args or "-v" in args
+    list_only = "--list" in args
 
     # Find fixtures
     fixture_paths = sorted(FIXTURES_DIR.glob("t*.md"))
@@ -288,11 +366,23 @@ def main():
         return
 
     # Filter to specific tests if named
-    named = [a for a in sys.argv[1:] if not a.startswith("-")]
+    named = [a for a in args if not a.startswith("-")]
     if named:
         fixture_paths = [
             p for p in fixture_paths
             if any(n in p.stem for n in named)
+        ]
+
+    # Exclude fixtures by exact id prefix (comma-separated; "t18"
+    # excludes t18-* but not t18b-*)
+    if exclude:
+        excludes = [e.strip() for e in exclude.split(",") if e.strip()]
+        fixture_paths = [
+            p for p in fixture_paths
+            if not any(
+                p.stem == e or p.stem.startswith(e + "-")
+                for e in excludes
+            )
         ]
 
     if not fixture_paths:
@@ -304,9 +394,16 @@ def main():
         print(f"Error: {API_KEY_ENV} not set.")
         sys.exit(1)
 
-    # Load skill prompt
-    system_prompt = load_skill_prompt()
-    print(f"Loaded SKILL.md ({len(system_prompt)} chars)")
+    # Load system prompt (SKILL.md by default; --system overrides,
+    # e.g. the generated chat edition)
+    if system_path:
+        prompt_file = Path(system_path)
+        system_prompt = load_prompt_file(prompt_file)
+        print(f"Loaded {prompt_file.name} ({len(system_prompt)} chars)")
+    else:
+        prompt_file = SKILL_DIR / "SKILL.md"
+        system_prompt = load_skill_prompt()
+        print(f"Loaded SKILL.md ({len(system_prompt)} chars)")
     print(f"Running {len(fixture_paths)} tests with {TEST_MODEL}")
     print(f"Judge model: {JUDGE_MODEL}")
 
@@ -314,9 +411,12 @@ def main():
     all_test_results = []
     start = time.time()
 
+    edition = label or ("chat" if system_path else "agent")
     for path in fixture_paths:
         fixture = parse_fixture(path)
-        result = run_test(fixture, system_prompt, verbose=verbose)
+        result = run_test(
+            fixture, system_prompt, verbose=verbose, edition=edition
+        )
         all_test_results.append(result)
 
     elapsed = time.time() - start
@@ -343,10 +443,13 @@ def main():
     # Save results
     RESULTS_DIR.mkdir(exist_ok=True)
     timestamp = datetime.now().strftime("%Y-%m-%d_%H%M")
-    report_path = RESULTS_DIR / f"run-{timestamp}.json"
+    suffix = f"-{label}" if label else ""
+    report_path = RESULTS_DIR / f"run-{timestamp}{suffix}.json"
 
     report = {
         "timestamp": timestamp,
+        "label": label,
+        "system_prompt_file": str(prompt_file),
         "test_model": TEST_MODEL,
         "judge_model": JUDGE_MODEL,
         "skill_chars": len(system_prompt),

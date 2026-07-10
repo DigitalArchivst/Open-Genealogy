@@ -1,5 +1,11 @@
 # Getting Started with Open-Genealogy
 
+> **Legacy GRA guide:** Part 3 documents GRA v8 and remains available for
+> readers following older articles and links. The current release is
+> [GRA v9.0.0 Skill Edition](skills/gra/), with a generated
+> [chat edition](research/research-assistant-v9.0.0-chat.md) for Custom GPTs,
+> Gems, and copy-paste use.
+
 A guide for genealogists—from hobbyists to credentialed professionals—who want
 to use AI tools that follow professional standards. This guide covers GitHub
 basics, navigating the Open-Genealogy repository, and using the flagship

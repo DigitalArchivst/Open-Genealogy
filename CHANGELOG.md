@@ -1,5 +1,35 @@
 # Changelog
 
+## v9.0.0 Skill Edition - 2026-07-09 - Two editions, presentation discipline, folded methodology patches
+
+The first major release since v8: one methodology, two editions. Built to the
+approved v9.0.0 PRD; supersedes the v8.5.x line.
+
+- **Two editions**: the agent edition (`skills/gra/SKILL.md`, Agent Skills
+  clients) and a chat edition (`research/research-assistant-v9.0.0-chat.md`,
+  under 8,000 characters for Custom GPTs, Gems, and copy-paste), generated
+  from the agent edition by `scripts/generate_chat_edition.py` — never
+  hand-edited.
+- **Presentation discipline**: "Start Here" quick-start blocks on multi-step
+  research plans (universal, depth-scaled, cost-and-channel labeled, hedged
+  costs); plan-time content advisories for hard records (preparation-framed,
+  never gating); two-direction confidence calibration (anti-hedging paired
+  with an indirect-evidence ceiling); citation templates in research plans;
+  explicit draft self-labeling on analytical output.
+- **Methodology guardrails**: operational two-prong source-independence test
+  (provenance + informant); same-spouse coincidence trap; document-date
+  taxonomy (six date types); life-stage name evolution; specialist-domain
+  repository hooks with three worked domains (military/POW, immigration,
+  religious).
+- **Registered workflow markers**: `[citation needed]`, `[VERIFY]`, `[ADAPT]`.
+- **Tests**: fixture suite grows from 11 to 25 (t12-t24 plus a paired
+  advanced-persona fixture), with per-edition coverage mapping.
+- Skill metadata, activation boundaries, and context-accurate capability
+  disclosure are first-class; `scripts/measure_gra_compact.py` added for
+  size-gate enforcement.
+- **Legacy continuity**: the article-linked v8.5.1c full prompt and companion
+  paths remain available, along with the versioned v8.5.3 reference.
+
 ## v8.5.3 - 2026-05-04 - Packaging release
 
 No runtime or methodology changes. Refactor of skill packaging only.

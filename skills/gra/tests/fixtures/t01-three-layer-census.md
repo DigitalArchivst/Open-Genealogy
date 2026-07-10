@@ -11,9 +11,17 @@
 
 ## MUST Criteria
 
-- [ ] Classify source as **Original**
-- [ ] Classify information as **Primary Information** (head of household
-  likely provided data)
+- [ ] Classify source as **Original** — or, if the response
+  distinguishes the access form from the record, classify the
+  enumerator's manuscript as Original and the access form
+  (image, microfilm, transcription) as Derivative with the
+  distinction made explicit; either treatment passes
+- [ ] Classify information quality with the informant in view:
+  **Indeterminate Information** (the 1850 schedule does not record
+  who answered the enumerator) is the preferred classification;
+  **Primary Information** passes with an explicit caveat that a
+  head-of-household informant is assumed, not recorded — either
+  treatment passes when the informant problem is acknowledged
 - [ ] Classify evidence for parentage as **Indirect Evidence** (1850
   census does not state relationships; household position
   implies but does not prove)
@@ -31,9 +39,13 @@
 
 ## Ground Truth
 
-The 1850 census is an original source with Primary Information
-(head of household as informant). For Margaret's parentage, the
+The 1850 census is an original source. Because the 1850 schedule
+does not record the informant, the strict classification is
+Indeterminate Information; treating self-knowledge facts as
+Primary Information is also accepted practice when the response
+explicitly acknowledges that the informant is assumed, not
+recorded. Either treatment passes when the informant problem is
+acknowledged. For Margaret's parentage, the
 evidence is Indirect Evidence — household listing implies but does not
-explicitly state the parent-child relationship. Combined with
-direct evidence from a death certificate, parentage is proved.
-From this record alone, parentage is probable at best.
+explicitly state the parent-child relationship. From this record
+alone, parentage is probable at best.
