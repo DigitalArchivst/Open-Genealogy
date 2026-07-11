@@ -19,6 +19,8 @@ Complete catalog of prompts, scripts, and tools.
 - [genealogy-ai-starter-workspace/](genealogy-ai-starter-workspace/):
   Attendee-ready starter project folder for using Codex, Claude Code, or Claude
   Cowork with genealogical research files, logs, prompts, and guardrails
+- [reference/trifecta/](reference/trifecta/): Complete Trifecta reference,
+  eight infographics, chatbot-accessible raw Markdown, and Lawrence starter-packet links
 
 ---
 

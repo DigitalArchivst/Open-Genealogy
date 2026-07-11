@@ -27,6 +27,9 @@ GRA v8.5, v8, and v7 remain available under the documented
 
 ## What's Here
 
+- **[Trifecta Complete Reference](reference/trifecta/)**
+  - Description: Full guide to one genealogist, two AI assistants, one folder, and GRA v9.2
+  - Start Here: [Reference guide and chatbot-accessible Markdown](reference/trifecta/README.md)
 - **[Genealogy AI Starter Workspace](genealogy-ai-starter-workspace/)**
   - Description: Project-folder starter kit for Codex, Claude Code, and Cowork
   - Start Here: [README.md](genealogy-ai-starter-workspace/README.md)
