@@ -1,0 +1,48 @@
+name: GRA release integrity
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Exact GRA release tag in vX.Y.Z form
+        required: true
+        default: v9.2.0
+        type: string
+  release:
+    types: [published, edited, released]
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      startsWith(github.event.release.tag_name, 'v')
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GRA_RELEASE_TAG: >-
+        ${{ github.event_name == 'workflow_dispatch' &&
+        inputs.tag || github.event.release.tag_name }}
+    steps:
+      - name: Check out the integrity checker
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run offline release-integrity tests
+        run: python -m unittest scripts.tests.test_gra_release_integrity
+
+      - name: Verify the exact published release
+        run: >-
+          python scripts/check_gra_release_integrity.py
+          --repository "${GITHUB_REPOSITORY}"
+          --tag "${GRA_RELEASE_TAG}"
+          --source-root .

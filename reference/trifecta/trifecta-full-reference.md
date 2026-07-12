@@ -278,9 +278,9 @@ Skills can be installed in two places, and the difference matters enough for one
 
 ### The installation prompt
 
-You will not download GRA by hand. You will ask your assistant to fetch and install its own methods manual, which is itself a small demonstration of what these agents can do. The prompt below is the original, recovered exactly as first written; give it to Claude in your open Code session:
+You will not download GRA by hand. You will ask your assistant to fetch and install its own methods manual, which is itself a small demonstration of what these agents can do. Give this pinned installation prompt to Claude in your open Code session:
 
-> Open https://github.com/DigitalArchivst/Open-Genealogy/releases/latest. Download the asset named `gra-skill-v*.zip` from the newest release and install it as an Agent Skill. Do not install the Chat Edition Markdown file. If you cannot access files or install skills, tell me exactly what I must do manually.
+> Open the official GRA v9.2.0 release page at https://github.com/DigitalArchivst/Open-Genealogy/releases/tag/v9.2.0. Download exactly `gra-skill-v9.2.0.zip` and install it as an Agent Skill. Do not install the Chat Edition Markdown file. If you cannot access files or install skills, tell me exactly what I must do manually.
 
 Before you approve anything the assistant proposes, you should be able to answer four questions from what it has told you: Is the download coming from the official `DigitalArchivst/Open-Genealogy` release on GitHub? Is the selected file the Agent Skill ZIP, not the Chat Edition Markdown file? Is the destination the user-wide skills folder, outside your genealogy folder? Is it changing only the `gra` skill folder and nothing else? If a proposed command is not explained, ask what it does. Do not approve what was not explained, and never approve a request to touch a whole drive.
 
@@ -306,7 +306,7 @@ On July 10, a fresh Claude Code session found GRA v9.2.0 at the expected path an
 
 ### If the prompt cannot finish
 
-Some plans, permission modes, or workplace policies will stop an assistant from downloading or writing outside the project. That is a boundary working, not a failure. The manual route needs no terminal: open the official latest-release page yourself, download `gra-skill-v9.2.0.zip` (not the Chat Edition file), confirm the ZIP holds one top-level `gra` folder, and copy that folder into `C:\Users\<you>\.claude\skills\` so that `SKILL.md` sits at `...\skills\gra\SKILL.md`, not at `...\skills\gra\gra\SKILL.md`. If a `gra` folder already exists, rename it to a dated backup and move that backup out of the skills folder entirely. Open the installed `SKILL.md` and confirm the version line reads v9.2.0 Skill Edition, then restart Claude and begin a new session.
+Some plans, permission modes, or workplace policies will stop an assistant from downloading or writing outside the project. That is a boundary working, not a failure. The manual route needs no terminal: open the [official GRA v9.2.0 release page](https://github.com/DigitalArchivst/Open-Genealogy/releases/tag/v9.2.0), download `gra-skill-v9.2.0.zip` (not the Chat Edition file), confirm the ZIP holds one top-level `gra` folder, and copy that folder into `C:\Users\<you>\.claude\skills\` so that `SKILL.md` sits at `...\skills\gra\SKILL.md`, not at `...\skills\gra\gra\SKILL.md`. If a `gra` folder already exists, rename it to a dated backup and move that backup out of the skills folder entirely. Open the installed `SKILL.md` and confirm the version line reads v9.2.0 Skill Edition, then restart Claude and begin a new session.
 
 > **Mac readers:** the global location is `~/.claude/skills/gra/`, the same address in Mac form. Finder hides dot-folders by default; press Cmd+Shift+Period to reveal them. Everything else in this section is identical.
 

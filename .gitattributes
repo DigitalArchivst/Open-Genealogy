@@ -8,6 +8,7 @@
 *.yml text eol=lf
 *.ged text eol=lf
 *.txt text eol=lf
+skills/gra/LICENSE text eol=lf
 
 *.jpg binary
 *.jpeg binary
