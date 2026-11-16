@@ -12,6 +12,7 @@ For platform-agnostic prompts, see [Assistants](../assistants/).
 | [GRA v9.2.0](https://github.com/DigitalArchivst/Open-Genealogy/tree/v9.2.0/skills/gra) | GPS-aligned genealogical research assistant Agent and Chat editions | **current release** |
 | [GRA v9.0.0](https://github.com/DigitalArchivst/Open-Genealogy/releases/tag/v9.0.0) | Preserved previous GRA release | previous release |
 | [gedcom-creator/](gedcom-creator/) | GEDCOM 5.5.1 file generator | stable |
+| [Credit Finder v1.3.2](https://github.com/DigitalArchivst/credit-finder) | Finds who a digital work should credit, with evidence and credit wording. Separate repository, MIT licensed | experimental |
 
 ## Current GRA v9.2.0
 
