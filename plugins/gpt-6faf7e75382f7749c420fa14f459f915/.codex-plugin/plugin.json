@@ -20,7 +20,7 @@
     "privacyPolicyURL": "https://aigenealogytools.vibegenealogy.ai/privacy/"
   },
   "name": "gpt-6faf7e75382f7749c420fa14f459f915",
-  "version": "0.24.3",
+  "version": "0.24.5",
   "description": "Upload a photograph, headstone, notice, or family record. Genealogy Eyes reads visible wording, explains what the image can tell a family historian, and suggests a record to check next. Ask it to distinguish a visible clue from a possible identification or relationship.",
   "author": {
     "name": "Steve Little",

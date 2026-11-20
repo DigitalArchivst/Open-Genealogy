@@ -11,7 +11,7 @@ Choose a tool below and run its install command. Open a new Codex chat to use it
 
 | Tool | Version | Install command |
 | --- | --- | --- |
-| [Genealogy Eyes](gpt-6faf7e75382f7749c420fa14f459f915/) | 0.24.3 | `codex plugin add gpt-6faf7e75382f7749c420fa14f459f915@ai-genealogy-tools` |
+| [Genealogy Eyes](gpt-6faf7e75382f7749c420fa14f459f915/) | 0.24.5 | `codex plugin add gpt-6faf7e75382f7749c420fa14f459f915@ai-genealogy-tools` |
 | [Genealogy Research Assistant](gpt-a5841d8e1990ea506c7539682456a066/) | 0.6.2-rc.1 | `codex plugin add gpt-a5841d8e1990ea506c7539682456a066@ai-genealogy-tools` |
 | [Lingua Maven](gpt-b94ef37e44c493b05dcb976e1a25855a/) | 0.26.2 | `codex plugin add gpt-b94ef37e44c493b05dcb976e1a25855a@ai-genealogy-tools` |
 | [Open GeneaGPT](gpt-eae8f7b0d9101db066749d9856ab7887/) | 0.28.1+bundle.cf0dbcb5268d43a58bb7b5177132ebce | `codex plugin add gpt-eae8f7b0d9101db066749d9856ab7887@ai-genealogy-tools` |
