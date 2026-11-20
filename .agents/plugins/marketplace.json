@@ -15,6 +15,18 @@
         "authentication": "ON_INSTALL"
       },
       "category": "Education & Research"
+    },
+    {
+      "name": "gpt-a5841d8e1990ea506c7539682456a066",
+      "source": {
+        "source": "local",
+        "path": "./plugins/gpt-a5841d8e1990ea506c7539682456a066"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Education & Research"
     }
   ]
 }

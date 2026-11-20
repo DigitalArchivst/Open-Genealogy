@@ -1,0 +1,47 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "author": {
+    "name": "Steve Little",
+    "url": "https://aigenealogyinsights.com"
+  },
+  "description": "For genealogists working with records. Compare people with similar names, weigh conflicting evidence, draft citations, and plan the next search. Genealogical conclusions require human verification against the records.",
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "capabilities": [
+          "skills"
+        ],
+        "category": "Education & Research",
+        "composerIcon": "./assets/gpt-icon.png",
+        "defaultPrompt": [
+          "Could two people named in different records be the same person?",
+          "What does this record establish about a birth, and what should I check next?",
+          "Could a missing census entry support a conclusion about relocation?"
+        ],
+        "developerName": "Steve Little",
+        "displayName": "Genealogy Research Assistant",
+        "logo": "./assets/gpt-icon.png",
+        "longDescription": "For genealogists working with records. Compare people with similar names, weigh conflicting evidence, draft citations, and plan the next search. Genealogical conclusions require human verification against the records.",
+        "shortDescription": "Evaluate genealogical evidence",
+        "websiteURL": "https://aigenealogytools.vibegenealogy.ai/tools/genealogical-research-assistant/",
+        "supportURL": "https://aigenealogytools.vibegenealogy.ai/privacy/",
+        "privacyPolicyURL": "https://aigenealogytools.vibegenealogy.ai/privacy/"
+      },
+      "review": {
+        "prompts": [
+          "Could two people named in different records be the same person?",
+          "What does this record establish about a birth, and what should I check next?",
+          "Could a missing census entry support a conclusion about relocation?"
+        ],
+        "commerce": false,
+        "commerce_description": "GRA is free and does not sell products or process payments."
+      },
+      "publication": {
+        "countries": [],
+        "release_notes": "The compact GRA skill includes the two GRA v9.2 research references and a closing reminder to verify substantive answers."
+      }
+    }
+  },
+  "name": "gpt-a5841d8e1990ea506c7539682456a066",
+  "version": "0.6.2-rc.1"
+}
