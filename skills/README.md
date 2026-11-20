@@ -17,6 +17,7 @@ For platform-agnostic prompts, see [Assistants](../assistants/).
 | [Biographical Sketch Generator](biographical-sketch-generator/) | Write a short birthday radio biography. [Download v1.0.0](https://github.com/DigitalArchivst/Open-Genealogy/releases/download/biographical-sketch-generator-skill-v1.0.0/biographical-sketch-generator-skill-v1.0.0.zip) | current release |
 | [Steve's Paper to Podcast Script Generator](paper-to-podcast-script-generator/) | Adapt a paper into a two-host podcast script. [Download v1.0.0](https://github.com/DigitalArchivst/Open-Genealogy/releases/download/paper-to-podcast-script-generator-skill-v1.0.0/paper-to-podcast-script-generator-skill-v1.0.0.zip) | current release |
 | [Email Helper](email-helper/) | Turn an email into a task list and draft reply. [Download v1.0.0](https://github.com/DigitalArchivst/Open-Genealogy/releases/download/email-helper-skill-v1.0.0/email-helper-skill-v1.0.0.zip) | current release |
+| [Steve's Basic Proofreader](basic-proofreader/) | Proofread with the fewest changes. [Download v1.0.0](https://github.com/DigitalArchivst/Open-Genealogy/releases/download/basic-proofreader-skill-v1.0.0/basic-proofreader-skill-v1.0.0.zip) | current release |
 | [gedcom-creator/](gedcom-creator/) | GEDCOM 5.5.1 file generator | stable |
 | [Credit Finder v1.3.2](https://github.com/DigitalArchivst/credit-finder) | Finds who a digital work should credit, with evidence and credit wording. Separate repository, MIT licensed | experimental |
 
