@@ -30,6 +30,7 @@ For platform-agnostic prompts, see [Assistants](../assistants/).
 | [Genealogy Document Helper](genealogy-document-helper/) | Create a catalog entry for an archival item. [Download v1.0.1](https://github.com/DigitalArchivst/Open-Genealogy/releases/download/genealogy-document-helper-skill-v1.0.1/genealogy-document-helper-skill-v1.0.1.zip) | current release |
 | [Steve's Cemetery Transcriber](cemetery-transcriber/) | Transcribe and describe a gravestone. [Download v1.0.1](https://github.com/DigitalArchivst/Open-Genealogy/releases/download/cemetery-transcriber-skill-v1.0.1/cemetery-transcriber-skill-v1.0.1.zip) | current release |
 | [Steve's Clarity Checker](clarity-checker/) | Find places where a draft loses its reader. [Download v1.0.1](https://github.com/DigitalArchivst/Open-Genealogy/releases/download/clarity-checker-skill-v1.0.1/clarity-checker-skill-v1.0.1.zip) | current release |
+| [Steve's Explainer](explainer/) | Explain one idea at two reading levels. [Download v1.0.2](https://github.com/DigitalArchivst/Open-Genealogy/releases/download/explainer-skill-v1.0.2/explainer-skill-v1.0.2.zip) | current release |
 | [gedcom-creator/](gedcom-creator/) | GEDCOM 5.5.1 file generator | stable |
 | [Credit Finder v1.3.2](https://github.com/DigitalArchivst/credit-finder) | Finds who a digital work should credit, with evidence and credit wording. Separate repository, MIT licensed | experimental |
 
