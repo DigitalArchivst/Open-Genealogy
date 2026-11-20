@@ -1,6 +1,6 @@
 # AI Genealogy Tools for Codex
 
-Add this GitHub marketplace to Codex, then install the tools you want.
+Add this GitHub marketplace to Codex once, then install as many tools as you want from the same catalog.
 
 ```sh
 codex plugin marketplace add https://github.com/DigitalArchivst/Open-Genealogy.git
@@ -44,7 +44,12 @@ Choose a tool below and run its install command. Open a new Codex chat to use it
 | [Steve's Chatlog Analyzer](gpt-34274817106a5d2bf501046ade81a030/) | 0.1.1+bundle.71be79c9d4dbe79730fe6778839e0619 | `codex plugin add gpt-34274817106a5d2bf501046ade81a030@ai-genealogy-tools` |
 | [Steve's Image Citation Builder](gpt-84a19c2f053ecbeebe40b9850d65c20a/) | 0.2.1+bundle.48707a6d9e36ce0b82dcaa2c92630632 | `codex plugin add gpt-84a19c2f053ecbeebe40b9850d65c20a@ai-genealogy-tools` |
 | [Deep Look](gpt-69b9f7febb9f0618d50e019d5186a869/) | 0.2.2 | `codex plugin add gpt-69b9f7febb9f0618d50e019d5186a869@ai-genealogy-tools` |
+| [GEDCOM-Creator-mini](gpt-b14d1d8afa99a0260303d5423d97ced1/) | 0.3.3 | `codex plugin add gpt-b14d1d8afa99a0260303d5423d97ced1@ai-genealogy-tools` |
 
-For a reproducible install, append `--ref COMMIT` to the marketplace-add command, using the full commit SHA from the release you want.
+### GEDCOM Creator
 
-Find worked examples and standalone skill downloads in the [AI Genealogy Tools directory](https://aigenealogytools.vibegenealogy.ai/). Source-specific licenses and artwork permissions are described in the [repository rights guide](../RIGHTS.md). See [OpenAI’s plugin packaging guide](https://developers.openai.com/plugins/build/plugins) for the repository marketplace format.
+The Codex installation ran the bundled Python builder for a fictional family export and an export with living relatives. Both files passed the family-link and submitter checks. In private ChatGPT tests, three files passed output checks, and ChatGPT reported generating them with a fallback. Use the Codex installation or the standalone skill when you need the maintained builder.
+
+For a reproducible install, add the marketplace once with `--ref COMMIT` using a full catalog commit that includes all the tools you want. Use the individual plugin-add commands after that.
+
+Find worked examples and standalone skill downloads in the [AI Genealogy Tools directory](https://aigenealogytools.vibegenealogy.ai/). Source-specific licenses and artwork permissions are described in the [repository rights guide](../RIGHTS.md). See [OpenAIâ€™s plugin packaging guide](https://developers.openai.com/plugins/build/plugins) for the repository marketplace format.

@@ -1,0 +1,39 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "author": {
+    "name": "Steve Little",
+    "url": "https://aigenealogyinsights.com"
+  },
+  "description": "Preview named people and family relationships for GEDCOM 5.5.1. Keep unknown facts and uncertain relationships visible. Confirm the preview before generating a family-history exchange file in a supported client.",
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "capabilities": [
+          "skills"
+        ],
+        "category": "Education & Research",
+        "defaultPrompt": [
+          "Preview the people and relationships in these notes before I approve a GEDCOM file."
+        ],
+        "developerName": "Steve Little",
+        "displayName": "GEDCOM-Creator-mini",
+        "longDescription": "Preview named people and family relationships for GEDCOM 5.5.1. Keep unknown facts and uncertain relationships visible. Confirm the preview before generating a family-history exchange file in a supported client.",
+        "shortDescription": "Prepare a GEDCOM family file",
+        "websiteURL": "https://aigenealogytools.vibegenealogy.ai/tools/gedcom-creator-mini/"
+      },
+      "publication": {
+        "countries": [],
+        "release_notes": "First directory edition of the former GEDCOM-Creator-mini GPT."
+      },
+      "review": {
+        "prompts": [
+          "Preview the people and relationships in these notes before I approve a GEDCOM file."
+        ],
+        "commerce": false,
+        "commerce_description": "This free skill does not sell products or process payments."
+      }
+    }
+  },
+  "name": "gpt-b14d1d8afa99a0260303d5423d97ced1",
+  "version": "0.3.3"
+}

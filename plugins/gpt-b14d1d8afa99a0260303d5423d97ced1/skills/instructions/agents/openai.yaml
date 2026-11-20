@@ -1,0 +1,6 @@
+interface:
+  default_prompt: Write, attach, or point to a resource from which to create a GEDCOM
+    file.
+  display_name: GEDCOM-Creator-mini
+  short_description: Creates valid GEDCOM 5.5.1 files from genealogy data in plain
+    En
