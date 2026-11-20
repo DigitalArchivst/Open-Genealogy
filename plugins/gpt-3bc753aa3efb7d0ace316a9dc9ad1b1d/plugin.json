@@ -1,0 +1,41 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "author": {
+    "name": "Steve Little",
+    "url": "https://aigenealogyinsights.com"
+  },
+  "description": "Condense a family-history record into a research note. Keep names and dates tied to the item that reports them, preserve disagreements, and identify details a researcher could follow up.",
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "capabilities": [
+          "skills"
+        ],
+        "category": "Education & Research",
+        "composerIcon": "./assets/gpt-icon.png",
+        "defaultPrompt": [
+          "Turn this clipping into a research note. Keep any conflicting names visible."
+        ],
+        "developerName": "Steve Little",
+        "displayName": "Genealogy Summarizer",
+        "logo": "./assets/gpt-icon.png",
+        "longDescription": "Condense a family-history record into a research note. Keep names and dates tied to the item that reports them, preserve disagreements, and identify details a researcher could follow up.",
+        "shortDescription": "Summarize historical records",
+        "websiteURL": "https://aigenealogytools.vibegenealogy.ai/tools/genealogy-summarizer/"
+      },
+      "publication": {
+        "countries": [],
+        "release_notes": "First directory edition of the former Genealogy Summarizer GPT."
+      },
+      "review": {
+        "prompts": [
+          "Turn this clipping into a research note. Keep any conflicting names visible."
+        ],
+        "commerce": false,
+        "commerce_description": "This free skill does not sell products or process payments."
+      }
+    }
+  },
+  "name": "gpt-3bc753aa3efb7d0ace316a9dc9ad1b1d",
+  "version": "0.6.1+bundle.a027238f01350bd2d483eb4cde60f13e"
+}

@@ -1,0 +1,41 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "author": {
+    "name": "Steve Little",
+    "url": "https://aigenealogyinsights.com"
+  },
+  "description": "Condense a memo, essay or other supplied text. Preserve its main point, key figures, qualifications and the status of any decision.",
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "capabilities": [
+          "skills"
+        ],
+        "category": "Productivity",
+        "composerIcon": "./assets/gpt-icon.png",
+        "defaultPrompt": [
+          "Summarize the main argument and preserve the qualifications in this text."
+        ],
+        "developerName": "Steve Little",
+        "displayName": "Steve's Summarizer",
+        "logo": "./assets/gpt-icon.png",
+        "longDescription": "Condense a memo, essay or other supplied text. Preserve its main point, key figures, qualifications and the status of any decision.",
+        "shortDescription": "Summarize a text’s argument",
+        "websiteURL": "https://aigenealogytools.vibegenealogy.ai/tools/steve-s-summarizer/"
+      },
+      "publication": {
+        "countries": [],
+        "release_notes": "First directory edition of the former Steve's Summarizer GPT."
+      },
+      "review": {
+        "prompts": [
+          "Summarize the main argument and preserve the qualifications in this text."
+        ],
+        "commerce": false,
+        "commerce_description": "This free skill does not sell products or process payments."
+      }
+    }
+  },
+  "name": "gpt-70f361521900605b94c29d4cd79b4c08",
+  "version": "0.7.1+bundle.58060ff2f624c941fc3f417a781737d7"
+}

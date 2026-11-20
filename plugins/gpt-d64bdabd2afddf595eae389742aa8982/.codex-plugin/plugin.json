@@ -1,0 +1,25 @@
+{
+  "interface": {
+    "capabilities": [
+      "skills"
+    ],
+    "category": "Education & Research",
+    "defaultPrompt": [
+      "Pull the claims out of this clipping and show which are attributed or uncertain."
+    ],
+    "developerName": "Steve Little",
+    "displayName": "Steve's Facts Extractor",
+    "longDescription": "Pull individual claims from a notice, article or other source. Preserve attributions and corrections so a researcher can see who reported each detail and where corroboration is needed.",
+    "shortDescription": "Extract a record's claims",
+    "websiteURL": "https://aigenealogytools.vibegenealogy.ai/tools/steve-s-facts-extractor/"
+  },
+  "name": "gpt-d64bdabd2afddf595eae389742aa8982",
+  "version": "0.12.1+bundle.591190b0b400cb69ad845d0be3c4a42b",
+  "description": "Pull individual claims from a notice, article or other source. Preserve attributions and corrections so a researcher can see who reported each detail and where corroboration is needed.",
+  "author": {
+    "name": "Steve Little",
+    "url": "https://aigenealogyinsights.com"
+  },
+  "keywords": [],
+  "skills": "./skills"
+}

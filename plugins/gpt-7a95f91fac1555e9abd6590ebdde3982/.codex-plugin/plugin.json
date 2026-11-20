@@ -1,0 +1,25 @@
+{
+  "interface": {
+    "capabilities": [
+      "skills"
+    ],
+    "category": "Education & Research",
+    "defaultPrompt": [
+      "Write a short narrative from these labeled facts, preserving disagreement between accounts."
+    ],
+    "developerName": "Steve Little",
+    "displayName": "Steve's Fact Narrator",
+    "longDescription": "Turn a set of labeled facts into a readable narrative. Keep each account’s dates and claims attached to its source so disagreements and recollections stay visible to the reader.",
+    "shortDescription": "Write from labeled facts",
+    "websiteURL": "https://aigenealogytools.vibegenealogy.ai/tools/steve-s-fact-narrator/"
+  },
+  "name": "gpt-7a95f91fac1555e9abd6590ebdde3982",
+  "version": "0.6.3",
+  "description": "Turn a set of labeled facts into a readable narrative. Keep each account’s dates and claims attached to its source so disagreements and recollections stay visible to the reader.",
+  "author": {
+    "name": "Steve Little",
+    "url": "https://aigenealogyinsights.com"
+  },
+  "keywords": [],
+  "skills": "./skills"
+}

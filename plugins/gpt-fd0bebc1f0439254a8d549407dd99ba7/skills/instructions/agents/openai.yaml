@@ -1,0 +1,3 @@
+interface:
+  display_name: Steve's Cornell Notes Generator
+  short_description: 'Create Cornell Notes from a transcript, chat log, or other text '

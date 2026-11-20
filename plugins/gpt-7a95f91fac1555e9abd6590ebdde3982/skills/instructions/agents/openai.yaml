@@ -1,0 +1,6 @@
+interface:
+  default_prompt: 'Upload a list of facts in the form "LABEL: Value" to generate narrative
+    report:'
+  display_name: Steve's Fact Narrator
+  short_description: 'Upload a list of facts to generate narrative report; v2. Also:
+    w'

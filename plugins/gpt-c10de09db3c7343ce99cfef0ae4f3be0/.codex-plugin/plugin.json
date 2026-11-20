@@ -1,0 +1,27 @@
+{
+  "interface": {
+    "capabilities": [
+      "skills"
+    ],
+    "category": "Education & Research",
+    "composerIcon": "./assets/gpt-icon.png",
+    "defaultPrompt": [
+      "Describe this postcard for a catalog. What is visible, and which details remain unknown?"
+    ],
+    "developerName": "Steve Little",
+    "displayName": "Genealogy Document Helper",
+    "logo": "./assets/gpt-icon.png",
+    "longDescription": "Describe a photograph, postcard or family document for an archival catalog. Record marks, identifiers and dates, and separate the item’s own details from captions, envelopes or later notes.",
+    "shortDescription": "Catalog an archival item",
+    "websiteURL": "https://aigenealogytools.vibegenealogy.ai/tools/genealogy-document-helper/"
+  },
+  "name": "gpt-c10de09db3c7343ce99cfef0ae4f3be0",
+  "version": "0.3.1+bundle.ef4ddb908c00c5d4560355e894764b0e",
+  "description": "Describe a photograph, postcard or family document for an archival catalog. Record marks, identifiers and dates, and separate the item’s own details from captions, envelopes or later notes.",
+  "author": {
+    "name": "Steve Little",
+    "url": "https://aigenealogyinsights.com"
+  },
+  "keywords": [],
+  "skills": "./skills"
+}

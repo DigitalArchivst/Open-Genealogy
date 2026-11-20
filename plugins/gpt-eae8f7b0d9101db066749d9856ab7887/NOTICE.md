@@ -1,0 +1,2 @@
+Open GeneaGPT by Steve Little. This packaged edition uses the verified hosted instructions and updates the listing description, example prompt and website. CC BY 4.0; Steve Little, AI Genealogy Insights. Preserve original attribution, source link and change notice.
+Open GeneaGPT Beta 0.4 (2024-01-22b), Steve Little, AI Genealogy Insights. Original source: https://github.com/DigitalArchivst/Open-Genealogy/blob/ffa72d3b06429ad196f914520fb50b99250f3031/gpt-configs/open-geneagpt-v0.4.txt

@@ -1,0 +1,5 @@
+interface:
+  default_prompt: 'Upload document or image:'
+  display_name: Genealogy Document Helper
+  short_description: I help you look at records, documents, and artifacts. This AI
+    to

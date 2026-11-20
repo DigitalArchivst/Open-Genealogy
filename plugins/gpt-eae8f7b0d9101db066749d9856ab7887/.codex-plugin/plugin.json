@@ -1,0 +1,27 @@
+{
+  "interface": {
+    "capabilities": [
+      "skills"
+    ],
+    "category": "Education & Research",
+    "composerIcon": "./assets/gpt-icon.png",
+    "defaultPrompt": [
+      "I have a family clue but no definite location. What should I check first?"
+    ],
+    "developerName": "Steve Little",
+    "displayName": "Open GeneaGPT",
+    "logo": "./assets/gpt-icon.png",
+    "longDescription": "Turn a family clue into a practical starting plan. Compare candidate places and people, ask focused questions, and identify record groups that can distinguish competing leads.",
+    "shortDescription": "Plan family-history research",
+    "websiteURL": "https://aigenealogytools.vibegenealogy.ai/tools/open-geneagpt/"
+  },
+  "name": "gpt-eae8f7b0d9101db066749d9856ab7887",
+  "version": "0.28.1+bundle.cf0dbcb5268d43a58bb7b5177132ebce",
+  "description": "Turn a family clue into a practical starting plan. Compare candidate places and people, ask focused questions, and identify record groups that can distinguish competing leads.",
+  "author": {
+    "name": "Steve Little",
+    "url": "https://aigenealogyinsights.com"
+  },
+  "keywords": [],
+  "skills": "./skills"
+}

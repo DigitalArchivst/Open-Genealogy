@@ -1,0 +1,39 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "author": {
+    "name": "Steve Little",
+    "url": "https://aigenealogyinsights.com"
+  },
+  "description": "Organize a lecture, lesson or reading into cues, supporting notes and a summary for self-study. Preserve corrections and qualifications that change what a passage means.",
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "capabilities": [
+          "skills"
+        ],
+        "category": "Education & Research",
+        "defaultPrompt": [
+          "Turn this lesson into Cornell notes with cues, a notes column and a short summary."
+        ],
+        "developerName": "Steve Little",
+        "displayName": "Cornell Notes Generator",
+        "longDescription": "Organize a lecture, lesson or reading into cues, supporting notes and a summary for self-study. Preserve corrections and qualifications that change what a passage means.",
+        "shortDescription": "Make Cornell study notes",
+        "websiteURL": "https://aigenealogytools.vibegenealogy.ai/tools/steve-s-cornell-notes-generator/"
+      },
+      "publication": {
+        "countries": [],
+        "release_notes": "First directory edition of the former Steve's Cornell Notes Generator GPT."
+      },
+      "review": {
+        "prompts": [
+          "Turn this lesson into Cornell notes with cues, a notes column and a short summary."
+        ],
+        "commerce": false,
+        "commerce_description": "This free skill does not sell products or process payments."
+      }
+    }
+  },
+  "name": "gpt-fd0bebc1f0439254a8d549407dd99ba7",
+  "version": "0.2.1+bundle.4d862b3e5074a6a4a0bd837e3d7e788a"
+}

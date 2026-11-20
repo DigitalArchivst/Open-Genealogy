@@ -1,0 +1,41 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "author": {
+    "name": "Steve Little",
+    "url": "https://aigenealogyinsights.com"
+  },
+  "description": "Transcribe the wording of a scanned page and produce a separate corrected reading copy. Compare both versions to see which spellings, punctuation or line breaks have changed.",
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "capabilities": [
+          "skills"
+        ],
+        "category": "Education & Research",
+        "composerIcon": "./assets/gpt-icon.png",
+        "defaultPrompt": [
+          "Give me a faithful transcription of this page and a separate corrected copy."
+        ],
+        "developerName": "Steve Little",
+        "displayName": "OCR & Proofreading Tool",
+        "logo": "./assets/gpt-icon.png",
+        "longDescription": "Transcribe the wording of a scanned page and produce a separate corrected reading copy. Compare both versions to see which spellings, punctuation or line breaks have changed.",
+        "shortDescription": "Transcribe and proofread",
+        "websiteURL": "https://aigenealogytools.vibegenealogy.ai/tools/steve-s-ocr-proofreading-tool/"
+      },
+      "publication": {
+        "countries": [],
+        "release_notes": "First directory edition of the former Steve's OCR & Proofreading Tool GPT."
+      },
+      "review": {
+        "prompts": [
+          "Give me a faithful transcription of this page and a separate corrected copy."
+        ],
+        "commerce": false,
+        "commerce_description": "This free skill does not sell products or process payments."
+      }
+    }
+  },
+  "name": "gpt-45f1cb1d309fa13d36fca204536aa09a",
+  "version": "0.11.2"
+}

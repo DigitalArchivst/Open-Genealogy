@@ -1,0 +1,25 @@
+{
+  "interface": {
+    "capabilities": [
+      "skills"
+    ],
+    "category": "Communication",
+    "defaultPrompt": [
+      "How would you word this invitation for neighbors and for a formal committee?"
+    ],
+    "developerName": "Steve Little",
+    "displayName": "Lingua Maven",
+    "longDescription": "Compare words and phrases for meaning, tone and formality. Bring a sentence and describe who will read it to see how different choices sound to that audience.",
+    "shortDescription": "Find a word that fits",
+    "websiteURL": "https://aigenealogytools.vibegenealogy.ai/tools/lingua-maven/"
+  },
+  "name": "gpt-b94ef37e44c493b05dcb976e1a25855a",
+  "version": "0.26.2",
+  "description": "Compare words and phrases for meaning, tone and formality. Bring a sentence and describe who will read it to see how different choices sound to that audience.",
+  "author": {
+    "name": "Steve Little",
+    "url": "https://aigenealogyinsights.com"
+  },
+  "keywords": [],
+  "skills": "./skills"
+}

@@ -1,0 +1,39 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "author": {
+    "name": "Steve Little",
+    "url": "https://aigenealogyinsights.com"
+  },
+  "description": "Turn biographical facts into a short birthday feature that sounds natural on air. Work from the facts supplied and acknowledge disputed details before writing the presenter’s script.",
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "capabilities": [
+          "skills"
+        ],
+        "category": "Creativity",
+        "defaultPrompt": [
+          "Write a birthday radio sketch from these notes and keep any disputed dates open."
+        ],
+        "developerName": "Steve Little",
+        "displayName": "Biographical Sketch Generator",
+        "longDescription": "Turn biographical facts into a short birthday feature that sounds natural on air. Work from the facts supplied and acknowledge disputed details before writing the presenter’s script.",
+        "shortDescription": "Write a radio birthday sketch",
+        "websiteURL": "https://aigenealogytools.vibegenealogy.ai/tools/biographical-sketch-generator/"
+      },
+      "publication": {
+        "countries": [],
+        "release_notes": "First directory edition of the former Biographical Sketch Generator GPT."
+      },
+      "review": {
+        "prompts": [
+          "Write a birthday radio sketch from these notes and keep any disputed dates open."
+        ],
+        "commerce": false,
+        "commerce_description": "This free skill does not sell products or process payments."
+      }
+    }
+  },
+  "name": "gpt-f2eda031b43b4915addad53a1c8847ff",
+  "version": "0.1.1+bundle.710b5239f27558946b56a7ac56afdb05"
+}

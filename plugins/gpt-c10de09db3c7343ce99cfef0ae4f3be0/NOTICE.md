@@ -1,0 +1,1 @@
+Genealogy Document Helper by Steve Little. This packaged edition uses the verified hosted instructions and updates the listing description, example prompt and website. Steve-authored material is provided under CC BY-NC-SA 4.0; see LICENSE.txt. Imported third-party material retains its own terms.

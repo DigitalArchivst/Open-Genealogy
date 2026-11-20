@@ -1,0 +1,4 @@
+interface:
+  default_prompt: 'Summarize the attached text:'
+  display_name: Steve's Summarizer
+  short_description: Summarize a text by identifying key points, main ideas, and esse

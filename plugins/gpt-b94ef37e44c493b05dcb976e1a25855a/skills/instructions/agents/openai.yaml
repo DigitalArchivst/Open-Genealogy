@@ -1,0 +1,4 @@
+interface:
+  default_prompt: 'What''s the origin of this word:'
+  display_name: Lingua Maven
+  short_description: A linguistic expert, I combine dictionary precision, usage panel

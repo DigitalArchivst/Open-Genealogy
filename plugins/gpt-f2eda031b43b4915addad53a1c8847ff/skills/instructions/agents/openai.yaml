@@ -1,0 +1,4 @@
+interface:
+  default_prompt: 'Enter a name:'
+  display_name: Biographical Sketch Generator
+  short_description: Accuracy is proportional to information; errors and hallucinatio

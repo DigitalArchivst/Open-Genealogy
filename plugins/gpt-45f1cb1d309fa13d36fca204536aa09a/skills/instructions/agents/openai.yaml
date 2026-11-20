@@ -1,0 +1,5 @@
+interface:
+  default_prompt: 'Upload raw OCR text to clean or proofread:'
+  display_name: Steve's OCR & Proofreading Tool
+  short_description: Steve's OCR Tool is the go-to solution for users needing both
+    th

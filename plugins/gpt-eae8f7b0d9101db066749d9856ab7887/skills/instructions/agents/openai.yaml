@@ -1,0 +1,4 @@
+interface:
+  default_prompt: How do I get started with genealogy?
+  display_name: Open GeneaGPT
+  short_description: A Genealogy GPT based on a collaborative source-available instru

@@ -1,0 +1,39 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "author": {
+    "name": "Steve Little",
+    "url": "https://aigenealogyinsights.com"
+  },
+  "description": "Turn a set of labeled facts into a readable narrative. Keep each account’s dates and claims attached to its source so disagreements and recollections stay visible to the reader.",
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "capabilities": [
+          "skills"
+        ],
+        "category": "Education & Research",
+        "defaultPrompt": [
+          "Write a short narrative from these labeled facts, preserving disagreement between accounts."
+        ],
+        "developerName": "Steve Little",
+        "displayName": "Steve's Fact Narrator",
+        "longDescription": "Turn a set of labeled facts into a readable narrative. Keep each account’s dates and claims attached to its source so disagreements and recollections stay visible to the reader.",
+        "shortDescription": "Write from labeled facts",
+        "websiteURL": "https://aigenealogytools.vibegenealogy.ai/tools/steve-s-fact-narrator/"
+      },
+      "publication": {
+        "countries": [],
+        "release_notes": "First directory edition of the former Steve's Fact Narrator GPT."
+      },
+      "review": {
+        "prompts": [
+          "Write a short narrative from these labeled facts, preserving disagreement between accounts."
+        ],
+        "commerce": false,
+        "commerce_description": "This free skill does not sell products or process payments."
+      }
+    }
+  },
+  "name": "gpt-7a95f91fac1555e9abd6590ebdde3982",
+  "version": "0.6.3"
+}
