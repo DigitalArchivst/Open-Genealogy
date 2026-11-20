@@ -1,0 +1,27 @@
+{
+  "interface": {
+    "capabilities": [
+      "skills"
+    ],
+    "category": "Education & Research",
+    "composerIcon": "./assets/gpt-icon.png",
+    "defaultPrompt": [
+      "Read this headstone line by line and show where the lettering is uncertain."
+    ],
+    "developerName": "Steve Little",
+    "displayName": "Steve's Cemetery Transcriber",
+    "logo": "./assets/gpt-icon.png",
+    "longDescription": "Read a gravestone inscription and describe the marker from its photograph. Keep separate stones distinct, preserve line order, and mark weathered or obscured characters for another reading.",
+    "shortDescription": "Read a grave marker",
+    "websiteURL": "https://aigenealogytools.vibegenealogy.ai/tools/steve-s-cemetery-transcriber/"
+  },
+  "name": "gpt-2654fe026ef8b87a6e91d6d6bfb98e58",
+  "version": "0.3.1+bundle.86de6c6fe43a3b8fb84311e401a185c3",
+  "description": "Read a gravestone inscription and describe the marker from its photograph. Keep separate stones distinct, preserve line order, and mark weathered or obscured characters for another reading.",
+  "author": {
+    "name": "Steve Little",
+    "url": "https://aigenealogyinsights.com"
+  },
+  "keywords": [],
+  "skills": "./skills"
+}

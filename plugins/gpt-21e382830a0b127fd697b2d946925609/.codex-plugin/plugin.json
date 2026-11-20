@@ -1,0 +1,25 @@
+{
+  "interface": {
+    "capabilities": [
+      "skills"
+    ],
+    "category": "Creativity",
+    "defaultPrompt": [
+      "Adapt this finding into a two-host podcast script and explain the limits of the evidence."
+    ],
+    "developerName": "Steve Little",
+    "displayName": "Paper to Podcast Script",
+    "longDescription": "Adapt a paper into a written conversation for two podcast hosts. Explain study findings in spoken language while keeping sample sizes, comparisons and limitations attached to their sources.",
+    "shortDescription": "Turn a paper into dialogue",
+    "websiteURL": "https://aigenealogytools.vibegenealogy.ai/tools/steve-s-paper-to-podcast-script-generator/"
+  },
+  "name": "gpt-21e382830a0b127fd697b2d946925609",
+  "version": "0.1.1+bundle.3f2c74f25ae3bbb54a346f6975851dcb",
+  "description": "Adapt a paper into a written conversation for two podcast hosts. Explain study findings in spoken language while keeping sample sizes, comparisons and limitations attached to their sources.",
+  "author": {
+    "name": "Steve Little",
+    "url": "https://aigenealogyinsights.com"
+  },
+  "keywords": [],
+  "skills": "./skills"
+}

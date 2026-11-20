@@ -1,0 +1,4 @@
+interface:
+  default_prompt: Can ye transcribe this headstone?
+  display_name: Steve's Cemetery Transcriber
+  short_description: 'Transcribe and describe cemetery headstones in detail. (Created '

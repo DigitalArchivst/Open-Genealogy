@@ -1,0 +1,39 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "author": {
+    "name": "Steve Little",
+    "url": "https://aigenealogyinsights.com"
+  },
+  "description": "Describe how visible subjects, shapes, light and framing direct a viewer’s eye. Ask for alternative crops and compare how they change a photograph’s emphasis.",
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "capabilities": [
+          "skills"
+        ],
+        "category": "Creativity",
+        "defaultPrompt": [
+          "Describe where my eye goes in this photograph and suggest two different crops."
+        ],
+        "developerName": "Steve Little",
+        "displayName": "Steve's Photo Tool",
+        "longDescription": "Describe how visible subjects, shapes, light and framing direct a viewer’s eye. Ask for alternative crops and compare how they change a photograph’s emphasis.",
+        "shortDescription": "Critique photo composition",
+        "websiteURL": "https://aigenealogytools.vibegenealogy.ai/tools/steve-s-photo-tool/"
+      },
+      "publication": {
+        "countries": [],
+        "release_notes": "First directory edition of the former Steve's Photo Tool GPT."
+      },
+      "review": {
+        "prompts": [
+          "Describe where my eye goes in this photograph and suggest two different crops."
+        ],
+        "commerce": false,
+        "commerce_description": "This free skill does not sell products or process payments."
+      }
+    }
+  },
+  "name": "gpt-bcdcdc3647776da0201f6228f4f841b8",
+  "version": "0.1.1+bundle.a9726db50e87dc8a07a9a5a2ad5e3b65"
+}

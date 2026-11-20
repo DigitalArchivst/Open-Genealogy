@@ -1,0 +1,4 @@
+interface:
+  default_prompt: 'Attach your content:'
+  display_name: Steve's Paper to Podcast Script Generator
+  short_description: Turn anything into a podcast script!

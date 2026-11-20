@@ -1,0 +1,4 @@
+interface:
+  default_prompt: 'Upload file and process as instructed:'
+  display_name: Steve's OCR/HTR Transcription Tool
+  short_description: 'Comprehensive transcription prompt merging diplomatic fidelity, '

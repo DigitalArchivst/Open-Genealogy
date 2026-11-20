@@ -1,0 +1,39 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "author": {
+    "name": "Steve Little",
+    "url": "https://aigenealogyinsights.com"
+  },
+  "description": "Adapt a paper into a written conversation for two podcast hosts. Explain study findings in spoken language while keeping sample sizes, comparisons and limitations attached to their sources.",
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "capabilities": [
+          "skills"
+        ],
+        "category": "Creativity",
+        "defaultPrompt": [
+          "Adapt this finding into a two-host podcast script and explain the limits of the evidence."
+        ],
+        "developerName": "Steve Little",
+        "displayName": "Paper to Podcast Script",
+        "longDescription": "Adapt a paper into a written conversation for two podcast hosts. Explain study findings in spoken language while keeping sample sizes, comparisons and limitations attached to their sources.",
+        "shortDescription": "Turn a paper into dialogue",
+        "websiteURL": "https://aigenealogytools.vibegenealogy.ai/tools/steve-s-paper-to-podcast-script-generator/"
+      },
+      "publication": {
+        "countries": [],
+        "release_notes": "First directory edition of the former Steve's Paper to Podcast Script Generator GPT."
+      },
+      "review": {
+        "prompts": [
+          "Adapt this finding into a two-host podcast script and explain the limits of the evidence."
+        ],
+        "commerce": false,
+        "commerce_description": "This free skill does not sell products or process payments."
+      }
+    }
+  },
+  "name": "gpt-21e382830a0b127fd697b2d946925609",
+  "version": "0.1.1+bundle.3f2c74f25ae3bbb54a346f6975851dcb"
+}

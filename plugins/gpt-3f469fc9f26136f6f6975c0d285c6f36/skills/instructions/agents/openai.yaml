@@ -1,0 +1,4 @@
+interface:
+  default_prompt: 'Upload an email for analysis and drafting a reply:'
+  display_name: Email Helper
+  short_description: Your go-to assistant for email management.

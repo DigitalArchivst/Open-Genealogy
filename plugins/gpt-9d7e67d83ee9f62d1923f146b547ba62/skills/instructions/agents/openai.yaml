@@ -1,0 +1,4 @@
+interface:
+  default_prompt: Dump a chat log into the prompt to begin!
+  display_name: Steve's Zoom Chat Log Converter
+  short_description: Make useful stuff from your Zoom chat logs. Dump a chat log into

@@ -1,0 +1,25 @@
+{
+  "interface": {
+    "capabilities": [
+      "skills"
+    ],
+    "category": "Education & Research",
+    "defaultPrompt": [
+      "Transcribe this letter, retaining its spelling, line breaks and abbreviations."
+    ],
+    "developerName": "Steve Little",
+    "displayName": "OCR/HTR Transcription Tool",
+    "longDescription": "Create a line-by-line transcription of a scanned or handwritten record. Preserve spelling, abbreviations and uncertain readings so the result can be checked against the image.",
+    "shortDescription": "Transcribe print and script",
+    "websiteURL": "https://aigenealogytools.vibegenealogy.ai/tools/steve-s-ocr-htr-transcription-tool/"
+  },
+  "name": "gpt-ff9fa0f85678a651bdbbcc097338b476",
+  "version": "0.3.2",
+  "description": "Create a line-by-line transcription of a scanned or handwritten record. Preserve spelling, abbreviations and uncertain readings so the result can be checked against the image.",
+  "author": {
+    "name": "Steve Little",
+    "url": "https://aigenealogyinsights.com"
+  },
+  "keywords": [],
+  "skills": "./skills"
+}

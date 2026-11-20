@@ -1,0 +1,4 @@
+interface:
+  default_prompt: Please critique this summary and suggest improvements.
+  display_name: Steve's Clarity Checker
+  short_description: I deliver precise critiques focused on clear word choice, struct

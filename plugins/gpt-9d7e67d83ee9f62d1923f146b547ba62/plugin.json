@@ -1,0 +1,41 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "author": {
+    "name": "Steve Little",
+    "url": "https://aigenealogyinsights.com"
+  },
+  "description": "Follow a dated or timestamped Zoom chat by topic and sequence. Preserve the speakers’ words and identify changes of plan, unanswered questions and replies whose target is uncertain.",
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "capabilities": [
+          "skills"
+        ],
+        "category": "Productivity",
+        "composerIcon": "./assets/gpt-icon.png",
+        "defaultPrompt": [
+          "Follow the booking discussion through this chat and tell me which questions remain open."
+        ],
+        "developerName": "Steve Little",
+        "displayName": "Zoom Chat Log Converter",
+        "logo": "./assets/gpt-icon.png",
+        "longDescription": "Follow a dated or timestamped Zoom chat by topic and sequence. Preserve the speakers’ words and identify changes of plan, unanswered questions and replies whose target is uncertain.",
+        "shortDescription": "Trace a Zoom discussion",
+        "websiteURL": "https://aigenealogytools.vibegenealogy.ai/tools/steve-s-zoom-chat-log-converter/"
+      },
+      "publication": {
+        "countries": [],
+        "release_notes": "First directory edition of the former Steve's Zoom Chat Log Converter GPT."
+      },
+      "review": {
+        "prompts": [
+          "Follow the booking discussion through this chat and tell me which questions remain open."
+        ],
+        "commerce": false,
+        "commerce_description": "This free skill does not sell products or process payments."
+      }
+    }
+  },
+  "name": "gpt-9d7e67d83ee9f62d1923f146b547ba62",
+  "version": "0.6.1+bundle.1572240245f27f856d7dfdca00ca5289"
+}

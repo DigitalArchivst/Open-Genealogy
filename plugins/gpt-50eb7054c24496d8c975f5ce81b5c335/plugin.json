@@ -1,0 +1,39 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "author": {
+    "name": "Steve Little",
+    "url": "https://aigenealogyinsights.com"
+  },
+  "description": "Turn meeting notes into decisions, open questions and assigned actions. Identify who agreed to a task and when it is due, and distinguish final decisions from earlier proposals.",
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "capabilities": [
+          "skills"
+        ],
+        "category": "Productivity",
+        "defaultPrompt": [
+          "Which decisions stand, who owns each action, and what remains open in these notes?"
+        ],
+        "developerName": "Steve Little",
+        "displayName": "Meeting Summarizer",
+        "longDescription": "Turn meeting notes into decisions, open questions and assigned actions. Identify who agreed to a task and when it is due, and distinguish final decisions from earlier proposals.",
+        "shortDescription": "Track decisions and owners",
+        "websiteURL": "https://aigenealogytools.vibegenealogy.ai/tools/meeting-summarizer/"
+      },
+      "publication": {
+        "countries": [],
+        "release_notes": "First directory edition of the former Meeting Summarizer GPT."
+      },
+      "review": {
+        "prompts": [
+          "Which decisions stand, who owns each action, and what remains open in these notes?"
+        ],
+        "commerce": false,
+        "commerce_description": "This free skill does not sell products or process payments."
+      }
+    }
+  },
+  "name": "gpt-50eb7054c24496d8c975f5ce81b5c335",
+  "version": "0.2.1+bundle.8ceca2d08c54913a260713597676b560"
+}

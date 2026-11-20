@@ -1,0 +1,39 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "author": {
+    "name": "Steve Little",
+    "url": "https://aigenealogyinsights.com"
+  },
+  "description": "Copyedit a passage for spelling, grammar and punctuation while preserving the writer’s voice. Indicate which changes are mechanical and respect quotations or dialect the writer wants to retain.",
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "capabilities": [
+          "skills"
+        ],
+        "category": "Communication",
+        "defaultPrompt": [
+          "Proofread this paragraph for mechanical errors and leave the quoted dialogue intact."
+        ],
+        "developerName": "Steve Little",
+        "displayName": "Steve's Basic Proofreader",
+        "longDescription": "Copyedit a passage for spelling, grammar and punctuation while preserving the writer’s voice. Indicate which changes are mechanical and respect quotations or dialect the writer wants to retain.",
+        "shortDescription": "Fix mechanical errors",
+        "websiteURL": "https://aigenealogytools.vibegenealogy.ai/tools/steve-s-basic-proofreader/"
+      },
+      "publication": {
+        "countries": [],
+        "release_notes": "First directory edition of the former Steve's Basic Proofreader GPT."
+      },
+      "review": {
+        "prompts": [
+          "Proofread this paragraph for mechanical errors and leave the quoted dialogue intact."
+        ],
+        "commerce": false,
+        "commerce_description": "This free skill does not sell products or process payments."
+      }
+    }
+  },
+  "name": "gpt-af82f5f91e93f0f9bb18e3e61de32e24",
+  "version": "0.1.1+bundle.d15efd0c11a0eef0d95b1ef203207a02"
+}

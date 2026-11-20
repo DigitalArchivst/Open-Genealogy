@@ -1,0 +1,27 @@
+{
+  "interface": {
+    "capabilities": [
+      "skills"
+    ],
+    "category": "Communication",
+    "composerIcon": "./assets/gpt-icon.png",
+    "defaultPrompt": [
+      "What do I owe the sender of this email, and how could I reply?"
+    ],
+    "developerName": "Steve Little",
+    "displayName": "Email Helper",
+    "logo": "./assets/gpt-icon.png",
+    "longDescription": "Break an incoming email into questions, commitments and missing information. Draft a reply for the sender to review, with clear follow-up on unresolved tasks.",
+    "shortDescription": "Draft replies and track tasks",
+    "websiteURL": "https://aigenealogytools.vibegenealogy.ai/tools/email-helper/"
+  },
+  "name": "gpt-3f469fc9f26136f6f6975c0d285c6f36",
+  "version": "0.3.1+bundle.affb60f77b5e76b1bbe2f0f983922cc8",
+  "description": "Break an incoming email into questions, commitments and missing information. Draft a reply for the sender to review, with clear follow-up on unresolved tasks.",
+  "author": {
+    "name": "Steve Little",
+    "url": "https://aigenealogyinsights.com"
+  },
+  "keywords": [],
+  "skills": "./skills"
+}

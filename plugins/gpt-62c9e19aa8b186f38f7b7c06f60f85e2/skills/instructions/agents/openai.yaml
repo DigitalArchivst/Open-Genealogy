@@ -1,0 +1,4 @@
+interface:
+  default_prompt: 'Drop or attach a chunk of text, image, or file:'
+  display_name: Steve's Explainer
+  short_description: Explain it to me like I'm 11. And then at 20. Just drop or attac

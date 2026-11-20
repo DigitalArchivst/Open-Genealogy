@@ -23,6 +23,16 @@ Choose a tool below and run its install command. Open a new Codex chat to use it
 | [Steve's Fact Narrator](gpt-7a95f91fac1555e9abd6590ebdde3982/) | 0.6.3 | `codex plugin add gpt-7a95f91fac1555e9abd6590ebdde3982@ai-genealogy-tools` |
 | [Steve's Summarizer](gpt-70f361521900605b94c29d4cd79b4c08/) | 0.7.1+bundle.58060ff2f624c941fc3f417a781737d7 | `codex plugin add gpt-70f361521900605b94c29d4cd79b4c08@ai-genealogy-tools` |
 | [Biographical Sketch Generator](gpt-f2eda031b43b4915addad53a1c8847ff/) | 0.1.1+bundle.710b5239f27558946b56a7ac56afdb05 | `codex plugin add gpt-f2eda031b43b4915addad53a1c8847ff@ai-genealogy-tools` |
+| [Steve's Cemetery Transcriber](gpt-2654fe026ef8b87a6e91d6d6bfb98e58/) | 0.3.1+bundle.86de6c6fe43a3b8fb84311e401a185c3 | `codex plugin add gpt-2654fe026ef8b87a6e91d6d6bfb98e58@ai-genealogy-tools` |
+| [Steve's Clarity Checker](gpt-1bf5dfd9ead45d7835e50f56f1da5488/) | 0.7.1+bundle.1d3fbcd7c61671ec8fe79b1b50d7a567 | `codex plugin add gpt-1bf5dfd9ead45d7835e50f56f1da5488@ai-genealogy-tools` |
+| [Steve's Explainer](gpt-62c9e19aa8b186f38f7b7c06f60f85e2/) | 0.2.1+bundle.b7c083dee1997ac6f43037ad96fb84dd | `codex plugin add gpt-62c9e19aa8b186f38f7b7c06f60f85e2@ai-genealogy-tools` |
+| [OCR/HTR Transcription Tool](gpt-ff9fa0f85678a651bdbbcc097338b476/) | 0.3.2 | `codex plugin add gpt-ff9fa0f85678a651bdbbcc097338b476@ai-genealogy-tools` |
+| [Paper to Podcast Script](gpt-21e382830a0b127fd697b2d946925609/) | 0.1.1+bundle.3f2c74f25ae3bbb54a346f6975851dcb | `codex plugin add gpt-21e382830a0b127fd697b2d946925609@ai-genealogy-tools` |
+| [Email Helper](gpt-3f469fc9f26136f6f6975c0d285c6f36/) | 0.3.1+bundle.affb60f77b5e76b1bbe2f0f983922cc8 | `codex plugin add gpt-3f469fc9f26136f6f6975c0d285c6f36@ai-genealogy-tools` |
+| [Steve's Basic Proofreader](gpt-af82f5f91e93f0f9bb18e3e61de32e24/) | 0.1.1+bundle.d15efd0c11a0eef0d95b1ef203207a02 | `codex plugin add gpt-af82f5f91e93f0f9bb18e3e61de32e24@ai-genealogy-tools` |
+| [Meeting Summarizer](gpt-50eb7054c24496d8c975f5ce81b5c335/) | 0.2.1+bundle.8ceca2d08c54913a260713597676b560 | `codex plugin add gpt-50eb7054c24496d8c975f5ce81b5c335@ai-genealogy-tools` |
+| [Steve's Photo Tool](gpt-bcdcdc3647776da0201f6228f4f841b8/) | 0.1.1+bundle.a9726db50e87dc8a07a9a5a2ad5e3b65 | `codex plugin add gpt-bcdcdc3647776da0201f6228f4f841b8@ai-genealogy-tools` |
+| [Zoom Chat Log Converter](gpt-9d7e67d83ee9f62d1923f146b547ba62/) | 0.6.1+bundle.1572240245f27f856d7dfdca00ca5289 | `codex plugin add gpt-9d7e67d83ee9f62d1923f146b547ba62@ai-genealogy-tools` |
 
 For a reproducible install, append `--ref COMMIT` to the marketplace-add command, using the full commit SHA from the release you want.
 

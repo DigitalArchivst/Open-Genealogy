@@ -1,0 +1,27 @@
+{
+  "interface": {
+    "capabilities": [
+      "skills"
+    ],
+    "category": "Communication",
+    "composerIcon": "./assets/gpt-icon.png",
+    "defaultPrompt": [
+      "Where might a reader lose track of this argument, and how could I clarify it?"
+    ],
+    "developerName": "Steve Little",
+    "displayName": "Steve's Clarity Checker",
+    "logo": "./assets/gpt-icon.png",
+    "longDescription": "Show where a reader could lose track of an argument, a pronoun or a piece of evidence. Ask for missing context and suggest wording that preserves the strength of the original claim.",
+    "shortDescription": "Find gaps in a draft",
+    "websiteURL": "https://aigenealogytools.vibegenealogy.ai/tools/steve-s-clarity-checker/"
+  },
+  "name": "gpt-1bf5dfd9ead45d7835e50f56f1da5488",
+  "version": "0.7.1+bundle.1d3fbcd7c61671ec8fe79b1b50d7a567",
+  "description": "Show where a reader could lose track of an argument, a pronoun or a piece of evidence. Ask for missing context and suggest wording that preserves the strength of the original claim.",
+  "author": {
+    "name": "Steve Little",
+    "url": "https://aigenealogyinsights.com"
+  },
+  "keywords": [],
+  "skills": "./skills"
+}

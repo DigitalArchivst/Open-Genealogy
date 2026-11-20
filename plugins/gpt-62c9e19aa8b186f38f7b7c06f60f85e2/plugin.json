@@ -1,0 +1,39 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "author": {
+    "name": "Steve Little",
+    "url": "https://aigenealogyinsights.com"
+  },
+  "description": "Explain one idea for a seventh grader and a college freshman. Adapt examples, vocabulary and depth while keeping the facts and their limits intact across the two versions.",
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "capabilities": [
+          "skills"
+        ],
+        "category": "Education & Research",
+        "defaultPrompt": [
+          "Explain this concept for a seventh grader and for a college freshman."
+        ],
+        "developerName": "Steve Little",
+        "displayName": "Steve's Explainer",
+        "longDescription": "Explain one idea for a seventh grader and a college freshman. Adapt examples, vocabulary and depth while keeping the facts and their limits intact across the two versions.",
+        "shortDescription": "Explain at two reading levels",
+        "websiteURL": "https://aigenealogytools.vibegenealogy.ai/tools/steve-s-explainer/"
+      },
+      "publication": {
+        "countries": [],
+        "release_notes": "First directory edition of the former Steve's Explainer GPT."
+      },
+      "review": {
+        "prompts": [
+          "Explain this concept for a seventh grader and for a college freshman."
+        ],
+        "commerce": false,
+        "commerce_description": "This free skill does not sell products or process payments."
+      }
+    }
+  },
+  "name": "gpt-62c9e19aa8b186f38f7b7c06f60f85e2",
+  "version": "0.2.1+bundle.b7c083dee1997ac6f43037ad96fb84dd"
+}

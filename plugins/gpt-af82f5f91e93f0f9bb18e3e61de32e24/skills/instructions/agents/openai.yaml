@@ -1,0 +1,5 @@
+interface:
+  default_prompt: 'Proofread this:'
+  display_name: Steve's Basic Proofreader
+  short_description: 'Proofread this to standard English with bare minimum changes
+    to '

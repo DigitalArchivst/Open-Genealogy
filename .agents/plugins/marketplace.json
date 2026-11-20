@@ -147,6 +147,126 @@
         "authentication": "ON_INSTALL"
       },
       "category": "Creativity"
+    },
+    {
+      "name": "gpt-2654fe026ef8b87a6e91d6d6bfb98e58",
+      "source": {
+        "source": "local",
+        "path": "./plugins/gpt-2654fe026ef8b87a6e91d6d6bfb98e58"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Education & Research"
+    },
+    {
+      "name": "gpt-1bf5dfd9ead45d7835e50f56f1da5488",
+      "source": {
+        "source": "local",
+        "path": "./plugins/gpt-1bf5dfd9ead45d7835e50f56f1da5488"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Communication"
+    },
+    {
+      "name": "gpt-62c9e19aa8b186f38f7b7c06f60f85e2",
+      "source": {
+        "source": "local",
+        "path": "./plugins/gpt-62c9e19aa8b186f38f7b7c06f60f85e2"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Education & Research"
+    },
+    {
+      "name": "gpt-ff9fa0f85678a651bdbbcc097338b476",
+      "source": {
+        "source": "local",
+        "path": "./plugins/gpt-ff9fa0f85678a651bdbbcc097338b476"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Education & Research"
+    },
+    {
+      "name": "gpt-21e382830a0b127fd697b2d946925609",
+      "source": {
+        "source": "local",
+        "path": "./plugins/gpt-21e382830a0b127fd697b2d946925609"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Creativity"
+    },
+    {
+      "name": "gpt-3f469fc9f26136f6f6975c0d285c6f36",
+      "source": {
+        "source": "local",
+        "path": "./plugins/gpt-3f469fc9f26136f6f6975c0d285c6f36"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Communication"
+    },
+    {
+      "name": "gpt-af82f5f91e93f0f9bb18e3e61de32e24",
+      "source": {
+        "source": "local",
+        "path": "./plugins/gpt-af82f5f91e93f0f9bb18e3e61de32e24"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Communication"
+    },
+    {
+      "name": "gpt-50eb7054c24496d8c975f5ce81b5c335",
+      "source": {
+        "source": "local",
+        "path": "./plugins/gpt-50eb7054c24496d8c975f5ce81b5c335"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "gpt-bcdcdc3647776da0201f6228f4f841b8",
+      "source": {
+        "source": "local",
+        "path": "./plugins/gpt-bcdcdc3647776da0201f6228f4f841b8"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Creativity"
+    },
+    {
+      "name": "gpt-9d7e67d83ee9f62d1923f146b547ba62",
+      "source": {
+        "source": "local",
+        "path": "./plugins/gpt-9d7e67d83ee9f62d1923f146b547ba62"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
     }
   ]
 }
