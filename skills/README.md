@@ -12,6 +12,7 @@ For platform-agnostic prompts, see [Assistants](../assistants/).
 | [GRA v9.2.0](https://github.com/DigitalArchivst/Open-Genealogy/tree/v9.2.0/skills/gra) | GPS-aligned genealogical research assistant Agent and Chat editions | **current release** |
 | [GRA v9.0.0](https://github.com/DigitalArchivst/Open-Genealogy/releases/tag/v9.0.0) | Preserved previous GRA release | previous release |
 | [Genealogy Eyes](genealogy-eyes/) | Interpret family-history images, distinguish observations from inferences, and plan the next source check. [Download v0.1.1](https://github.com/DigitalArchivst/Open-Genealogy/releases/download/genealogy-eyes-v0.1.1/genealogy-eyes-skill-v0.1.1.zip) | current release |
+| [Genealogy Summarizer](genealogy-summarizer/) | Summarize a family-history document. [Download v1.0.0](https://github.com/DigitalArchivst/Open-Genealogy/releases/download/genealogy-summarizer-skill-v1.0.0/genealogy-summarizer-skill-v1.0.0.zip) | current release |
 | [gedcom-creator/](gedcom-creator/) | GEDCOM 5.5.1 file generator | stable |
 | [Credit Finder v1.3.2](https://github.com/DigitalArchivst/credit-finder) | Finds who a digital work should credit, with evidence and credit wording. Separate repository, MIT licensed | experimental |
 
