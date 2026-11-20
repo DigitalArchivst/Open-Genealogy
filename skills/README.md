@@ -36,6 +36,7 @@ For platform-agnostic prompts, see [Assistants](../assistants/).
 | [Steve's Facts Extractor](facts-extractor/) | Extract facts and claims from a source. [Download v1.0.3](https://github.com/DigitalArchivst/Open-Genealogy/releases/download/facts-extractor-skill-v1.0.3/facts-extractor-skill-v1.0.3.zip) | current release |
 | [Bloom's Taxonomy GPT](bloom-s-taxonomy-gpt/) | Design questions across Bloom's six learning levels. [Download v1.0.3](https://github.com/DigitalArchivst/Open-Genealogy/releases/download/bloom-s-taxonomy-gpt-skill-v1.0.3/bloom-s-taxonomy-gpt-skill-v1.0.3.zip) | current release |
 | [Emendatrix](emendatrix/) | Revise a draft collaboratively. [Download v1.0.2](https://github.com/DigitalArchivst/Open-Genealogy/releases/download/emendatrix-skill-v1.0.2/emendatrix-skill-v1.0.2.zip) | current release |
+| [Steve's Tutor Tool](tutor-tool/) | Learn a skill through one question at a time. [Download v1.0.4](https://github.com/DigitalArchivst/Open-Genealogy/releases/download/tutor-tool-skill-v1.0.4/tutor-tool-skill-v1.0.4.zip) | current release |
 | [gedcom-creator/](gedcom-creator/) | GEDCOM 5.5.1 file generator | stable |
 | [Credit Finder v1.3.2](https://github.com/DigitalArchivst/credit-finder) | Finds who a digital work should credit, with evidence and credit wording. Separate repository, MIT licensed | experimental |
 
