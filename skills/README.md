@@ -40,6 +40,7 @@ For platform-agnostic prompts, see [Assistants](../assistants/).
 | [Lingua Maven](lingua-maven/) | Choose the right word for an audience. [Download v9.0.0-portable.1](https://github.com/DigitalArchivst/Open-Genealogy/releases/download/lingua-maven-skill-v9.0.0-portable.1/lingua-maven-skill-v9.0.0-portable.1.zip) | current release |
 | [Steve's Fact Narrator](fact-narrator/) | Turn labeled facts into a sourced narrative. [Download v4.0.0-portable.1](https://github.com/DigitalArchivst/Open-Genealogy/releases/download/fact-narrator-skill-v4.0.0-portable.1/fact-narrator-skill-v4.0.0-portable.1.zip) | current release |
 | [Deep Look](deep-look/) | Separate visible image details from interpretation. [Download v2.0.0-portable.1](https://github.com/DigitalArchivst/Open-Genealogy/releases/download/deep-look-skill-v2.0.0-portable.1/deep-look-skill-v2.0.0-portable.1.zip) | current release |
+| [Steve's Summarizer](steves-summarizer/) | Summarize the main argument of a text. [Download v1.0.0](https://github.com/DigitalArchivst/Open-Genealogy/releases/download/steves-summarizer-skill-v1.0.0/steves-summarizer-skill-v1.0.0.zip) | current release |
 | [gedcom-creator/](gedcom-creator/) | GEDCOM 5.5.1 file generator | stable |
 | [Credit Finder v1.3.2](https://github.com/DigitalArchivst/credit-finder) | Finds who a digital work should credit, with evidence and credit wording. Separate repository, MIT licensed | experimental |
 
