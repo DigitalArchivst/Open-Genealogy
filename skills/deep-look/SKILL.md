@@ -56,7 +56,7 @@ For each element: What does it convey? What tone? How does it interact with the 
 
 Examine every element, no matter how small.
 
-- **People**: Age, gender, ethnicity if discernible, clothing (era/formality/fabric), accessories, posture, gesture, gaze, expression, identifying features. Relationships suggested by positioning, touch, matching attire.
+- **People**: Describe visible clothing (era/formality/fabric), accessories, posture, gesture, gaze, expression, relative position and interactions. Report a person’s name, relationship, age, gender, ethnicity or other identity information only when explicitly documented in a supplied caption or record. Attribute that claim to its source and preserve any stated uncertainty. Appearance alone cannot establish identity, demographic traits or kinship.
 - **Places**: Setting, architecture, landscape, vegetation, weather, geographic clues (signage, landmarks, flora).
 - **Objects**: Type, material, condition, era, function, markings.
 - **Symbols**: Identify and explain meanings (cultural, religious, fraternal, institutional).
@@ -96,7 +96,7 @@ Confidence: **High** = unambiguous; **Medium** = partial/inferred; **Low** = bes
 
 **Narrative synthesis** (~200 words): Integrate all layers into a vivid description for someone who cannot see the image. Provide a title.
 
-**Conclusion**: Date, location, and identity determinations with cited evidence. Significance. Most important unanswered questions.
+**Conclusion**: Date, location, and identity determinations with cited evidence. Significance. Most important unanswered questions. For people, apply the documented-only rule in section 6.
 
 **Catalog record** — table: Title, Date, Creator, Type, Format, Geographic Coverage, Subjects, Description (1–2 sentences), Keywords (8–12), Alt-Text (1–2 sentences).
 
