@@ -20,6 +20,7 @@ For platform-agnostic prompts, see [Assistants](../assistants/).
 | [Steve's Basic Proofreader](basic-proofreader/) | Proofread with the fewest changes. [Download v1.0.0](https://github.com/DigitalArchivst/Open-Genealogy/releases/download/basic-proofreader-skill-v1.0.0/basic-proofreader-skill-v1.0.0.zip) | current release |
 | [Steve's Photo Tool](photo-tool/) | Critique a photograph's composition. [Download v1.0.0](https://github.com/DigitalArchivst/Open-Genealogy/releases/download/photo-tool-skill-v1.0.0/photo-tool-skill-v1.0.0.zip) | current release |
 | [Steve's Zoom Chat Log Converter](zoom-chat-log-converter/) | Track a discussion through a Zoom chat. [Download v1.0.0](https://github.com/DigitalArchivst/Open-Genealogy/releases/download/zoom-chat-log-converter-skill-v1.0.0/zoom-chat-log-converter-skill-v1.0.0.zip) | current release |
+| [Steve's Council-of-Experts (Mixture of Experts)](council-of-experts-mixture-of-experts/) | Compare expert perspectives on a decision. [Download v1.0.0](https://github.com/DigitalArchivst/Open-Genealogy/releases/download/council-of-experts-mixture-of-experts-skill-v1.0.0/council-of-experts-mixture-of-experts-skill-v1.0.0.zip) | current release |
 | [gedcom-creator/](gedcom-creator/) | GEDCOM 5.5.1 file generator | stable |
 | [Credit Finder v1.3.2](https://github.com/DigitalArchivst/credit-finder) | Finds who a digital work should credit, with evidence and credit wording. Separate repository, MIT licensed | experimental |
 
