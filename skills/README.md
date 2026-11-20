@@ -43,6 +43,7 @@ For platform-agnostic prompts, see [Assistants](../assistants/).
 | [Steve's Summarizer](steves-summarizer/) | Summarize the main argument of a text. [Download v1.0.0](https://github.com/DigitalArchivst/Open-Genealogy/releases/download/steves-summarizer-skill-v1.0.0/steves-summarizer-skill-v1.0.0.zip) | current release |
 | [PDF Conversion Tool](pdf-conversion-tool/) | Convert a PDF into an editable document. [Download v1.0.0](https://github.com/DigitalArchivst/Open-Genealogy/releases/download/pdf-conversion-tool-skill-v1.0.0/pdf-conversion-tool-skill-v1.0.0.zip) | current release |
 | [Steve's Chatlog Analyzer](chatlog-analyzer/) | Analyze classroom participation and shared resources. [Download v1.0.0](https://github.com/DigitalArchivst/Open-Genealogy/releases/download/chatlog-analyzer-skill-v1.0.0/chatlog-analyzer-skill-v1.0.0.zip) | current release |
+| [Open GeneaGPT](open-geneagpt/) | Start a family-history research plan. [Download v0.4.0-portable.2](https://github.com/DigitalArchivst/Open-Genealogy/releases/download/open-geneagpt-skill-v0.4.0-portable.2/open-geneagpt-skill-v0.4.0-portable.2.zip) | current release |
 | [gedcom-creator/](gedcom-creator/) | GEDCOM 5.5.1 file generator | stable |
 | [Credit Finder v1.3.2](https://github.com/DigitalArchivst/credit-finder) | Finds who a digital work should credit, with evidence and credit wording. Separate repository, MIT licensed | experimental |
 
