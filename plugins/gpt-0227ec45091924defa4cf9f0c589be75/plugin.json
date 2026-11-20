@@ -1,0 +1,39 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "author": {
+    "name": "Steve Little",
+    "url": "https://aigenealogyinsights.com"
+  },
+  "description": "Choose and label a chart for a small data table. Display categories, units and counts so a reader can check the visual against the values. Keep missing data distinct from a genuine zero.",
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "capabilities": [
+          "skills"
+        ],
+        "category": "Data & Analytics",
+        "defaultPrompt": [
+          "Chart these weekly counts and show how the missing week differs from a zero."
+        ],
+        "developerName": "Steve Little",
+        "displayName": "Steve's Data Visualizer",
+        "longDescription": "Choose and label a chart for a small data table. Display categories, units and counts so a reader can check the visual against the values. Keep missing data distinct from a genuine zero.",
+        "shortDescription": "Chart counts and trends",
+        "websiteURL": "https://aigenealogytools.vibegenealogy.ai/tools/steve-s-data-visualizer/"
+      },
+      "publication": {
+        "countries": [],
+        "release_notes": "First directory edition of the former Steve's Data Visualizer GPT."
+      },
+      "review": {
+        "prompts": [
+          "Chart these weekly counts and show how the missing week differs from a zero."
+        ],
+        "commerce": false,
+        "commerce_description": "This free skill does not sell products or process payments."
+      }
+    }
+  },
+  "name": "gpt-0227ec45091924defa4cf9f0c589be75",
+  "version": "0.2.1+bundle.9d59b7264099385750ba46e2607c71fc"
+}

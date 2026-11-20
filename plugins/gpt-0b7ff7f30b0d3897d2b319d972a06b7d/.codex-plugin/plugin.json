@@ -1,0 +1,25 @@
+{
+  "interface": {
+    "capabilities": [
+      "skills"
+    ],
+    "category": "Education & Research",
+    "defaultPrompt": [
+      "Teach me how to tell a source from a claim. Start with one practice question."
+    ],
+    "developerName": "Steve Little",
+    "displayName": "Steve's Tutor Tool",
+    "longDescription": "Learn a concept through short questions and feedback. Try a new example after a correction, with the tutor adjusting the next step to the understanding shown in the answer.",
+    "shortDescription": "Practice one step at a time",
+    "websiteURL": "https://aigenealogytools.vibegenealogy.ai/tools/steve-s-tutor-tool/"
+  },
+  "name": "gpt-0b7ff7f30b0d3897d2b319d972a06b7d",
+  "version": "0.1.1+bundle.717094cb350a01a8e2e3b890629e709f",
+  "description": "Learn a concept through short questions and feedback. Try a new example after a correction, with the tutor adjusting the next step to the understanding shown in the answer.",
+  "author": {
+    "name": "Steve Little",
+    "url": "https://aigenealogyinsights.com"
+  },
+  "keywords": [],
+  "skills": "./skills"
+}

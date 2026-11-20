@@ -1,0 +1,25 @@
+{
+  "interface": {
+    "capabilities": [
+      "skills"
+    ],
+    "category": "Education & Research",
+    "defaultPrompt": [
+      "Which resources and participation barriers appear in this class chat?"
+    ],
+    "developerName": "Steve Little",
+    "displayName": "Steve's Chatlog Analyzer",
+    "longDescription": "Review a course chat for shared resources, participation barriers and follow-up teaching questions. Use the evidence available while preserving learners’ privacy.",
+    "shortDescription": "Analyze classroom chats",
+    "websiteURL": "https://aigenealogytools.vibegenealogy.ai/tools/steve-s-chatlog-analyzer/"
+  },
+  "name": "gpt-34274817106a5d2bf501046ade81a030",
+  "version": "0.1.1+bundle.71be79c9d4dbe79730fe6778839e0619",
+  "description": "Review a course chat for shared resources, participation barriers and follow-up teaching questions. Use the evidence available while preserving learners’ privacy.",
+  "author": {
+    "name": "Steve Little",
+    "url": "https://aigenealogyinsights.com"
+  },
+  "keywords": [],
+  "skills": "./skills"
+}

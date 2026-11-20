@@ -1,0 +1,41 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "author": {
+    "name": "Steve Little",
+    "url": "https://aigenealogyinsights.com"
+  },
+  "description": "Compare alternative edits while preserving a writer’s voice. Discuss the effect of each change, take the writer’s preferences into account, and use that feedback for the next revision.",
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "capabilities": [
+          "skills"
+        ],
+        "category": "Creativity",
+        "composerIcon": "./assets/gpt-icon.png",
+        "defaultPrompt": [
+          "Show me two ways to revise this passage while keeping its spare voice."
+        ],
+        "developerName": "Steve Little",
+        "displayName": "Emendatrix",
+        "logo": "./assets/gpt-icon.png",
+        "longDescription": "Compare alternative edits while preserving a writer’s voice. Discuss the effect of each change, take the writer’s preferences into account, and use that feedback for the next revision.",
+        "shortDescription": "Revise with the writer",
+        "websiteURL": "https://aigenealogytools.vibegenealogy.ai/tools/emendatrix/"
+      },
+      "publication": {
+        "countries": [],
+        "release_notes": "First directory edition of the former Emendatrix GPT."
+      },
+      "review": {
+        "prompts": [
+          "Show me two ways to revise this passage while keeping its spare voice."
+        ],
+        "commerce": false,
+        "commerce_description": "This free skill does not sell products or process payments."
+      }
+    }
+  },
+  "name": "gpt-16f8f1e775bd3f7a4e5a906c17d4c6ae",
+  "version": "0.3.2"
+}

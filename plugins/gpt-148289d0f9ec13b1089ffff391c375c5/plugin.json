@@ -1,0 +1,39 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "author": {
+    "name": "Steve Little",
+    "url": "https://aigenealogyinsights.com"
+  },
+  "description": "Compare the meaning of two passages. Explain which claims overlap, how wording changes emphasis, and whether a difference such as a negation reverses the message.",
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "capabilities": [
+          "skills"
+        ],
+        "category": "Communication",
+        "defaultPrompt": [
+          "Compare these passages and explain how the change in wording affects the meaning."
+        ],
+        "developerName": "Steve Little",
+        "displayName": "Semantic Similarity Analysis",
+        "longDescription": "Compare the meaning of two passages. Explain which claims overlap, how wording changes emphasis, and whether a difference such as a negation reverses the message.",
+        "shortDescription": "Compare meanings in text",
+        "websiteURL": "https://aigenealogytools.vibegenealogy.ai/tools/steve-s-semantic-similarity-analysis/"
+      },
+      "publication": {
+        "countries": [],
+        "release_notes": "First directory edition of the former Steve's Semantic Similarity Analysis GPT."
+      },
+      "review": {
+        "prompts": [
+          "Compare these passages and explain how the change in wording affects the meaning."
+        ],
+        "commerce": false,
+        "commerce_description": "This free skill does not sell products or process payments."
+      }
+    }
+  },
+  "name": "gpt-148289d0f9ec13b1089ffff391c375c5",
+  "version": "0.1.1+bundle.852e58c7e352ae26642ee6214d9c7cdf"
+}

@@ -1,0 +1,4 @@
+interface:
+  default_prompt: 'Analyze the attached chatlog:'
+  display_name: Steve's Chatlog Analyzer
+  short_description: 'Unpacks chats, maps engagement, curates resources, and delivers '

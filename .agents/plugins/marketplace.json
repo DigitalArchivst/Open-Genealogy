@@ -267,6 +267,126 @@
         "authentication": "ON_INSTALL"
       },
       "category": "Productivity"
+    },
+    {
+      "name": "gpt-f6c5cbeaf6209a550f68e8bbc25dcc46",
+      "source": {
+        "source": "local",
+        "path": "./plugins/gpt-f6c5cbeaf6209a550f68e8bbc25dcc46"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "gpt-e42f1c9544a82f54d2a8f486f71e9b63",
+      "source": {
+        "source": "local",
+        "path": "./plugins/gpt-e42f1c9544a82f54d2a8f486f71e9b63"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "gpt-0f7747d9e9d4b0de9a0136b40a58bdf9",
+      "source": {
+        "source": "local",
+        "path": "./plugins/gpt-0f7747d9e9d4b0de9a0136b40a58bdf9"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Education & Research"
+    },
+    {
+      "name": "gpt-16f8f1e775bd3f7a4e5a906c17d4c6ae",
+      "source": {
+        "source": "local",
+        "path": "./plugins/gpt-16f8f1e775bd3f7a4e5a906c17d4c6ae"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Creativity"
+    },
+    {
+      "name": "gpt-0227ec45091924defa4cf9f0c589be75",
+      "source": {
+        "source": "local",
+        "path": "./plugins/gpt-0227ec45091924defa4cf9f0c589be75"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Data & Analytics"
+    },
+    {
+      "name": "gpt-148289d0f9ec13b1089ffff391c375c5",
+      "source": {
+        "source": "local",
+        "path": "./plugins/gpt-148289d0f9ec13b1089ffff391c375c5"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Communication"
+    },
+    {
+      "name": "gpt-347277b4a9de6c79de828bc358c3678d",
+      "source": {
+        "source": "local",
+        "path": "./plugins/gpt-347277b4a9de6c79de828bc358c3678d"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Education & Research"
+    },
+    {
+      "name": "gpt-0b7ff7f30b0d3897d2b319d972a06b7d",
+      "source": {
+        "source": "local",
+        "path": "./plugins/gpt-0b7ff7f30b0d3897d2b319d972a06b7d"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Education & Research"
+    },
+    {
+      "name": "gpt-34274817106a5d2bf501046ade81a030",
+      "source": {
+        "source": "local",
+        "path": "./plugins/gpt-34274817106a5d2bf501046ade81a030"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Education & Research"
+    },
+    {
+      "name": "gpt-84a19c2f053ecbeebe40b9850d65c20a",
+      "source": {
+        "source": "local",
+        "path": "./plugins/gpt-84a19c2f053ecbeebe40b9850d65c20a"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Education & Research"
     }
   ]
 }

@@ -1,0 +1,25 @@
+{
+  "interface": {
+    "capabilities": [
+      "skills"
+    ],
+    "category": "Education & Research",
+    "defaultPrompt": [
+      "Read the fields on this draft card and explain what I still need to verify."
+    ],
+    "developerName": "Steve Little",
+    "displayName": "WWII Draft Card Reader",
+    "longDescription": "Extract the visible fields of a United States World War II draft registration card. Keep unclear entries open and explain what the registration, address and named contact establish.",
+    "shortDescription": "Read draft registration cards",
+    "websiteURL": "https://aigenealogytools.vibegenealogy.ai/tools/world-war-2-draft-card-extraction-and-analysis/"
+  },
+  "name": "gpt-347277b4a9de6c79de828bc358c3678d",
+  "version": "0.2.1+bundle.c0dede880c617031c0953fdacdfc1950",
+  "description": "Extract the visible fields of a United States World War II draft registration card. Keep unclear entries open and explain what the registration, address and named contact establish.",
+  "author": {
+    "name": "Steve Little",
+    "url": "https://aigenealogyinsights.com"
+  },
+  "keywords": [],
+  "skills": "./skills"
+}

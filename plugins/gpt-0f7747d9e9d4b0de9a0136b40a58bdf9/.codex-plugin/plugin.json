@@ -1,0 +1,25 @@
+{
+  "interface": {
+    "capabilities": [
+      "skills"
+    ],
+    "category": "Education & Research",
+    "defaultPrompt": [
+      "Build six exercises around this source, one for each level of Bloom's taxonomy."
+    ],
+    "developerName": "Steve Little",
+    "displayName": "Bloom's Taxonomy GPT",
+    "longDescription": "Use Bloom’s taxonomy to build an activity at each of six learning levels. Develop tasks that move from recall to evaluation and creation using the material the learner actually has.",
+    "shortDescription": "Design six levels of practice",
+    "websiteURL": "https://aigenealogytools.vibegenealogy.ai/tools/bloom-s-taxonomy-gpt/"
+  },
+  "name": "gpt-0f7747d9e9d4b0de9a0136b40a58bdf9",
+  "version": "0.2.1+bundle.97b7117bdb6158d3f9c8fec8cffd70dd",
+  "description": "Use Bloom’s taxonomy to build an activity at each of six learning levels. Develop tasks that move from recall to evaluation and creation using the material the learner actually has.",
+  "author": {
+    "name": "Steve Little",
+    "url": "https://aigenealogyinsights.com"
+  },
+  "keywords": [],
+  "skills": "./skills"
+}

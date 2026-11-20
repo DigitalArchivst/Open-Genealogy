@@ -1,0 +1,25 @@
+{
+  "interface": {
+    "capabilities": [
+      "skills"
+    ],
+    "category": "Communication",
+    "defaultPrompt": [
+      "Compare these passages and explain how the change in wording affects the meaning."
+    ],
+    "developerName": "Steve Little",
+    "displayName": "Semantic Similarity Analysis",
+    "longDescription": "Compare the meaning of two passages. Explain which claims overlap, how wording changes emphasis, and whether a difference such as a negation reverses the message.",
+    "shortDescription": "Compare meanings in text",
+    "websiteURL": "https://aigenealogytools.vibegenealogy.ai/tools/steve-s-semantic-similarity-analysis/"
+  },
+  "name": "gpt-148289d0f9ec13b1089ffff391c375c5",
+  "version": "0.1.1+bundle.852e58c7e352ae26642ee6214d9c7cdf",
+  "description": "Compare the meaning of two passages. Explain which claims overlap, how wording changes emphasis, and whether a difference such as a negation reverses the message.",
+  "author": {
+    "name": "Steve Little",
+    "url": "https://aigenealogyinsights.com"
+  },
+  "keywords": [],
+  "skills": "./skills"
+}

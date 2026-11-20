@@ -1,0 +1,25 @@
+{
+  "interface": {
+    "capabilities": [
+      "skills"
+    ],
+    "category": "Productivity",
+    "defaultPrompt": [
+      "Compare the competing priorities for this decision and show which assumptions matter."
+    ],
+    "developerName": "Steve Little",
+    "displayName": "Council of Experts",
+    "longDescription": "Examine one decision from several professional perspectives. Identify where the viewpoints disagree, which facts they assume and what information could change a recommendation.",
+    "shortDescription": "Compare expert viewpoints",
+    "websiteURL": "https://aigenealogytools.vibegenealogy.ai/tools/steve-s-council-of-experts-mixture-of-experts/"
+  },
+  "name": "gpt-e42f1c9544a82f54d2a8f486f71e9b63",
+  "version": "0.1.2",
+  "description": "Examine one decision from several professional perspectives. Identify where the viewpoints disagree, which facts they assume and what information could change a recommendation.",
+  "author": {
+    "name": "Steve Little",
+    "url": "https://aigenealogyinsights.com"
+  },
+  "keywords": [],
+  "skills": "./skills"
+}

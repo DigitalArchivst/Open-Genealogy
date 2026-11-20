@@ -1,0 +1,27 @@
+{
+  "interface": {
+    "capabilities": [
+      "skills"
+    ],
+    "category": "Productivity",
+    "composerIcon": "./assets/gpt-icon.png",
+    "defaultPrompt": [
+      "Convert this PDF to an editable DOCX and preserve the table structure."
+    ],
+    "developerName": "Steve Little",
+    "displayName": "PDF Conversion Tool",
+    "logo": "./assets/gpt-icon.png",
+    "longDescription": "Turn a searchable or scanned PDF into editable document text and tables in a compatible client. Inspect the source, retain its reading order and mark unclear entries.",
+    "shortDescription": "Convert PDFs to editable files",
+    "websiteURL": "https://aigenealogytools.vibegenealogy.ai/tools/pdf-conversion-tool/"
+  },
+  "name": "gpt-f6c5cbeaf6209a550f68e8bbc25dcc46",
+  "version": "0.1.1+bundle.18b979acc9538c113b3934e29a046634",
+  "description": "Turn a searchable or scanned PDF into editable document text and tables in a compatible client. Inspect the source, retain its reading order and mark unclear entries.",
+  "author": {
+    "name": "Steve Little",
+    "url": "https://aigenealogyinsights.com"
+  },
+  "keywords": [],
+  "skills": "./skills"
+}

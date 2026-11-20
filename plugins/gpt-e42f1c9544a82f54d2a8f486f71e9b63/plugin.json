@@ -1,0 +1,39 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "author": {
+    "name": "Steve Little",
+    "url": "https://aigenealogyinsights.com"
+  },
+  "description": "Examine one decision from several professional perspectives. Identify where the viewpoints disagree, which facts they assume and what information could change a recommendation.",
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "capabilities": [
+          "skills"
+        ],
+        "category": "Productivity",
+        "defaultPrompt": [
+          "Compare the competing priorities for this decision and show which assumptions matter."
+        ],
+        "developerName": "Steve Little",
+        "displayName": "Council of Experts",
+        "longDescription": "Examine one decision from several professional perspectives. Identify where the viewpoints disagree, which facts they assume and what information could change a recommendation.",
+        "shortDescription": "Compare expert viewpoints",
+        "websiteURL": "https://aigenealogytools.vibegenealogy.ai/tools/steve-s-council-of-experts-mixture-of-experts/"
+      },
+      "publication": {
+        "countries": [],
+        "release_notes": "First directory edition of the former Steve's Council-of-Experts (Mixture of Experts) GPT."
+      },
+      "review": {
+        "prompts": [
+          "Compare the competing priorities for this decision and show which assumptions matter."
+        ],
+        "commerce": false,
+        "commerce_description": "This free skill does not sell products or process payments."
+      }
+    }
+  },
+  "name": "gpt-e42f1c9544a82f54d2a8f486f71e9b63",
+  "version": "0.1.2"
+}

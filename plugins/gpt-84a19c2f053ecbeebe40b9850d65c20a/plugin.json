@@ -1,0 +1,39 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "author": {
+    "name": "Steve Little",
+    "url": "https://aigenealogyinsights.com"
+  },
+  "description": "Draft a citation for a photograph, scan or edited image. Identify the original, later copies and changes, and ask for missing provenance before filling in a creator, date or place.",
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "capabilities": [
+          "skills"
+        ],
+        "category": "Education & Research",
+        "defaultPrompt": [
+          "How should I cite this scan and describe the adjustments made to the image?"
+        ],
+        "developerName": "Steve Little",
+        "displayName": "Steve's Image Citation Builder",
+        "longDescription": "Draft a citation for a photograph, scan or edited image. Identify the original, later copies and changes, and ask for missing provenance before filling in a creator, date or place.",
+        "shortDescription": "Cite an image and its edits",
+        "websiteURL": "https://aigenealogytools.vibegenealogy.ai/tools/steve-s-image-citation-builder/"
+      },
+      "publication": {
+        "countries": [],
+        "release_notes": "First directory edition of the former Steve's Image Citation Builder GPT."
+      },
+      "review": {
+        "prompts": [
+          "How should I cite this scan and describe the adjustments made to the image?"
+        ],
+        "commerce": false,
+        "commerce_description": "This free skill does not sell products or process payments."
+      }
+    }
+  },
+  "name": "gpt-84a19c2f053ecbeebe40b9850d65c20a",
+  "version": "0.2.1+bundle.48707a6d9e36ce0b82dcaa2c92630632"
+}
