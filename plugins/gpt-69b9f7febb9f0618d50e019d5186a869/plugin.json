@@ -1,0 +1,41 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "author": {
+    "name": "Steve Little",
+    "url": "https://aigenealogyinsights.com"
+  },
+  "description": "Examine a photograph or document in stages. Start with visible text and composition, then consider interpretations, their limits and evidence that could support another reading.",
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "capabilities": [
+          "skills"
+        ],
+        "category": "Education & Research",
+        "composerIcon": "./assets/gpt-icon.png",
+        "defaultPrompt": [
+          "Describe what is visible in this image, then identify interpretations I could check."
+        ],
+        "developerName": "Steve Little",
+        "displayName": "Deep Look",
+        "logo": "./assets/gpt-icon.png",
+        "longDescription": "Examine a photograph or document in stages. Start with visible text and composition, then consider interpretations, their limits and evidence that could support another reading.",
+        "shortDescription": "Read an image in detail",
+        "websiteURL": "https://aigenealogytools.vibegenealogy.ai/tools/deep-look/"
+      },
+      "publication": {
+        "countries": [],
+        "release_notes": "First directory edition of the former Deep Look GPT."
+      },
+      "review": {
+        "prompts": [
+          "Describe what is visible in this image, then identify interpretations I could check."
+        ],
+        "commerce": false,
+        "commerce_description": "This free skill does not sell products or process payments."
+      }
+    }
+  },
+  "name": "gpt-69b9f7febb9f0618d50e019d5186a869",
+  "version": "0.2.2"
+}

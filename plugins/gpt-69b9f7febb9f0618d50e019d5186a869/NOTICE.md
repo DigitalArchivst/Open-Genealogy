@@ -1,0 +1,1 @@
+Deep Look by Steve Little. This packaged edition uses the verified hosted instructions and updates the listing description, example prompt and website. Steve Little’s own Deep Look v2 prompt is CC BY-NC 4.0. His grant excludes the historical Bower image and comparison PDF. The included practice notice is fictional.

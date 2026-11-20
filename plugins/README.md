@@ -43,6 +43,7 @@ Choose a tool below and run its install command. Open a new Codex chat to use it
 | [Steve's Tutor Tool](gpt-0b7ff7f30b0d3897d2b319d972a06b7d/) | 0.1.1+bundle.717094cb350a01a8e2e3b890629e709f | `codex plugin add gpt-0b7ff7f30b0d3897d2b319d972a06b7d@ai-genealogy-tools` |
 | [Steve's Chatlog Analyzer](gpt-34274817106a5d2bf501046ade81a030/) | 0.1.1+bundle.71be79c9d4dbe79730fe6778839e0619 | `codex plugin add gpt-34274817106a5d2bf501046ade81a030@ai-genealogy-tools` |
 | [Steve's Image Citation Builder](gpt-84a19c2f053ecbeebe40b9850d65c20a/) | 0.2.1+bundle.48707a6d9e36ce0b82dcaa2c92630632 | `codex plugin add gpt-84a19c2f053ecbeebe40b9850d65c20a@ai-genealogy-tools` |
+| [Deep Look](gpt-69b9f7febb9f0618d50e019d5186a869/) | 0.2.2 | `codex plugin add gpt-69b9f7febb9f0618d50e019d5186a869@ai-genealogy-tools` |
 
 For a reproducible install, append `--ref COMMIT` to the marketplace-add command, using the full commit SHA from the release you want.
 
