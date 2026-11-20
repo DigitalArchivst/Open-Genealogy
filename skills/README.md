@@ -38,6 +38,7 @@ For platform-agnostic prompts, see [Assistants](../assistants/).
 | [Emendatrix](emendatrix/) | Revise a draft collaboratively. [Download v1.0.2](https://github.com/DigitalArchivst/Open-Genealogy/releases/download/emendatrix-skill-v1.0.2/emendatrix-skill-v1.0.2.zip) | current release |
 | [Steve's Tutor Tool](tutor-tool/) | Learn a skill through one question at a time. [Download v1.0.4](https://github.com/DigitalArchivst/Open-Genealogy/releases/download/tutor-tool-skill-v1.0.4/tutor-tool-skill-v1.0.4.zip) | current release |
 | [Lingua Maven](lingua-maven/) | Choose the right word for an audience. [Download v9.0.0-portable.1](https://github.com/DigitalArchivst/Open-Genealogy/releases/download/lingua-maven-skill-v9.0.0-portable.1/lingua-maven-skill-v9.0.0-portable.1.zip) | current release |
+| [Steve's Fact Narrator](fact-narrator/) | Turn labeled facts into a sourced narrative. [Download v4.0.0-portable.1](https://github.com/DigitalArchivst/Open-Genealogy/releases/download/fact-narrator-skill-v4.0.0-portable.1/fact-narrator-skill-v4.0.0-portable.1.zip) | current release |
 | [gedcom-creator/](gedcom-creator/) | GEDCOM 5.5.1 file generator | stable |
 | [Credit Finder v1.3.2](https://github.com/DigitalArchivst/credit-finder) | Finds who a digital work should credit, with evidence and credit wording. Separate repository, MIT licensed | experimental |
 
