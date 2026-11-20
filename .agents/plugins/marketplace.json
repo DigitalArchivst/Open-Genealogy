@@ -1,0 +1,20 @@
+{
+  "name": "ai-genealogy-tools",
+  "interface": {
+    "displayName": "AI Genealogy Tools"
+  },
+  "plugins": [
+    {
+      "name": "gpt-6faf7e75382f7749c420fa14f459f915",
+      "source": {
+        "source": "local",
+        "path": "./plugins/gpt-6faf7e75382f7749c420fa14f459f915"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Education & Research"
+    }
+  ]
+}

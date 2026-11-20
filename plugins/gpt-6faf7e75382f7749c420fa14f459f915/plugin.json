@@ -1,0 +1,47 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "author": {
+    "name": "Steve Little",
+    "url": "https://aigenealogyinsights.com"
+  },
+  "description": "Upload a photograph, headstone, notice, or family record. Genealogy Eyes reads visible wording, explains what the image can tell a family historian, and suggests a record to check next. Ask it to distinguish a visible clue from a possible identification or relationship.",
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "capabilities": [
+          "skills"
+        ],
+        "category": "Education & Research",
+        "composerIcon": "./assets/gpt-icon.png",
+        "defaultPrompt": [
+          "Read the wording on this notice and suggest a record that could help me follow up.",
+          "Which details on this headstone are clear, and where is the reading uncertain?",
+          "Does this photograph establish that these two people are related? Explain what evidence I would need."
+        ],
+        "developerName": "Steve Little",
+        "displayName": "Genealogy Eyes",
+        "logo": "./assets/gpt-icon.png",
+        "longDescription": "Upload a photograph, headstone, notice, or family record. Genealogy Eyes reads visible wording, explains what the image can tell a family historian, and suggests a record to check next. Ask it to distinguish a visible clue from a possible identification or relationship.",
+        "shortDescription": "Read family-history images",
+        "websiteURL": "https://aigenealogytools.vibegenealogy.ai/tools/genealogy-eyes/",
+        "supportURL": "https://aigenealogytools.vibegenealogy.ai/privacy/",
+        "privacyPolicyURL": "https://aigenealogytools.vibegenealogy.ai/privacy/"
+      },
+      "review": {
+        "prompts": [
+          "Read the wording on this notice and suggest a record that could help me follow up.",
+          "Which details on this headstone are clear, and where is the reading uncertain?",
+          "Does this photograph establish that these two people are related? Explain what evidence I would need."
+        ],
+        "commerce": false,
+        "commerce_description": "Genealogy Eyes does not sell products or process payments."
+      },
+      "publication": {
+        "release_notes": "First public directory release of Genealogy Eyes, migrated from the family-history image analysis GPT.",
+        "countries": []
+      }
+    }
+  },
+  "name": "gpt-6faf7e75382f7749c420fa14f459f915",
+  "version": "0.24.3"
+}

@@ -1,0 +1,4 @@
+interface:
+  default_prompt: 'What can you tell me about this image:'
+  display_name: Genealogy Eyes
+  short_description: Read family-history images and interpret what they establish.
