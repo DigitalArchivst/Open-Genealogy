@@ -21,7 +21,7 @@ Choose a tool below and run its install command. Open a new Codex chat to use it
 | [Steve's Facts Extractor](gpt-d64bdabd2afddf595eae389742aa8982/) | 0.12.1+bundle.591190b0b400cb69ad845d0be3c4a42b | `codex plugin add gpt-d64bdabd2afddf595eae389742aa8982@ai-genealogy-tools` |
 | [Genealogy Document Helper](gpt-c10de09db3c7343ce99cfef0ae4f3be0/) | 0.3.1+bundle.ef4ddb908c00c5d4560355e894764b0e | `codex plugin add gpt-c10de09db3c7343ce99cfef0ae4f3be0@ai-genealogy-tools` |
 | [Steve's Fact Narrator](gpt-7a95f91fac1555e9abd6590ebdde3982/) | 0.6.3 | `codex plugin add gpt-7a95f91fac1555e9abd6590ebdde3982@ai-genealogy-tools` |
-| [Steve's Summarizer](gpt-70f361521900605b94c29d4cd79b4c08/) | 0.7.1+bundle.58060ff2f624c941fc3f417a781737d7 | `codex plugin add gpt-70f361521900605b94c29d4cd79b4c08@ai-genealogy-tools` |
+| [Steve's Summarizer](gpt-70f361521900605b94c29d4cd79b4c08/) | 0.7.2 | `codex plugin add gpt-70f361521900605b94c29d4cd79b4c08@ai-genealogy-tools` |
 | [Biographical Sketch Generator](gpt-f2eda031b43b4915addad53a1c8847ff/) | 0.1.1+bundle.710b5239f27558946b56a7ac56afdb05 | `codex plugin add gpt-f2eda031b43b4915addad53a1c8847ff@ai-genealogy-tools` |
 | [Steve's Cemetery Transcriber](gpt-2654fe026ef8b87a6e91d6d6bfb98e58/) | 0.3.1+bundle.86de6c6fe43a3b8fb84311e401a185c3 | `codex plugin add gpt-2654fe026ef8b87a6e91d6d6bfb98e58@ai-genealogy-tools` |
 | [Steve's Clarity Checker](gpt-1bf5dfd9ead45d7835e50f56f1da5488/) | 0.7.1+bundle.1d3fbcd7c61671ec8fe79b1b50d7a567 | `codex plugin add gpt-1bf5dfd9ead45d7835e50f56f1da5488@ai-genealogy-tools` |

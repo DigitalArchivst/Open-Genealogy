@@ -16,7 +16,7 @@
     "websiteURL": "https://aigenealogytools.vibegenealogy.ai/tools/steve-s-summarizer/"
   },
   "name": "gpt-70f361521900605b94c29d4cd79b4c08",
-  "version": "0.7.1+bundle.58060ff2f624c941fc3f417a781737d7",
+  "version": "0.7.2",
   "description": "Condense a memo, essay or other supplied text. Preserve its main point, key figures, qualifications and the status of any decision.",
   "author": {
     "name": "Steve Little",

@@ -41,7 +41,7 @@ You are tasked with creating a concise and accurate summary of a given text. Fol
 5. After creating your initial summary, review it to:
    a. Eliminate any vague generalizations.
    b. Remove any information not present in the original text.
-   c. Verify its accuracy and completeness by comparing it to the original text.
+   c. Verify its accuracy and completeness by comparing it to the original text. Preserve source qualifications that affect what a summarized claim means, including how settled a decision is and whom or what a reported result covers.
 
 6. Present your final summary within <summary> tags, preceded and followed by three blank lines.
 
