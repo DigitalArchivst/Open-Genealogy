@@ -28,6 +28,10 @@ RUNTIME_FILES = [
     "references/research-assistant-full.md",
     "references/companion-reference.md",
 ]
+DETERMINISTIC_DATE_TIME = (1980, 1, 1, 0, 0, 0)
+DETERMINISTIC_CREATE_SYSTEM = 3
+DETERMINISTIC_EXTERNAL_ATTR = 0o100644 << 16
+DETERMINISTIC_COMPRESS_LEVEL = 6
 
 
 def read_default_version() -> str:
@@ -87,7 +91,7 @@ def build_zip(version: str, output: Path) -> Path:
             src = SKILL_ROOT / rel
             dest = stage_root / rel
             dest.parent.mkdir(parents=True, exist_ok=True)
-            shutil.copy2(src, dest)
+            shutil.copyfile(src, dest)
 
         validation_errors = validate(
             stage_root, expected_version=version
@@ -99,10 +103,34 @@ def build_zip(version: str, output: Path) -> Path:
             )
 
         output.parent.mkdir(parents=True, exist_ok=True)
-        with zipfile.ZipFile(output, "w", compression=zipfile.ZIP_DEFLATED) as zf:
-            for path in sorted(stage_root.rglob("*")):
-                if path.is_file():
-                    zf.write(path, path.relative_to(stage_root.parent).as_posix())
+        staged_members = sorted(
+            (
+                path.relative_to(stage_root.parent).as_posix(),
+                path,
+            )
+            for path in stage_root.rglob("*")
+            if path.is_file()
+        )
+        with zipfile.ZipFile(
+            output,
+            "w",
+            compression=zipfile.ZIP_DEFLATED,
+            compresslevel=DETERMINISTIC_COMPRESS_LEVEL,
+        ) as zf:
+            for arcname, path in staged_members:
+                info = zipfile.ZipInfo(
+                    filename=arcname,
+                    date_time=DETERMINISTIC_DATE_TIME,
+                )
+                info.compress_type = zipfile.ZIP_DEFLATED
+                info.create_system = DETERMINISTIC_CREATE_SYSTEM
+                info.external_attr = DETERMINISTIC_EXTERNAL_ATTR
+                zf.writestr(
+                    info,
+                    path.read_bytes(),
+                    compress_type=zipfile.ZIP_DEFLATED,
+                    compresslevel=DETERMINISTIC_COMPRESS_LEVEL,
+                )
 
     return output
 
