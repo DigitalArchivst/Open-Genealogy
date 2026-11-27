@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "description": "Pinned local publication checks for Open-Genealogy.",
   "engines": {
-    "node": "22.18.0"
+    "node": "22.23.5"
   },
   "scripts": {
     "lint:markdown": "npm run lint:markdown:baseline",
