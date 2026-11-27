@@ -4,6 +4,8 @@ Python scripts for release packaging and audio transcription.
 
 ## Release Packaging
 
+For a ready-to-install copy, use the [GRA Agent ZIP v9.2.1](https://github.com/DigitalArchivst/Open-Genealogy/releases/download/gra-agent-packager-v9.2.1/gra-skill-v9.2.1.zip). To reproduce that asset, check out [the component tag](https://github.com/DigitalArchivst/Open-Genealogy/tree/gra-agent-packager-v9.2.1). The release used Python 3.12.10, zlib 1.3.1, DEFLATE level 6, and a checkout where `skills/gra/LICENSE` has 437 CRLF line endings. The tagged builder emits `gra-skill-v9.2.0.zip` for the embedded runtime. Validate it as 9.2.0 and copy it to the distribution name `gra-skill-v9.2.1.zip`. The builder on `main` uses level 9 and LF-normalized inputs.
+
 - **generate_chat_edition.py**: Generates the v9.2.0
   [Chat Edition](../research/research-assistant-v9.2.0-chat.md) from the
   [Agent Edition](../skills/gra/SKILL.md) and records immutable hashes for

@@ -5,11 +5,11 @@
 [![GitHub repo size](https://img.shields.io/github/repo-size/DigitalArchivst/Open-Genealogy)](https://github.com/DigitalArchivst/Open-Genealogy)
 
 A toolkit of **AI prompts and utilities for genealogical research**, designed to
-follow the Genealogical Proof Standard. For genealogists at every level — from
+follow the Genealogical Proof Standard (GPS). For genealogists at every level — from
 hobbyists exploring their first census record to credentialed professionals
 managing client work.
 
-## Start With GRA v9.2.0
+## Get started with the Genealogical Research Assistant
 
 Before copying, pasting, or uploading a record: standard Codex, Claude, and
 other hosted AI workflows process the material with a cloud model. Do not send
@@ -17,10 +17,11 @@ living-person details or any record that is too sensitive for the service you
 choose. Treat every AI response as draft analysis; verify records, citations,
 and conclusions yourself.
 
-Choose the GRA v9.2.0 edition that fits your client.
+**[Download the GRA Agent ZIP v9.2.1](https://github.com/DigitalArchivst/Open-Genealogy/releases/download/gra-agent-packager-v9.2.1/gra-skill-v9.2.1.zip)** if your app supports Agent Skills. The package contains the v9.2.0 research instructions. Seeing v9.2.0 inside the ZIP is expected. [Installation steps](GETTING-STARTED.md#agent-skill) · [Release notes and checksum](https://github.com/DigitalArchivst/Open-Genealogy/releases/tag/gra-agent-packager-v9.2.1)
 
-- **[Agent Skill](https://github.com/DigitalArchivst/Open-Genealogy/tree/v9.2.0/skills/gra):** for an Agent Skills client that can work with a local folder and supporting references. Download the installable ZIP from the [v9.2.0 release](https://github.com/DigitalArchivst/Open-Genealogy/releases/tag/v9.2.0).
-- **[Chat Edition](https://github.com/DigitalArchivst/Open-Genealogy/releases/download/v9.2.0/research-assistant-v9.2.0-chat.md):** a self-contained prompt for ordinary chat, Custom GPTs, and Gems. See the immutable [repository artifact at the release tag](https://github.com/DigitalArchivst/Open-Genealogy/blob/v9.2.0/research/research-assistant-v9.2.0-chat.md).
+### Start With GRA v9.2.0
+
+**Using a regular chat window?** [Read and copy the Chat Edition](https://github.com/DigitalArchivst/Open-Genealogy/blob/v9.2.0/research/research-assistant-v9.2.0-chat.md) or [download the text file](https://github.com/DigitalArchivst/Open-Genealogy/releases/download/v9.2.0/research-assistant-v9.2.0-chat.md). Paste the instructions into a new conversation. The [Agent download above](#get-started-with-the-genealogical-research-assistant) uses the same research methodology. [Try your first research question](GETTING-STARTED.md#try-it-with-a-fictional-record)
 
 GRA v8.5, v8, and v7 remain available under the documented
 [compatibility and history route](research/README.md#compatibility-and-history).
@@ -36,9 +37,9 @@ GRA v8.5, v8, and v7 remain available under the documented
 - **[Research](research/)**
   - Description: Current GRA v9.2.0 Chat Edition plus retained research history
   - Start Here: [v9.2.0 Chat Edition](https://github.com/DigitalArchivst/Open-Genealogy/releases/download/v9.2.0/research-assistant-v9.2.0-chat.md)
-- **[GRA Skill](https://github.com/DigitalArchivst/Open-Genealogy/tree/v9.2.0/skills/gra)**
-  - Description: Current GRA v9.2.0 Agent Skill source and supporting references
-  - Start Here: [GRA v9.2.0 Agent Skill](https://github.com/DigitalArchivst/Open-Genealogy/tree/v9.2.0/skills/gra)
+- **[GRA Agent Skill](GETTING-STARTED.md#agent-skill)**
+  - Description: GRA v9.2.1 Agent ZIP with the v9.2.0 research instructions and supporting references
+  - Start Here: [Install the Agent Skill](GETTING-STARTED.md#agent-skill)
 - **[Transcription](transcription/)**
   - Description: Diplomatic transcription for handwritten documents
   - Start Here: [ocr-htr-v08.md](transcription/ocr-htr-v08.md)
@@ -64,7 +65,7 @@ GRA v8.5, v8, and v7 remain available under the documented
   - Description: Custom GPT system prompts for OpenAI deployments
   - Start Here: [README.md](gpt-configs/README.md)
 - **[Skills](skills/)**
-  - Description: Claude Code skills with companion files
+  - Description: Agent Skills for compatible clients, with supporting files
   - Start Here: [skills/](skills/)
 - **[Scripts](scripts/)**
   - Description: Privacy-aware batch and long-audio transcription utilities
@@ -84,8 +85,8 @@ GRA v8.5, v8, and v7 remain available under the documented
 ## Quick Start
 
 1. Read the privacy and living-person boundary above.
-2. Choose the GRA v9.2.0 Agent Skill or Chat Edition.
-3. Follow the edition-specific setup at the linked v9.2.0 release source.
+2. Choose the Agent ZIP or the Chat Edition above.
+3. Follow the [Getting Started guide](GETTING-STARTED.md) for your edition.
 4. Provide only material you are comfortable processing with the selected tool.
 5. Verify the resulting analysis against the records.
 
@@ -135,6 +136,10 @@ limited-permission media included in the repository. Read [RIGHTS.md](RIGHTS.md)
 and the [Rights and License Matrix](docs/RIGHTS-AND-LICENSE-MATRIX.md) before
 reusing an image, audio file, captured model output, quotation, or other
 material that may have separate rights.
+
+## Help and feedback
+
+For an installation problem, [open an issue](https://github.com/DigitalArchivst/Open-Genealogy/issues/new/choose) with your app, edition, and the step that failed. Use fictional details for examples. For a security or data-exposure concern, use the [private reporting route](SECURITY.md).
 
 ## Author
 

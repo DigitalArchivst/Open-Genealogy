@@ -200,7 +200,7 @@ Complete AI personas for ongoing genealogical work.
 Agent Skills combine instructions with supporting files. Client support and
 installation paths vary; consult each skill's platform matrix.
 
-- [GRA v9.2.0 Agent Skill](https://github.com/DigitalArchivst/Open-Genealogy/tree/v9.2.0/skills/gra)
+- [Download the GRA v9.2.1 Agent ZIP](https://github.com/DigitalArchivst/Open-Genealogy/releases/download/gra-agent-packager-v9.2.1/gra-skill-v9.2.1.zip) · [Installation guide](GETTING-STARTED.md#agent-skill)
   - Description: Current GPS-aligned genealogical research assistant Agent
     Edition; the matching Chat Edition is the v9.2.0 release above
   - Status: **current release**

@@ -22,7 +22,7 @@ Choose the edition that matches how you work:
 
 | Choose | Best for | Start here |
 | --- | --- | --- |
-| **Agent Skill** | An Agent Skills client with local-folder and reference-file support | [GRA v9.2.0 release source](https://github.com/DigitalArchivst/Open-Genealogy/tree/v9.2.0/skills/gra) |
+| **Agent Skill** | An app that accepts an Agent Skill ZIP or folder | [Download the v9.2.1 ZIP with the v9.2.0 runtime](https://github.com/DigitalArchivst/Open-Genealogy/releases/download/gra-agent-packager-v9.2.1/gra-skill-v9.2.1.zip) · [Installation steps](../GETTING-STARTED.md#agent-skill) |
 | **Chat Edition** | Custom GPTs, Gems, projects, and ordinary copy-paste chat | Direct [v9.2.0 chat download](https://github.com/DigitalArchivst/Open-Genealogy/releases/download/v9.2.0/research-assistant-v9.2.0-chat.md) and immutable [repository artifact](https://github.com/DigitalArchivst/Open-Genealogy/blob/v9.2.0/research/research-assistant-v9.2.0-chat.md) |
 
 Both editions use the same v9.2.0 methodology. The Agent Skill adds agent-only
