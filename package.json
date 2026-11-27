@@ -12,6 +12,6 @@
     "lint:markdown:changed": "python scripts/check_markdown_changes.py"
   },
   "devDependencies": {
-    "markdownlint-cli": "0.49.0"
+    "markdownlint-cli": "0.50.1"
   }
 }
