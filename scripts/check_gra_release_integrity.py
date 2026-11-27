@@ -23,7 +23,7 @@ from dataclasses import dataclass
 from pathlib import Path, PurePosixPath
 from typing import Any, Iterable
 from urllib.error import HTTPError, URLError
-from urllib.parse import quote
+from urllib.parse import quote, urlsplit
 from urllib.request import Request, urlopen
 
 from validate_gra_skill_zip import validate as validate_skill
@@ -77,22 +77,26 @@ def expected_asset_names(tag: str) -> tuple[str, str]:
     )
 
 
-def request_headers() -> dict[str, str]:
-    """Build GitHub headers, using the workflow token when available."""
+def github_api_request(url: str) -> Request:
+    """Authenticate only the initial request to the GitHub API."""
+    location = urlsplit(url)
+    if location.scheme != "https" or location.netloc != "api.github.com":
+        raise ReleaseIntegrityError("Expected an HTTPS GitHub API URL")
     headers = {
         "Accept": "application/vnd.github+json",
         "User-Agent": "Open-Genealogy-GRA-release-integrity",
         "X-GitHub-Api-Version": "2022-11-28",
     }
+    request = Request(url, headers=headers)
     token = os.environ.get("GITHUB_TOKEN")
     if token:
-        headers["Authorization"] = f"Bearer {token}"
-    return headers
+        request.add_unredirected_header("Authorization", f"Bearer {token}")
+    return request
 
 
 def fetch_json(url: str) -> dict[str, Any]:
     """Fetch one JSON object from GitHub."""
-    request = Request(url, headers=request_headers())
+    request = github_api_request(url)
     try:
         with urlopen(request, timeout=30) as response:
             payload = json.load(response)
@@ -232,7 +236,7 @@ def assert_no_public_latest_release_references(root: Path) -> None:
 
 def download_asset(url: str, destination: Path) -> None:
     """Download one immutable release asset to a temporary path."""
-    request = Request(url, headers=request_headers())
+    request = Request(url, headers={"User-Agent": "Open-Genealogy-GRA-release-integrity"})
     try:
         with urlopen(request, timeout=60) as response, destination.open("wb") as handle:
             while chunk := response.read(1024 * 1024):
