@@ -2,17 +2,41 @@
 
 from __future__ import annotations
 
+import io
+import os
 import sys
 import tempfile
 import unittest
 import zipfile
 from pathlib import Path
+from unittest.mock import patch
 
 
 SCRIPTS = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(SCRIPTS))
 
 import check_gra_release_integrity as release_check  # noqa: E402
+
+
+class DownloadCredentialTests(unittest.TestCase):
+    @patch.dict(os.environ, {"GITHUB_TOKEN": "unit-test-placeholder"})
+    def test_api_credential_is_scoped_to_initial_github_api_request(self):
+        request = release_check.github_api_request("https://api.github.com/repos/example/example")
+        self.assertEqual("Bearer unit-test-placeholder", request.get_header("Authorization"))
+        self.assertNotIn("Authorization", request.headers)
+        with self.assertRaises(release_check.ReleaseIntegrityError):
+            release_check.github_api_request("https://example.org/")
+
+    @patch.dict(os.environ, {"GITHUB_TOKEN": "unit-test-placeholder"})
+    @patch.object(release_check, "urlopen")
+    def test_public_asset_is_requested_anonymously(self, mock_open):
+        mock_open.return_value = io.BytesIO(b"public fixture")
+        with tempfile.TemporaryDirectory() as temp:
+            output = Path(temp) / "artifact"
+            release_check.download_asset("https://github.com/example/example/releases/download/v1/artifact", output)
+            self.assertEqual(b"public fixture", output.read_bytes())
+        request = mock_open.call_args.args[0]
+        self.assertFalse(request.has_header("Authorization"))
 
 
 ZIP_NAME = "gra-skill-v9.2.0.zip"
