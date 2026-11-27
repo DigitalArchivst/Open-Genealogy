@@ -15,6 +15,12 @@ contact information, employment, medical, financial, or other sensitive
 details. If a record is too sensitive for the chosen service, keep it out of
 that service.
 
+Before sharing a draft, read it as someone who knows the family. In tests,
+GRA sometimes suggested including a living person's line of work or town.
+Those two clues together can identify someone. Remove identifying details
+from the copy you share. If a reply includes a private list of real names
+and their substitutes, keep that list in your private notes.
+
 AI can help organize, extract, compare, plan, and draft. It does not certify a
 genealogical conclusion. Verify every record, citation, inference, and final
 conclusion yourself.
