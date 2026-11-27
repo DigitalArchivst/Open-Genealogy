@@ -70,7 +70,7 @@ rechecked for every named client.
 
 ## Try it with two public records
 
-Who was the third son whose birth John Quincy Adams reported on August 18, 1807? Start with the father's letter, written in Boston that morning. Then read the first sentence of the House biography. [John Quincy Adams to Catherine Nuth Johnson, August 18, 1807, Adams Papers early-access transcription](<https://rotunda.upress.virginia.edu/founders/default.xqy?keys=FOEA-print-03-03-02-1609>) · [Charles Francis Adams, U.S. House of Representatives, “Concise Biography”](https://history.house.gov/People/Detail/8298)
+Who was the third son whose birth John Quincy Adams reported on August 18, 1807? Start with the father's letter, written in Boston that morning. Then read the first sentence of the House biography. [John Quincy Adams to Catherine Nuth Johnson, August 18, 1807, Adams Papers early-access transcription](https://rotunda.upress.virginia.edu/founders/default.xqy?keys=FOEA-print-03-03-02-1609) · [Charles Francis Adams, U.S. House of Representatives, “Concise Biography”](https://history.house.gov/People/Detail/8298)
 
 Copy this question and the two excerpts into your chat:
 
