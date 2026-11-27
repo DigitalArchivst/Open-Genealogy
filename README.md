@@ -21,7 +21,7 @@ and conclusions yourself.
 
 ### Start With GRA v9.2.0
 
-**Using a regular chat window?** [Read and copy the Chat Edition](https://github.com/DigitalArchivst/Open-Genealogy/blob/v9.2.0/research/research-assistant-v9.2.0-chat.md) or [download the text file](https://github.com/DigitalArchivst/Open-Genealogy/releases/download/v9.2.0/research-assistant-v9.2.0-chat.md). Paste the instructions into a new conversation. The [Agent download above](#get-started-with-the-genealogical-research-assistant) uses the same research methodology. [Try your first research question](GETTING-STARTED.md#try-it-with-a-fictional-record)
+**Using a regular chat window?** [Read and copy the Chat Edition](https://github.com/DigitalArchivst/Open-Genealogy/blob/v9.2.0/research/research-assistant-v9.2.0-chat.md) or [download the text file](https://github.com/DigitalArchivst/Open-Genealogy/releases/download/v9.2.0/research-assistant-v9.2.0-chat.md). Paste the instructions into a new conversation. The [Agent download above](#get-started-with-the-genealogical-research-assistant) uses the same research methodology. [Try your first research question](GETTING-STARTED.md#try-it-with-two-public-records)
 
 GRA v8.5, v8, and v7 remain available under the documented
 [compatibility and history route](research/README.md#compatibility-and-history).
@@ -139,7 +139,7 @@ material that may have separate rights.
 
 ## Help and feedback
 
-For an installation problem, [open an issue](https://github.com/DigitalArchivst/Open-Genealogy/issues/new/choose) with your app, edition, and the step that failed. Use fictional details for examples. For a security or data-exposure concern, use the [private reporting route](SECURITY.md).
+For an installation problem, [open an issue](https://github.com/DigitalArchivst/Open-Genealogy/issues/new/choose) with your app, edition, and the step that failed. Describe the problem without including private family details. For a security or data-exposure concern, use the [private reporting route](SECURITY.md).
 
 ## Author
 

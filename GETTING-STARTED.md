@@ -56,7 +56,7 @@ documented native support from expected compatibility.
 
 1. [Download the Agent ZIP v9.2.1](https://github.com/DigitalArchivst/Open-Genealogy/releases/download/gra-agent-packager-v9.2.1/gra-skill-v9.2.1.zip). Your browser saves `gra-skill-v9.2.1.zip`.
 2. Use the row for your app. For the two folder-based options, extract the ZIP in your file manager and copy the whole `gra` folder. Its `SKILL.md` file identifies the runtime as v9.2.0.
-3. Open a new session in the project and ask it to use the Genealogical Research Assistant on the fictional example below. The [packager release notes](https://github.com/DigitalArchivst/Open-Genealogy/releases/tag/gra-agent-packager-v9.2.1) give the archive checksum.
+3. Open a new session in the project and ask it to use the Genealogical Research Assistant on the public records below. The [packager release notes](https://github.com/DigitalArchivst/Open-Genealogy/releases/tag/gra-agent-packager-v9.2.1) give the archive checksum.
 
 | App | Where the skill goes |
 | --- | --- |
@@ -68,13 +68,15 @@ Do not assume that an Agent Skills-compatible ZIP has a universal installer.
 The package was release-validated, but interactive installation was not
 rechecked for every named client.
 
-## Try it with a fictional record
+## Try it with two public records
 
-Start a new conversation with your chosen edition and enter this example.
+Who was the third son whose birth John Quincy Adams reported on August 18, 1807? Start with the father's letter, written in Boston that morning. Then read the first sentence of the House biography. [John Quincy Adams to Catherine Nuth Johnson, August 18, 1807, Adams Papers early-access transcription](<https://rotunda.upress.virginia.edu/founders/default.xqy?keys=FOEA-print-03-03-02-1609>) · [Charles Francis Adams, U.S. House of Representatives, “Concise Biography”](https://history.house.gov/People/Detail/8298)
 
-> This fictional 1900 town directory lists “Ada Reed, teacher, 14 Elm Street.” What does this entry support, what remains uncertain, and which record would you check next?
+Copy this question and the two excerpts into your chat:
 
-Look for an answer that attributes the occupation and address to the directory, leaves family relationships open, and suggests a specific record to check. You can try this without uploading a family record.
+> The letter says “my dear wife at half-past eight this morning presented me a third son.” The House biography begins “ADAMS, Charles Francis, (son of John Quincy Adams, grandson of John Adams)” and gives his birth as August 18, 1807, in Boston. Which source names the child? How do the father, date and place connect the records? Tell me which details you checked yourself. Stop with Charles Francis Adams.
+
+The letter gives the birth order and describes the birth that morning. The House biography supplies the name, matches the father and birth details, and identifies the grandfather. Together they support a three-generation line from John Adams to John Quincy Adams to Charles Francis Adams, who died in 1886. This is a match between a contemporary letter and a later biography. A reader can compare both excerpts even if their chat cannot open links.
 
 ## Starter Workspace
 
