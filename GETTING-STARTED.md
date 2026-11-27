@@ -4,7 +4,7 @@
 
 Open-Genealogy is a public collection of AI-assisted genealogy workflows,
 prompts, and supporting files. The current research route is GRA v9.2.0,
-available as either an Agent Skill or a Chat Edition.
+available as a v9.2.1 Agent ZIP or a v9.2.0 Chat text file. Both use v9.2.0 research instructions.
 
 ## Before You Upload Or Share Records
 
@@ -26,7 +26,7 @@ from this page.
 
 | Choose | When it fits | Start here |
 | --- | --- | --- |
-| **GRA v9.2.0 Agent Skill** | You use a client that supports local Agent Skills and supporting reference files | [GRA v9.2.0 release source](https://github.com/DigitalArchivst/Open-Genealogy/tree/v9.2.0/skills/gra) |
+| **GRA Agent ZIP v9.2.1** | Your app supports installing a skill from a ZIP or local folder | [Download the v9.2.1 Agent ZIP](https://github.com/DigitalArchivst/Open-Genealogy/releases/download/gra-agent-packager-v9.2.1/gra-skill-v9.2.1.zip) |
 | **GRA v9.2.0 Chat Edition** | You want a self-contained prompt for ordinary chat, a Custom GPT, a Gem, or a project | [Direct v9.2.0 chat download](https://github.com/DigitalArchivst/Open-Genealogy/releases/download/v9.2.0/research-assistant-v9.2.0-chat.md) |
 
 The Agent Skill and Chat Edition share one GPS-aligned methodology. The Agent
@@ -48,16 +48,27 @@ documented native support from expected compatibility.
 
 ### Agent Skill
 
-1. Open the [GRA v9.2.0 release source](https://github.com/DigitalArchivst/Open-Genealogy/tree/v9.2.0/skills/gra).
-2. Use the row for your client in the platform and installation matrix.
-3. Install or place the `gra` folder only in the client location documented for
-   that client.
-4. Open a research folder and ask the agent to inventory the available files
-   before drawing conclusions.
+1. [Download the Agent ZIP v9.2.1](https://github.com/DigitalArchivst/Open-Genealogy/releases/download/gra-agent-packager-v9.2.1/gra-skill-v9.2.1.zip). Your browser saves `gra-skill-v9.2.1.zip`.
+2. Use the row for your app. For the two folder-based options, extract the ZIP in your file manager and copy the whole `gra` folder. Its `SKILL.md` file identifies the runtime as v9.2.0.
+3. Open a new session in the project and ask it to use the Genealogical Research Assistant on the fictional example below. The [packager release notes](https://github.com/DigitalArchivst/Open-Genealogy/releases/tag/gra-agent-packager-v9.2.1) give the archive checksum.
+
+| App | Where the skill goes |
+| --- | --- |
+| Claude with skill uploads enabled | Open **Customize → Skills**, upload the downloaded ZIP, and enable the skill. [Claude help](https://support.claude.com/en/articles/12512180-use-skills-in-claude) |
+| Claude Code | Inside your project folder, place the skill at `.claude/skills/gra/SKILL.md`, with its supporting files alongside it. [Claude Code skill locations](https://code.claude.com/docs/en/skills) |
+| Codex | Inside your project folder, place the skill at `.agents/skills/gra/SKILL.md`, with its supporting files alongside it. [Codex skill locations](https://developers.openai.com/codex/skills) |
 
 Do not assume that an Agent Skills-compatible ZIP has a universal installer.
 The package was release-validated, but interactive installation was not
 rechecked for every named client.
+
+## Try it with a fictional record
+
+Start a new conversation with your chosen edition and enter this example.
+
+> This fictional 1900 town directory lists “Ada Reed, teacher, 14 Elm Street.” What does this entry support, what remains uncertain, and which record would you check next?
+
+Look for an answer that attributes the occupation and address to the directory, leaves family relationships open, and suggests a specific record to check. You can try this without uploading a family record.
 
 ## Starter Workspace
 

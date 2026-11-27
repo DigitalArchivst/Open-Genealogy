@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Privately report a security or data-exposure concern
+    url: https://github.com/DigitalArchivst/Open-Genealogy/security/advisories/new
+    about: Include the affected public file or release and a redacted description.

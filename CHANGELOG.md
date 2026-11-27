@@ -1,5 +1,9 @@
 # Changelog
 
+## Agent packager v9.2.1 — 2026-11-26
+
+The [Agent ZIP](https://github.com/DigitalArchivst/Open-Genealogy/releases/download/gra-agent-packager-v9.2.1/gra-skill-v9.2.1.zip) contains the same six runtime files as v9.2.0. Repeated builds with the same input bytes and toolchain produce the same archive. The Chat Edition stays at v9.2.0. [Release notes and SHA-256](https://github.com/DigitalArchivst/Open-Genealogy/releases/tag/gra-agent-packager-v9.2.1)
+
 ## v9.2.0 Skill Edition - 2026-07-10 - Coupled safeguards and immutable generation provenance
 
 v9.2.0 follows v9.0.0 as a tested two-edition release. Retained v8.5 paths,

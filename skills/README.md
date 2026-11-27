@@ -9,7 +9,7 @@ For platform-agnostic prompts, see [Assistants](../assistants/).
 
 | Skill | Description | Status |
 | ----- | ----------- | ------ |
-| [GRA v9.2.0](https://github.com/DigitalArchivst/Open-Genealogy/tree/v9.2.0/skills/gra) | GPS-aligned genealogical research assistant Agent and Chat editions | **current release** |
+| [Genealogical Research Assistant](../GETTING-STARTED.md) | [Download the v9.2.1 Agent ZIP](https://github.com/DigitalArchivst/Open-Genealogy/releases/download/gra-agent-packager-v9.2.1/gra-skill-v9.2.1.zip) or [use the v9.2.0 Chat Edition](https://github.com/DigitalArchivst/Open-Genealogy/releases/download/v9.2.0/research-assistant-v9.2.0-chat.md) | v9.2.0 research instructions in both editions |
 | [GRA v9.0.0](https://github.com/DigitalArchivst/Open-Genealogy/releases/tag/v9.0.0) | Preserved previous GRA release | previous release |
 | [Genealogy Eyes](genealogy-eyes/) | Interpret family-history images, distinguish observations from inferences, and plan the next source check. [Download v0.1.1](https://github.com/DigitalArchivst/Open-Genealogy/releases/download/genealogy-eyes-v0.1.1/genealogy-eyes-skill-v0.1.1.zip) | current release |
 | [Genealogy Summarizer](genealogy-summarizer/) | Summarize a family-history document. [Download v1.0.0](https://github.com/DigitalArchivst/Open-Genealogy/releases/download/genealogy-summarizer-skill-v1.0.0/genealogy-summarizer-skill-v1.0.0.zip) | current release |
