@@ -68,17 +68,15 @@ Do not assume that an Agent Skills-compatible ZIP has a universal installer.
 The package was release-validated, but interactive installation was not
 rechecked for every named client.
 
-## Try it with two public records
+## Trace the Adams family backward
 
-Who was the third son whose birth John Quincy Adams reported on August 18, 1807? Start with the father's letter, written in Boston that morning. Then read the first sentence of the House biography. [John Quincy Adams to Catherine Nuth Johnson, August 18, 1807, Adams Papers early-access transcription](https://rotunda.upress.virginia.edu/founders/default.xqy?keys=FOEA-print-03-03-02-1609) · [Charles Francis Adams, U.S. House of Representatives, “Concise Biography”](https://history.house.gov/People/Detail/8298)
+John Adams Morgan, the Olympic sailor, died on January 23, 2025. His family memorial names his mother, Catherine Lovering Adams Morgan. In the Pierpont genealogy, the couple Henry Sturgis Morgan and Catherine Adams appear above the entry for their son John, born September 17, 1930. Open the two sources and compare the names and birth date. [Morgan memorial](https://everloved.com/life-of/john-adams-morgan/obituary/) · [Pierpont genealogy, entries 162323124 and 1623231244](https://ccat.sas.upenn.edu/rak/gen/pier/piergenn.htm)
 
-Copy this question and the two excerpts into your chat:
+Paste this question into either edition:
 
-> On August 18, 1807, John Quincy Adams wrote from Boston to Catherine Nuth Johnson. In his letter he says “my dear wife at half-past eight this morning presented me a third son.” The House biography begins “ADAMS, Charles Francis, (son of John Quincy Adams, grandson of John Adams)” and gives his birth as August 18, 1807, in Boston. Which source names the child? How do the father, date and place connect the records? Tell me which details you checked yourself. Stop with Charles Francis Adams.
+> John Adams Morgan’s memorial names Catherine Lovering Adams Morgan as his mother. A separately published family genealogy places John Adams Morgan, born September 17, 1930, among the children of Henry Sturgis Morgan and Catherine Adams. These are my abstracts. Who is the first parent on the Adams line? What details connect the two accounts, and which information would you still want to verify?
 
-The letter gives the birth order and describes the birth that morning. The House biography supplies the name, matches the father and birth details, and identifies the grandfather. Together they support a three-generation line from John Adams to John Quincy Adams to Charles Francis Adams, who died in 1886. This is a match between a contemporary letter and a later biography. A reader can compare both excerpts even if their chat cannot open links.
-
-To check the identification yourself, read John Quincy Adams's diary entry for September 13, 1807. He connects the August birth with the child's baptismal name, Charles-Francis. The letter and the diary have the same author. [Read the baptism entry at the Massachusetts Historical Society](https://www.primarysourcecoop.org/publications/jqa/document/jqadiaries-v27-1807-09-p305--entry13)
+Then follow the worked case through six parent-child relationships. It shows how the maternal surname changes, how dates distinguish two men named John Quincy Adams, and which record identifies the father of the Navy secretary Charles Francis Adams III. [Work backward from Morgan to President John Adams](research/adams-family-case.md)
 
 ## Starter Workspace
 

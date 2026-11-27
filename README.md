@@ -21,7 +21,7 @@ and conclusions yourself.
 
 ### Start With GRA v9.2.0
 
-**Using a regular chat window?** [Read and copy the Chat Edition](https://github.com/DigitalArchivst/Open-Genealogy/blob/v9.2.0/research/research-assistant-v9.2.0-chat.md) or [download the text file](https://github.com/DigitalArchivst/Open-Genealogy/releases/download/v9.2.0/research-assistant-v9.2.0-chat.md). Paste the instructions into a new conversation. The [Agent download above](#get-started-with-the-genealogical-research-assistant) uses the same research methodology. [Try your first research question](GETTING-STARTED.md#try-it-with-two-public-records)
+**Using a regular chat window?** [Read and copy the Chat Edition](https://github.com/DigitalArchivst/Open-Genealogy/blob/v9.2.0/research/research-assistant-v9.2.0-chat.md) or [download the text file](https://github.com/DigitalArchivst/Open-Genealogy/releases/download/v9.2.0/research-assistant-v9.2.0-chat.md). Paste the instructions into a new conversation. The [Agent download above](#get-started-with-the-genealogical-research-assistant) uses the same research methodology. [Try your first research question](GETTING-STARTED.md#trace-the-adams-family-backward)
 
 GRA v8.5, v8, and v7 remain available under the documented
 [compatibility and history route](research/README.md#compatibility-and-history).
