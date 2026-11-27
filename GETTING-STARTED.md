@@ -74,9 +74,11 @@ Who was the third son whose birth John Quincy Adams reported on August 18, 1807?
 
 Copy this question and the two excerpts into your chat:
 
-> The letter says “my dear wife at half-past eight this morning presented me a third son.” The House biography begins “ADAMS, Charles Francis, (son of John Quincy Adams, grandson of John Adams)” and gives his birth as August 18, 1807, in Boston. Which source names the child? How do the father, date and place connect the records? Tell me which details you checked yourself. Stop with Charles Francis Adams.
+> On August 18, 1807, John Quincy Adams wrote from Boston to Catherine Nuth Johnson. In his letter he says “my dear wife at half-past eight this morning presented me a third son.” The House biography begins “ADAMS, Charles Francis, (son of John Quincy Adams, grandson of John Adams)” and gives his birth as August 18, 1807, in Boston. Which source names the child? How do the father, date and place connect the records? Tell me which details you checked yourself. Stop with Charles Francis Adams.
 
 The letter gives the birth order and describes the birth that morning. The House biography supplies the name, matches the father and birth details, and identifies the grandfather. Together they support a three-generation line from John Adams to John Quincy Adams to Charles Francis Adams, who died in 1886. This is a match between a contemporary letter and a later biography. A reader can compare both excerpts even if their chat cannot open links.
+
+To check the identification yourself, read John Quincy Adams's diary entry for September 13, 1807. He connects the August birth with the child's baptismal name, Charles-Francis. The letter and the diary have the same author. [Read the baptism entry at the Massachusetts Historical Society](https://www.primarysourcecoop.org/publications/jqa/document/jqadiaries-v27-1807-09-p305--entry13)
 
 ## Starter Workspace
 
